@@ -1,0 +1,34 @@
+Modelo de Domínio:
+
+	Multiplicidade Viajante - Viagem: Um viajante pode ter 0 ou N viagens.
+
+	Multiplicidade Viagem - Custo: Uma viajem poderia ter 0 ou N custos. 
+		Custo de uma genérica, decrição e valor.
+
+	Multiplicidade Roteiro - Meio Transporte: Um roteiro deve ter 1 ou N meios de 
+		transporte, e um meio de transporte pode estár em vários roteiros.
+
+	Multiplicidade Cidade - Estado: Um estado tem N Cidades.
+
+	Multiplicidade Cidade - Roteiro: Um roteiro pode ter várias cidades e uma cidade 
+		pode ter vários roteiros.
+
+	Auto-relacionamento de Custo: Um custo pode ser ser composto por vários 
+		outros custos.
+
+	Relacionamento entre dicas e eventos. Relacionamento entre evento e estabelecimento.
+
+Documento de Visão:
+
+	Problema 1: Os problemas de compartilhar as experiências e conhecer outros 
+		roteiros são problemas distintos.
+	
+	Problema 2: Trocar "transmitir" por "relatar"
+
+	Problema 3: crase "às informações"	
+	
+Para o próximo encontro:
+	- Versão melhorada do Modelo de Domínio com relacionamentos e atributos.
+	- Complemento do documento de visão baseado nas observações da Maristela no 
+		modelo de domínio.
+	- Começar o planejamento do projeto.
