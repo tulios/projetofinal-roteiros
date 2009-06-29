@@ -1978,3 +1978,1431 @@ ActionView::TemplateError (incompatible character encodings: UTF-8 and ASCII-8BI
 Rendered rescues/_trace (135.9ms)
 Rendered rescues/_request_and_response (0.4ms)
 Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing TouristSightsController#index (for 127.0.0.1 at 2009-06-29 11:18:12) [GET]
+  [4;36;1mTouristSight Load (1.3ms)[0m   [0;1mSELECT * FROM "tourist_sights" [0m
+Rendering template within layouts/tourist_sights
+Rendering tourist_sights/index
+Completed in 38ms (View: 28, DB: 1) | 200 OK [http://localhost/tourist_sights]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing TouristSightsController#show (for 127.0.0.1 at 2009-06-29 11:18:30) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mTouristSight Load (0.8ms)[0m   [0mSELECT * FROM "tourist_sights" WHERE ("tourist_sights"."id" = 1) [0m
+Rendering template within layouts/tourist_sights
+Rendering tourist_sights/show
+Completed in 25ms (View: 15, DB: 1) | 200 OK [http://localhost/tourist_sights/1]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing TouristSightsController#edit (for 127.0.0.1 at 2009-06-29 11:18:49) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mTouristSight Load (0.8ms)[0m   [0;1mSELECT * FROM "tourist_sights" WHERE ("tourist_sights"."id" = 1) [0m
+Rendering template within layouts/tourist_sights
+Rendering tourist_sights/edit
+
+ActionView::TemplateError (incompatible character encodings: ASCII-8BIT and UTF-8) on line #5 of app/views/tourist_sights/_form.html.erb:
+2: 
+3: <p>
+4: 	Nome: <br />
+5: 	<%= f.text_field :name %>
+6: </p>
+7: <p>
+8: 	Endereço: <br />
+
+    app/views/tourist_sights/_form.html.erb:5:in `concat'
+    app/views/tourist_sights/_form.html.erb:5
+    app/views/tourist_sights/edit.html.erb:6:in `block in _run_erb_app47views47tourist_sights47edit46html46erb'
+    app/views/tourist_sights/edit.html.erb:3
+    <internal:prelude>:8:in `synchronize'
+    /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+    /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+    /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (88.9ms)
+Rendered rescues/_request_and_response (1.4ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (0.4ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing TouristSightsController#index (for 127.0.0.1 at 2009-06-29 11:20:14) [GET]
+  [4;35;1mTouristSight Load (1.3ms)[0m   [0mSELECT * FROM "tourist_sights" [0m
+Rendering template within layouts/tourist_sights
+Rendering tourist_sights/index
+Completed in 21ms (View: 14, DB: 2) | 200 OK [http://localhost/tourist_sights]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing TouristSightsController#index (for 127.0.0.1 at 2009-06-29 11:20:15) [GET]
+  [4;36;1mTouristSight Load (1.3ms)[0m   [0;1mSELECT * FROM "tourist_sights" [0m
+Rendering template within layouts/tourist_sights
+Rendering tourist_sights/index
+Completed in 14ms (View: 8, DB: 1) | 200 OK [http://localhost/tourist_sights]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing TouristSightsController#edit (for 127.0.0.1 at 2009-06-29 11:20:17) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mTouristSight Load (0.7ms)[0m   [0mSELECT * FROM "tourist_sights" WHERE ("tourist_sights"."id" = 1) [0m
+Rendering template within layouts/tourist_sights
+Rendering tourist_sights/edit
+
+ActionView::TemplateError (incompatible character encodings: ASCII-8BIT and UTF-8) on line #8 of app/views/tourist_sights/edit.html.erb:
+5: 
+6: 	<p>
+7: 		Nome: <br />
+8: 		<%= f.text_field :name %>
+9: 	</p>
+10: 	<p>
+11: 		Endereço: <br />
+
+    app/views/tourist_sights/edit.html.erb:8:in `concat'
+    app/views/tourist_sights/edit.html.erb:8:in `block in _run_erb_app47views47tourist_sights47edit46html46erb'
+    app/views/tourist_sights/edit.html.erb:3
+    <internal:prelude>:8:in `synchronize'
+    /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+    /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+    /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (129.0ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing TouristSightsController#edit (for 127.0.0.1 at 2009-06-29 11:20:18) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mTouristSight Load (0.8ms)[0m   [0;1mSELECT * FROM "tourist_sights" WHERE ("tourist_sights"."id" = 1) [0m
+Rendering template within layouts/tourist_sights
+Rendering tourist_sights/edit
+
+ActionView::TemplateError (incompatible character encodings: ASCII-8BIT and UTF-8) on line #8 of app/views/tourist_sights/edit.html.erb:
+5: 
+6: 	<p>
+7: 		Nome: <br />
+8: 		<%= f.text_field :name %>
+9: 	</p>
+10: 	<p>
+11: 		Endereço: <br />
+
+    app/views/tourist_sights/edit.html.erb:8:in `concat'
+    app/views/tourist_sights/edit.html.erb:8:in `block in _run_erb_app47views47tourist_sights47edit46html46erb'
+    app/views/tourist_sights/edit.html.erb:3
+    <internal:prelude>:8:in `synchronize'
+    /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+    /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+    /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (71.4ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing TouristSightsController#edit (for 127.0.0.1 at 2009-06-29 11:20:24) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mTouristSight Load (0.7ms)[0m   [0mSELECT * FROM "tourist_sights" WHERE ("tourist_sights"."id" = 1) [0m
+Rendering template within layouts/tourist_sights
+Rendering tourist_sights/edit
+
+ActionView::TemplateError (incompatible character encodings: ASCII-8BIT and UTF-8) on line #8 of app/views/tourist_sights/edit.html.erb:
+5: 
+6: 	<p>
+7: 		Nome: <br />
+8: 		<%= f.text_field :name %>
+9: 	</p>
+10: 	<p>
+11: 		Endereço: <br />
+
+    app/views/tourist_sights/edit.html.erb:8:in `concat'
+    app/views/tourist_sights/edit.html.erb:8:in `block in _run_erb_app47views47tourist_sights47edit46html46erb'
+    app/views/tourist_sights/edit.html.erb:3
+    <internal:prelude>:8:in `synchronize'
+    /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+    /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+    /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (68.7ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing TouristSightsController#edit (for 127.0.0.1 at 2009-06-29 11:33:16) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mTouristSight Load (5.8ms)[0m   [0;1mSELECT * FROM "tourist_sights" WHERE ("tourist_sights"."id" = 1) [0m
+Rendering template within layouts/tourist_sights
+Rendering tourist_sights/edit
+
+ActionView::TemplateError (incompatible character encodings: ASCII-8BIT and UTF-8) on line #5 of app/views/tourist_sights/_form.html.erb:
+2: 
+3: <p>
+4: 	Nome: <br />
+5: 	<%= f.text_field :name %>
+6: </p>
+7: <p>
+8: 	Endereço: <br />
+
+    app/views/tourist_sights/_form.html.erb:5:in `concat'
+    app/views/tourist_sights/_form.html.erb:5
+    app/views/tourist_sights/edit.html.erb:6:in `block in _run_erb_app47views47tourist_sights47edit46html46erb'
+    app/views/tourist_sights/edit.html.erb:3
+    <internal:prelude>:8:in `synchronize'
+    /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+    /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+    /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (157.3ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing TouristSightsController#index (for 127.0.0.1 at 2009-06-29 11:43:34) [GET]
+  [4;36;1mTouristSight Load (1.5ms)[0m   [0;1mSELECT * FROM "tourist_sights" [0m
+Rendering template within layouts/tourist_sights
+Rendering tourist_sights/index
+Completed in 39ms (View: 31, DB: 2) | 200 OK [http://localhost/tourist_sights]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing TouristSightsController#index (for 127.0.0.1 at 2009-06-29 11:43:36) [GET]
+  [4;35;1mTouristSight Load (1.3ms)[0m   [0mSELECT * FROM "tourist_sights" [0m
+Rendering template within layouts/tourist_sights
+Rendering tourist_sights/index
+Completed in 15ms (View: 9, DB: 1) | 200 OK [http://localhost/tourist_sights]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing TouristSightsController#new (for 127.0.0.1 at 2009-06-29 11:43:37) [GET]
+Rendering template within layouts/tourist_sights
+Rendering tourist_sights/new
+Rendered tourist_sights/_form (2.7ms)
+Rendered tourist_sights/_form (0.8ms)
+Completed in 41ms (View: 33, DB: 0) | 200 OK [http://localhost/tourist_sights/new]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing TouristSightsController#edit (for 127.0.0.1 at 2009-06-29 11:43:42) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mTouristSight Load (0.7ms)[0m   [0;1mSELECT * FROM "tourist_sights" WHERE ("tourist_sights"."id" = 1) [0m
+Rendering template within layouts/tourist_sights
+Rendering tourist_sights/edit
+
+ActionView::TemplateError (incompatible character encodings: ASCII-8BIT and UTF-8) on line #5 of app/views/tourist_sights/_form.html.erb:
+2: 
+3: <p>
+4: 	Nome: <br />
+5: 	<%= f.text_field :name %>
+6: </p>
+7: <p>
+8: 	Endereço: <br />
+
+    app/views/tourist_sights/_form.html.erb:5:in `concat'
+    app/views/tourist_sights/_form.html.erb:5
+    app/views/tourist_sights/edit.html.erb:6:in `block in _run_erb_app47views47tourist_sights47edit46html46erb'
+    app/views/tourist_sights/edit.html.erb:3
+    <internal:prelude>:8:in `synchronize'
+    /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+    /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+    /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (329.3ms)
+Rendered rescues/_request_and_response (3.3ms)
+Rendered rescues/_trace (168.9ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing TouristSightsController#edit (for 127.0.0.1 at 2009-06-29 11:44:29) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mTouristSight Load (0.8ms)[0m   [0mSELECT * FROM "tourist_sights" WHERE ("tourist_sights"."id" = 1) [0m
+Rendering template within layouts/tourist_sights
+Rendering tourist_sights/edit
+
+ActionView::TemplateError (incompatible character encodings: ASCII-8BIT and UTF-8) on line #5 of app/views/tourist_sights/_form.html.erb:
+2: 
+3: <p>
+4: 	Nome: <br />
+5: 	<%= f.text_field :name %>
+6: </p>
+7: <p>
+8: 	Endereço: <br />
+
+    app/views/tourist_sights/_form.html.erb:5:in `concat'
+    app/views/tourist_sights/_form.html.erb:5
+    app/views/tourist_sights/edit.html.erb:6:in `block in _run_erb_app47views47tourist_sights47edit46html46erb'
+    app/views/tourist_sights/edit.html.erb:3
+    <internal:prelude>:8:in `synchronize'
+    /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+    /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+    /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (259.0ms)
+Rendered rescues/_request_and_response (0.5ms)
+Rendered rescues/_trace (171.0ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing TouristSightsController#edit (for 127.0.0.1 at 2009-06-29 11:44:34) [GET]
+  Parameters: {"id"=>"2"}
+  [4;36;1mTouristSight Load (0.8ms)[0m   [0;1mSELECT * FROM "tourist_sights" WHERE ("tourist_sights"."id" = 2) [0m
+Rendering template within layouts/tourist_sights
+Rendering tourist_sights/edit
+
+ActionView::TemplateError (incompatible character encodings: ASCII-8BIT and UTF-8) on line #5 of app/views/tourist_sights/_form.html.erb:
+2: 
+3: <p>
+4: 	Nome: <br />
+5: 	<%= f.text_field :name %>
+6: </p>
+7: <p>
+8: 	Endereço: <br />
+
+    app/views/tourist_sights/_form.html.erb:5:in `concat'
+    app/views/tourist_sights/_form.html.erb:5
+    app/views/tourist_sights/edit.html.erb:6:in `block in _run_erb_app47views47tourist_sights47edit46html46erb'
+    app/views/tourist_sights/edit.html.erb:3
+    <internal:prelude>:8:in `synchronize'
+    /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+    /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+    /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (176.7ms)
+Rendered rescues/_request_and_response (0.5ms)
+Rendered rescues/_trace (243.4ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing TouristSightsController#index (for 127.0.0.1 at 2009-06-29 11:46:05) [GET]
+  [4;36;1mTouristSight Load (1.6ms)[0m   [0;1mSELECT * FROM "tourist_sights" [0m
+Rendering template within layouts/tourist_sights
+Rendering tourist_sights/index
+Completed in 41ms (View: 33, DB: 2) | 200 OK [http://localhost/tourist_sights]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing TouristSightsController#index (for 127.0.0.1 at 2009-06-29 11:46:05) [GET]
+  [4;35;1mTouristSight Load (1.3ms)[0m   [0mSELECT * FROM "tourist_sights" [0m
+Rendering template within layouts/tourist_sights
+Rendering tourist_sights/index
+Completed in 15ms (View: 9, DB: 1) | 200 OK [http://localhost/tourist_sights]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing TouristSightsController#index (for 127.0.0.1 at 2009-06-29 11:46:06) [GET]
+  [4;36;1mTouristSight Load (1.3ms)[0m   [0;1mSELECT * FROM "tourist_sights" [0m
+Rendering template within layouts/tourist_sights
+Rendering tourist_sights/index
+Completed in 14ms (View: 9, DB: 1) | 200 OK [http://localhost/tourist_sights]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing TouristSightsController#edit (for 127.0.0.1 at 2009-06-29 11:46:08) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mTouristSight Load (0.8ms)[0m   [0mSELECT * FROM "tourist_sights" WHERE ("tourist_sights"."id" = 1) [0m
+Rendering template within layouts/tourist_sights
+Rendering tourist_sights/edit
+
+ActionView::TemplateError (incompatible character encodings: ASCII-8BIT and UTF-8) on line #5 of app/views/tourist_sights/_form.html.erb:
+2: 
+3: <p>
+4: 	Nome: <br />
+5: 	<%= f.text_field :name %>
+6: </p>
+7: <p>
+8: 	Endereço: <br />
+
+    app/views/tourist_sights/_form.html.erb:5:in `concat'
+    app/views/tourist_sights/_form.html.erb:5
+    app/views/tourist_sights/edit.html.erb:6:in `block in _run_erb_app47views47tourist_sights47edit46html46erb'
+    app/views/tourist_sights/edit.html.erb:3
+    <internal:prelude>:8:in `synchronize'
+    /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+    /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+    /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (260.6ms)
+Rendered rescues/_request_and_response (2.9ms)
+Rendered rescues/_trace (176.0ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing TouristSightsController#edit (for 127.0.0.1 at 2009-06-29 11:46:09) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mTouristSight Load (0.8ms)[0m   [0;1mSELECT * FROM "tourist_sights" WHERE ("tourist_sights"."id" = 1) [0m
+Rendering template within layouts/tourist_sights
+Rendering tourist_sights/edit
+
+ActionView::TemplateError (incompatible character encodings: ASCII-8BIT and UTF-8) on line #5 of app/views/tourist_sights/_form.html.erb:
+2: 
+3: <p>
+4: 	Nome: <br />
+5: 	<%= f.text_field :name %>
+6: </p>
+7: <p>
+8: 	Endereço: <br />
+
+    app/views/tourist_sights/_form.html.erb:5:in `concat'
+    app/views/tourist_sights/_form.html.erb:5
+    app/views/tourist_sights/edit.html.erb:6:in `block in _run_erb_app47views47tourist_sights47edit46html46erb'
+    app/views/tourist_sights/edit.html.erb:3
+    <internal:prelude>:8:in `synchronize'
+    /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+    /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+    /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (174.4ms)
+Rendered rescues/_request_and_response (0.5ms)
+Rendered rescues/_trace (172.8ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing TouristSightsController#show (for 127.0.0.1 at 2009-06-29 11:48:53) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mTouristSight Load (0.8ms)[0m   [0;1mSELECT * FROM "tourist_sights" WHERE ("tourist_sights"."id" = 1) [0m
+Rendering template within layouts/tourist_sights
+Rendering tourist_sights/show
+Completed in 33ms (View: 17, DB: 1) | 200 OK [http://localhost/tourist_sights/1]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing TouristSightsController#index (for 127.0.0.1 at 2009-06-29 11:48:55) [GET]
+  [4;35;1mTouristSight Load (1.3ms)[0m   [0mSELECT * FROM "tourist_sights" [0m
+Rendering template within layouts/tourist_sights
+Rendering tourist_sights/index
+Completed in 31ms (View: 25, DB: 1) | 200 OK [http://localhost/tourist_sights]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing TouristSightsController#edit (for 127.0.0.1 at 2009-06-29 11:48:57) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mTouristSight Load (0.7ms)[0m   [0;1mSELECT * FROM "tourist_sights" WHERE ("tourist_sights"."id" = 1) [0m
+Rendering template within layouts/tourist_sights
+Rendering tourist_sights/edit
+
+ActionView::TemplateError (incompatible character encodings: ASCII-8BIT and UTF-8) on line #5 of app/views/tourist_sights/_form.html.erb:
+2: 
+3: <p>
+4: 	Nome: <br />
+5: 	<%= f.text_field :name %>
+6: </p>
+7: <p>
+8: 	Endereço: <br />
+
+    app/views/tourist_sights/_form.html.erb:5:in `concat'
+    app/views/tourist_sights/_form.html.erb:5
+    app/views/tourist_sights/edit.html.erb:6:in `block in _run_erb_app47views47tourist_sights47edit46html46erb'
+    app/views/tourist_sights/edit.html.erb:3
+    <internal:prelude>:8:in `synchronize'
+    /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+    /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+    /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (157.7ms)
+Rendered rescues/_request_and_response (15.4ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing TouristSightsController#edit (for 127.0.0.1 at 2009-06-29 11:56:58) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mTouristSight Load (0.8ms)[0m   [0;1mSELECT * FROM "tourist_sights" WHERE ("tourist_sights"."id" = 1) [0m
+Rendering template within layouts/tourist_sights
+Rendering tourist_sights/edit
+
+ActionView::TemplateError (incompatible character encodings: ASCII-8BIT and UTF-8) on line #6 of app/views/tourist_sights/_form.html.erb:
+3: <p>
+4: 	Nome: <br />
+5: 	<%= f.text_field :name %>
+6: </p>
+7: <p>
+8: 	Endereço: <br />
+9: 	<%= f.text_field :address %>
+
+    app/views/tourist_sights/_form.html.erb:6:in `concat'
+    app/views/tourist_sights/_form.html.erb:6
+    app/views/tourist_sights/edit.html.erb:7:in `block in _run_erb_app47views47tourist_sights47edit46html46erb'
+    app/views/tourist_sights/edit.html.erb:4
+    <internal:prelude>:8:in `synchronize'
+    /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+    /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+    /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (132.7ms)
+Rendered rescues/_request_and_response (2.0ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing TouristSightsController#edit (for 127.0.0.1 at 2009-06-29 11:57:00) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mTouristSight Load (0.8ms)[0m   [0mSELECT * FROM "tourist_sights" WHERE ("tourist_sights"."id" = 1) [0m
+Rendering template within layouts/tourist_sights
+Rendering tourist_sights/edit
+
+ActionView::TemplateError (incompatible character encodings: ASCII-8BIT and UTF-8) on line #6 of app/views/tourist_sights/_form.html.erb:
+3: <p>
+4: 	Nome: <br />
+5: 	<%= f.text_field :name %>
+6: </p>
+7: <p>
+8: 	Endereço: <br />
+9: 	<%= f.text_field :address %>
+
+    app/views/tourist_sights/_form.html.erb:6:in `concat'
+    app/views/tourist_sights/_form.html.erb:6
+    app/views/tourist_sights/edit.html.erb:7:in `block in _run_erb_app47views47tourist_sights47edit46html46erb'
+    app/views/tourist_sights/edit.html.erb:4
+    <internal:prelude>:8:in `synchronize'
+    /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+    /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+    /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (89.3ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing TouristSightsController#edit (for 127.0.0.1 at 2009-06-29 11:57:01) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mTouristSight Load (0.8ms)[0m   [0;1mSELECT * FROM "tourist_sights" WHERE ("tourist_sights"."id" = 1) [0m
+Rendering template within layouts/tourist_sights
+Rendering tourist_sights/edit
+
+ActionView::TemplateError (incompatible character encodings: ASCII-8BIT and UTF-8) on line #6 of app/views/tourist_sights/_form.html.erb:
+3: <p>
+4: 	Nome: <br />
+5: 	<%= f.text_field :name %>
+6: </p>
+7: <p>
+8: 	Endereço: <br />
+9: 	<%= f.text_field :address %>
+
+    app/views/tourist_sights/_form.html.erb:6:in `concat'
+    app/views/tourist_sights/_form.html.erb:6
+    app/views/tourist_sights/edit.html.erb:7:in `block in _run_erb_app47views47tourist_sights47edit46html46erb'
+    app/views/tourist_sights/edit.html.erb:4
+    <internal:prelude>:8:in `synchronize'
+    /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+    /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+    /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (90.6ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing TouristSightsController#edit (for 127.0.0.1 at 2009-06-29 11:57:03) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mTouristSight Load (0.7ms)[0m   [0mSELECT * FROM "tourist_sights" WHERE ("tourist_sights"."id" = 1) [0m
+Rendering template within layouts/tourist_sights
+Rendering tourist_sights/edit
+
+ActionView::TemplateError (incompatible character encodings: ASCII-8BIT and UTF-8) on line #6 of app/views/tourist_sights/_form.html.erb:
+3: <p>
+4: 	Nome: <br />
+5: 	<%= f.text_field :name %>
+6: </p>
+7: <p>
+8: 	Endereço: <br />
+9: 	<%= f.text_field :address %>
+
+    app/views/tourist_sights/_form.html.erb:6:in `concat'
+    app/views/tourist_sights/_form.html.erb:6
+    app/views/tourist_sights/edit.html.erb:7:in `block in _run_erb_app47views47tourist_sights47edit46html46erb'
+    app/views/tourist_sights/edit.html.erb:4
+    <internal:prelude>:8:in `synchronize'
+    /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+    /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+    /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (187.4ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing TouristSightsController#edit (for 127.0.0.1 at 2009-06-29 11:57:03) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mTouristSight Load (1.0ms)[0m   [0;1mSELECT * FROM "tourist_sights" WHERE ("tourist_sights"."id" = 1) [0m
+Rendering template within layouts/tourist_sights
+Rendering tourist_sights/edit
+
+ActionView::TemplateError (incompatible character encodings: ASCII-8BIT and UTF-8) on line #6 of app/views/tourist_sights/_form.html.erb:
+3: <p>
+4: 	Nome: <br />
+5: 	<%= f.text_field :name %>
+6: </p>
+7: <p>
+8: 	Endereço: <br />
+9: 	<%= f.text_field :address %>
+
+    app/views/tourist_sights/_form.html.erb:6:in `concat'
+    app/views/tourist_sights/_form.html.erb:6
+    app/views/tourist_sights/edit.html.erb:7:in `block in _run_erb_app47views47tourist_sights47edit46html46erb'
+    app/views/tourist_sights/edit.html.erb:4
+    <internal:prelude>:8:in `synchronize'
+    /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+    /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+    /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (172.1ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing TouristSightsController#edit (for 127.0.0.1 at 2009-06-29 11:57:03) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mTouristSight Load (0.8ms)[0m   [0mSELECT * FROM "tourist_sights" WHERE ("tourist_sights"."id" = 1) [0m
+Rendering template within layouts/tourist_sights
+Rendering tourist_sights/edit
+
+ActionView::TemplateError (incompatible character encodings: ASCII-8BIT and UTF-8) on line #6 of app/views/tourist_sights/_form.html.erb:
+3: <p>
+4: 	Nome: <br />
+5: 	<%= f.text_field :name %>
+6: </p>
+7: <p>
+8: 	Endereço: <br />
+9: 	<%= f.text_field :address %>
+
+    app/views/tourist_sights/_form.html.erb:6:in `concat'
+    app/views/tourist_sights/_form.html.erb:6
+    app/views/tourist_sights/edit.html.erb:7:in `block in _run_erb_app47views47tourist_sights47edit46html46erb'
+    app/views/tourist_sights/edit.html.erb:4
+    <internal:prelude>:8:in `synchronize'
+    /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+    /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+    /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (112.6ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing TouristSightsController#edit (for 127.0.0.1 at 2009-06-29 11:57:03) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mTouristSight Load (1.1ms)[0m   [0;1mSELECT * FROM "tourist_sights" WHERE ("tourist_sights"."id" = 1) [0m
+Rendering template within layouts/tourist_sights
+Rendering tourist_sights/edit
+
+ActionView::TemplateError (incompatible character encodings: ASCII-8BIT and UTF-8) on line #6 of app/views/tourist_sights/_form.html.erb:
+3: <p>
+4: 	Nome: <br />
+5: 	<%= f.text_field :name %>
+6: </p>
+7: <p>
+8: 	Endereço: <br />
+9: 	<%= f.text_field :address %>
+
+    app/views/tourist_sights/_form.html.erb:6:in `concat'
+    app/views/tourist_sights/_form.html.erb:6
+    app/views/tourist_sights/edit.html.erb:7:in `block in _run_erb_app47views47tourist_sights47edit46html46erb'
+    app/views/tourist_sights/edit.html.erb:4
+    <internal:prelude>:8:in `synchronize'
+    /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+    /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+    /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (175.8ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing TouristSightsController#edit (for 127.0.0.1 at 2009-06-29 11:57:04) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mTouristSight Load (0.8ms)[0m   [0mSELECT * FROM "tourist_sights" WHERE ("tourist_sights"."id" = 1) [0m
+Rendering template within layouts/tourist_sights
+Rendering tourist_sights/edit
+
+ActionView::TemplateError (incompatible character encodings: ASCII-8BIT and UTF-8) on line #6 of app/views/tourist_sights/_form.html.erb:
+3: <p>
+4: 	Nome: <br />
+5: 	<%= f.text_field :name %>
+6: </p>
+7: <p>
+8: 	Endereço: <br />
+9: 	<%= f.text_field :address %>
+
+    app/views/tourist_sights/_form.html.erb:6:in `concat'
+    app/views/tourist_sights/_form.html.erb:6
+    app/views/tourist_sights/edit.html.erb:7:in `block in _run_erb_app47views47tourist_sights47edit46html46erb'
+    app/views/tourist_sights/edit.html.erb:4
+    <internal:prelude>:8:in `synchronize'
+    /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+    /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+    /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (156.9ms)
+Rendered rescues/_request_and_response (2.9ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing TouristSightsController#edit (for 127.0.0.1 at 2009-06-29 11:57:04) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mTouristSight Load (0.8ms)[0m   [0;1mSELECT * FROM "tourist_sights" WHERE ("tourist_sights"."id" = 1) [0m
+Rendering template within layouts/tourist_sights
+Rendering tourist_sights/edit
+
+ActionView::TemplateError (incompatible character encodings: ASCII-8BIT and UTF-8) on line #6 of app/views/tourist_sights/_form.html.erb:
+3: <p>
+4: 	Nome: <br />
+5: 	<%= f.text_field :name %>
+6: </p>
+7: <p>
+8: 	Endereço: <br />
+9: 	<%= f.text_field :address %>
+
+    app/views/tourist_sights/_form.html.erb:6:in `concat'
+    app/views/tourist_sights/_form.html.erb:6
+    app/views/tourist_sights/edit.html.erb:7:in `block in _run_erb_app47views47tourist_sights47edit46html46erb'
+    app/views/tourist_sights/edit.html.erb:4
+    <internal:prelude>:8:in `synchronize'
+    /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+    /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+    /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (83.4ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing TouristSightsController#edit (for 127.0.0.1 at 2009-06-29 11:57:04) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mTouristSight Load (0.7ms)[0m   [0mSELECT * FROM "tourist_sights" WHERE ("tourist_sights"."id" = 1) [0m
+Rendering template within layouts/tourist_sights
+Rendering tourist_sights/edit
+
+ActionView::TemplateError (incompatible character encodings: ASCII-8BIT and UTF-8) on line #6 of app/views/tourist_sights/_form.html.erb:
+3: <p>
+4: 	Nome: <br />
+5: 	<%= f.text_field :name %>
+6: </p>
+7: <p>
+8: 	Endereço: <br />
+9: 	<%= f.text_field :address %>
+
+    app/views/tourist_sights/_form.html.erb:6:in `concat'
+    app/views/tourist_sights/_form.html.erb:6
+    app/views/tourist_sights/edit.html.erb:7:in `block in _run_erb_app47views47tourist_sights47edit46html46erb'
+    app/views/tourist_sights/edit.html.erb:4
+    <internal:prelude>:8:in `synchronize'
+    /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+    /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+    /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (172.3ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing TouristSightsController#edit (for 127.0.0.1 at 2009-06-29 11:57:04) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mTouristSight Load (0.8ms)[0m   [0;1mSELECT * FROM "tourist_sights" WHERE ("tourist_sights"."id" = 1) [0m
+Rendering template within layouts/tourist_sights
+Rendering tourist_sights/edit
+
+ActionView::TemplateError (incompatible character encodings: ASCII-8BIT and UTF-8) on line #6 of app/views/tourist_sights/_form.html.erb:
+3: <p>
+4: 	Nome: <br />
+5: 	<%= f.text_field :name %>
+6: </p>
+7: <p>
+8: 	Endereço: <br />
+9: 	<%= f.text_field :address %>
+
+    app/views/tourist_sights/_form.html.erb:6:in `concat'
+    app/views/tourist_sights/_form.html.erb:6
+    app/views/tourist_sights/edit.html.erb:7:in `block in _run_erb_app47views47tourist_sights47edit46html46erb'
+    app/views/tourist_sights/edit.html.erb:4
+    <internal:prelude>:8:in `synchronize'
+    /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+    /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+    /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (179.4ms)
+Rendered rescues/_request_and_response (1.0ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing TouristSightsController#edit (for 127.0.0.1 at 2009-06-29 11:57:05) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mTouristSight Load (0.8ms)[0m   [0mSELECT * FROM "tourist_sights" WHERE ("tourist_sights"."id" = 1) [0m
+Rendering template within layouts/tourist_sights
+Rendering tourist_sights/edit
+
+ActionView::TemplateError (incompatible character encodings: ASCII-8BIT and UTF-8) on line #6 of app/views/tourist_sights/_form.html.erb:
+3: <p>
+4: 	Nome: <br />
+5: 	<%= f.text_field :name %>
+6: </p>
+7: <p>
+8: 	Endereço: <br />
+9: 	<%= f.text_field :address %>
+
+    app/views/tourist_sights/_form.html.erb:6:in `concat'
+    app/views/tourist_sights/_form.html.erb:6
+    app/views/tourist_sights/edit.html.erb:7:in `block in _run_erb_app47views47tourist_sights47edit46html46erb'
+    app/views/tourist_sights/edit.html.erb:4
+    <internal:prelude>:8:in `synchronize'
+    /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+    /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+    /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (114.9ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing TouristSightsController#edit (for 127.0.0.1 at 2009-06-29 11:57:05) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mTouristSight Load (1.1ms)[0m   [0;1mSELECT * FROM "tourist_sights" WHERE ("tourist_sights"."id" = 1) [0m
+Rendering template within layouts/tourist_sights
+Rendering tourist_sights/edit
+
+ActionView::TemplateError (incompatible character encodings: ASCII-8BIT and UTF-8) on line #6 of app/views/tourist_sights/_form.html.erb:
+3: <p>
+4: 	Nome: <br />
+5: 	<%= f.text_field :name %>
+6: </p>
+7: <p>
+8: 	Endereço: <br />
+9: 	<%= f.text_field :address %>
+
+    app/views/tourist_sights/_form.html.erb:6:in `concat'
+    app/views/tourist_sights/_form.html.erb:6
+    app/views/tourist_sights/edit.html.erb:7:in `block in _run_erb_app47views47tourist_sights47edit46html46erb'
+    app/views/tourist_sights/edit.html.erb:4
+    <internal:prelude>:8:in `synchronize'
+    /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+    /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+    /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (177.8ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing TouristSightsController#edit (for 127.0.0.1 at 2009-06-29 11:57:05) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mTouristSight Load (1.1ms)[0m   [0mSELECT * FROM "tourist_sights" WHERE ("tourist_sights"."id" = 1) [0m
+Rendering template within layouts/tourist_sights
+Rendering tourist_sights/edit
+
+ActionView::TemplateError (incompatible character encodings: ASCII-8BIT and UTF-8) on line #6 of app/views/tourist_sights/_form.html.erb:
+3: <p>
+4: 	Nome: <br />
+5: 	<%= f.text_field :name %>
+6: </p>
+7: <p>
+8: 	Endereço: <br />
+9: 	<%= f.text_field :address %>
+
+    app/views/tourist_sights/_form.html.erb:6:in `concat'
+    app/views/tourist_sights/_form.html.erb:6
+    app/views/tourist_sights/edit.html.erb:7:in `block in _run_erb_app47views47tourist_sights47edit46html46erb'
+    app/views/tourist_sights/edit.html.erb:4
+    <internal:prelude>:8:in `synchronize'
+    /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+    /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+    /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (179.6ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing TouristSightsController#edit (for 127.0.0.1 at 2009-06-29 11:57:05) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mTouristSight Load (0.7ms)[0m   [0;1mSELECT * FROM "tourist_sights" WHERE ("tourist_sights"."id" = 1) [0m
+Rendering template within layouts/tourist_sights
+Rendering tourist_sights/edit
+
+ActionView::TemplateError (incompatible character encodings: ASCII-8BIT and UTF-8) on line #6 of app/views/tourist_sights/_form.html.erb:
+3: <p>
+4: 	Nome: <br />
+5: 	<%= f.text_field :name %>
+6: </p>
+7: <p>
+8: 	Endereço: <br />
+9: 	<%= f.text_field :address %>
+
+    app/views/tourist_sights/_form.html.erb:6:in `concat'
+    app/views/tourist_sights/_form.html.erb:6
+    app/views/tourist_sights/edit.html.erb:7:in `block in _run_erb_app47views47tourist_sights47edit46html46erb'
+    app/views/tourist_sights/edit.html.erb:4
+    <internal:prelude>:8:in `synchronize'
+    /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+    /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+    /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (90.6ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing TouristSightsController#edit (for 127.0.0.1 at 2009-06-29 11:57:06) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mTouristSight Load (0.8ms)[0m   [0mSELECT * FROM "tourist_sights" WHERE ("tourist_sights"."id" = 1) [0m
+Rendering template within layouts/tourist_sights
+Rendering tourist_sights/edit
+
+ActionView::TemplateError (incompatible character encodings: ASCII-8BIT and UTF-8) on line #6 of app/views/tourist_sights/_form.html.erb:
+3: <p>
+4: 	Nome: <br />
+5: 	<%= f.text_field :name %>
+6: </p>
+7: <p>
+8: 	Endereço: <br />
+9: 	<%= f.text_field :address %>
+
+    app/views/tourist_sights/_form.html.erb:6:in `concat'
+    app/views/tourist_sights/_form.html.erb:6
+    app/views/tourist_sights/edit.html.erb:7:in `block in _run_erb_app47views47tourist_sights47edit46html46erb'
+    app/views/tourist_sights/edit.html.erb:4
+    <internal:prelude>:8:in `synchronize'
+    /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+    /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+    /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (184.1ms)
+Rendered rescues/_request_and_response (0.5ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing TouristSightsController#edit (for 127.0.0.1 at 2009-06-29 11:57:06) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mTouristSight Load (1.1ms)[0m   [0;1mSELECT * FROM "tourist_sights" WHERE ("tourist_sights"."id" = 1) [0m
+Rendering template within layouts/tourist_sights
+Rendering tourist_sights/edit
+
+ActionView::TemplateError (incompatible character encodings: ASCII-8BIT and UTF-8) on line #6 of app/views/tourist_sights/_form.html.erb:
+3: <p>
+4: 	Nome: <br />
+5: 	<%= f.text_field :name %>
+6: </p>
+7: <p>
+8: 	Endereço: <br />
+9: 	<%= f.text_field :address %>
+
+    app/views/tourist_sights/_form.html.erb:6:in `concat'
+    app/views/tourist_sights/_form.html.erb:6
+    app/views/tourist_sights/edit.html.erb:7:in `block in _run_erb_app47views47tourist_sights47edit46html46erb'
+    app/views/tourist_sights/edit.html.erb:4
+    <internal:prelude>:8:in `synchronize'
+    /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+    /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+    /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (158.6ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing TouristSightsController#edit (for 127.0.0.1 at 2009-06-29 11:57:06) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mTouristSight Load (0.7ms)[0m   [0mSELECT * FROM "tourist_sights" WHERE ("tourist_sights"."id" = 1) [0m
+Rendering template within layouts/tourist_sights
+Rendering tourist_sights/edit
+
+ActionView::TemplateError (incompatible character encodings: ASCII-8BIT and UTF-8) on line #6 of app/views/tourist_sights/_form.html.erb:
+3: <p>
+4: 	Nome: <br />
+5: 	<%= f.text_field :name %>
+6: </p>
+7: <p>
+8: 	Endereço: <br />
+9: 	<%= f.text_field :address %>
+
+    app/views/tourist_sights/_form.html.erb:6:in `concat'
+    app/views/tourist_sights/_form.html.erb:6
+    app/views/tourist_sights/edit.html.erb:7:in `block in _run_erb_app47views47tourist_sights47edit46html46erb'
+    app/views/tourist_sights/edit.html.erb:4
+    <internal:prelude>:8:in `synchronize'
+    /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+    /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+    /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (86.2ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing TouristSightsController#edit (for 127.0.0.1 at 2009-06-29 11:57:06) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mTouristSight Load (0.8ms)[0m   [0;1mSELECT * FROM "tourist_sights" WHERE ("tourist_sights"."id" = 1) [0m
+Rendering template within layouts/tourist_sights
+Rendering tourist_sights/edit
+
+ActionView::TemplateError (incompatible character encodings: ASCII-8BIT and UTF-8) on line #6 of app/views/tourist_sights/_form.html.erb:
+3: <p>
+4: 	Nome: <br />
+5: 	<%= f.text_field :name %>
+6: </p>
+7: <p>
+8: 	Endereço: <br />
+9: 	<%= f.text_field :address %>
+
+    app/views/tourist_sights/_form.html.erb:6:in `concat'
+    app/views/tourist_sights/_form.html.erb:6
+    app/views/tourist_sights/edit.html.erb:7:in `block in _run_erb_app47views47tourist_sights47edit46html46erb'
+    app/views/tourist_sights/edit.html.erb:4
+    <internal:prelude>:8:in `synchronize'
+    /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+    /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+    /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (156.3ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing TouristSightsController#edit (for 127.0.0.1 at 2009-06-29 11:57:07) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mTouristSight Load (0.7ms)[0m   [0mSELECT * FROM "tourist_sights" WHERE ("tourist_sights"."id" = 1) [0m
+Rendering template within layouts/tourist_sights
+Rendering tourist_sights/edit
+
+ActionView::TemplateError (incompatible character encodings: ASCII-8BIT and UTF-8) on line #6 of app/views/tourist_sights/_form.html.erb:
+3: <p>
+4: 	Nome: <br />
+5: 	<%= f.text_field :name %>
+6: </p>
+7: <p>
+8: 	Endereço: <br />
+9: 	<%= f.text_field :address %>
+
+    app/views/tourist_sights/_form.html.erb:6:in `concat'
+    app/views/tourist_sights/_form.html.erb:6
+    app/views/tourist_sights/edit.html.erb:7:in `block in _run_erb_app47views47tourist_sights47edit46html46erb'
+    app/views/tourist_sights/edit.html.erb:4
+    <internal:prelude>:8:in `synchronize'
+    /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+    /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+    /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (162.9ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing TouristSightsController#edit (for 127.0.0.1 at 2009-06-29 11:57:07) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mTouristSight Load (0.7ms)[0m   [0;1mSELECT * FROM "tourist_sights" WHERE ("tourist_sights"."id" = 1) [0m
+Rendering template within layouts/tourist_sights
+Rendering tourist_sights/edit
+
+ActionView::TemplateError (incompatible character encodings: ASCII-8BIT and UTF-8) on line #6 of app/views/tourist_sights/_form.html.erb:
+3: <p>
+4: 	Nome: <br />
+5: 	<%= f.text_field :name %>
+6: </p>
+7: <p>
+8: 	Endereço: <br />
+9: 	<%= f.text_field :address %>
+
+    app/views/tourist_sights/_form.html.erb:6:in `concat'
+    app/views/tourist_sights/_form.html.erb:6
+    app/views/tourist_sights/edit.html.erb:7:in `block in _run_erb_app47views47tourist_sights47edit46html46erb'
+    app/views/tourist_sights/edit.html.erb:4
+    <internal:prelude>:8:in `synchronize'
+    /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+    /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+    /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (91.5ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing TouristSightsController#edit (for 127.0.0.1 at 2009-06-29 11:57:07) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mTouristSight Load (0.7ms)[0m   [0mSELECT * FROM "tourist_sights" WHERE ("tourist_sights"."id" = 1) [0m
+Rendering template within layouts/tourist_sights
+Rendering tourist_sights/edit
+
+ActionView::TemplateError (incompatible character encodings: ASCII-8BIT and UTF-8) on line #6 of app/views/tourist_sights/_form.html.erb:
+3: <p>
+4: 	Nome: <br />
+5: 	<%= f.text_field :name %>
+6: </p>
+7: <p>
+8: 	Endereço: <br />
+9: 	<%= f.text_field :address %>
+
+    app/views/tourist_sights/_form.html.erb:6:in `concat'
+    app/views/tourist_sights/_form.html.erb:6
+    app/views/tourist_sights/edit.html.erb:7:in `block in _run_erb_app47views47tourist_sights47edit46html46erb'
+    app/views/tourist_sights/edit.html.erb:4
+    <internal:prelude>:8:in `synchronize'
+    /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+    /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+    /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (193.3ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing TouristSightsController#edit (for 127.0.0.1 at 2009-06-29 11:57:08) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mTouristSight Load (0.8ms)[0m   [0;1mSELECT * FROM "tourist_sights" WHERE ("tourist_sights"."id" = 1) [0m
+Rendering template within layouts/tourist_sights
+Rendering tourist_sights/edit
+
+ActionView::TemplateError (incompatible character encodings: ASCII-8BIT and UTF-8) on line #6 of app/views/tourist_sights/_form.html.erb:
+3: <p>
+4: 	Nome: <br />
+5: 	<%= f.text_field :name %>
+6: </p>
+7: <p>
+8: 	Endereço: <br />
+9: 	<%= f.text_field :address %>
+
+    app/views/tourist_sights/_form.html.erb:6:in `concat'
+    app/views/tourist_sights/_form.html.erb:6
+    app/views/tourist_sights/edit.html.erb:7:in `block in _run_erb_app47views47tourist_sights47edit46html46erb'
+    app/views/tourist_sights/edit.html.erb:4
+    <internal:prelude>:8:in `synchronize'
+    /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+    /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+    /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (161.7ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing TouristSightsController#edit (for 127.0.0.1 at 2009-06-29 11:57:08) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mTouristSight Load (0.7ms)[0m   [0mSELECT * FROM "tourist_sights" WHERE ("tourist_sights"."id" = 1) [0m
+Rendering template within layouts/tourist_sights
+Rendering tourist_sights/edit
+
+ActionView::TemplateError (incompatible character encodings: ASCII-8BIT and UTF-8) on line #6 of app/views/tourist_sights/_form.html.erb:
+3: <p>
+4: 	Nome: <br />
+5: 	<%= f.text_field :name %>
+6: </p>
+7: <p>
+8: 	Endereço: <br />
+9: 	<%= f.text_field :address %>
+
+    app/views/tourist_sights/_form.html.erb:6:in `concat'
+    app/views/tourist_sights/_form.html.erb:6
+    app/views/tourist_sights/edit.html.erb:7:in `block in _run_erb_app47views47tourist_sights47edit46html46erb'
+    app/views/tourist_sights/edit.html.erb:4
+    <internal:prelude>:8:in `synchronize'
+    /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+    /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+    /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (89.6ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing TouristSightsController#edit (for 127.0.0.1 at 2009-06-29 11:57:08) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mTouristSight Load (0.7ms)[0m   [0;1mSELECT * FROM "tourist_sights" WHERE ("tourist_sights"."id" = 1) [0m
+Rendering template within layouts/tourist_sights
+Rendering tourist_sights/edit
+
+ActionView::TemplateError (incompatible character encodings: ASCII-8BIT and UTF-8) on line #6 of app/views/tourist_sights/_form.html.erb:
+3: <p>
+4: 	Nome: <br />
+5: 	<%= f.text_field :name %>
+6: </p>
+7: <p>
+8: 	Endereço: <br />
+9: 	<%= f.text_field :address %>
+
+    app/views/tourist_sights/_form.html.erb:6:in `concat'
+    app/views/tourist_sights/_form.html.erb:6
+    app/views/tourist_sights/edit.html.erb:7:in `block in _run_erb_app47views47tourist_sights47edit46html46erb'
+    app/views/tourist_sights/edit.html.erb:4
+    <internal:prelude>:8:in `synchronize'
+    /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+    /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+    /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (286.2ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing TouristSightsController#edit (for 127.0.0.1 at 2009-06-29 11:58:51) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mTouristSight Load (0.8ms)[0m   [0mSELECT * FROM "tourist_sights" WHERE ("tourist_sights"."id" = 1) [0m
+Rendering template within layouts/tourist_sights
+Rendering tourist_sights/edit
+
+ActionView::TemplateError (incompatible character encodings: ASCII-8BIT and UTF-8) on line #6 of app/views/tourist_sights/_form.html.erb:
+3: <p>
+4: 	Nome: <br />
+5: 	<%= f.text_field :name %>
+6: </p>
+7: <p>
+8: 	Endereço: <br />
+9: 	<%= f.text_field :address %>
+
+    app/views/tourist_sights/_form.html.erb:6:in `concat'
+    app/views/tourist_sights/_form.html.erb:6
+    app/views/tourist_sights/edit.html.erb:7:in `block in _run_erb_app47views47tourist_sights47edit46html46erb'
+    app/views/tourist_sights/edit.html.erb:4
+    <internal:prelude>:8:in `synchronize'
+    /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+    /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+    /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (156.8ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+/!\ FAILSAFE /!\  Mon Jun 29 18:03:51 -0300 2009
+  Status: 500 Internal Server Error
+  wrong argument type String (expected Module)
+    /var/lib/gems/1.8/gems/activerecord-2.3.2/lib/active_record/connection_adapters/postgresql_adapter.rb:916:in `initialize'
+    /var/lib/gems/1.8/gems/activerecord-2.3.2/lib/active_record/connection_adapters/postgresql_adapter.rb:916:in `connect'
+    /var/lib/gems/1.8/gems/activerecord-2.3.2/lib/active_record/connection_adapters/postgresql_adapter.rb:916:in `connect'
+    /var/lib/gems/1.8/gems/activerecord-2.3.2/lib/active_record/connection_adapters/postgresql_adapter.rb:210:in `initialize'
+    /var/lib/gems/1.8/gems/activerecord-2.3.2/lib/active_record/connection_adapters/postgresql_adapter.rb:37:in `new'
+    /var/lib/gems/1.8/gems/activerecord-2.3.2/lib/active_record/connection_adapters/postgresql_adapter.rb:37:in `postgresql_connection'
+    /var/lib/gems/1.8/gems/activerecord-2.3.2/lib/active_record/connection_adapters/abstract/connection_pool.rb:223:in `send'
+    /var/lib/gems/1.8/gems/activerecord-2.3.2/lib/active_record/connection_adapters/abstract/connection_pool.rb:223:in `new_connection'
+    /var/lib/gems/1.8/gems/activerecord-2.3.2/lib/active_record/connection_adapters/abstract/connection_pool.rb:245:in `checkout_new_connection'
+    /var/lib/gems/1.8/gems/activerecord-2.3.2/lib/active_record/connection_adapters/abstract/connection_pool.rb:188:in `checkout'
+    /var/lib/gems/1.8/gems/activerecord-2.3.2/lib/active_record/connection_adapters/abstract/connection_pool.rb:184:in `loop'
+    /var/lib/gems/1.8/gems/activerecord-2.3.2/lib/active_record/connection_adapters/abstract/connection_pool.rb:184:in `checkout'
+    /usr/lib/ruby/1.8/monitor.rb:242:in `synchronize'
+    /var/lib/gems/1.8/gems/activerecord-2.3.2/lib/active_record/connection_adapters/abstract/connection_pool.rb:183:in `checkout'
+    /var/lib/gems/1.8/gems/activerecord-2.3.2/lib/active_record/connection_adapters/abstract/connection_pool.rb:98:in `connection'
+    /var/lib/gems/1.8/gems/activerecord-2.3.2/lib/active_record/connection_adapters/abstract/connection_pool.rb:326:in `retrieve_connection'
+    /var/lib/gems/1.8/gems/activerecord-2.3.2/lib/active_record/connection_adapters/abstract/connection_specification.rb:123:in `retrieve_connection'
+    /var/lib/gems/1.8/gems/activerecord-2.3.2/lib/active_record/connection_adapters/abstract/connection_specification.rb:115:in `connection'
+    /var/lib/gems/1.8/gems/activerecord-2.3.2/lib/active_record/query_cache.rb:9:in `cache'
+    /var/lib/gems/1.8/gems/activerecord-2.3.2/lib/active_record/query_cache.rb:28:in `call'
+    /var/lib/gems/1.8/gems/activerecord-2.3.2/lib/active_record/connection_adapters/abstract/connection_pool.rb:361:in `call'
+    /var/lib/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/head.rb:9:in `call'
+    /var/lib/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/methodoverride.rb:24:in `call'
+    /var/lib/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/params_parser.rb:15:in `call'
+    /var/lib/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/rewindable_input.rb:25:in `call'
+    /var/lib/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/session/cookie_store.rb:93:in `call'
+    /var/lib/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/reloader.rb:9:in `call'
+    /var/lib/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/failsafe.rb:11:in `call'
+    /var/lib/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/lock.rb:11:in `call'
+    /var/lib/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/lock.rb:11:in `synchronize'
+    /var/lib/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/lock.rb:11:in `call'
+    /var/lib/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/dispatcher.rb:106:in `call'
+    /var/lib/gems/1.8/gems/rails-2.3.2/lib/rails/rack/static.rb:31:in `call'
+    /var/lib/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/urlmap.rb:46:in `call'
+    /var/lib/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/urlmap.rb:40:in `each'
+    /var/lib/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/urlmap.rb:40:in `call'
+    /var/lib/gems/1.8/gems/rails-2.3.2/lib/rails/rack/log_tailer.rb:17:in `call'
+    /var/lib/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/content_length.rb:13:in `call'
+    /var/lib/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/handler/webrick.rb:46:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+    /var/lib/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/handler/webrick.rb:13:in `run'
+    /var/lib/gems/1.8/gems/rails-2.3.2/lib/commands/server.rb:111
+    /usr/lib/ruby/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+    /usr/lib/ruby/1.8/rubygems/custom_require.rb:31:in `require'
+    script/server:3
+/!\ FAILSAFE /!\  Mon Jun 29 18:09:19 -0300 2009
+  Status: 500 Internal Server Error
+  wrong argument type String (expected Module)
+    /var/lib/gems/1.8/gems/activerecord-2.3.2/lib/active_record/connection_adapters/postgresql_adapter.rb:916:in `initialize'
+    /var/lib/gems/1.8/gems/activerecord-2.3.2/lib/active_record/connection_adapters/postgresql_adapter.rb:916:in `connect'
+    /var/lib/gems/1.8/gems/activerecord-2.3.2/lib/active_record/connection_adapters/postgresql_adapter.rb:916:in `connect'
+    /var/lib/gems/1.8/gems/activerecord-2.3.2/lib/active_record/connection_adapters/postgresql_adapter.rb:210:in `initialize'
+    /var/lib/gems/1.8/gems/activerecord-2.3.2/lib/active_record/connection_adapters/postgresql_adapter.rb:37:in `new'
+    /var/lib/gems/1.8/gems/activerecord-2.3.2/lib/active_record/connection_adapters/postgresql_adapter.rb:37:in `postgresql_connection'
+    /var/lib/gems/1.8/gems/activerecord-2.3.2/lib/active_record/connection_adapters/abstract/connection_pool.rb:223:in `send'
+    /var/lib/gems/1.8/gems/activerecord-2.3.2/lib/active_record/connection_adapters/abstract/connection_pool.rb:223:in `new_connection'
+    /var/lib/gems/1.8/gems/activerecord-2.3.2/lib/active_record/connection_adapters/abstract/connection_pool.rb:245:in `checkout_new_connection'
+    /var/lib/gems/1.8/gems/activerecord-2.3.2/lib/active_record/connection_adapters/abstract/connection_pool.rb:188:in `checkout'
+    /var/lib/gems/1.8/gems/activerecord-2.3.2/lib/active_record/connection_adapters/abstract/connection_pool.rb:184:in `loop'
+    /var/lib/gems/1.8/gems/activerecord-2.3.2/lib/active_record/connection_adapters/abstract/connection_pool.rb:184:in `checkout'
+    /usr/lib/ruby/1.8/monitor.rb:242:in `synchronize'
+    /var/lib/gems/1.8/gems/activerecord-2.3.2/lib/active_record/connection_adapters/abstract/connection_pool.rb:183:in `checkout'
+    /var/lib/gems/1.8/gems/activerecord-2.3.2/lib/active_record/connection_adapters/abstract/connection_pool.rb:98:in `connection'
+    /var/lib/gems/1.8/gems/activerecord-2.3.2/lib/active_record/connection_adapters/abstract/connection_pool.rb:326:in `retrieve_connection'
+    /var/lib/gems/1.8/gems/activerecord-2.3.2/lib/active_record/connection_adapters/abstract/connection_specification.rb:123:in `retrieve_connection'
+    /var/lib/gems/1.8/gems/activerecord-2.3.2/lib/active_record/connection_adapters/abstract/connection_specification.rb:115:in `connection'
+    /var/lib/gems/1.8/gems/activerecord-2.3.2/lib/active_record/query_cache.rb:9:in `cache'
+    /var/lib/gems/1.8/gems/activerecord-2.3.2/lib/active_record/query_cache.rb:28:in `call'
+    /var/lib/gems/1.8/gems/activerecord-2.3.2/lib/active_record/connection_adapters/abstract/connection_pool.rb:361:in `call'
+    /var/lib/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/head.rb:9:in `call'
+    /var/lib/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/methodoverride.rb:24:in `call'
+    /var/lib/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/params_parser.rb:15:in `call'
+    /var/lib/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/rewindable_input.rb:25:in `call'
+    /var/lib/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/session/cookie_store.rb:93:in `call'
+    /var/lib/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/reloader.rb:9:in `call'
+    /var/lib/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/failsafe.rb:11:in `call'
+    /var/lib/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/lock.rb:11:in `call'
+    /var/lib/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/lock.rb:11:in `synchronize'
+    /var/lib/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/lock.rb:11:in `call'
+    /var/lib/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/dispatcher.rb:106:in `call'
+    /var/lib/gems/1.8/gems/rails-2.3.2/lib/rails/rack/static.rb:31:in `call'
+    /var/lib/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/urlmap.rb:46:in `call'
+    /var/lib/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/urlmap.rb:40:in `each'
+    /var/lib/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/urlmap.rb:40:in `call'
+    /var/lib/gems/1.8/gems/rails-2.3.2/lib/rails/rack/log_tailer.rb:17:in `call'
+    /var/lib/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/content_length.rb:13:in `call'
+    /var/lib/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/handler/webrick.rb:46:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+    /var/lib/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/handler/webrick.rb:13:in `run'
+    /var/lib/gems/1.8/gems/rails-2.3.2/lib/commands/server.rb:111
+    /usr/lib/ruby/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+    /usr/lib/ruby/1.8/rubygems/custom_require.rb:31:in `require'
+    script/server:3
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing TouristSightsController#index (for 127.0.0.1 at 2009-06-29 18:20:15) [GET]
+  [4;36;1mTouristSight Load (1.6ms)[0m   [0;1mSELECT * FROM "tourist_sights" [0m
+Rendering template within layouts/tourist_sights
+Rendering tourist_sights/index
+Completed in 102ms (View: 89, DB: 2) | 200 OK [http://localhost/tourist_sights]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing TouristSightsController#edit (for 127.0.0.1 at 2009-06-29 18:20:20) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mTouristSight Load (23.9ms)[0m   [0mSELECT * FROM "tourist_sights" WHERE ("tourist_sights"."id" = 1) [0m
+Rendering template within layouts/tourist_sights
+Rendering tourist_sights/edit
+Rendered tourist_sights/_form (1.7ms)
+Completed in 59ms (View: 15, DB: 24) | 200 OK [http://localhost/tourist_sights/1/edit]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing TouristSightsController#index (for 127.0.0.1 at 2009-06-29 18:20:22) [GET]
+  [4;36;1mTouristSight Load (1.3ms)[0m   [0;1mSELECT * FROM "tourist_sights" [0m
+Rendering template within layouts/tourist_sights
+Rendering tourist_sights/index
+Completed in 28ms (View: 20, DB: 1) | 200 OK [http://localhost/tourist_sights]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing TouristSightsController#edit (for 127.0.0.1 at 2009-06-29 18:20:23) [GET]
+  Parameters: {"id"=>"2"}
+  [4;35;1mTouristSight Load (0.8ms)[0m   [0mSELECT * FROM "tourist_sights" WHERE ("tourist_sights"."id" = 2) [0m
+Rendering template within layouts/tourist_sights
+Rendering tourist_sights/edit
+Rendered tourist_sights/_form (0.9ms)
+Completed in 28ms (View: 17, DB: 1) | 200 OK [http://localhost/tourist_sights/2/edit]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing TouristSightsController#index (for 127.0.0.1 at 2009-06-29 18:20:25) [GET]
+  [4;36;1mTouristSight Load (1.3ms)[0m   [0;1mSELECT * FROM "tourist_sights" [0m
+Rendering template within layouts/tourist_sights
+Rendering tourist_sights/index
+Completed in 27ms (View: 19, DB: 1) | 200 OK [http://localhost/tourist_sights]
