@@ -1,9 +1,9 @@
-<h1>New tourist_sight</h1>
+<h1>Ponto Turístico</h1>
 
 <% form_for(@tourist_sight) do |f| %>
   <%= f.error_messages %>
 
-  <%= render partial: 'form' , locals: {f: f} %>
+  <%= render :partial => 'form' , :locals => {:f => f} %>
 <% end %>
 
 <%= link_to 'Voltar', tourist_sights_path %>

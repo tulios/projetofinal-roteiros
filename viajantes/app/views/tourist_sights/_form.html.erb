@@ -1,17 +1,21 @@
 <%= f.error_messages %>
 
-<p>
-	Nome: <br />
-	<%= f.text_field :name %>
-</p>
-<p>
-	Endereço: <br />
-	<%= f.text_field :address %>
-</p>
-<p>
-	Descrição: <br />
-	<%= f.text_area :description %>
-</p>
-<p>
-	<%= f.submit 'Salvar' %>
-</p>
+<table>
+	<tr>
+		<td>Nome:</td>
+		<td>Descrição:</td>
+	</tr>
+	<tr>
+		<td><%= f.text_field :name %></td>
+		<td rowspan="3"><%= f.text_area :description, {:rows => 4, :cols => 40} %></td>
+	</tr>
+	<tr>
+		<td>Endereço:</td>		
+	</tr>
+	<tr>
+		<td><%= f.text_field :address %></td>	
+	</tr>
+	<tr>
+		<td colspan="2" align="right"><%= f.submit 'Salvar' %></td>
+	</tr>
+</table>
