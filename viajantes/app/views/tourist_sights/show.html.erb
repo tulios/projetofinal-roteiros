@@ -1,0 +1,18 @@
+<p>
+  <b>Name:</b>
+  <%=h @tourist_sight.name %>
+</p>
+
+<p>
+  <b>Address:</b>
+  <%=h @tourist_sight.address %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%=h @tourist_sight.description %>
+</p>
+
+
+<%= link_to 'Edit', edit_tourist_sight_path(@tourist_sight) %> |
+<%= link_to 'Back', tourist_sights_path %>

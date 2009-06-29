@@ -1,6 +1,8 @@
 ActionController::Routing::Routes.draw do |map|
   map.resources :tourist_sights
 
+  map.resources :tourist_sights
+
   # The priority is based upon order of creation: first created -> highest priority.
 
   # Sample of regular route:

@@ -1,0 +1,24 @@
+<h1>Listing tourist_sights</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Address</th>
+    <th>Description</th>
+  </tr>
+
+<% @tourist_sights.each do |tourist_sight| %>
+  <tr>
+    <td><%=h tourist_sight.name %></td>
+    <td><%=h tourist_sight.address %></td>
+    <td><%=h tourist_sight.description %></td>
+    <td><%= link_to 'Show', tourist_sight %></td>
+    <td><%= link_to 'Edit', edit_tourist_sight_path(tourist_sight) %></td>
+    <td><%= link_to 'Destroy', tourist_sight, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New tourist_sight', new_tourist_sight_path %>
