@@ -1,4 +1,17 @@
 class TouristSightsController < ApplicationController
+	
+	# Utilizado para carregar as cidades de um determinado estado
+	# Params:
+	#  - state_id
+	def cities
+    @cities = City.find_all_by_state_id(params[:state_id], :order => "name asc")
+
+    respond_to do |format|
+      format.js {render :layout => false, :inline => "<option></option>
+        <%= options_from_collection_for_select @cities, :id, :name, params[:state_id] %>"}
+    end
+	end
+
   # GET /tourist_sights
   # GET /tourist_sights.xml
   def index
@@ -7,7 +20,7 @@ class TouristSightsController < ApplicationController
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @tourist_sights }
-    end
+   end
   end
 
   # GET /tourist_sights/1
@@ -25,6 +38,7 @@ class TouristSightsController < ApplicationController
   # GET /tourist_sights/new.xml
   def new
     @tourist_sight = TouristSight.new
+		@states = State.find :all, :conditions => {:country_id => 1}, :order => "name asc"
 
     respond_to do |format|
       format.html # new.html.erb
@@ -35,6 +49,8 @@ class TouristSightsController < ApplicationController
   # GET /tourist_sights/1/edit
   def edit
     @tourist_sight = TouristSight.find(params[:id])
+		@states = State.find :all, :conditions => {:country_id => 1}, :order => "name asc"
+		@cities = City.find_all_by_state_id(@tourist_sight.state.id)
   end
 
   # POST /tourist_sights

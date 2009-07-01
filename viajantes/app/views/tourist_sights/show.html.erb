@@ -1,18 +1,26 @@
+<h1>Ponto Turístico</h1>
+
 <p>
-  <b>Name:</b>
+	<%=h @tourist_sight.state.country.name %>&nbsp;<strong>::</strong>&nbsp;
+	<%=h @tourist_sight.state.region.name %>&nbsp;<strong>::</strong>&nbsp;
+	<%=h @tourist_sight.state.name %>&nbsp;<strong>::</strong>&nbsp;
+	<%=h @tourist_sight.city.name %>
+</p>
+<p>
+  <b>Nome:</b>
   <%=h @tourist_sight.name %>
 </p>
 
 <p>
-  <b>Address:</b>
+  <b>Endereço:</b>
   <%=h @tourist_sight.address %>
 </p>
 
 <p>
-  <b>Description:</b>
+  <b>Descrição:</b>
   <%=h @tourist_sight.description %>
 </p>
 
 
-<%= link_to 'Edit', edit_tourist_sight_path(@tourist_sight) %> |
-<%= link_to 'Back', tourist_sights_path %>
+<%= link_to 'Editar', edit_tourist_sight_path(@tourist_sight) %> |
+<%= link_to 'Voltar', tourist_sights_path %>

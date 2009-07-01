@@ -9,12 +9,36 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090629111431) do
+ActiveRecord::Schema.define(:version => 20090630194117) do
+
+  create_table "cities", :force => true do |t|
+    t.integer "state_id", :null => false
+    t.string  "name"
+  end
+
+  create_table "countries", :force => true do |t|
+    t.string "symbol"
+    t.string "name"
+  end
+
+  create_table "regions", :force => true do |t|
+    t.integer "country_id", :null => false
+    t.string  "name"
+  end
+
+  create_table "states", :force => true do |t|
+    t.integer "country_id", :null => false
+    t.integer "region_id",  :null => false
+    t.string  "symbol"
+    t.string  "name"
+  end
 
   create_table "tourist_sights", :force => true do |t|
     t.string   "name"
     t.string   "address"
     t.string   "description"
+    t.integer  "state_id",    :null => false
+    t.integer  "city_id",     :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end

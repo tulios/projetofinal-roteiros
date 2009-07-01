@@ -4,6 +4,8 @@ class CreateTouristSights < ActiveRecord::Migration
       t.string :name
       t.string :address
       t.string :description
+			t.belongs_to :state, :null => false
+			t.belongs_to :city, :null => false
 
       t.timestamps
     end

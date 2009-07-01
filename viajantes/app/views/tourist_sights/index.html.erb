@@ -1,23 +1,38 @@
 <h1>Pontos Turísticos</h1>
 
-<table>
-  <tr>
-    <th>Nome</th>
-    <th>Endereço</th>
-    <th>Descrição</th>
-  </tr>
+<% if @tourist_sights and @tourist_sights.length > 0 %>
+	<table class="tabela">
+			<tr>
+				<th width="40%">Estado/Cidade</th>
+			  <th width="60%" colspan="4">Nome</th>
+			</tr>
 
-<% @tourist_sights.each do |tourist_sight| %>
-  <tr>
-    <td><%=h tourist_sight.name %></td>
-    <td><%=h tourist_sight.address %></td>
-    <td><%=h tourist_sight.description %></td>
-    <td><%= link_to 'detalhar', tourist_sight %></td>
-    <td><%= link_to 'editar', edit_tourist_sight_path(tourist_sight) %></td>
-    <td><%= link_to 'apagar', tourist_sight, :confirm => 'Você tem certeza?', :method => :delete %></td>
-  </tr>
+		<% @tourist_sights.each do |tourist_sight| %>
+			<tr>
+				<td align="center">
+					<%=h tourist_sight.state.name %> - <%=h tourist_sight.city.name %>
+				</td>
+				<td align="center" >
+					<%=h tourist_sight.name %>
+				</td>
+
+				<td class="tabela_destaque">
+					<%= link_to 'detalhar', tourist_sight %>
+				</td>
+				<td class="tabela_destaque">
+					<%= link_to 'editar', edit_tourist_sight_path(tourist_sight) %>
+				</td>
+				<td class="tabela_destaque">
+					<%= link_to 'apagar', tourist_sight, :confirm => 'Você tem certeza?', :method => :delete %>
+				</td>
+			</tr>
+		<% end %>
+	</table>
+		
+<% else %>
+	<i>Nenhum ponto turístico encontrado.</i>
+	<br />
 <% end %>
-</table>
 
 <br />
 

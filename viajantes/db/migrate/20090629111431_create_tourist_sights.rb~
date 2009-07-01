@@ -3,7 +3,8 @@ class CreateTouristSights < ActiveRecord::Migration
     create_table :tourist_sights do |t|
       t.string :name
       t.string :address
-      t.sring :description
+      t.string :description
+			t.belongs_to :state, :null => false
 
       t.timestamps
     end
