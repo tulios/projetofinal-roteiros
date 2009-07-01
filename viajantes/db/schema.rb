@@ -37,7 +37,6 @@ ActiveRecord::Schema.define(:version => 20090630194117) do
     t.string   "name"
     t.string   "address"
     t.string   "description"
-    t.integer  "state_id",    :null => false
     t.integer  "city_id",     :null => false
     t.datetime "created_at"
     t.datetime "updated_at"

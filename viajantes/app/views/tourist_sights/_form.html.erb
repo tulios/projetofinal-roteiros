@@ -1,16 +1,24 @@
-<%= f.error_messages %>
-
 <table>
 	<tr>
-		<td colspan="2">
-			<%= f.select :state_id, @states.map{|state| [state.name, state.id] },
-                 	 :include_blank => '-- escolha o estado --' %>
-		
-			<%= observe_field :tourist_sight_state_id, # ID do campo observado
-     		                :url => {:controller => "tourist_sights", :action => "cities"}, # URL que sera chamada
-                        :frequency => 0.5, # De quanto em quanto tempo o campo sera observado
-              	        :update => :tourist_sight_city_id, # ID do campo que sera atualizado
-                 		    :with => 'state_id', # valor que sera passado para url
+		<td>
+			<% if @tourist_sight and @tourist_sight.city %>
+				<%= select :state, :id, @states.map{|state| [state.name, state.id] }, #select com os estados disponiveis
+								   {:include_blank => '-- escolha o estado --', :selected => @tourist_sight.city.state.id} %>	
+			<% else %>
+				<%= select :state, :id, @states.map{|state| [state.name, state.id] }, #select com os estados disponiveis
+								   :include_blank => '-- escolha o estado --' %>
+			<% end %>
+		</td>
+
+		<% form_for(@tourist_sight) do |f| %>
+			<%= f.error_messages %>
+		<td>
+				
+			<%= observe_field :state_id, # ID do campo observado
+		 		                :url => {:controller => "tourist_sights", :action => "cities"}, # URL que sera chamada
+				                :frequency => 0.5, # De quanto em quanto tempo o campo sera observado
+				      	        :update => :tourist_sight_city_id, # ID do campo que sera atualizado
+				         		    :with => 'state_id', # valor que sera passado para url
 												:before => "Element.show('load')", # O que fara antes de chamar a URL
 												:complete => "Element.hide('load')" # O que fara depois de chamar a URL
 												%>
@@ -23,6 +31,7 @@
 				<%= f.select :city_id, [], :include_blank => true %>
 			<% end %>
 			<%= image_tag 'load_mini.gif', :id => 'load', :style => "display: none;" %>
+
 		</td>
 	</tr>
 	<tr>
@@ -42,4 +51,7 @@
 	<tr>
 		<td colspan="2" align="right"><%= f.submit 'Salvar' %></td>
 	</tr>
+	<% end %>	
+
 </table>
+

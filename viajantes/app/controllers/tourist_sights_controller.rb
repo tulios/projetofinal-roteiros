@@ -38,7 +38,7 @@ class TouristSightsController < ApplicationController
   # GET /tourist_sights/new.xml
   def new
     @tourist_sight = TouristSight.new
-		@states = State.find :all, :conditions => {:country_id => 1}, :order => "name asc"
+		load_states
 
     respond_to do |format|
       format.html # new.html.erb
@@ -49,15 +49,15 @@ class TouristSightsController < ApplicationController
   # GET /tourist_sights/1/edit
   def edit
     @tourist_sight = TouristSight.find(params[:id])
-		@states = State.find :all, :conditions => {:country_id => 1}, :order => "name asc"
-		@cities = City.find_all_by_state_id(@tourist_sight.state.id)
+		load_states
+		@cities = City.find_all_by_state_id(@tourist_sight.city.state.id)
   end
 
   # POST /tourist_sights
   # POST /tourist_sights.xml
   def create
     @tourist_sight = TouristSight.new(params[:tourist_sight])
-
+		
     respond_to do |format|
       if @tourist_sight.save
         flash[:notice] = 'TouristSight was successfully created.'
@@ -98,4 +98,22 @@ class TouristSightsController < ApplicationController
       format.xml  { head :ok }
     end
   end
+
+	# Metodos utilitarios
+	private
+	# Carrega os estados do Brasil (1)
+	def load_states
+		@states = State.find_all_by_country_id(1, :order => "name asc")
+	end
 end
+
+
+
+
+
+
+
+
+
+
+

@@ -10,7 +10,7 @@
 		<% @tourist_sights.each do |tourist_sight| %>
 			<tr>
 				<td align="center">
-					<%=h tourist_sight.state.name %> - <%=h tourist_sight.city.name %>
+					<%=h tourist_sight.city.state.name %> - <%=h tourist_sight.city.name %>
 				</td>
 				<td align="center" >
 					<%=h tourist_sight.name %>
