@@ -4,11 +4,8 @@ class TouristSightsController < ApplicationController
 	# Params:
 	#  - state_id
 	def cities
-    load_cities(params[:state_id])
-
-    respond_to do |format|
-      format.js {render :layout => false} # cities.js.erb
-    end
+    @cities = City.load_all(params[:state_id])
+		# cities.html.erb
 	end
 
   # GET /tourist_sights
@@ -37,7 +34,7 @@ class TouristSightsController < ApplicationController
   # GET /tourist_sights/new.xml
   def new
     @tourist_sight = TouristSight.new
-		load_states
+		@states = State.load_all
 
     respond_to do |format|
       format.html # new.html.erb
@@ -48,8 +45,8 @@ class TouristSightsController < ApplicationController
   # GET /tourist_sights/1/edit
   def edit
     @tourist_sight = TouristSight.find(params[:id])
-		load_states
-		load_cities(@tourist_sight.city.state.id)
+		@states = State.load_all
+		@cities = City.load_all(@tourist_sight.city.state.id)
   end
 
   # POST /tourist_sights
@@ -65,7 +62,7 @@ class TouristSightsController < ApplicationController
       else
 			
 				# Recarrega os estados e as cidades se possivel
-				reload_states_and_citys
+				load_states_and_cities
 
         format.html { render :action => "new" }
         format.xml  { render :xml => @tourist_sight.errors, :status => :unprocessable_entity }
@@ -86,7 +83,7 @@ class TouristSightsController < ApplicationController
       else
 
 				# Recarrega os estados e as cidades se possivel
-				reload_states_and_citys				
+				load_states_and_citys				
 				
         format.html { render :action => "edit" }
         format.xml  { render :xml => @tourist_sight.errors, :status => :unprocessable_entity }
@@ -108,23 +105,14 @@ class TouristSightsController < ApplicationController
 
 	# == Metodos utilitarios ==
 	private
-	# Carrega os estados do Brasil (1)
-	def load_states
-		@states = State.find_all_by_country_id(1, :order => "name asc")
-	end
 
-	# Carrega as cidades pelo estado
-	def load_cities(state_id)
-		@cities = City.find_all_by_state_id(state_id, :order => "name asc")
-	end
-	
-	# Recarrega os estados e as cidades se possivel
-	def reload_states_and_citys
+	# Carrega os estados e as cidades se possivel
+	def load_states_and_cities
 		# carrega novamente os estados para exibir no combo
-		load_states
+		@states = State.load_all
 		# carrega novamente as cidades se o estado tiver sido informado
 		if @tourist_sight and @tourist_sight.city
-			load_cities(@tourist_sight.city.state.id)
+			@cities = City.load_all(@tourist_sight.city.state.id)
 		end
 	end
 end

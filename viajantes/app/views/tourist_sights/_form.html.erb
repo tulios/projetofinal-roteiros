@@ -15,7 +15,8 @@
 		<td>
 				
 			<%= observe_field :state_id, # ID do campo observado
-		 		                :url => {:controller => "tourist_sights", :action => "cities"}, # URL que sera chamada
+												# URL que sera chamada
+		 		                :url => {:controller => "tourist_sights", :action => "cities", :format => "html"}, 
 				                :frequency => 0.5, # De quanto em quanto tempo o campo sera observado
 				      	        :update => :tourist_sight_city_id, # ID do campo que sera atualizado
 				         		    :with => 'state_id', # valor que sera passado para url
