@@ -5,7 +5,9 @@ class TouristSightsController < ApplicationController
 	#  - state_id
 	def cities
     @cities = City.load_all(params[:state_id])
-		# cities.html.erb
+		respond_to do |format|
+      format.html { render :layout => false } # cities.html.erb
+    end
 	end
 
   # GET /tourist_sights
