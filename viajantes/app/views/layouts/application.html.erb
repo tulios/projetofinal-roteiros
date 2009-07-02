@@ -20,14 +20,11 @@
 	<%= render :partial => "layouts/menu" %>
 
 	<div class="main">
-		<center>
-			<span style="color: green"><%= flash[:notice] %></span>
-		
 			<div class="content">
+				<span style="color: green"><%= flash[:notice] %></span>
 				<%= yield %>
 			</div>
 			<div class="clearer"><span></span></div>
-		</center>
 	</div>
 	
 	<%= render :partial => "layouts/footer" %>

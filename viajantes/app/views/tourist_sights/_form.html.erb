@@ -35,15 +35,15 @@
 		</td>
 	</tr>
 	<tr>
-		<td>Nome:</td>
-		<td>Descrição:</td>
+		<td><%= f.label :name, 'Nome:' %></td>
+		<td><%= f.label :name, 'Descrição:' %></td>
 	</tr>
 	<tr>
 		<td><%= f.text_field :name %></td>
 		<td rowspan="3"><%= f.text_area :description, {:rows => 4, :cols => 40} %></td>
 	</tr>
 	<tr>
-		<td>Endereço:</td>		
+		<td><%= f.label :name, 'Endereço:' %></td>		
 	</tr>
 	<tr>
 		<td><%= f.text_field :address %></td>	

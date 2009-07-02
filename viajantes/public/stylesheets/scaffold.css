@@ -7,26 +7,40 @@ pre {
 a:visited { color: #666; }
 
 .fieldWithErrors {
-  padding: 2px;
-  background-color: red;
+  padding: 0px;
+  display: table;
+}
+
+.fieldWithErrors input{
+	/*FFFF80*/
+  background: #FFFFA8;
+	border-color: #c00;
   display: table;
 }
 
 #errorExplanation {
-  width: 400px;
-  border: 2px solid red;
+	background: #FFFFA8 none repeat scroll;
+	border-color: #c00;
+	border-style: solid none;
+	border-width: 2px medium;
+	display: block;
+  margin-bottom: 20px;
+	/*
+  width: 870px;
+  border: 1px solid red;
   padding: 7px;
   padding-bottom: 12px;
   margin-bottom: 20px;
   background-color: #f0f0f0;
+	*/
 }
 
 #errorExplanation h2 {
   text-align: left;
   font-weight: bold;
-  padding: 5px 5px 5px 15px;
+  padding: 5px 0px 5px 15px;
   font-size: 12px;
-  margin: -7px;
+  margin: -2px 0px 0px 0px;
   background-color: #c00;
   color: #fff;
 }
@@ -34,6 +48,7 @@ a:visited { color: #666; }
 #errorExplanation p {
   color: #333;
   margin-bottom: 0;
+	margin-top: 5px;
   padding: 5px;
 }
 

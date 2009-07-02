@@ -81,11 +81,11 @@ h1,h2,h3 {padding-top: 6px;}
 	height: 150px;	
 }
 .header .left {
-	background: #B3C2C7 url(../images/img/header.jpg) no-repeat;
+	background: #B3C2C7 url(../images/img/header2.jpg) repeat-x;
 	font: normal 2.8em "Trebuchet MS",sans-serif;
 	line-height: 150px;
 	text-align: center;	
-	width: 564px;
+	width: 920px;
 }
 
 /* navigation */
@@ -114,6 +114,7 @@ h1,h2,h3 {padding-top: 6px;}
 	border-bottom: 4px solid #FFF;
 	background: #E8E8E8;
 	margin: auto;
+	text-align: left;
 }
 
 /* content */
@@ -149,15 +150,28 @@ h1,h2,h3 {padding-top: 6px;}
 	margin: 0px 0 0 0;
 }
 
+.odd td{
+	background: #CCD8E0;
+	padding: 5px 5px 5px 5px;
+}
+
+.even td{
+	padding: 5px 5px 5px 5px;
+}
+
 .tabela th {
 	background: #C1CDCD;
+	padding: 5px 5px 5px 5px;
 }
 
 .tabela_destaque {
 	background: #C1CDCD;
 }
 
-
+input, textarea, select {
+	border: 1px solid black;
+	padding:2px 1px;
+}
 
 
 

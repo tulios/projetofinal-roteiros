@@ -1,26 +1,35 @@
 <h1>Ponto Turístico</h1>
 
-<p>
-	<%=h @tourist_sight.city.state.country.name %>&nbsp;<strong>::</strong>&nbsp;
-	<%=h @tourist_sight.city.state.region.name %>&nbsp;<strong>::</strong>&nbsp;
-	<%=h @tourist_sight.city.state.name %>&nbsp;<strong>::</strong>&nbsp;
-	<%=h @tourist_sight.city.name %>
-</p>
-<p>
-  <b>Nome:</b>
-  <%=h @tourist_sight.name %>
-</p>
+<table width="100%" class="tabela" cellspacing="5">
+	<tr>
+		<td colspan="2" align="center">
+			<%=h @tourist_sight.city.state.country.name %>&nbsp;<strong>::</strong>&nbsp;
+			<%=h @tourist_sight.city.state.region.name %>&nbsp;<strong>::</strong>&nbsp;
+			<%=h @tourist_sight.city.state.name %>&nbsp;<strong>::</strong>&nbsp;
+			<%=h @tourist_sight.city.name %>
+		</td>
+	</tr>
+	<tr>
+		<td width="10%" align="right">
+			<strong>Nome:</strong>
+		</td>
+		<td align="left"><%=h @tourist_sight.name %></td>
+	</tr>
+	<tr>
+		<td align="right">
+			<strong>Endereço:</strong>
+		</td>
+		<td align="left"><%=h @tourist_sight.address %></td>
+	</tr>
+	<tr>
+		<td align="right" valign="top">
+			<strong>Descrição:</strong>
+		</td>
+		<td><%=h @tourist_sight.description %></td>
+	</tr>
+</table>
 
-<p>
-  <b>Endereço:</b>
-  <%=h @tourist_sight.address %>
-</p>
-
-<p>
-  <b>Descrição:</b>
-  <%=h @tourist_sight.description %>
-</p>
-
+<br />
 
 <%= link_to 'Editar', edit_tourist_sight_path(@tourist_sight) %> |
 <%= link_to 'Voltar', tourist_sights_path %>

@@ -4,11 +4,10 @@ class TouristSightsController < ApplicationController
 	# Params:
 	#  - state_id
 	def cities
-    @cities = City.find_all_by_state_id(params[:state_id], :order => "name asc")
+    load_cities(params[:state_id])
 
     respond_to do |format|
-      format.js {render :layout => false, :inline => "<option></option>
-        <%= options_from_collection_for_select @cities, :id, :name, params[:state_id] %>"}
+      format.js {render :layout => false} # cities.js.erb
     end
 	end
 
@@ -50,7 +49,7 @@ class TouristSightsController < ApplicationController
   def edit
     @tourist_sight = TouristSight.find(params[:id])
 		load_states
-		@cities = City.find_all_by_state_id(@tourist_sight.city.state.id)
+		load_cities(@tourist_sight.city.state.id)
   end
 
   # POST /tourist_sights
@@ -60,10 +59,14 @@ class TouristSightsController < ApplicationController
 		
     respond_to do |format|
       if @tourist_sight.save
-        flash[:notice] = 'TouristSight was successfully created.'
+        flash[:notice] = 'Ponto turístico criado com sucesso.'
         format.html { redirect_to(@tourist_sight) }
         format.xml  { render :xml => @tourist_sight, :status => :created, :location => @tourist_sight }
       else
+			
+				# Recarrega os estados e as cidades se possivel
+				reload_states_and_citys
+
         format.html { render :action => "new" }
         format.xml  { render :xml => @tourist_sight.errors, :status => :unprocessable_entity }
       end
@@ -77,10 +80,14 @@ class TouristSightsController < ApplicationController
 
     respond_to do |format|
       if @tourist_sight.update_attributes(params[:tourist_sight])
-        flash[:notice] = 'TouristSight was successfully updated.'
+        flash[:notice] = 'Ponto turístico atualizado com sucesso.'
         format.html { redirect_to(@tourist_sight) }
         format.xml  { head :ok }
       else
+
+				# Recarrega os estados e as cidades se possivel
+				reload_states_and_citys				
+				
         format.html { render :action => "edit" }
         format.xml  { render :xml => @tourist_sight.errors, :status => :unprocessable_entity }
       end
@@ -99,11 +106,26 @@ class TouristSightsController < ApplicationController
     end
   end
 
-	# Metodos utilitarios
+	# == Metodos utilitarios ==
 	private
 	# Carrega os estados do Brasil (1)
 	def load_states
 		@states = State.find_all_by_country_id(1, :order => "name asc")
+	end
+
+	# Carrega as cidades pelo estado
+	def load_cities(state_id)
+		@cities = City.find_all_by_state_id(state_id, :order => "name asc")
+	end
+	
+	# Recarrega os estados e as cidades se possivel
+	def reload_states_and_citys
+		# carrega novamente os estados para exibir no combo
+		load_states
+		# carrega novamente as cidades se o estado tiver sido informado
+		if @tourist_sight and @tourist_sight.city
+			load_cities(@tourist_sight.city.state.id)
+		end
 	end
 end
 
