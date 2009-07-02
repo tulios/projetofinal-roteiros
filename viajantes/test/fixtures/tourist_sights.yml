@@ -1,11 +1,13 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
 one:
-  name: MyString
-  address: MyString
+  name: PontoTuristo1
+  address: endereco1
   description: 
+  city_id: 1
 
 two:
-  name: MyString
-  address: MyString
+  name: PontoTuristo2
+  address: endereco2
   description: 
+  city_id: 1

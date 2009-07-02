@@ -1,8 +1,9 @@
 require 'test_helper'
 
 class StateTest < ActiveSupport::TestCase
-  # Replace this with your real tests.
-  test "the truth" do
-    assert true
-  end
+ 
+	test "Deveria retornar todos os estados" do
+		assert_equal (State.count, State.load_all.length)
+	end
+
 end

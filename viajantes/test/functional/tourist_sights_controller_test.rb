@@ -1,41 +1,46 @@
 require 'test_helper'
 
 class TouristSightsControllerTest < ActionController::TestCase
-  test "should get index" do
+  test "Deveria carregar o index" do
     get :index
     assert_response :success
     assert_not_nil assigns(:tourist_sights)
   end
 
-  test "should get new" do
+  test "Deveria carregar o new" do
     get :new
     assert_response :success
   end
 
-  test "should create tourist_sight" do
+  test "Deveria criar um ponto turistico" do
     assert_difference('TouristSight.count') do
-      post :create, :tourist_sight => { }
+			conteudo = { :name => "PontoTuristico3", :address => "Endereco3", :city_id => "1" }
+      post :create, :tourist_sight => conteudo
     end
 
     assert_redirected_to tourist_sight_path(assigns(:tourist_sight))
   end
 
-  test "should show tourist_sight" do
-    get :show, :id => tourist_sights(:one).to_param
+  test "Deveria exibir um tourist_sight" do
+		id = tourist_sights(:one).to_param
+	
+    get :show, :id => id
     assert_response :success
   end
 
-  test "should get edit" do
-    get :edit, :id => tourist_sights(:one).to_param
+  test "Deveria carregar o edit" do
+		id = tourist_sights(:one).to_param
+
+    get :edit, :id => id
     assert_response :success
   end
 
-  test "should update tourist_sight" do
+  test "Deveria atualizar um tourist_sight" do
     put :update, :id => tourist_sights(:one).to_param, :tourist_sight => { }
     assert_redirected_to tourist_sight_path(assigns(:tourist_sight))
   end
 
-  test "should destroy tourist_sight" do
+  test "Deveria apagar um tourist_sight" do
     assert_difference('TouristSight.count', -1) do
       delete :destroy, :id => tourist_sights(:one).to_param
     end

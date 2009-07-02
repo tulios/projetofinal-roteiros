@@ -1,9 +1,6 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
 one:
-  symbol: MyString
-  name: MyString
-
-two:
-  symbol: MyString
-  name: MyString
+  id: 1
+  symbol: BR
+  name: Brasil

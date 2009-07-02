@@ -1,9 +1,7 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
 one:
-  state: 
-  name: MyString
+  id: 1
+  state_id: 20 
+  name: Brasília=capital=
 
-two:
-  state: 
-  name: MyString
