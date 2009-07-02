@@ -1,3 +1,8 @@
+== Instalando JRails
+
+script/plugin install http://ennerchi.googlecode.com/svn/trunk/plugins/jrails
+rake jrails:install:javascripts
+
 == Welcome to Rails
 
 Rails is a web-application framework that includes everything needed to create 
