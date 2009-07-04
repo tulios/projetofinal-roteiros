@@ -129,10 +129,7 @@ h1,h2,h3 {padding-top: 6px;}
 	font-size: 0.9em;
 	margin-bottom: 6px;
 }
-.content li {
-	list-style: url(../images/img/li.gif);
-	margin-left: 18px;
-}
+
 .content p {font-family: "Lucida Sans Unicode",sans-serif;}
 
 /* footer */
@@ -175,10 +172,13 @@ h1,h2,h3 {padding-top: 6px;}
 
 input, textarea, select {
 	border: 1px solid black;
-	padding:2px 1px;
+	padding: 2px 1px;
 }
 
-
+.tag {
+	background: url(../images/tag_48.png) no-repeat;
+	padding: 15px 45px;
+}
 
 
 

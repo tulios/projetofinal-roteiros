@@ -1,35 +1,16 @@
+<div style="float: right;" title="Adicionar/Remover TAG">
+	<%= link_to (image_tag 'tag_add_remove_48.png', :border => 0), 
+			new_tourist_sight_tourist_sight_tag_path(@tourist_sight) %>
+</div>
+
 <h1>Ponto Turístico</h1>
 
-<table width="100%" class="tabela_info" cellspacing="5">
-	<tr>
-		<td colspan="2" align="center">
-			<%=h @tourist_sight.city.state.country.name %>&nbsp;<strong>::</strong>&nbsp;
-			<%=h @tourist_sight.city.state.region.name %>&nbsp;<strong>::</strong>&nbsp;
-			<%=h @tourist_sight.city.state.name %>&nbsp;<strong>::</strong>&nbsp;
-			<%=h @tourist_sight.city.name %>
-		</td>
-	</tr>
-	<tr>
-		<td width="10%" align="right">
-			<strong>Nome:</strong>
-		</td>
-		<td align="left"><%=h @tourist_sight.name %></td>
-	</tr>
-	<tr>
-		<td align="right">
-			<strong>Endereço:</strong>
-		</td>
-		<td align="left"><%=h @tourist_sight.address %></td>
-	</tr>
-	<tr>
-		<td align="right" valign="top">
-			<strong>Descrição:</strong>
-		</td>
-		<td><%=h @tourist_sight.description %></td>
-	</tr>
-</table>
+<%= render :partial => 'info' %>
 
 <br />
+<%= show_tags(@tourist_sight) %>
+
+<br /><br />
 
 <%= link_to 'Editar', edit_tourist_sight_path(@tourist_sight) %> |
 <%= link_to 'Voltar', tourist_sights_path %>

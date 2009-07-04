@@ -20,6 +20,34 @@ class TouristSightTest < ActiveSupport::TestCase
 		assert_validos (ts, [:name, :address, :city])
 	end
 
+	test "Deveria adicionar e remover tags" do
+		# Gerando dados para o teste
+		tags_adicionadas = []
+		tags_adicionadas << Tag.find(tags(:one).to_param)
+		tags_adicionadas << Tag.find(tags(:two).to_param)
+		
+		# Recuperando PontoTuristico da fixture	
+		ts_id = tourist_sights(:one).to_param
+		ts = TouristSight.find(ts_id)
+
+		# Adicionando as 2 tags criadas ao PontoTuristico
+		ts.save_tags(tags_adicionadas)
+		ts = TouristSight.find(ts_id)
+		assert_equal (2, ts.tags.length)
+
+		# Adicionando +1 tag as 2 ja existentes
+		tags_adicionadas << Tag.find(tags(:three).to_param)
+		ts.save_tags(tags_adicionadas)
+		ts = TouristSight.find(ts_id)
+		assert_equal (3, ts.tags.length)
+
+		# Removendo 1 tag das 3 existente
+		tags_adicionadas.delete_at(0) # 1º elemento
+		ts.save_tags(tags_adicionadas)
+		ts = TouristSight.find(ts_id)
+		assert_equal (2, ts.tags.length)
+	end
+
 	private
 	def assert_invalidos(objeto, invalidos)
 		invalidos.each do |invalido|
@@ -33,3 +61,22 @@ class TouristSightTest < ActiveSupport::TestCase
 		end
 	end
 end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090630194117) do
+ActiveRecord::Schema.define(:version => 20090703120728) do
 
   create_table "cities", :force => true do |t|
     t.integer "state_id", :null => false
@@ -32,6 +32,21 @@ ActiveRecord::Schema.define(:version => 20090630194117) do
     t.string  "symbol"
     t.string  "name"
   end
+
+  create_table "tags", :force => true do |t|
+    t.string "name"
+  end
+
+  add_index "tags", ["name"], :name => "index_tags_on_name", :unique => true
+
+  create_table "tourist_sight_tags", :force => true do |t|
+    t.integer  "tourist_sight_id", :null => false
+    t.integer  "tag_id",           :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "tourist_sight_tags", ["tag_id", "tourist_sight_id"], :name => "index_tourist_sight_tags_on_tourist_sight_id_and_tag_id", :unique => true
 
   create_table "tourist_sights", :force => true do |t|
     t.string   "name"
