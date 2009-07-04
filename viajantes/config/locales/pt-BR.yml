@@ -1,4 +1,4 @@
-pt-BR:
+"pt-BR":
   # formatos de data e hora
   date:
     formats:
@@ -114,6 +114,19 @@ pt-BR:
     
   # Active Record
   activerecord:
+    models:
+      tourist_sight: "Ponto Turístico"
+      city: "Cidade"
+      state: "Estado"
+      country: "País"
+      region: "Região"
+    attributes:
+      tourist_sight:
+        name: "Nome"
+        address: "Endereço"
+        city: "Cidade"
+        description: "Descrição"
+
     errors:
       template:
         header:
@@ -140,3 +153,4 @@ pt-BR:
         less_than_or_equal_to: "deve ser menor ou igual a {{count}}"
         odd: "deve ser ímpar"
         even: "deve ser par"
+      
