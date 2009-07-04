@@ -35,4 +35,37 @@ class ActiveSupport::TestCase
   fixtures :all
 
   # Add more helper methods to be used by all tests here...
+	def assert_invalidos(objeto, invalidos)
+		invalidos.each do |invalido|
+				assert objeto.errors.invalid?(invalido), "parametro: #{invalido}"
+		end
+	end
+
+	def assert_validos(objeto, validos)
+		validos.each do |valido|
+				assert !objeto.errors.invalid?(valido), "parametro: #{valido}"
+		end
+	end
 end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
