@@ -12,14 +12,13 @@ a:visited { color: #666; }
 }
 
 .fieldWithErrors input{
-	/*FFFF80*/
-  background: #FFFFA8;
+  background: #FFFFFF; /*#FFFFA8;*/
 	border-color: #c00;
   display: table;
 }
 
 #errorExplanation {
-	background: #FFFFA8 none repeat scroll;
+	background:  #FFFFFF none repeat scroll; /*#FFFFA8*/
 	border-color: #c00;
 	border-style: solid none;
 	border-width: 2px medium;
