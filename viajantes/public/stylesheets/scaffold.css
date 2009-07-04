@@ -25,14 +25,6 @@ a:visited { color: #666; }
 	border-width: 2px medium;
 	display: block;
   margin-bottom: 20px;
-	/*
-  width: 870px;
-  border: 1px solid red;
-  padding: 7px;
-  padding-bottom: 12px;
-  margin-bottom: 20px;
-  background-color: #f0f0f0;
-	*/
 }
 
 #errorExplanation h2 {
@@ -55,5 +47,6 @@ a:visited { color: #666; }
 #errorExplanation ul li {
   font-size: 12px;
   list-style: square;
+	margin-left: 20px;
 }
 
