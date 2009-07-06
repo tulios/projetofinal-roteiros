@@ -25,6 +25,7 @@ class TouristSightsController < ApplicationController
   # GET /tourist_sights/1.xml
   def show
     @tourist_sight = TouristSight.find(params[:id])
+		@city = @tourist_sight.city
 
     respond_to do |format|
       format.html # show.html.erb

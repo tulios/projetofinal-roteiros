@@ -1,0 +1,15 @@
+<h1>Pontos Turísticos</h1>
+<table class="tabela_info" width="100%">
+	<tr>
+		<td align="center" width="5%"><%= image_tag 'globe_32.png', {:border => 0, :title => "Localização"} %></td>
+		<td align="left"><%= render :partial => 'tourist_sights/location' %></td>
+	</tr>
+	<tr>
+		<td align="center" width="5%"><%= image_tag 'tag_48.png', {:border => 0, :title => "Tag"} %></td>
+		<td align="left"><%= @tag.name %></td>
+	</tr>
+</table>
+
+<br />
+
+<%= render :partial => 'tourist_sights/list' %>

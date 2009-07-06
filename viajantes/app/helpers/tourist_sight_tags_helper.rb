@@ -25,10 +25,28 @@ module TouristSightTagsHelper
 			if (index > 1) and (index % 6 == 0)
 						content << "<br /><br />"
 			end
-			content << "<span class=\"tag\">#{tag.name}</span>"
+			content << %Q{
+				<span class="tag">#{link_to tag.name, tourist_sight_tourist_sight_tags_path(tourist_sight, :tag_id => tag.id) }</span>
+			}
 		end
 		
 		return content
 	end
 
 end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
