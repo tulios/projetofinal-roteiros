@@ -20,7 +20,7 @@ a:visited { color: #666; }
 #errorExplanation {
 	background:  #FFFFFF none repeat scroll; /*#FFFFA8*/
 	border-color: #c00;
-	border-style: solid none;
+	border-style: solid;
 	border-width: 2px medium;
 	display: block;
   margin-bottom: 20px;
