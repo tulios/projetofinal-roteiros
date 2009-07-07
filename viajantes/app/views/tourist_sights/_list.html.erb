@@ -13,8 +13,12 @@
 			<% else %>
 			<tr class="even">
 			<% end %>
-				<td align="left">
-					<%=h tourist_sight.city.state.name %> / <%=h tourist_sight.city.name %>
+				<td align="center">
+					<span title="<%= h tourist_sight.city.state.name %>">
+						<%=h tourist_sight.city.state.symbol %> 
+					</span>
+					/ 
+					<%=h tourist_sight.city.name %>
 				</td>
 				<td align="center" >
 					<%= link_to "#{h tourist_sight.name}", tourist_sight %>

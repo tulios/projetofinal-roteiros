@@ -171,8 +171,12 @@ h1,h2,h3 {padding-top: 6px;}
 }
 
 input, textarea, select {
-	border: 1px solid black;
+	border: 1px solid #BBBBBB;
 	padding: 2px 1px;
+}
+
+input:focus, textarea:focus, select:focus{
+	border-color: black;
 }
 
 .tag {
@@ -180,9 +184,14 @@ input, textarea, select {
 	padding: 15px 45px;
 }
 
-
-
-
+.success {
+	color: #264409;
+	border: 2px solid #DDDDDD;
+	border-color: #C6D880;
+	background: url(../images/ok_24.png) #E6EFC2 no-repeat scroll 0 0;
+	margin-bottom: 0.5em;
+	padding: 5px 0px 4px 35px;
+}
 
 
 
