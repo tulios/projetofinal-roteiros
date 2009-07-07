@@ -1,0 +1,39 @@
+<h1>Dicas do Ponto Turístico</h1>
+
+<%= render :partial => 'tourist_sights/info' %>
+<br/><br/>
+
+<% if @tips and @tips.length > 0 %>
+	<table class="tabela" with=100% cellspacing="2">
+		<tr>
+		  <th>Nome</th>
+		  <th>Descrição</th>
+		  <th width=10%>Apagar</th>
+		  <th width=10%>Excluir</th>  
+		</tr>
+
+	<% @tips.each_with_index do |tip, index| %>
+		<% if index.odd? %>
+			<tr class="odd">
+			<% else %>
+			<tr class="even">
+		<% end %>
+		  <td><a href="<%=tourist_sight_tip_path(@tourist_sight,tip) %>"><%=h tip.name %></a></td>
+		  <td><%=h tip.description %></td>
+		  <td class="tabela_destaque">
+		  	<%= link_to 'Apagar', edit_tourist_sight_tip_path(@tourist_sight,tip) %>
+		  </td>
+		  <td class="tabela_destaque">
+		  	<%= link_to 'Excluir', tourist_sight_tip_path(@tourist_sight,tip), :confirm => 'Tem certeza?', :method => :delete %>
+		  </td>
+		</tr>
+	<% end %>
+	</table>
+<% else %>
+	<em>Nenhuma dica encontrada para o ponto turístico.</em>
+<% end %>
+
+<br />
+<br />
+
+<%= link_to 'Nova dica', new_tourist_sight_tip_path %>

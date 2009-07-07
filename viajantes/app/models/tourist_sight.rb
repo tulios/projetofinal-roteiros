@@ -7,6 +7,7 @@ class TouristSight < ActiveRecord::Base
 	belongs_to :city
 	has_many :tourist_sight_tag
 	has_many :tags, :through => :tourist_sight_tag
+	has_many :tips
 
 	validates_presence_of :city, :name, :address
 

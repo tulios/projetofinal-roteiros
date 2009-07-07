@@ -145,7 +145,13 @@ h1,h2,h3 {padding-top: 6px;}
 .tabela {
 	/*border: 1px solid black;*/
 	margin: 0px 0 0 0;
+	width: 100%;
 }
+
+.tabela th, .tabela td {
+	text-align: center;
+}
+
 
 .tabela_info {
 	border: 1px solid #C1CDCD;

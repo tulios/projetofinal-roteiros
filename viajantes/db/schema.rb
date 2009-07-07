@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090703120728) do
+ActiveRecord::Schema.define(:version => 20090706231827) do
 
   create_table "cities", :force => true do |t|
     t.integer "state_id", :null => false
@@ -38,6 +38,14 @@ ActiveRecord::Schema.define(:version => 20090703120728) do
   end
 
   add_index "tags", ["name"], :name => "index_tags_on_name", :unique => true
+
+  create_table "tips", :force => true do |t|
+    t.string   "name",             :limit => 50, :null => false
+    t.text     "description",                    :null => false
+    t.integer  "tourist_sight_id",               :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "tourist_sight_tags", :force => true do |t|
     t.integer  "tourist_sight_id", :null => false
