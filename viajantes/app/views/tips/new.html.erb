@@ -1,5 +1,7 @@
 <h1>Nova Dica</h1>
 
-<%= render :partial => 'form' %>
+<% form_for([:tourist_sight, @tip]) do |f| %>
+	<%= render :partial => 'form', :locals => {:f => f} %>
+<% end %>
 
 <%= link_to 'Voltar', tourist_sight_tips_path %>

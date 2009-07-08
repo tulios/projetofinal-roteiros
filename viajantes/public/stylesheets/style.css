@@ -213,6 +213,23 @@ input:focus, textarea:focus, select:focus{
 	padding: 5px 0px 4px 35px;
 }
 
+.barra{
+	background-color:#ABBECA;
+	border: 1px solid #C1CDCD;
+	padding: 5px;
+	padding-left: 35px;
+	color: white;
+	font-weight: bold;
+	cursor: pointer;
+	cursor: hand;
+}
+
+.icone_barra_dica {
+	position: relative; 
+	left:-5px; 
+	top:22px;
+}
+
 textarea.expanding {
 	line-height: 18px;
 }

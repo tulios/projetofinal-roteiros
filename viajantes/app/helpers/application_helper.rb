@@ -17,4 +17,10 @@ module ApplicationHelper
 			</script>
 		}
 	end
+	
+	def collapse_box(arrow1_id, arrow2_id, content_id)
+		%Q{
+			javascript: collapse_box('#{arrow1_id}', '#{arrow2_id}', '#{content_id}');
+		}
+	end
 end

@@ -76,6 +76,7 @@ class TipsController < ApplicationController
         		:tourist_sight_id => @tip.tourist_sight.id ) }
         format.xml  { head :ok }
       else
+      	@tourist_sight = @tip.tourist_sight
         format.html { render :action => "edit" }
         format.xml  { render :xml => @tip.errors, :status => :unprocessable_entity }
       end

@@ -86,7 +86,7 @@ class TouristSightsController < ApplicationController
       else
 
 				# Recarrega os estados e as cidades se possivel
-				load_states_and_citys				
+				load_states_and_cities				
 				
         format.html { render :action => "edit" }
         format.xml  { render :xml => @tourist_sight.errors, :status => :unprocessable_entity }
