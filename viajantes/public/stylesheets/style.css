@@ -6,8 +6,8 @@ html {min-height: 100%;}
 	padding: 0;
 }
 
-a {color: #963;}
-a:hover {color: #C60;}
+a {color: #666666;}
+a:hover {color: #4682B4;}
 body {
 	background: #CCD8E0 url(../images/img/bg.jpg) repeat-x left bottom;
 	color: #444;
@@ -143,7 +143,6 @@ h1,h2,h3 {padding-top: 6px;}
 .footer a,.footer a:hover {color: #FFF;}
 
 .tabela {
-	/*border: 1px solid black;*/
 	margin: 0px 0 0 0;
 	width: 100%;
 }
@@ -158,13 +157,28 @@ h1,h2,h3 {padding-top: 6px;}
 	margin: 0px 0 0 0;
 }
 
-.odd td{
-	background: #CCD8E0;
+.odd{
+	background-color: #CCD8E0;
 	padding: 5px 5px 5px 5px;
+}
+
+.odd td{
+	padding: 5px 5px 5px 5px;
+}
+
+.even{
 }
 
 .even td{
 	padding: 5px 5px 5px 5px;
+}
+
+.tabela tr.odd:hover {
+	background-color: #A8B0FF !important;
+}
+
+.tabela tr.even:hover {
+	background-color: #A8B0FF !important;
 }
 
 .tabela th {
@@ -197,6 +211,10 @@ input:focus, textarea:focus, select:focus{
 	background: url(../images/ok_24.png) #E6EFC2 no-repeat scroll 0 0;
 	margin-bottom: 0.5em;
 	padding: 5px 0px 4px 35px;
+}
+
+textarea.expanding {
+	line-height: 18px;
 }
 
 

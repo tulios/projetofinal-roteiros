@@ -7,8 +7,14 @@
 
 <%= render :partial => 'info' %>
 
-<br />
-<%= show_tags(@tourist_sight) %>
+<% if @tourist_sight.tags and @tourist_sight.tags.length > 0 %>
+	<div class="tag">
+		<% @tourist_sight.tags.each_with_index do |tag, index| %>
+			<%= link_to tag.name, tourist_sight_tourist_sight_tags_path(@tourist_sight, :tag_id => tag.id) %>
+			<% if index < (@tourist_sight.tags.length - 1) %>,<% end %>
+		<% end %>
+	</div>
+<% end %>
 
 <br /><br />
 

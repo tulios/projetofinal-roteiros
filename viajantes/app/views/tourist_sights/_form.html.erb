@@ -1,4 +1,6 @@
-<table cellspacing="4px">
+<%= configure_textarea_autogrow %>
+
+<table cellspacing="10px">
 	<tr>
 		<td>
 			<% if @tourist_sight and @tourist_sight.city %>
@@ -37,17 +39,20 @@
 	</tr>
 	<tr>
 		<td><%= f.label :name, 'Nome:' %></td>
-		<td><%= f.label :name, 'Descrição:' %></td>
+		<td><%= f.label :address, 'Endereço:' %></td>
 	</tr>
 	<tr>
-		<td><%= f.text_field :name %></td>
-		<td rowspan="3"><%= f.text_area :description, {:rows => 4, :cols => 40} %></td>
+		<td><%= f.text_field :name, :style => "width: 100%;" %></td>
+		<td><%= f.text_field :address, :style => "width: 100%;" %></td>	
 	</tr>
 	<tr>
-		<td><%= f.label :name, 'Endereço:' %></td>		
+		<td><%= f.label :description, 'Descrição:' %></td>
 	</tr>
 	<tr>
-		<td><%= f.text_field :address %></td>	
+		<td colspan="2">
+			<%= f.text_area :description, {:rows => 5, :class => "expanding",
+					:style => "width: 100%; min-height: 100px; max-height: 500px;"} %>
+		</td>	
 	</tr>
 	<tr>
 		<td colspan="2" align="right"><%= f.submit 'Salvar' %></td>

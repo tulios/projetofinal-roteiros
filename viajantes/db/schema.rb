@@ -59,7 +59,7 @@ ActiveRecord::Schema.define(:version => 20090706231827) do
   create_table "tourist_sights", :force => true do |t|
     t.string   "name"
     t.string   "address"
-    t.string   "description"
+    t.text     "description"
     t.integer  "city_id",     :null => false
     t.datetime "created_at"
     t.datetime "updated_at"

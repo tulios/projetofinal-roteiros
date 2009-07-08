@@ -48,6 +48,17 @@ class TouristSightTest < ActiveSupport::TestCase
 		assert_equal(2, ts.tags.length)
 	end
 
+	test "Deveria recuperar todos os TouristSights da mesma cidade que tenham uma tag especifica associada" do
+		ts1 = TouristSight.find(tourist_sights(:one).to_param)
+		ts2 = TouristSight.find(tourist_sights(:two).to_param)
+		
+		city_id = ts1.city.id		
+
+		tag = Tag.find(tags(:one).to_param)
+		array = TouristSight.find_all_by_city_and_tag(city_id, tag_id)
+		assert_empty(array)
+	end
+
 end
 
 

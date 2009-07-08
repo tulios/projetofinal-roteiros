@@ -4,17 +4,15 @@ pre {
   font-size: 11px;
 }
 
-a:visited { color: #666; }
-
 .fieldWithErrors {
   padding: 0px;
-  display: table;
+  display: inline;
 }
 
 .fieldWithErrors input{
   background: #FFFFFF; /*#FFFFA8;*/
 	border-color: #c00;
-  display: table;
+  display: inline;
 }
 
 #errorExplanation {

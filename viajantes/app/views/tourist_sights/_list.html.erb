@@ -24,10 +24,10 @@
 					<%= link_to "#{h tourist_sight.name}", tourist_sight %>
 				</td>
 
-				<td class="tabela_destaque" align="center">
+				<td align="center">
 					<%= link_to 'editar', edit_tourist_sight_path(tourist_sight) %>
 				</td>
-				<td class="tabela_destaque" align="center">
+				<td align="center">
 					<%= link_to 'apagar', tourist_sight, :confirm => 'Você tem certeza?', :method => :delete %>
 				</td>
 			</tr>
