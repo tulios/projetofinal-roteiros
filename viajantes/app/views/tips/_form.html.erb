@@ -1,13 +1,24 @@
 <%= f.error_messages %>
 
-<p>
-	Nome:<br />
-	<%= f.text_field :name %>
-</p>
-<p>
-	Descrição: <br />
-	<%= f.text_area :description %>
-</p>
-<p>
-	<%= f.submit 'Salvar' %>
-</p>
+<table width="100%" cellspacing="10px">
+	<tr>
+		<td>Nome:</td>
+	</tr>
+	<tr>
+		<td><%= f.text_field :name %></td>
+	</tr>
+	<tr>
+		<td>Descrição:</td>
+	</tr>
+	<tr>
+		<td>
+			<%= f.text_area :description, {
+					:rows => 5, 
+					:style => "width: 100%; min-height: 60px; max-height: 500px;"
+			} %>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2" align="right"><%= f.submit 'Salvar' %></td>
+	</tr>
+</table>

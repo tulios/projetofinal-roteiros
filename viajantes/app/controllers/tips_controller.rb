@@ -1,16 +1,4 @@
 class TipsController < ApplicationController
-  # GET /tips
-  # GET /tips.xml
-  def index
-  	@tourist_sight = TouristSight.find(params[:tourist_sight_id])
-  	@city = @tourist_sight.city
-    @tips = Tip.all
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @tips }
-    end
-  end
 
   # GET /tips/1
   # GET /tips/1.xml
@@ -27,6 +15,7 @@ class TipsController < ApplicationController
   # GET /tips/new.xml
   def new
     @tip = Tip.new
+		@tourist_sight_id = params[:tourist_sight_id]
 
     respond_to do |format|
       format.html # new.html.erb
@@ -53,11 +42,17 @@ class TipsController < ApplicationController
 
     respond_to do |format|
       if @tip.save
-        flash[:notice] = 'Tip was successfully created.'
-        format.html { redirect_to(:action => "index", 
-        		:tourist_sight_id => @tip.tourist_sight.id ) }
-        format.xml  { render :xml => @tip, :status => :created, :location => @tip }
+        flash[:notice] = 'Dica criada com sucesso.'
+        format.html { 
+					redirect_to(:controller => "tourist_sights", 
+											:action => "show", 
+											:id => @tip.tourist_sight.id 
+										 )
+				}
       else
+				# Recriando objeto e repopulando id de TouristSight
+				@tourist_sight_id = params[:tourist_sight_id]
+
         format.html { render :action => "new" }
         format.xml  { render :xml => @tip.errors, :status => :unprocessable_entity }
       end
@@ -71,12 +66,17 @@ class TipsController < ApplicationController
 
     respond_to do |format|
       if @tip.update_attributes(params[:tip])
-        flash[:notice] = 'Tip was successfully updated.'
-        format.html { redirect_to(:action => "index",
-        		:tourist_sight_id => @tip.tourist_sight.id ) }
+        flash[:notice] = 'Dica atualizada com sucesso.'
+        format.html { 
+					redirect_to(:controller => "tourist_sights", 
+											:action => "show", 
+											:id => @tip.tourist_sight.id 
+										 )
+				}
         format.xml  { head :ok }
       else
       	@tourist_sight = @tip.tourist_sight
+
         format.html { render :action => "edit" }
         format.xml  { render :xml => @tip.errors, :status => :unprocessable_entity }
       end
@@ -90,8 +90,12 @@ class TipsController < ApplicationController
     @tip.destroy
 
     respond_to do |format|
-      format.html { redirect_to(:action => "index", 
-      		:tourist_sight_id => @tip.tourist_sight.id ) }
+      format.html { 
+				redirect_to(:controller => "tourist_sights", 
+										:action => "show", 
+										:id => @tip.tourist_sight.id 
+									 )
+			}
       format.xml  { head :ok }
     end
   end
