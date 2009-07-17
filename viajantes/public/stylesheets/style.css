@@ -9,7 +9,7 @@ html {min-height: 100%;}
 a {color: #666666;}
 a:hover {color: #4682B4;}
 body {
-	background: #CCD8E0 url(../images/img/bg.jpg) repeat-x left bottom;
+	background: #CCD8E0 url(../images/img/bg-novo.jpg) repeat-x left bottom;
 	color: #444;
 	font: normal 62.5% Tahoma,sans-serif;
 	text-align: center;
@@ -167,6 +167,7 @@ h1,h2,h3 {padding-top: 6px;}
 }
 
 .even{
+	background-color: white;
 }
 
 .even td{

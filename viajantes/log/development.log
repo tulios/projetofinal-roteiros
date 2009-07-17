@@ -17198,3 +17198,687 @@ Rendered layouts/_banner (0.1ms)
 Rendered layouts/_menu (0.2ms)
 Rendered layouts/_footer (0.1ms)
 Completed in 152ms (View: 88, DB: 15) | 200 OK [http://localhost/tourist_sights/1]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing TouristSightsController#index (for 127.0.0.1 at 2009-07-13 14:07:25) [GET]
+  [4;36;1mTouristSight Load (72.3ms)[0m   [0;1mSELECT * FROM "tourist_sights" [0m
+Rendering template within layouts/application
+Rendering tourist_sights/index
+  [4;35;1mCity Load (33.4ms)[0m   [0mSELECT * FROM "cities" WHERE ("cities"."id" = 2975) [0m
+  [4;36;1mState Load (12.7ms)[0m   [0;1mSELECT * FROM "states" WHERE ("states"."id" = 20) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "cities" WHERE ("cities"."id" = 2975) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "states" WHERE ("states"."id" = 20) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "cities" WHERE ("cities"."id" = 2975) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "states" WHERE ("states"."id" = 20) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "cities" WHERE ("cities"."id" = 2975) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "states" WHERE ("states"."id" = 20) [0m
+Rendered tourist_sights/_list (401.9ms)
+Rendered layouts/_banner (11.6ms)
+Rendered layouts/_menu (6.4ms)
+Rendered layouts/_footer (30.1ms)
+Completed in 660ms (View: 471, DB: 119) | 200 OK [http://localhost/tourist_sights]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing TouristSightsController#show (for 127.0.0.1 at 2009-07-13 14:07:28) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mTouristSight Load (35.4ms)[0m   [0mSELECT * FROM "tourist_sights" WHERE ("tourist_sights"."id" = 1) [0m
+  [4;36;1mCity Load (0.6ms)[0m   [0;1mSELECT * FROM "cities" WHERE ("cities"."id" = 2975) [0m
+Rendering template within layouts/application
+Rendering tourist_sights/show
+  [4;35;1mState Load (0.6ms)[0m   [0mSELECT * FROM "states" WHERE ("states"."id" = 20) [0m
+  [4;36;1mCountry Load (23.4ms)[0m   [0;1mSELECT * FROM "countries" WHERE ("countries"."id" = 1) [0m
+  [4;35;1mRegion Load (1.3ms)[0m   [0mSELECT * FROM "regions" WHERE ("regions"."id" = 3) [0m
+Rendered tourist_sights/_location (87.1ms)
+Rendered tourist_sights/_info (112.6ms)
+  [4;36;1mTag Load (15.0ms)[0m   [0;1mSELECT "tags".* FROM "tags" INNER JOIN "tourist_sight_tags" ON "tags".id = "tourist_sight_tags".tag_id WHERE (("tourist_sight_tags".tourist_sight_id = 1)) [0m
+Rendered layouts/_banner (0.2ms)
+Rendered layouts/_menu (0.1ms)
+Rendered layouts/_footer (0.1ms)
+Completed in 442ms (View: 158, DB: 77) | 200 OK [http://localhost/tourist_sights/1]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing TouristSightsController#index (for 127.0.0.1 at 2009-07-13 14:09:38) [GET]
+  [4;35;1mTouristSight Load (1.3ms)[0m   [0mSELECT * FROM "tourist_sights" [0m
+Rendering template within layouts/application
+Rendering tourist_sights/index
+  [4;36;1mCity Load (0.7ms)[0m   [0;1mSELECT * FROM "cities" WHERE ("cities"."id" = 2975) [0m
+  [4;35;1mState Load (0.6ms)[0m   [0mSELECT * FROM "states" WHERE ("states"."id" = 20) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "cities" WHERE ("cities"."id" = 2975) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "states" WHERE ("states"."id" = 20) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "cities" WHERE ("cities"."id" = 2975) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "states" WHERE ("states"."id" = 20) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "cities" WHERE ("cities"."id" = 2975) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "states" WHERE ("states"."id" = 20) [0m
+Rendered tourist_sights/_list (40.6ms)
+Rendered layouts/_banner (0.1ms)
+Rendered layouts/_menu (0.1ms)
+Rendered layouts/_footer (0.1ms)
+Completed in 68ms (View: 44, DB: 3) | 200 OK [http://localhost/tourist_sights]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing TouristSightsController#show (for 127.0.0.1 at 2009-07-13 14:09:54) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mTouristSight Load (0.8ms)[0m   [0;1mSELECT * FROM "tourist_sights" WHERE ("tourist_sights"."id" = 1) [0m
+  [4;35;1mCity Load (0.6ms)[0m   [0mSELECT * FROM "cities" WHERE ("cities"."id" = 2975) [0m
+Rendering template within layouts/application
+Rendering tourist_sights/show
+  [4;36;1mState Load (0.6ms)[0m   [0;1mSELECT * FROM "states" WHERE ("states"."id" = 20) [0m
+  [4;35;1mCountry Load (0.6ms)[0m   [0mSELECT * FROM "countries" WHERE ("countries"."id" = 1) [0m
+  [4;36;1mRegion Load (0.6ms)[0m   [0;1mSELECT * FROM "regions" WHERE ("regions"."id" = 3) [0m
+Rendered tourist_sights/_location (23.3ms)
+Rendered tourist_sights/_info (25.3ms)
+  [4;35;1mTag Load (9.6ms)[0m   [0mSELECT "tags".* FROM "tags" INNER JOIN "tourist_sight_tags" ON "tags".id = "tourist_sight_tags".tag_id WHERE (("tourist_sight_tags".tourist_sight_id = 1)) [0m
+Rendered layouts/_banner (0.1ms)
+Rendered layouts/_menu (0.2ms)
+Rendered layouts/_footer (0.1ms)
+Completed in 125ms (View: 42, DB: 13) | 200 OK [http://localhost/tourist_sights/1]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing TouristSightsController#index (for 127.0.0.1 at 2009-07-13 14:09:59) [GET]
+  [4;36;1mTouristSight Load (1.4ms)[0m   [0;1mSELECT * FROM "tourist_sights" [0m
+Rendering template within layouts/application
+Rendering tourist_sights/index
+  [4;35;1mCity Load (0.7ms)[0m   [0mSELECT * FROM "cities" WHERE ("cities"."id" = 2975) [0m
+  [4;36;1mState Load (0.6ms)[0m   [0;1mSELECT * FROM "states" WHERE ("states"."id" = 20) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "cities" WHERE ("cities"."id" = 2975) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "states" WHERE ("states"."id" = 20) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "cities" WHERE ("cities"."id" = 2975) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "states" WHERE ("states"."id" = 20) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "cities" WHERE ("cities"."id" = 2975) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "states" WHERE ("states"."id" = 20) [0m
+Rendered tourist_sights/_list (37.4ms)
+Rendered layouts/_banner (0.1ms)
+Rendered layouts/_menu (0.1ms)
+Rendered layouts/_footer (0.1ms)
+Completed in 57ms (View: 41, DB: 3) | 200 OK [http://localhost/tourist_sights]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing TouristSightsController#show (for 127.0.0.1 at 2009-07-13 14:10:03) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mTouristSight Load (4.4ms)[0m   [0mSELECT * FROM "tourist_sights" WHERE ("tourist_sights"."id" = 1) [0m
+  [4;36;1mCity Load (0.6ms)[0m   [0;1mSELECT * FROM "cities" WHERE ("cities"."id" = 2975) [0m
+Rendering template within layouts/application
+Rendering tourist_sights/show
+  [4;35;1mState Load (0.6ms)[0m   [0mSELECT * FROM "states" WHERE ("states"."id" = 20) [0m
+  [4;36;1mCountry Load (0.6ms)[0m   [0;1mSELECT * FROM "countries" WHERE ("countries"."id" = 1) [0m
+  [4;35;1mRegion Load (0.6ms)[0m   [0mSELECT * FROM "regions" WHERE ("regions"."id" = 3) [0m
+Rendered tourist_sights/_location (27.1ms)
+Rendered tourist_sights/_info (29.0ms)
+  [4;36;1mTag Load (1.3ms)[0m   [0;1mSELECT "tags".* FROM "tags" INNER JOIN "tourist_sight_tags" ON "tags".id = "tourist_sight_tags".tag_id WHERE (("tourist_sight_tags".tourist_sight_id = 1)) [0m
+Rendered layouts/_banner (0.1ms)
+Rendered layouts/_menu (0.1ms)
+Rendered layouts/_footer (0.1ms)
+Completed in 98ms (View: 47, DB: 8) | 200 OK [http://localhost/tourist_sights/1]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing TouristSightsController#index (for 127.0.0.1 at 2009-07-13 14:10:14) [GET]
+  [4;35;1mTouristSight Load (1.3ms)[0m   [0mSELECT * FROM "tourist_sights" [0m
+Rendering template within layouts/application
+Rendering tourist_sights/index
+  [4;36;1mCity Load (0.6ms)[0m   [0;1mSELECT * FROM "cities" WHERE ("cities"."id" = 2975) [0m
+  [4;35;1mState Load (0.6ms)[0m   [0mSELECT * FROM "states" WHERE ("states"."id" = 20) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "cities" WHERE ("cities"."id" = 2975) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "states" WHERE ("states"."id" = 20) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "cities" WHERE ("cities"."id" = 2975) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "states" WHERE ("states"."id" = 20) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "cities" WHERE ("cities"."id" = 2975) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "states" WHERE ("states"."id" = 20) [0m
+Rendered tourist_sights/_list (38.4ms)
+Rendered layouts/_banner (0.1ms)
+Rendered layouts/_menu (0.7ms)
+Rendered layouts/_footer (0.1ms)
+Completed in 72ms (View: 44, DB: 3) | 200 OK [http://localhost/tourist_sights]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing TouristSightsController#index (for 127.0.0.1 at 2009-07-13 14:11:42) [GET]
+  [4;36;1mTouristSight Load (17.0ms)[0m   [0;1mSELECT * FROM "tourist_sights" [0m
+Rendering template within layouts/application
+Rendering tourist_sights/index
+  [4;35;1mCity Load (0.6ms)[0m   [0mSELECT * FROM "cities" WHERE ("cities"."id" = 2975) [0m
+  [4;36;1mState Load (1.6ms)[0m   [0;1mSELECT * FROM "states" WHERE ("states"."id" = 20) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "cities" WHERE ("cities"."id" = 2975) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "states" WHERE ("states"."id" = 20) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "cities" WHERE ("cities"."id" = 2975) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "states" WHERE ("states"."id" = 20) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "cities" WHERE ("cities"."id" = 2975) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "states" WHERE ("states"."id" = 20) [0m
+Rendered tourist_sights/_list (120.4ms)
+Rendered layouts/_banner (0.1ms)
+Rendered layouts/_menu (0.2ms)
+Rendered layouts/_footer (0.1ms)
+Completed in 161ms (View: 124, DB: 19) | 200 OK [http://localhost/tourist_sights]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing TouristSightsController#index (for 127.0.0.1 at 2009-07-13 14:12:24) [GET]
+  [4;35;1mTouristSight Load (1.3ms)[0m   [0mSELECT * FROM "tourist_sights" [0m
+Rendering template within layouts/application
+Rendering tourist_sights/index
+  [4;36;1mCity Load (1.1ms)[0m   [0;1mSELECT * FROM "cities" WHERE ("cities"."id" = 2975) [0m
+  [4;35;1mState Load (0.6ms)[0m   [0mSELECT * FROM "states" WHERE ("states"."id" = 20) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "cities" WHERE ("cities"."id" = 2975) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "states" WHERE ("states"."id" = 20) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "cities" WHERE ("cities"."id" = 2975) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "states" WHERE ("states"."id" = 20) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "cities" WHERE ("cities"."id" = 2975) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "states" WHERE ("states"."id" = 20) [0m
+Rendered tourist_sights/_list (42.9ms)
+Rendered layouts/_banner (0.1ms)
+Rendered layouts/_menu (0.1ms)
+Rendered layouts/_footer (0.1ms)
+Completed in 80ms (View: 45, DB: 3) | 200 OK [http://localhost/tourist_sights]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing TouristSightsController#new (for 127.0.0.1 at 2009-07-13 14:13:22) [GET]
+  [4;36;1mState Load (1.4ms)[0m   [0;1mSELECT * FROM "states" WHERE ("states"."country_id" = 1) ORDER BY name asc[0m
+Rendering template within layouts/application
+Rendering tourist_sights/new
+Rendered tourist_sights/_form (15.3ms)
+Rendered layouts/_banner (6.2ms)
+Rendered layouts/_menu (0.2ms)
+Rendered layouts/_footer (0.1ms)
+Completed in 185ms (View: 128, DB: 2) | 200 OK [http://localhost/tourist_sights/new]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing TouristSightsController#index (for 127.0.0.1 at 2009-07-13 14:14:38) [GET]
+  [4;35;1mTouristSight Load (1.3ms)[0m   [0mSELECT * FROM "tourist_sights" [0m
+Rendering template within layouts/application
+Rendering tourist_sights/index
+  [4;36;1mCity Load (0.9ms)[0m   [0;1mSELECT * FROM "cities" WHERE ("cities"."id" = 2975) [0m
+  [4;35;1mState Load (0.6ms)[0m   [0mSELECT * FROM "states" WHERE ("states"."id" = 20) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "cities" WHERE ("cities"."id" = 2975) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "states" WHERE ("states"."id" = 20) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "cities" WHERE ("cities"."id" = 2975) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "states" WHERE ("states"."id" = 20) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "cities" WHERE ("cities"."id" = 2975) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "states" WHERE ("states"."id" = 20) [0m
+Rendered tourist_sights/_list (38.6ms)
+Rendered layouts/_banner (0.3ms)
+Rendered layouts/_menu (0.1ms)
+Rendered layouts/_footer (0.1ms)
+Completed in 85ms (View: 42, DB: 3) | 200 OK [http://localhost/tourist_sights]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing TouristSightsController#index (for 127.0.0.1 at 2009-07-13 14:15:16) [GET]
+  [4;36;1mTouristSight Load (1.3ms)[0m   [0;1mSELECT * FROM "tourist_sights" [0m
+Rendering template within layouts/application
+Rendering tourist_sights/index
+  [4;35;1mCity Load (1.1ms)[0m   [0mSELECT * FROM "cities" WHERE ("cities"."id" = 2975) [0m
+  [4;36;1mState Load (11.8ms)[0m   [0;1mSELECT * FROM "states" WHERE ("states"."id" = 20) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "cities" WHERE ("cities"."id" = 2975) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "states" WHERE ("states"."id" = 20) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "cities" WHERE ("cities"."id" = 2975) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "states" WHERE ("states"."id" = 20) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "cities" WHERE ("cities"."id" = 2975) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "states" WHERE ("states"."id" = 20) [0m
+Rendered tourist_sights/_list (67.6ms)
+Rendered layouts/_banner (0.1ms)
+Rendered layouts/_menu (0.1ms)
+Rendered layouts/_footer (0.1ms)
+Completed in 96ms (View: 59, DB: 14) | 200 OK [http://localhost/tourist_sights]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing TouristSightsController#index (for 127.0.0.1 at 2009-07-13 14:15:18) [GET]
+  [4;35;1mTouristSight Load (11.6ms)[0m   [0mSELECT * FROM "tourist_sights" [0m
+Rendering template within layouts/application
+Rendering tourist_sights/index
+  [4;36;1mCity Load (0.7ms)[0m   [0;1mSELECT * FROM "cities" WHERE ("cities"."id" = 2975) [0m
+  [4;35;1mState Load (0.6ms)[0m   [0mSELECT * FROM "states" WHERE ("states"."id" = 20) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "cities" WHERE ("cities"."id" = 2975) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "states" WHERE ("states"."id" = 20) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "cities" WHERE ("cities"."id" = 2975) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "states" WHERE ("states"."id" = 20) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "cities" WHERE ("cities"."id" = 2975) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "states" WHERE ("states"."id" = 20) [0m
+Rendered tourist_sights/_list (211.1ms)
+Rendered layouts/_banner (0.1ms)
+Rendered layouts/_menu (0.1ms)
+Rendered layouts/_footer (0.1ms)
+Completed in 259ms (View: 226, DB: 13) | 200 OK [http://localhost/tourist_sights]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing TouristSightsController#index (for 127.0.0.1 at 2009-07-13 14:15:19) [GET]
+  [4;36;1mTouristSight Load (1.4ms)[0m   [0;1mSELECT * FROM "tourist_sights" [0m
+Rendering template within layouts/application
+Rendering tourist_sights/index
+  [4;35;1mCity Load (0.6ms)[0m   [0mSELECT * FROM "cities" WHERE ("cities"."id" = 2975) [0m
+  [4;36;1mState Load (10.4ms)[0m   [0;1mSELECT * FROM "states" WHERE ("states"."id" = 20) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "cities" WHERE ("cities"."id" = 2975) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "states" WHERE ("states"."id" = 20) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "cities" WHERE ("cities"."id" = 2975) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "states" WHERE ("states"."id" = 20) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "cities" WHERE ("cities"."id" = 2975) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "states" WHERE ("states"."id" = 20) [0m
+Rendered tourist_sights/_list (64.6ms)
+Rendered layouts/_banner (0.1ms)
+Rendered layouts/_menu (0.1ms)
+Rendered layouts/_footer (0.1ms)
+Completed in 95ms (View: 58, DB: 13) | 200 OK [http://localhost/tourist_sights]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing TouristSightsController#index (for 127.0.0.1 at 2009-07-13 14:15:34) [GET]
+  [4;35;1mTouristSight Load (1.3ms)[0m   [0mSELECT * FROM "tourist_sights" [0m
+Rendering template within layouts/application
+Rendering tourist_sights/index
+  [4;36;1mCity Load (0.7ms)[0m   [0;1mSELECT * FROM "cities" WHERE ("cities"."id" = 2975) [0m
+  [4;35;1mState Load (1.3ms)[0m   [0mSELECT * FROM "states" WHERE ("states"."id" = 20) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "cities" WHERE ("cities"."id" = 2975) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "states" WHERE ("states"."id" = 20) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "cities" WHERE ("cities"."id" = 2975) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "states" WHERE ("states"."id" = 20) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "cities" WHERE ("cities"."id" = 2975) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "states" WHERE ("states"."id" = 20) [0m
+Rendered tourist_sights/_list (41.8ms)
+Rendered layouts/_banner (0.1ms)
+Rendered layouts/_menu (1.1ms)
+Rendered layouts/_footer (0.1ms)
+Completed in 77ms (View: 46, DB: 3) | 200 OK [http://localhost/tourist_sights]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing TouristSightsController#show (for 127.0.0.1 at 2009-07-13 14:16:19) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mTouristSight Load (0.8ms)[0m   [0;1mSELECT * FROM "tourist_sights" WHERE ("tourist_sights"."id" = 1) [0m
+  [4;35;1mCity Load (0.6ms)[0m   [0mSELECT * FROM "cities" WHERE ("cities"."id" = 2975) [0m
+Rendering template within layouts/application
+Rendering tourist_sights/show
+  [4;36;1mState Load (0.6ms)[0m   [0;1mSELECT * FROM "states" WHERE ("states"."id" = 20) [0m
+  [4;35;1mCountry Load (0.9ms)[0m   [0mSELECT * FROM "countries" WHERE ("countries"."id" = 1) [0m
+  [4;36;1mRegion Load (0.6ms)[0m   [0;1mSELECT * FROM "regions" WHERE ("regions"."id" = 3) [0m
+Rendered tourist_sights/_location (32.0ms)
+Rendered tourist_sights/_info (34.3ms)
+  [4;35;1mTag Load (1.3ms)[0m   [0mSELECT "tags".* FROM "tags" INNER JOIN "tourist_sight_tags" ON "tags".id = "tourist_sight_tags".tag_id WHERE (("tourist_sight_tags".tourist_sight_id = 1)) [0m
+Rendered layouts/_banner (0.1ms)
+Rendered layouts/_menu (0.1ms)
+Rendered layouts/_footer (0.1ms)
+Completed in 109ms (View: 53, DB: 5) | 200 OK [http://localhost/tourist_sights/1]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing TouristSightTagsController#new (for 127.0.0.1 at 2009-07-13 14:16:41) [GET]
+  Parameters: {"tourist_sight_id"=>"1"}
+  [4;36;1mTouristSight Load (0.8ms)[0m   [0;1mSELECT * FROM "tourist_sights" WHERE ("tourist_sights"."id" = 1) [0m
+  [4;35;1mCity Load (0.6ms)[0m   [0mSELECT * FROM "cities" WHERE ("cities"."id" = 2975) [0m
+  [4;36;1mTag Load (3.1ms)[0m   [0;1mSELECT * FROM "tags" [0m
+Rendering template within layouts/application
+Rendering tourist_sight_tags/new
+  [4;35;1mState Load (0.6ms)[0m   [0mSELECT * FROM "states" WHERE ("states"."id" = 20) [0m
+  [4;36;1mCountry Load (2.8ms)[0m   [0;1mSELECT * FROM "countries" WHERE ("countries"."id" = 1) [0m
+  [4;35;1mRegion Load (0.6ms)[0m   [0mSELECT * FROM "regions" WHERE ("regions"."id" = 3) [0m
+Rendered tourist_sights/_location (31.3ms)
+Rendered tourist_sights/_info (34.3ms)
+  [4;36;1mTag Load (1.1ms)[0m   [0;1mSELECT "tags".* FROM "tags" INNER JOIN "tourist_sight_tags" ON "tags".id = "tourist_sight_tags".tag_id WHERE (("tourist_sight_tags".tourist_sight_id = 1)) [0m
+Rendered layouts/_banner (0.1ms)
+Rendered layouts/_menu (0.1ms)
+Rendered layouts/_footer (0.1ms)
+Completed in 167ms (View: 116, DB: 10) | 200 OK [http://localhost/tourist_sights/1/tourist_sight_tags/new]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing TouristSightTagsController#new (for 127.0.0.1 at 2009-07-13 14:17:10) [GET]
+  Parameters: {"tourist_sight_id"=>"1"}
+  [4;35;1mTouristSight Load (0.8ms)[0m   [0mSELECT * FROM "tourist_sights" WHERE ("tourist_sights"."id" = 1) [0m
+  [4;36;1mCity Load (0.6ms)[0m   [0;1mSELECT * FROM "cities" WHERE ("cities"."id" = 2975) [0m
+  [4;35;1mTag Load (0.7ms)[0m   [0mSELECT * FROM "tags" [0m
+Rendering template within layouts/application
+Rendering tourist_sight_tags/new
+  [4;36;1mState Load (0.7ms)[0m   [0;1mSELECT * FROM "states" WHERE ("states"."id" = 20) [0m
+  [4;35;1mCountry Load (0.6ms)[0m   [0mSELECT * FROM "countries" WHERE ("countries"."id" = 1) [0m
+  [4;36;1mRegion Load (0.6ms)[0m   [0;1mSELECT * FROM "regions" WHERE ("regions"."id" = 3) [0m
+Rendered tourist_sights/_location (28.6ms)
+Rendered tourist_sights/_info (31.0ms)
+  [4;35;1mTag Load (1.1ms)[0m   [0mSELECT "tags".* FROM "tags" INNER JOIN "tourist_sight_tags" ON "tags".id = "tourist_sight_tags".tag_id WHERE (("tourist_sight_tags".tourist_sight_id = 1)) [0m
+Rendered layouts/_banner (0.2ms)
+Rendered layouts/_menu (0.1ms)
+Rendered layouts/_footer (0.1ms)
+Completed in 198ms (View: 48, DB: 5) | 200 OK [http://localhost/tourist_sights/1/tourist_sight_tags/new]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing TouristSightsController#index (for 127.0.0.1 at 2009-07-13 14:17:26) [GET]
+  [4;36;1mTouristSight Load (17.5ms)[0m   [0;1mSELECT * FROM "tourist_sights" [0m
+Rendering template within layouts/application
+Rendering tourist_sights/index
+  [4;35;1mCity Load (0.6ms)[0m   [0mSELECT * FROM "cities" WHERE ("cities"."id" = 2975) [0m
+  [4;36;1mState Load (0.6ms)[0m   [0;1mSELECT * FROM "states" WHERE ("states"."id" = 20) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "cities" WHERE ("cities"."id" = 2975) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "states" WHERE ("states"."id" = 20) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "cities" WHERE ("cities"."id" = 2975) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "states" WHERE ("states"."id" = 20) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "cities" WHERE ("cities"."id" = 2975) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "states" WHERE ("states"."id" = 20) [0m
+Rendered tourist_sights/_list (36.9ms)
+Rendered layouts/_banner (0.1ms)
+Rendered layouts/_menu (0.1ms)
+Rendered layouts/_footer (2.5ms)
+Completed in 75ms (View: 43, DB: 19) | 200 OK [http://localhost/tourist_sights]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing TouristSightsController#show (for 127.0.0.1 at 2009-07-13 14:17:28) [GET]
+  Parameters: {"id"=>"2"}
+  [4;35;1mTouristSight Load (0.8ms)[0m   [0mSELECT * FROM "tourist_sights" WHERE ("tourist_sights"."id" = 2) [0m
+  [4;36;1mCity Load (0.6ms)[0m   [0;1mSELECT * FROM "cities" WHERE ("cities"."id" = 2975) [0m
+Rendering template within layouts/application
+Rendering tourist_sights/show
+  [4;35;1mState Load (0.6ms)[0m   [0mSELECT * FROM "states" WHERE ("states"."id" = 20) [0m
+  [4;36;1mCountry Load (0.6ms)[0m   [0;1mSELECT * FROM "countries" WHERE ("countries"."id" = 1) [0m
+  [4;35;1mRegion Load (0.6ms)[0m   [0mSELECT * FROM "regions" WHERE ("regions"."id" = 3) [0m
+Rendered tourist_sights/_location (28.1ms)
+Rendered tourist_sights/_info (30.0ms)
+  [4;36;1mTag Load (1.3ms)[0m   [0;1mSELECT "tags".* FROM "tags" INNER JOIN "tourist_sight_tags" ON "tags".id = "tourist_sight_tags".tag_id WHERE (("tourist_sight_tags".tourist_sight_id = 2)) [0m
+Rendered layouts/_banner (0.1ms)
+Rendered layouts/_menu (0.2ms)
+Rendered layouts/_footer (0.1ms)
+Completed in 183ms (View: 133, DB: 5) | 200 OK [http://localhost/tourist_sights/2]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing TouristSightTagsController#new (for 127.0.0.1 at 2009-07-13 14:17:30) [GET]
+  Parameters: {"tourist_sight_id"=>"2"}
+  [4;35;1mTouristSight Load (0.8ms)[0m   [0mSELECT * FROM "tourist_sights" WHERE ("tourist_sights"."id" = 2) [0m
+  [4;36;1mCity Load (0.6ms)[0m   [0;1mSELECT * FROM "cities" WHERE ("cities"."id" = 2975) [0m
+  [4;35;1mTag Load (0.6ms)[0m   [0mSELECT * FROM "tags" [0m
+Rendering template within layouts/application
+Rendering tourist_sight_tags/new
+  [4;36;1mState Load (1.8ms)[0m   [0;1mSELECT * FROM "states" WHERE ("states"."id" = 20) [0m
+  [4;35;1mCountry Load (0.6ms)[0m   [0mSELECT * FROM "countries" WHERE ("countries"."id" = 1) [0m
+  [4;36;1mRegion Load (0.5ms)[0m   [0;1mSELECT * FROM "regions" WHERE ("regions"."id" = 3) [0m
+Rendered tourist_sights/_location (69.4ms)
+Rendered tourist_sights/_info (71.4ms)
+  [4;35;1mTag Load (1.1ms)[0m   [0mSELECT "tags".* FROM "tags" INNER JOIN "tourist_sight_tags" ON "tags".id = "tourist_sight_tags".tag_id WHERE (("tourist_sight_tags".tourist_sight_id = 2)) [0m
+Rendered layouts/_banner (0.1ms)
+Rendered layouts/_menu (0.1ms)
+Rendered layouts/_footer (0.1ms)
+Completed in 150ms (View: 89, DB: 6) | 200 OK [http://localhost/tourist_sights/2/tourist_sight_tags/new]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing TouristSightsController#index (for 127.0.0.1 at 2009-07-17 17:57:02) [GET]
+  [4;36;1mTouristSight Load (84.2ms)[0m   [0;1mSELECT * FROM "tourist_sights" [0m
+Rendering template within layouts/application
+Rendering tourist_sights/index
+  [4;35;1mCity Load (24.7ms)[0m   [0mSELECT * FROM "cities" WHERE ("cities"."id" = 2975) [0m
+  [4;36;1mState Load (12.7ms)[0m   [0;1mSELECT * FROM "states" WHERE ("states"."id" = 20) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "cities" WHERE ("cities"."id" = 2975) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "states" WHERE ("states"."id" = 20) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "cities" WHERE ("cities"."id" = 2975) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "states" WHERE ("states"."id" = 20) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "cities" WHERE ("cities"."id" = 2975) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "states" WHERE ("states"."id" = 20) [0m
+Rendered tourist_sights/_list (321.4ms)
+Rendered layouts/_banner (13.8ms)
+Rendered layouts/_menu (15.1ms)
+Rendered layouts/_footer (11.1ms)
+Completed in 616ms (View: 436, DB: 122) | 200 OK [http://localhost/tourist_sights]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing TouristSightsController#index (for 127.0.0.1 at 2009-07-17 18:03:05) [GET]
+  [4;35;1mTouristSight Load (1.3ms)[0m   [0mSELECT * FROM "tourist_sights" [0m
+Rendering template within layouts/application
+Rendering tourist_sights/index
+  [4;36;1mCity Load (0.6ms)[0m   [0;1mSELECT * FROM "cities" WHERE ("cities"."id" = 2975) [0m
+  [4;35;1mState Load (0.6ms)[0m   [0mSELECT * FROM "states" WHERE ("states"."id" = 20) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "cities" WHERE ("cities"."id" = 2975) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "states" WHERE ("states"."id" = 20) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "cities" WHERE ("cities"."id" = 2975) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "states" WHERE ("states"."id" = 20) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "cities" WHERE ("cities"."id" = 2975) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "states" WHERE ("states"."id" = 20) [0m
+Rendered tourist_sights/_list (34.3ms)
+Rendered layouts/_banner (0.1ms)
+Rendered layouts/_menu (0.1ms)
+Rendered layouts/_footer (0.1ms)
+Completed in 125ms (View: 37, DB: 3) | 200 OK [http://localhost/tourist_sights]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing TouristSightsController#show (for 127.0.0.1 at 2009-07-17 18:03:06) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mTouristSight Load (30.7ms)[0m   [0;1mSELECT * FROM "tourist_sights" WHERE ("tourist_sights"."id" = 1) [0m
+  [4;35;1mCity Load (0.6ms)[0m   [0mSELECT * FROM "cities" WHERE ("cities"."id" = 2975) [0m
+Rendering template within layouts/application
+Rendering tourist_sights/show
+  [4;36;1mState Load (0.6ms)[0m   [0;1mSELECT * FROM "states" WHERE ("states"."id" = 20) [0m
+  [4;35;1mCountry Load (14.1ms)[0m   [0mSELECT * FROM "countries" WHERE ("countries"."id" = 1) [0m
+  [4;36;1mRegion Load (1.3ms)[0m   [0;1mSELECT * FROM "regions" WHERE ("regions"."id" = 3) [0m
+Rendered tourist_sights/_location (67.1ms)
+Rendered tourist_sights/_info (83.1ms)
+  [4;35;1mTag Load (2.4ms)[0m   [0mSELECT "tags".* FROM "tags" INNER JOIN "tourist_sight_tags" ON "tags".id = "tourist_sight_tags".tag_id WHERE (("tourist_sight_tags".tourist_sight_id = 1)) [0m
+Rendered layouts/_banner (0.1ms)
+Rendered layouts/_menu (0.1ms)
+Rendered layouts/_footer (0.1ms)
+Completed in 217ms (View: 136, DB: 50) | 200 OK [http://localhost/tourist_sights/1]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing TouristSightsController#show (for 127.0.0.1 at 2009-07-17 18:07:38) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mTouristSight Load (0.8ms)[0m   [0;1mSELECT * FROM "tourist_sights" WHERE ("tourist_sights"."id" = 1) [0m
+  [4;35;1mCity Load (0.6ms)[0m   [0mSELECT * FROM "cities" WHERE ("cities"."id" = 2975) [0m
+Rendering template within layouts/application
+Rendering tourist_sights/show
+  [4;36;1mState Load (0.8ms)[0m   [0;1mSELECT * FROM "states" WHERE ("states"."id" = 20) [0m
+  [4;35;1mCountry Load (0.6ms)[0m   [0mSELECT * FROM "countries" WHERE ("countries"."id" = 1) [0m
+  [4;36;1mRegion Load (0.6ms)[0m   [0;1mSELECT * FROM "regions" WHERE ("regions"."id" = 3) [0m
+Rendered tourist_sights/_location (25.2ms)
+Rendered tourist_sights/_info (27.4ms)
+  [4;35;1mTag Load (1.2ms)[0m   [0mSELECT "tags".* FROM "tags" INNER JOIN "tourist_sight_tags" ON "tags".id = "tourist_sight_tags".tag_id WHERE (("tourist_sight_tags".tourist_sight_id = 1)) [0m
+Rendered layouts/_banner (0.1ms)
+Rendered layouts/_menu (0.1ms)
+Rendered layouts/_footer (0.1ms)
+Completed in 84ms (View: 47, DB: 5) | 200 OK [http://localhost/tourist_sights/1]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-07-17 18:07:39) [GET]
+
+ActionController::RoutingError (No route matches "/images/img/bg-novo.jpg" with {:method=>:get}):
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing TouristSightsController#show (for 127.0.0.1 at 2009-07-17 18:07:40) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mTouristSight Load (0.8ms)[0m   [0;1mSELECT * FROM "tourist_sights" WHERE ("tourist_sights"."id" = 1) [0m
+  [4;35;1mCity Load (0.6ms)[0m   [0mSELECT * FROM "cities" WHERE ("cities"."id" = 2975) [0m
+Rendering template within layouts/application
+Rendering tourist_sights/show
+  [4;36;1mState Load (0.6ms)[0m   [0;1mSELECT * FROM "states" WHERE ("states"."id" = 20) [0m
+  [4;35;1mCountry Load (0.6ms)[0m   [0mSELECT * FROM "countries" WHERE ("countries"."id" = 1) [0m
+  [4;36;1mRegion Load (0.6ms)[0m   [0;1mSELECT * FROM "regions" WHERE ("regions"."id" = 3) [0m
+Rendered tourist_sights/_location (25.6ms)
+Rendered tourist_sights/_info (27.8ms)
+  [4;35;1mTag Load (1.5ms)[0m   [0mSELECT "tags".* FROM "tags" INNER JOIN "tourist_sight_tags" ON "tags".id = "tourist_sight_tags".tag_id WHERE (("tourist_sight_tags".tourist_sight_id = 1)) [0m
+Rendered layouts/_banner (0.1ms)
+Rendered layouts/_menu (0.1ms)
+Rendered layouts/_footer (0.1ms)
+Completed in 89ms (View: 49, DB: 5) | 200 OK [http://localhost/tourist_sights/1]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-07-17 18:07:40) [GET]
+
+ActionController::RoutingError (No route matches "/images/img/bg-novo.jpg" with {:method=>:get}):
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing TouristSightsController#edit (for 127.0.0.1 at 2009-07-17 18:08:24) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mTouristSight Load (0.8ms)[0m   [0;1mSELECT * FROM "tourist_sights" WHERE ("tourist_sights"."id" = 1) [0m
+  [4;35;1mState Load (22.1ms)[0m   [0mSELECT * FROM "states" WHERE ("states"."country_id" = 1) ORDER BY name asc[0m
+  [4;36;1mCity Load (0.8ms)[0m   [0;1mSELECT * FROM "cities" WHERE ("cities"."id" = 2975) [0m
+  [4;35;1mState Load (0.4ms)[0m   [0mSELECT * FROM "states" WHERE ("states"."id" = 20) [0m
+  [4;36;1mCity Load (19.6ms)[0m   [0;1mSELECT * FROM "cities" WHERE ("cities"."state_id" = 20) ORDER BY name asc[0m
+Rendering template within layouts/application
+Rendering tourist_sights/edit
+Rendered tourist_sights/_form (18.4ms)
+Rendered layouts/_banner (0.1ms)
+Rendered layouts/_menu (0.2ms)
+Rendered layouts/_footer (0.1ms)
+Completed in 124ms (View: 38, DB: 44) | 200 OK [http://localhost/tourist_sights/1/edit]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-07-17 18:08:25) [GET]
+
+ActionController::RoutingError (No route matches "/images/img/bg-novo.jpg" with {:method=>:get}):
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing TouristSightsController#index (for 127.0.0.1 at 2009-07-17 18:08:28) [GET]
+  [4;35;1mTouristSight Load (1.3ms)[0m   [0mSELECT * FROM "tourist_sights" [0m
+Rendering template within layouts/application
+Rendering tourist_sights/index
+  [4;36;1mCity Load (0.9ms)[0m   [0;1mSELECT * FROM "cities" WHERE ("cities"."id" = 2975) [0m
+  [4;35;1mState Load (0.6ms)[0m   [0mSELECT * FROM "states" WHERE ("states"."id" = 20) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "cities" WHERE ("cities"."id" = 2975) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "states" WHERE ("states"."id" = 20) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "cities" WHERE ("cities"."id" = 2975) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "states" WHERE ("states"."id" = 20) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "cities" WHERE ("cities"."id" = 2975) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "states" WHERE ("states"."id" = 20) [0m
+Rendered tourist_sights/_list (32.7ms)
+Rendered layouts/_banner (0.1ms)
+Rendered layouts/_menu (0.1ms)
+Rendered layouts/_footer (0.1ms)
+Completed in 58ms (View: 35, DB: 3) | 200 OK [http://localhost/tourist_sights]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-07-17 18:08:28) [GET]
+
+ActionController::RoutingError (No route matches "/images/img/bg-novo.jpg" with {:method=>:get}):
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing TouristSightsController#show (for 127.0.0.1 at 2009-07-17 18:08:30) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mTouristSight Load (0.8ms)[0m   [0;1mSELECT * FROM "tourist_sights" WHERE ("tourist_sights"."id" = 1) [0m
+  [4;35;1mCity Load (0.6ms)[0m   [0mSELECT * FROM "cities" WHERE ("cities"."id" = 2975) [0m
+Rendering template within layouts/application
+Rendering tourist_sights/show
+  [4;36;1mState Load (0.6ms)[0m   [0;1mSELECT * FROM "states" WHERE ("states"."id" = 20) [0m
+  [4;35;1mCountry Load (0.6ms)[0m   [0mSELECT * FROM "countries" WHERE ("countries"."id" = 1) [0m
+  [4;36;1mRegion Load (10.7ms)[0m   [0;1mSELECT * FROM "regions" WHERE ("regions"."id" = 3) [0m
+Rendered tourist_sights/_location (54.3ms)
+Rendered tourist_sights/_info (56.2ms)
+  [4;35;1mTag Load (13.3ms)[0m   [0mSELECT "tags".* FROM "tags" INNER JOIN "tourist_sight_tags" ON "tags".id = "tourist_sight_tags".tag_id WHERE (("tourist_sight_tags".tourist_sight_id = 1)) [0m
+Rendered layouts/_banner (0.1ms)
+Rendered layouts/_menu (0.1ms)
+Rendered layouts/_footer (0.1ms)
+Completed in 243ms (View: 63, DB: 27) | 200 OK [http://localhost/tourist_sights/1]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-07-17 18:08:31) [GET]
+
+ActionController::RoutingError (No route matches "/images/img/bg-novo.jpg" with {:method=>:get}):
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
