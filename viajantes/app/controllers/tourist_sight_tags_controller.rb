@@ -1,5 +1,8 @@
 class TouristSightTagsController < ApplicationController
 	
+	# Lista todos os TouristSights que estao na cidade informada e possuem a tag
+	# informada.
+	#
 	# Parametros necessarios:
 	# 	- city_id
 	#		- tag_id

@@ -36,6 +36,28 @@ class TouristSightTagsControllerTest < ActionController::TestCase
 		assert_equal(1, ts.tags.length)
 	end
 
+	test "Deveria listar todos os tourist sights da cidade informada com a tag informada" do
+		# Preparando teste
+		id = tourist_sights(:one).to_param
+		tag_id = tags(:one).to_param
+
+		# Recuperando objetos do banco
+		tag = Tag.find(tag_id)
+		ts = TouristSight.find(id)
+		
+		# Associando tag a tourist sight
+		ts.save_tags([tag])
+
+		# Verifica se o controlador responde sucesso
+		get :index, :tourist_sight_id => id, :tag_id => tag.id
+    assert_response :success
+	
+		# Verifica se o controlador recuperou os objetos
+		assert_equal(TouristSightTag.count, assigns(:tourist_sights).length)
+		assert_not_nil assigns(:city)
+		assert_not_nil assigns(:tag)
+	end
+
 end
 
 

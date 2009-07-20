@@ -55,8 +55,9 @@ class TouristSightTest < ActiveSupport::TestCase
 		city_id = ts1.city.id		
 
 		tag = Tag.find(tags(:one).to_param)
-		array = TouristSight.find_all_by_city_and_tag(city_id, tag_id)
-		assert_empty(array)
+		array = TouristSight.find_all_by_city_and_tag(city_id, tag.id)
+		assert_not_nil(array)
+		assert_equal(0, array.length)
 	end
 
 end
