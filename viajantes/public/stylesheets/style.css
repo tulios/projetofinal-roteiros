@@ -9,7 +9,10 @@ html {min-height: 100%;}
 a {color: #666666;}
 a:hover {color: #4682B4;}
 body {
+	/*
 	background: #CCD8E0 url(../images/img/bg-novo.jpg) repeat-x left bottom;
+	*/
+	background: #F1E0AC url(../images/img/praia.jpg) repeat-x scroll;
 	color: #444;
 	font: normal 62.5% Tahoma,sans-serif;
 	text-align: center;
@@ -25,7 +28,7 @@ h1 {
 }
 
 code {
-	background: #FFF;
+
 	border: 1px solid #EEE;
 	border-left: 6px solid #C1CAD3;
 	color: #666;
@@ -62,7 +65,9 @@ h1,h2,h3 {padding-top: 6px;}
 
 /* header */
 .top {
+	/*
 	background: url(../images/img/clouds.gif) repeat-x;
+	*/
 	padding: 50px 10px 0;
 }
 
@@ -235,8 +240,21 @@ textarea.expanding {
 	line-height: 18px;
 }
 
+.botao_new_tip {
+	color:#FFFFFF;
+	margin: 0px 0px 0px 0px;
+	padding: 3px 5px 3px 22px;
+	background: #9FB6CD url(../images/new_tip.png) no-repeat 2px 1px;
+	border: 1px solid #C1CDCD;
+	font-size:12px;
+	height: 20px;
+	cursor: pointer;
+}
 
-
+.botao_new_tip:hover {
+	color:#FFFFFF;
+	background: #6C7B8B url(../images/new_tip.png) no-repeat 2px 1px;
+}
 
 
 
