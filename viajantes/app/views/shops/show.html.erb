@@ -1,33 +1,47 @@
-<p>
-  <b>Name:</b>
-  <%=h @shop.name %>
-</p>
+<table width="100%" class="tabela_info" cellspacing="5">
+	<tr>
+		<td colspan="2" align="center">
+			<%= render :partial => "tourist_sights/location" %>
+		</td>
+	</tr>
+	<tr>
+		<td width="15%" align="right">
+			<strong>Nome:</strong>
+		</td>
+		<td><%=h @shop.name %></td>
+	</tr>
+	<tr>
+		<td width="15%" align="right">
+			<strong>Endereço:</strong>
+		</td>
+		<td><%=h @shop.address %></td>
+	</tr>
+	<tr>
+		<td width="15%" align="right">
+			<strong>Descrição:</strong>
+		</td>
+		<td><%=h @shop.description %></td>
+	</tr>
+	<tr>
+		<td width="15%" align="right">
+			<strong>Palavras-chave:</strong>
+		</td>
+		<td><%=h @shop.key_words %></td>
+	</tr>
+	<% if @shop.tourist_sight %>
+	<tr>
+		<td width="15%" align="right">
+			<strong>Associado a:</strong>
+		</td>
+		<td>
+			<%= link_to "#{@shop.tourist_sight.name}", @shop.tourist_sight %>
+		</td>
+	</tr>
+	<% end %>
+</table>
 
-<p>
-  <b>Address:</b>
-  <%=h @shop.address %>
-</p>
+<br/>
+<br/>
 
-<p>
-  <b>Description:</b>
-  <%=h @shop.description %>
-</p>
-
-<p>
-  <b>Key words:</b>
-  <%=h @shop.key_words %>
-</p>
-
-<p>
-  <b>City:</b>
-  <%=h @shop.city %>
-</p>
-
-<p>
-  <b>Tourist sight:</b>
-  <%=h @shop.tourist_sight %>
-</p>
-
-
-<%= link_to 'Edit', edit_shop_path(@shop) %> |
-<%= link_to 'Back', shops_path %>
+<%= link_to 'Editar', edit_shop_path(@shop) %> |
+<%= link_to 'Voltar', shops_path %>

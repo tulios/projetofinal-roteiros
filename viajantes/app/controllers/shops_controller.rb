@@ -14,6 +14,7 @@ class ShopsController < ApplicationController
   # GET /shops/1.xml
   def show
     @shop = Shop.find(params[:id])
+		@city = @shop.city
 
     respond_to do |format|
       format.html # show.html.erb
@@ -36,6 +37,13 @@ class ShopsController < ApplicationController
   # GET /shops/1/edit
   def edit
     @shop = Shop.find(params[:id])
+		@states = State.load_all
+
+		state_id = @shop.city.state.id
+		city_id = @shop.city.id
+		
+		@cities = City.load_all(state_id)
+		@tourist_sights = TouristSight.find_all_by_city_id(city_id)
   end
 
   # POST /shops
