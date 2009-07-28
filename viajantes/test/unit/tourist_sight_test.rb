@@ -59,6 +59,14 @@ class TouristSightTest < ActiveSupport::TestCase
 		assert_not_nil(array)
 		assert_equal(0, array.length)
 	end
+	
+	test "Deveria recuperar um tourist_sight com as suas dicas" do
+		ts1 = TouristSight.find(tourist_sights(:one).to_param)
+	
+		assert(ts1.valid?)
+		assert_not_nil(ts1.tips)
+		assert_equal(1, ts1.tips.length);
+	end
 
 end
 
