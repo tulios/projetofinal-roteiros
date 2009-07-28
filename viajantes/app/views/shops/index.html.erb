@@ -1,0 +1,30 @@
+<h1>Listing shops</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Address</th>
+    <th>Description</th>
+    <th>Key words</th>
+    <th>City</th>
+    <th>Tourist sight</th>
+  </tr>
+
+<% @shops.each do |shop| %>
+  <tr>
+    <td><%=h shop.name %></td>
+    <td><%=h shop.address %></td>
+    <td><%=h shop.description %></td>
+    <td><%=h shop.key_words %></td>
+    <td><%=h shop.city %></td>
+    <td><%=h shop.tourist_sight %></td>
+    <td><%= link_to 'Show', shop %></td>
+    <td><%= link_to 'Edit', edit_shop_path(shop) %></td>
+    <td><%= link_to 'Destroy', shop, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New shop', new_shop_path %>

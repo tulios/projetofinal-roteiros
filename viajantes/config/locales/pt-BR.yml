@@ -120,12 +120,20 @@
       state: "Estado"
       country: "País"
       region: "Região"
+      shop: "Estabelecimento"
     attributes:
       tourist_sight:
         name: "Nome"
         address: "Endereço"
         city: "Cidade"
         description: "Descrição"
+      shop:
+        name: "Nome"
+        address: "Endereço"
+        description: "Descrição"
+        city: "Cidade"
+        tourist_sight: "Ponto Turístico"
+        key_words: "Palavras-chave"
 
     errors:
       template:

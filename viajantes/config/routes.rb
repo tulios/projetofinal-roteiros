@@ -1,4 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :shops
+
   map.resources :tourist_sights do |touristSights|
 		touristSights.resources :tourist_sight_tags
 		touristSights.resources :tips

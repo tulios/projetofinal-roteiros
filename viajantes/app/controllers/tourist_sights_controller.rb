@@ -1,15 +1,5 @@
 class TouristSightsController < ApplicationController
 	
-	# Utilizado para carregar as cidades de um determinado estado
-	# Params:
-	#  - state_id
-	def cities
-    @cities = City.load_all(params[:state_id])
-		respond_to do |format|
-      format.html { render :layout => false } # cities.html.erb
-    end
-	end
-
   # GET /tourist_sights
   # GET /tourist_sights.xml
   def index
