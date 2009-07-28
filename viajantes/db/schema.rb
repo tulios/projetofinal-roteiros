@@ -29,7 +29,7 @@ ActiveRecord::Schema.define(:version => 20090728122326) do
   create_table "shops", :force => true do |t|
     t.string   "name"
     t.string   "address"
-    t.text   "description"
+    t.text     "description"
     t.text     "key_words"
     t.integer  "city_id"
     t.integer  "tourist_sight_id"
