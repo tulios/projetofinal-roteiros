@@ -1,4 +1,6 @@
-<table>
+<%= configure_textarea_autogrow %>
+
+<table cellspacing="10px">
 	<tr>
 		<td>
 			<% if @shop and @shop.city %>
@@ -33,9 +35,37 @@
 				<%= f.select :city_id, [], :include_blank => true %>
 			<% end %>
 			<%= image_tag 'load_mini.gif', :id => 'load', :style => "display: none;" %>
-		
 		</td>
 
+	</tr>
+	<tr>
+		<td colspan="2">
+			Este estabelecimento esta associado a um ponto turístico?
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<%= observe_field :shop_city_id, # ID do campo observado
+												# URL que sera chamada
+		 		                :url => {:controller => "tourist_sight_city_finder", :action => "index", :format => "html"}, 
+												:method => :get,
+					              :frequency => 0.5, # De quanto em quanto tempo o campo sera observado
+					    	        :update => :shop_tourist_sight_id, # ID do campo que sera atualizado
+					       		    :with => 'city_id', # valor que sera passado para url
+												:before => "$('#load2').show()", # O que fara antes de chamar a URL
+												:complete => "$('#load2').hide()" # O que fara depois de chamar a URL
+												%>
+
+			<% if @tourist_sights 
+				# se os pontos turisticos ja estiverem populados exibe o select com eles. Para caso de edicao.
+			%>
+				<%= f.select :tourist_sight_id, 
+										 @tourist_sights.map{|ts| [ts.name, ts.id] }, :include_blank => true %>
+			<% else %>
+				<%= f.select :tourist_sight_id, [], :include_blank => true %>
+			<% end %>
+			<%= image_tag 'load_mini.gif', :id => 'load2', :style => "display: none;" %>
+		</td>
 	</tr>
 	<tr>
 		<td>Nome:</td>
@@ -49,16 +79,31 @@
 		<td colspan="2">Descrição</td>
 	</tr>
 	<tr>
-		<td colspan="2"><%= f.text_area :description %></td>
+		<td colspan="2">
+			<%= f.text_area :description, {:rows => 5, :class => "expanding",
+							  			:style => "width: 100%; min-height: 100px; max-height: 500px;"} %>
+		</td>
 	</tr>
 	<tr>
 		<td colspan="2">Palavras-chave:</td>
 	</tr>
 	<tr>
-		<td colspan="2"><%= f.text_area :key_words %></td>
+		<td colspan="2">
+			<small>
+				* Utilize palavras como <u>restaurante, cyber cafe, padaria, farmacia, lan house</u>, etc.<br/>
+				&nbsp;&nbsp;Separe as palavras utilizando a <strong>vírgula</strong> (,).<br/>
+				&nbsp;&nbsp;Evite acentos e caracteres especiais.
+			</small>
+		</td>
 	</tr>
 	<tr>
-		<td colspan="2" align="right"><%= f.submit 'Create' %></td>
+		<td colspan="2">
+			<%= f.text_area :key_words, {:rows => 2, :class => "expanding",
+					  					:style => "width: 100%; min-height: 25px; max-height: 500px;"} %>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2" align="right"><%= f.submit 'Salvar' %></td>
 	</tr>
 
 	<% end %>

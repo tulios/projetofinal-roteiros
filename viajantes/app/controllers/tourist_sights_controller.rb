@@ -8,7 +8,7 @@ class TouristSightsController < ApplicationController
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @tourist_sights }
-   end
+  	end
   end
 
   # GET /tourist_sights/1
