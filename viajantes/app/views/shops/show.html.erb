@@ -8,34 +8,34 @@
 		</td>
 	</tr>
 	<tr>
-		<td width="15%" align="right">
+		<td width="13%" align="right">
 			<strong>Nome:</strong>
 		</td>
 		<td><%=h @shop.name %></td>
 	</tr>
 	<tr>
-		<td width="15%" align="right">
+		<td width="13%" align="right">
 			<strong>Endereço:</strong>
 		</td>
 		<td><%=h @shop.address %></td>
 	</tr>
 	<% if @shop.phone and @shop.phone.length > 0 %>
 	<tr>
-		<td width="15%" align="right">
+		<td width="13%" align="right">
 			<strong>Telefone:</strong>
 		</td>
 		<td><%=h @shop.phone %></td>
 	</tr>
 	<% end %>
 	<tr>
-		<td width="15%" align="right" valign="top">
+		<td width="13%" align="right" valign="top">
 			<strong>Descrição:</strong>
 		</td>
 		<td style="text-align: justify;"><%=h @shop.description %></td>
 	</tr>
 	<% if @shop.key_words and @shop.key_words.length > 0 %>
 	<tr>
-		<td width="15%" align="right">
+		<td width="13%" align="right">
 			<strong>Palavras-chave:</strong>
 		</td>
 		<td><%=h @shop.key_words %></td>
@@ -43,7 +43,7 @@
 	<% end %>
 	<% if @shop.tourist_sight %>
 	<tr>
-		<td width="15%" align="right">
+		<td width="13%" align="right">
 			<strong>Associado a:</strong>
 		</td>
 		<td>
@@ -51,7 +51,6 @@
 		</td>
 	</tr>
 	<% end %>
-	<tr><td><br/></td></tr>
 </table>
 
 <br/>

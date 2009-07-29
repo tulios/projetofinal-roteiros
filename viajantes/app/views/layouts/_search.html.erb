@@ -1,0 +1,8 @@
+<div style="float: right;" class="search">
+		<%= text_field_tag 'search', 'pesquise aqui', 
+		{:size => 15, :style => "color: rgb(136, 136, 136); font-size: 11px;",
+		 :id => "search_field", 
+		 :onclick => "javascript: $('#search_field').attr('value','');",
+		 :onblur => "javascript: if ($('#search_field').attr('value') == null || $('#search_field').attr('value').length == 0){ $('#search_field').attr('value','pesquise aqui')} ;" }
+		%>
+</div>

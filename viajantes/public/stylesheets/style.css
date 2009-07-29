@@ -106,7 +106,7 @@ h1,h2,h3 {padding-top: 6px;}
 	color: #456;
 	display: block;
 	float: left;
-	font: bold 1.1em sans-serif;
+	font: bold 1em sans-serif;
 	line-height: 41px;
 	padding: 0 20px;
 	text-decoration: none;
@@ -160,6 +160,8 @@ h1,h2,h3 {padding-top: 6px;}
 .tabela_info {
 	border: 1px solid #C1CDCD;
 	margin: 0px 0 0 0;
+	background: white;
+	padding: 10px;
 }
 
 .odd{
@@ -304,6 +306,30 @@ textarea.expanding {
 	background: url(../images/coqueiro_48.png) no-repeat;
 	padding: 15px 55px;
 }
+
+.search {
+	background: url(../images/search_32.png) no-repeat scroll 168px 4px;
+	padding: 10px 40px;
+	float: right;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
