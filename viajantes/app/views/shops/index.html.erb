@@ -1,26 +1,42 @@
-<h1>Estabelecimentos</h1>
-
-<br/>
-
-<table width="100%">
-
-<% @shops.each do |shop| %>
-  <tr>
-    <td><%=h shop.name %></td>
-    <td>
-			<span title="<%= h shop.city.state.name %>">
-				<%=h shop.city.state.symbol %> 
-			</span>
-			/ 
-			<%=h shop.city.name %>
-		</td>
-    <td><%= link_to 'Show', shop %></td>
-    <td><%= link_to 'Edit', edit_shop_path(shop) %></td>
-    <td><%= link_to 'Destroy', shop, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
-<% end %>
-</table>
-
-<br />
+<h1 class="shop">Estabelecimentos</h1>
 
 <%= link_to 'Criar um novo', new_shop_path %>
+<br/><br />
+
+<% if@shops and @shops.length > 0 %>
+	<table width="100%" class="tabela">
+
+		<tr>
+			<th width="30%" align="center">Estado/Cidade</th>
+		  <th width="90%" align="center">Nome</th>
+			<th width="10%" align="center">Editar</th>
+			<th width="10%" align="center">Apagar</th>
+		</tr>
+
+	<% @shops.each_with_index do |shop, index| %>
+
+		<% if index.odd? %>
+			<tr class="odd">
+			<% else %>
+			<tr class="even">
+		<% end %>
+		  <td>
+				<span title="<%= h shop.city.state.name %>">
+					<%=h shop.city.state.symbol %> 
+				</span>
+				/ 
+				<%=h shop.city.name %>
+			</td>
+		  <td><%= link_to "#{h shop.name}", shop %></td>
+		  <td><%= link_to 'Editar', edit_shop_path(shop) %></td>
+		  <td><%= link_to 'Apagar', shop, :confirm => 'Você tem certeza?', :method => :delete %></td>
+		</tr>
+
+	<% end %>
+	</table>
+	<%= will_paginate @shops %>
+
+<% else %>
+	<i>Nenhum estabelecimento encontrado.</i>
+	<br />
+<% end %>

@@ -29,9 +29,10 @@ ActiveRecord::Schema.define(:version => 20090728122326) do
   create_table "shops", :force => true do |t|
     t.string   "name"
     t.string   "address"
+    t.string   "phone",            :limit => 14
     t.text     "description"
     t.text     "key_words"
-    t.integer  "city_id"
+    t.integer  "city_id",                        :null => false
     t.integer  "tourist_sight_id"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -65,7 +66,7 @@ ActiveRecord::Schema.define(:version => 20090728122326) do
     t.datetime "updated_at"
   end
 
-  add_index "tourist_sight_tags", ["tag_id", "tourist_sight_id"], :name => "index_tourist_sight_tags_on_tourist_sight_id_and_tag_id", :unique => true
+  add_index "tourist_sight_tags", ["tourist_sight_id", "tag_id"], :name => "index_tourist_sight_tags_on_tourist_sight_id_and_tag_id", :unique => true
 
   create_table "tourist_sights", :force => true do |t|
     t.string   "name"

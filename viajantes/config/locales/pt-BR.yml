@@ -131,6 +131,7 @@
         name: "Nome"
         address: "Endereço"
         description: "Descrição"
+        phone: "Telefone"
         city: "Cidade"
         tourist_sight: "Ponto Turístico"
         key_words: "Palavras-chave"

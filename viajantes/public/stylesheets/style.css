@@ -295,6 +295,15 @@ textarea.expanding {
 .disabled {
 }
 
+.shop {
+	background: url(../images/shop_48.png) no-repeat;
+	padding: 12px 45px;
+}
+
+.tourist_sight {
+	background: url(../images/coqueiro_48.png) no-repeat;
+	padding: 15px 55px;
+}
 
 
 
