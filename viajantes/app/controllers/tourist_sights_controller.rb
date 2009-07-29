@@ -3,7 +3,7 @@ class TouristSightsController < ApplicationController
   # GET /tourist_sights
   # GET /tourist_sights.xml
   def index
-    @tourist_sights = TouristSight.all
+    @tourist_sights = TouristSight.paginate(:per_page => 10, :page => params[:page])
 
     respond_to do |format|
       format.html # index.html.erb

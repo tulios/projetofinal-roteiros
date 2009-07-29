@@ -256,6 +256,55 @@ textarea.expanding {
 	background: #6C7B8B url(../images/new_tip.png) no-repeat 2px 1px;
 }
 
+.pagination {
+	margin:0.3em;
+	padding:0.3em;
+	float: right;
+}
+
+.pagination a{
+	text-decoration: none;
+	border: 1px solid #AAAADD;
+	color: #336699;
+	margin: 0 0 0 1px;
+	padding: 0.05em 0.25em;
+}
+
+.pagination a:hover{
+	border: 1px solid #000000;
+}
+
+.pagination .current{
+	border: 1px solid #336699;
+	background: #336699;
+	color: #FFFFFF;
+	margin: 0 0 0 1px;
+	padding: 0.05em 0.25em;
+}
+
+.pagination .next_page{
+	text-decoration: none;
+	border: none;
+}
+
+.pagination .prev_page{
+	text-decoration: none;
+	border: none;
+}
+
+.disabled {
+}
+
+
+
+
+
+
+
+
+
+
+
 
 
 
