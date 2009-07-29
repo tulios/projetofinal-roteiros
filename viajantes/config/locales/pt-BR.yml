@@ -121,21 +121,34 @@
       country: "País"
       region: "Região"
       shop: "Estabelecimento"
+      tip: "Dica"
+      user: "Usuário"
+      
     attributes:
       tourist_sight:
         name: "Nome"
         address: "Endereço"
         city: "Cidade"
         description: "Descrição"
+      
+      tip:
+        name: "Nome"
+        description: "Descrição"
+
       shop:
         name: "Nome"
-        address: "Endereço"
         description: "Descrição"
         phone: "Telefone"
         city: "Cidade"
         tourist_sight: "Ponto Turístico"
         key_words: "Palavras-chave"
 
+      user:
+        login: "Login"
+        email: "E-mail"
+        password: "Senha"
+        password_confirmation: "Confirmação da senha"
+        
     errors:
       template:
         header:

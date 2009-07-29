@@ -1,4 +1,8 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :users
+
+  map.resource :session
+
   map.resources :shops
   map.resources :tourist_sight_city_finder
 
@@ -6,6 +10,12 @@ ActionController::Routing::Routes.draw do |map|
 		touristSights.resources :tourist_sight_tags
 		touristSights.resources :tips
 	end
+
+	#Rotas do usuário e login
+	map.signup  '/signup', :controller => 'users',   :action => 'new'
+	map.login  '/login',  :controller => 'session', :action => 'new'
+	map.logout '/logout', :controller => 'session', :action => 'destroy'
+
 
   # The priority is based upon order of creation: first created -> highest priority.
 
