@@ -1,21 +1,32 @@
 require 'digest/sha1'
 class User < ActiveRecord::Base
+  
+  @@sexes = {:m => "Masculino", :f => "Feminino"}
+  
   # Virtual attribute for the unencrypted password
   attr_accessor :password
 
-  validates_presence_of     :login, :email
+  def self.sexes
+    @@sexes
+  end
+
+  belongs_to :city
+  
+  validates_presence_of     :login, :email, :birthday, :sex, :city_id 
   validates_presence_of     :password,                   :if => :password_required?
   validates_presence_of     :password_confirmation,      :if => :password_required?
   validates_length_of       :password, :within => 4..40, :if => :password_required?
   validates_confirmation_of :password,                   :if => :password_required?
   validates_length_of       :login,    :within => 3..40
   validates_length_of       :email,    :within => 3..100
+  validates_format_of :email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,}\Z)/
+  validates_format_of :birthday, :with => %r{^([0-9][0-9]/[0-9][0-9]/[0-9][0-9][0-9][0-9])$}
   validates_uniqueness_of   :login, :email, :case_sensitive => false
   before_save :encrypt_password
   
   # prevents a user from submitting a crafted form that bypasses activation
   # anything else you want your user to change should be added here.
-  attr_accessible :login, :email, :password, :password_confirmation
+  attr_accessible :login, :email, :password, :password_confirmation, :sex, :birthday, :city, :city_id
 
   # Authenticates a user by their login name and unencrypted password.  Returns the user or nil.
   def self.authenticate(login, password)

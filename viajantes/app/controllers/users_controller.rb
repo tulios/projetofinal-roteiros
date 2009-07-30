@@ -5,6 +5,8 @@ class UsersController < ApplicationController
 
   # render new.rhtml
   def new
+    @user = User.new(:sex => "x")
+    @states = State.load_all
   end
 
   def create
@@ -20,6 +22,7 @@ class UsersController < ApplicationController
       redirect_back_or_default('/')
       flash[:notice] = "Thanks for signing up!"
     else
+      @states = State.load_all
       render :action => 'new'
     end
   end

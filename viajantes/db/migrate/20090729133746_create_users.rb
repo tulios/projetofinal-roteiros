@@ -3,6 +3,10 @@ class CreateUsers < ActiveRecord::Migration
     create_table "users", :force => true do |t|
       t.column :login,                     :string
       t.column :email,                     :string
+      t.column :sex,                       :string, :limit => 1
+      t.column :birthday,                  :date
+      t.belongs_to :city
+      t.column :sex,                       :string, :limit => 1
       t.column :crypted_password,          :string, :limit => 40
       t.column :salt,                      :string, :limit => 40
       t.column :created_at,                :datetime

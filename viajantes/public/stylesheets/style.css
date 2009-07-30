@@ -156,6 +156,9 @@ h1,h2,h3 {padding-top: 6px;}
 	text-align: center;
 }
 
+.form td {
+  padding: 5px;
+}
 
 .tabela_info {
 	border: 1px solid #C1CDCD;
