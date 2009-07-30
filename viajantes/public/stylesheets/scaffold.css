@@ -15,6 +15,12 @@ pre {
   display: inline;
 }
 
+.fieldWithErrors select{
+  background: #FFFFFF; /*#FFFFA8;*/
+	border-color: #c00;
+  display: inline;
+}
+
 #errorExplanation {
 	background:  #FFFFFF none repeat scroll; /*#FFFFA8*/
 	border-color: #c00;
