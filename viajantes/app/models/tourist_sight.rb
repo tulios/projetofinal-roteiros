@@ -26,6 +26,12 @@ class TouristSight < ActiveRecord::Base
 	def self.find_all_by_city_and_tag(city_id, tag_id)
 		TouristSight.all(:conditions => ["city_id = ? and tags.id = ?", city_id, tag_id], :joins => :tags)
 	end
+
+	def self.find_like_name(value, per_page, page)
+		TouristSight.paginate(:conditions => ["Lower(name) like ?", "%#{value.downcase}%"], 
+													:per_page => per_page, 
+													:page => page)
+	end
 end
 
 

@@ -254,6 +254,7 @@ textarea.expanding {
 	font-size:12px;
 	height: 20px;
 	cursor: pointer;
+	cursor: hand;
 }
 
 .botao_new_tip:hover {
@@ -310,16 +311,44 @@ textarea.expanding {
 	padding: 15px 55px;
 }
 
+.search_icon {
+	background: url(../images/search_48.png) no-repeat;
+	padding: 13px 55px;
+}
+
 .search {
-	background: url(../images/search_32.png) no-repeat scroll 168px 4px;
-	padding: 10px 40px;
+	margin: 10px -2px;
 	float: right;
 }
 
+.search_submit {
+	background: url(../images/search_32.png) no-repeat scroll; /*168px 4px;*/
+	padding: 9px 16px;
+	margin: 5px;
+	cursor: pointer;
+	cursor: hand;
+}
 
+.search_results{
+	padding: 10px;
+	
+}
 
+.search_results li{
+	list-style-image: none;
+	list-style-position: outside;
+	list-style-type: none;
+	margin: 11px;
+	border-bottom: 1px solid #778899;
+}
 
-
+.search_results .sem_li{
+	list-style-image: none;
+	list-style-position: outside;
+	list-style-type: none;
+	margin: 11px;
+	border-bottom: none;
+}
 
 
 

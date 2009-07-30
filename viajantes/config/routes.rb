@@ -1,10 +1,9 @@
 ActionController::Routing::Routes.draw do |map|
   map.resources :users
-
   map.resource :session
-
   map.resources :shops
   map.resources :tourist_sight_city_finder
+	map.resources :search
 
   map.resources :tourist_sights do |touristSights|
 		touristSights.resources :tourist_sight_tags
