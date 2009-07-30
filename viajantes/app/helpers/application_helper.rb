@@ -18,6 +18,12 @@ module ApplicationHelper
 		}
 	end
 
+	def submit(id_form)
+		%Q{
+			javascript: $('#{'#'+id_form}').submit();
+		}
+	end
+
 	# Mantem o valor do campo informado (id) com o texto informado (text) caso
 	# seu valor fique vazio.
 	def keep_value(text, id)
