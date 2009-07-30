@@ -8,13 +8,21 @@ module ApplicationHelper
      end
    end
 
-		def configure_textarea_autogrow
+	def configure_textarea_autogrow
 		%Q{
 			<script type="text/javascript">
 				$(document).ready (function() {
 					$('textarea.expanding').autogrow();
 				});
 			</script>
+		}
+	end
+
+	# Mantem o valor do campo informado (id) com o texto informado (text) caso
+	# seu valor fique vazio.
+	def keep_value(text, id)
+		%Q{
+			javascript: keep_value('#{text}', '#{id}');
 		}
 	end
 	

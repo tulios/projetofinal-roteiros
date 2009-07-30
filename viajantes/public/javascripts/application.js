@@ -13,3 +13,12 @@ function collapse_box(arrow1_id, arrow2_id, content_id){
 		$('#'+content_id).slideDown();
 	}
 }
+
+function keep_value(text, id){
+	if ($('#'+id).attr('value') == null || $('#'+id).attr('value').length == 0){ 
+		$('#'+id).attr('value',text);
+
+	}else if ($('#'+id).attr('value') == text){
+		$('#'+id).attr('value','');
+	};
+}
