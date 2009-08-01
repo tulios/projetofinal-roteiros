@@ -331,7 +331,6 @@ textarea.expanding {
 
 .search_results{
 	padding: 10px;
-	
 }
 
 .search_results li{
@@ -350,7 +349,11 @@ textarea.expanding {
 	border-bottom: none;
 }
 
-
+.box {
+	border: 1px solid #aaaaaa; 
+	background: #ffffff repeat-x; 
+	color: #222222;
+}
 
 
 

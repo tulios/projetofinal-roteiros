@@ -1,18 +1,6 @@
 <div id="tourist_sights" class="search_results">
 	<ul>
-		<% @tourist_sights.each do |tourist_sight| %>
-			<li>
-				<h4>
-						<%= link_to tourist_sight.name, tourist_sight %>&nbsp;
-						(<%=h tourist_sight.city.state.symbol %>/<%=h tourist_sight.city.name %>)
-				</h4>
-				<p style="text-align: justify;">
-					<small>
-						<%= tourist_sight.description %>
-					</small>
-				</p>
-			</li>
-		<% end %>
+		<%= render :partial => "tourist_sights/list" %>
 		<li class="sem_li">
 			<%= will_paginate @tourist_sights, :param_name => :page_ts, 
 																				 :params => { :selected => '0' } %>

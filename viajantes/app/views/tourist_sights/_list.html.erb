@@ -1,41 +1,14 @@
-<% if @tourist_sights and @tourist_sights.length > 0 %>
-	<table class="tabela" with="100%" cellspacing="2">
-			<tr>
-				<th width="30%" align="center">Estado/Cidade</th>
-			  <th width="90%" align="center">Nome</th>
-				<th width="10%" align="center">Editar</th>
-				<th width="10%" align="center">Apagar</th>
-			</tr>
-
-		<% @tourist_sights.each_with_index do |tourist_sight, index| %>
-			<% if index.odd? %>
-			<tr class="odd">
-			<% else %>
-			<tr class="even">
-			<% end %>
-				<td align="center">
-					<span title="<%= h tourist_sight.city.state.name %>">
-						<%=h tourist_sight.city.state.symbol %> 
-					</span>
-					/ 
-					<%=h tourist_sight.city.name %>
-				</td>
-				<td align="center" >
-					<%= link_to "#{h tourist_sight.name}", tourist_sight %>
-				</td>
-
-				<td align="center">
-					<%= link_to 'editar', edit_tourist_sight_path(tourist_sight) %>
-				</td>
-				<td align="center">
-					<%= link_to 'apagar', tourist_sight, :confirm => 'Você tem certeza?', :method => :delete %>
-				</td>
-			</tr>
-		<% end %>
-	</table>
-	<%= will_paginate @tourist_sights %>
-
-<% else %>
-	<i>Nenhum ponto turístico encontrado.</i>
-	<br />
+<% @tourist_sights.each do |tourist_sight| %>
+	<li>
+		<h4>
+				<%= link_to tourist_sight.name, tourist_sight %>&nbsp;
+				(<%=h tourist_sight.city.state.symbol %>/<%=h tourist_sight.city.name %>)
+		</h4>
+		<p style="text-align: justify;">
+			<small>
+				<br/>
+				<%= tourist_sight.description %>
+			</small>
+		</p>
+	</li>
 <% end %>
