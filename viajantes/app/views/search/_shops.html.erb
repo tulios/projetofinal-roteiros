@@ -1,0 +1,24 @@
+<div id="shops" class="search_results">
+	<ul>
+		<% @shops.each do |shop| %>
+			<li>
+				<h4>
+					<%= link_to shop.name, shop %>&nbsp;
+					(<%=h shop.city.state.symbol %>/<%=h shop.city.name %>)
+				</h4>
+				<p style="text-align: justify;">
+					<small><%= shop.description %></small>
+				</p>
+				<% if shop.key_words and shop.key_words.length > 0 %>
+					<p>
+						<small>Palavras-chave:&nbsp;<strong><%= shop.key_words %></strong></small>
+					</p>
+				<% end %>
+			</li>
+		<% end %>
+		<li class="sem_li">
+			<%= will_paginate @shops, :param_name => :page_shop,
+																:params => { :selected => '1' } %>
+		</li>
+	</ul>
+</div>
