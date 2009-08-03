@@ -1,7 +1,7 @@
 <%= configure_textarea_autogrow %>
 <%= mask_fields([["shop_phone", "(99) 9999-9999"]]) %>
 
-<table class="form" cellspacing="10px">
+<table class="form">
 	<tr>
 		<td>
 			<% if @shop and @shop.city %>
@@ -45,7 +45,7 @@
 		</td>
 	</tr>
 	<tr>
-		<td>
+		<td colspan="2">
 			<%= observe_field :shop_city_id, # ID do campo observado
 												# URL que sera chamada
 		 		                :url => {:controller => "tourist_sight_city_finder", :action => "index", :format => "html"}, 

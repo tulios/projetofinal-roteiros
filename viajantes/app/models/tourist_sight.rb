@@ -9,7 +9,7 @@ class TouristSight < ActiveRecord::Base
 	has_many :tags, :through => :tourist_sight_tag
 	has_many :tips
 
-	validates_presence_of :city, :name, :address
+	validates_presence_of :city_id, :name, :address
 
 	def save_tags(new_tags)
 		TouristSightTag.destroy_all(:tourist_sight_id => id)

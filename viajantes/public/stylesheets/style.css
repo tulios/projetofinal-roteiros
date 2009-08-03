@@ -16,6 +16,7 @@ body {
 	color: #444;
 	font: normal 62.5% Tahoma,sans-serif;
 	text-align: center;
+	padding-bottom: 30px;
 }
 
 p,code,ul {padding-bottom: 1.2em;}

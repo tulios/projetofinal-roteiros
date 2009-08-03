@@ -1,10 +1,6 @@
 <%= configure_asmselect(:tag_id) %>
 
-<h1>Ponto Turístico</h1>
-
-<%= render :partial => 'tourist_sights/info' %>
-
-<br />
+<h1 class="tourist_sight"><%=h @tourist_sight.name %></h1>
 
 <h3>Utilize o box abaixo para adicionar as tags necessárias:</h3>
 * Para ordenar a lista de tags apenas arraste e solte no lugar correto.

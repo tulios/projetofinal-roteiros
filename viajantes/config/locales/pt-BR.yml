@@ -130,6 +130,7 @@
         address: "Endereço"
         city: "Cidade"
         description: "Descrição"
+        city_id: "Cidade"
       
       tip:
         name: "Nome"
