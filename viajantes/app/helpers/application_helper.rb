@@ -18,6 +18,21 @@ module ApplicationHelper
 		}
 	end
 
+	def configure_tabs(selected)
+		add = ""
+		if selected 
+			add = "{selected: #{selected}}"
+		end
+
+		%Q{
+			<script type="text/javascript">
+				$(document).ready (function() {
+					$("#tabs").tabs(#{add});
+				});
+			</script>
+		}
+	end
+
 	def submit(id_form)
 		%Q{
 			javascript: $('#{'#'+id_form}').submit();
@@ -58,3 +73,26 @@ module ApplicationHelper
 		}
 	end
 end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

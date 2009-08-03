@@ -2,4 +2,19 @@
 <%= link_to 'Criar um novo', new_tourist_sight_path %>
 <br /><br />
 
-<%= render :partial => 'list' %>
+<% if @tourist_sights and @tourist_sights.length > 0 %>
+
+	<div class="box">
+		<div class="search_results">
+			<ul>
+				<%= render :partial => "list" %>
+				<%= will_paginate @tourist_sights %>
+			</ul>
+		</div>
+		<br/>
+	</div>
+	
+<% else %>
+	<i>Nenhum ponto turístico encontrado.</i>
+	<br />
+<% end %>
