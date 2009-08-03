@@ -355,9 +355,28 @@ textarea.expanding {
 	color: #222222;
 }
 
+.signup {
+	float: right;
+	background: #99CC22 url(../images/img/botao_cadastre.png) repeat-x scroll 0 0;
+	border: 1px solid #DDFF66;
+	color: #333333;
+	font-family: Helvetica,Arial,Sans-serif;
+	font-size: 18px;
+	font-weight: bold;
+	line-height: normal;
+	padding: 8px 10px;
+	text-align: center;
+	text-decoration: none;
+	text-shadow: 0 1px 0 #DDFF66;
+	margin: 10px 10px;
+	cursor: pointer;
+	cursor: hand;
+}
 
-
-
+.signup:hover {
+	background-position:0 -5px;
+	color:#111111;
+}
 
 
 
