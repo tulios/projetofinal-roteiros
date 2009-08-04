@@ -7,7 +7,8 @@ html {min-height: 100%;}
 }
 
 a {color: #666666;}
-a:hover {color: #4682B4;}
+a:hover {color: #4682B4;}
+
 body {
 	/*
 	background: #CCD8E0 url(../images/img/bg-novo.jpg) repeat-x left bottom;
@@ -225,6 +226,15 @@ input:focus, textarea:focus, select:focus{
 	border: 2px solid #DDDDDD;
 	border-color: #C6D880;
 	background: url(../images/ok_24.png) #E6EFC2 no-repeat scroll 0 0;
+	margin-bottom: 0.5em;
+	padding: 5px 0px 4px 35px;
+}
+
+.failure {
+	color: red;
+	border: 2px solid #DDDDDD;
+	border-color: #C6D880;
+	background: url(../images/fail_24.png) #E6EFC2 no-repeat scroll 0 0;
 	margin-bottom: 0.5em;
 	padding: 5px 0px 4px 35px;
 }

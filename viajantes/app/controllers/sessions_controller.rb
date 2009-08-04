@@ -17,6 +17,7 @@ class SessionsController < ApplicationController
       redirect_back_or_default('/')
       flash[:notice] = "Logged in successfully"
     else
+      flash[:failure] = "Usuário ou senha inválido"
       render :action => 'new'
     end
   end

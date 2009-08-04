@@ -6,7 +6,15 @@ module ApplicationHelper
           <p class="success">#{flash[:notice]}</p>
         }
      end
-   end
+  end
+
+  def show_failure
+     if flash[:failure]
+       %Q{
+          <p class="failure">#{flash[:failure]}</p>
+        }
+     end
+  end
 
 	def configure_textarea_autogrow
 		%Q{
