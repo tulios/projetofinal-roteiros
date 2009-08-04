@@ -6,7 +6,7 @@ class ShopTest < ActiveSupport::TestCase
 		shop = Shop.new
 		assert (not shop.valid?)
 		#verifica os erros lancados
-		assert_invalidos(shop, [:name, :address, :city])
+		assert_invalidos(shop, [:name, :address, :city_id])
 		
 		city_id = cities(:one).to_param
 		city = City.find(city_id)
