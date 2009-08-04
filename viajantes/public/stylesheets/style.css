@@ -207,6 +207,10 @@ input, textarea, select {
 	padding: 2px 1px;
 }
 
+.form select {
+  width: 90%;
+}
+
 input:focus, textarea:focus, select:focus{
 	border-color: black;
 }

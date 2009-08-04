@@ -1,5 +1,5 @@
 <%= configure_textarea_autogrow %>
-<%= mask_fields([["shop_phone", "(99) 9999-9999"]]) %>
+<%= mask_fields({:shop_phone => "(99) 9999-9999"}) %>
 
 <table class="form">
 	<tr>
@@ -37,7 +37,6 @@
 			<% end %>
 			<%= image_tag 'load_mini.gif', :id => 'load', :style => "display: none;" %>
 		</td>
-
 	</tr>
 	<tr>
 		<td colspan="2">

@@ -53,12 +53,12 @@ module ApplicationHelper
 		}
 	end
 	
-	# Recebe uma lista de [id, mascara]. ex: [['field_1', '99/99/9999'], ['field_1', '(999) 9999-9999']]
-	def mask_fields(list)
+	# Recebe um hash {id => mascara}. ex: {:field_1 => '99/99/9999', :field_2 => '(999) 9999-9999'}
+	def mask_fields(hash)
 		fields = []
-		list.each do |item|
+		hash.keys.each do |key|
 			fields << %Q{
-				$("#{'#'+item[0]}").mask("#{item[1]}");
+				$("#{'#'+(key.to_s)}").mask("#{hash[key]}");
 			}
 		end
 
@@ -72,6 +72,14 @@ module ApplicationHelper
 			</script>
 		}
 	end
+	
+	# Formata a data no formato brasileiro: dd/mm/YYYY
+	def date_format(date)
+	  if date
+	   date.strftime("%d/%m/%Y")
+	  end
+	end
+	
 end
 
 

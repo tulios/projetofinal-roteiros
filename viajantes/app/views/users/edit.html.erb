@@ -1,0 +1,88 @@
+<%= mask_fields({:user_birthday => "99/99/9999"}) %>
+
+<h1>Altere as suas informações</h1>
+
+<%= error_messages_for :user %>
+<% form_for(@user) do |f| %>
+<table class="form">
+  <tr>
+    <td>
+      <label for="login">Login:</label>
+    </td>
+    <td>
+      <label for="email">E-mail:</label>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <%= f.text_field :login %>
+    </td>
+    <td>
+      <%= f.text_field :email %>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <label for="city">Data de Nascimento:</label>
+    </td>
+    <td>
+      <label for="sex">Sexo:</label>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <%= f.text_field :birthday, :value => date_format(@user.birthday)  %> 
+    </td>
+    <td>
+      <% selectSex = @user.sex.intern unless @user.sex.nil? or @user.sex.length == 0 %>
+      <%= f.select :sex, User.sexes.keys.map{|key| [User.sexes[key], key] },
+                   :selected => selectSex, 
+                   :include_blank => true %>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <label for="city">Localidade:</label>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
+		<td>
+			<% if @user and @user.city %>
+				<%= select :state, :id, @states.map{|state| [state.name, state.id] }, #select com os estados disponiveis
+								   {:include_blank => '-- escolha o estado --', :selected => @user.city.state.id} %>	
+			<% else %>
+				<%= select :state, :id, @states.map{|state| [state.name, state.id] }, #select com os estados disponiveis
+								   :include_blank => '-- escolha o estado --' %>
+			<% end %>
+		</td>
+		<td>
+			<%= observe_field :state_id, # ID do campo observado
+												# URL que sera chamada
+		 		                :url => {:controller => "cities", :action => "index", :format => "html"}, 
+												:method => :get,
+				                :frequency => 0.5, # De quanto em quanto tempo o campo sera observado
+				      	        :update => :user_city_id, # ID do campo que sera atualizado
+				         		    :with => 'state_id', # valor que sera passado para url
+												:before => "$('#load').show()", # O que fara antes de chamar a URL
+												:complete => "$('#load').hide()" # O que fara depois de chamar a URL
+												%>
+
+			<% if @cities 
+				# se as cidades ja estiverem populadas exibe o select com elas. Para caso de edicao.
+			%>
+				<%= f.select :city_id, @cities.map{|city| [city.name, city.id] }, :include_blank => true %>
+			<% else %>
+				<%= f.select :city_id, [], :include_blank => true %>
+			<% end %>
+			<%= image_tag 'load_mini.gif', :id => 'load', :style => "display: none;" %>
+
+		</td>
+	</tr>
+  <tr>
+    <td colspan="2" align="right">
+      <%= submit_tag 'Alterar' %>
+    </td>
+  </tr>
+</table>
+<% end -%>

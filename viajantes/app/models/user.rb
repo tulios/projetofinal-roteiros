@@ -20,7 +20,7 @@ class User < ActiveRecord::Base
   validates_length_of       :login,    :within => 3..40
   validates_length_of       :email,    :within => 3..100
   validates_format_of :email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,}\Z)/
-  validates_format_of :birthday, :with => %r{^([0-9][0-9]/[0-9][0-9]/[0-9][0-9][0-9][0-9])$}
+  validates_format_of :birthday, :with =>  /\A\d{4}\-\d{2}\-\d{2}\Z/
   validates_uniqueness_of   :login, :email, :case_sensitive => false
   before_save :encrypt_password
   

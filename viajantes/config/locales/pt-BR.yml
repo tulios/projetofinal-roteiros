@@ -148,6 +148,10 @@
       user:
         login: "Login"
         email: "E-mail"
+        birthday: "Data de nascimento"
+        sex: "Sexo"
+        city: "Cidade"
+        city_id: "Cidade"
         password: "Senha"
         password_confirmation: "Confirmação da senha"
         

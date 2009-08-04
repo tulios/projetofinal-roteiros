@@ -16,6 +16,7 @@ class UsersController < ApplicationController
     # uncomment at your own risk
     # reset_session
     @user = User.new(params[:user])
+    
     @user.save
     if @user.errors.empty?
       self.current_user = @user
@@ -26,5 +27,36 @@ class UsersController < ApplicationController
       render :action => 'new'
     end
   end
+  
+  # GET /users/1/edit
+  def edit
+    @user = User.find(params[:id])
+		@states = State.load_all
+		@cities = City.load_all(@user.city.state.id)
+	end
+	
+	# PUT /users/1
+  # PUT /users/1.xml
+  def update
+    @user = User.find(params[:id])
 
+    respond_to do |format|
+      if @user.update_attributes(params[:user])
+        flash[:notice] = 'Seus dados foram atualizados com sucesso.'
+        format.html { redirect_to(@user) }
+        format.xml  { head :ok }
+      else
+  			# Recarrega os estados e as cidades se possivel
+  		  @states = State.load_all
+  		  
+  		  if(not @user.city.nil?)
+		      @cities = City.load_all(@user.city.state.id)			
+				end
+				
+        format.html { render :action => "edit" }
+        format.xml  { render :xml => @user.errors, :status => :unprocessable_entity }
+      end
+     end
+  end
+	
 end
