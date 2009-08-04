@@ -1,17 +1,17 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
-#one:
-#  name: MyString
-#  address: MyString
-#  description: MyString
-#  key_words: MyText
-#  city: 
-#  tourist_sight:
+one:
+  name: Shop-1
+  address: Address-1
+  description: Description-1
+  key_words: bar
+  city_id: 1
+  tourist_sight: 1
 
-#two:
-#  name: MyString
-#  address: MyString
-#  description: MyString
-#  key_words: MyText
-#  city: 
-#  tourist_sight: 
+two:
+  name: Shop-2
+  address: Address-2
+  description: Description-2
+  key_words: restaurante
+  city_id: 1
+  tourist_sight: 1

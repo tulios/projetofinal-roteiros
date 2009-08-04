@@ -9,8 +9,6 @@ class UsersControllerTest < Test::Unit::TestCase
   # Then, you can remove it from this and the units test.
   include AuthenticatedTestHelper
 
-  fixtures :users
-
   def setup
     @controller = UsersController.new
     @request    = ActionController::TestRequest.new
