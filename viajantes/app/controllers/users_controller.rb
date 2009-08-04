@@ -58,5 +58,26 @@ class UsersController < ApplicationController
       end
      end
   end
-	
+  
+  # PUT /users/1/update_password
+  def update_password
+    @user = User.find(params[:id])
+
+    if (@user.authenticated? params[:current_password])
+      respond_to do |format|
+        if @user.update_attributes(params[:user])
+          flash[:notice] = 'Seus dados foram atualizados com sucesso.'
+          format.html { redirect_to(@user) }
+        else
+  			  # Recarrega os estados e as cidades se possivel
+  		    @states = State.load_all
+  		    @cities = City.load_all(@user.city.state.id)			
+				
+          format.html { render :action => "edit" }
+          format.xml  { render :xml => @user.errors, :status => :unprocessable_entity }
+        end
+      end
+    end
+  end
+
 end
