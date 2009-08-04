@@ -7,7 +7,7 @@ class TouristSightTest < ActiveSupport::TestCase
 		ts = TouristSight.new
 		assert (not ts.valid?)
 		#verifica os erros lancados
-		assert_invalidos(ts, [:name, :address, :city])
+		assert_invalidos(ts, [:name, :address, :city_id])
 		
 		city_id = cities(:one).to_param
 		city = City.find(city_id)

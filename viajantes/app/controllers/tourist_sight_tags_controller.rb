@@ -1,4 +1,19 @@
 class TouristSightTagsController < ApplicationController
+
+  # Lista todos os TouristSights que estao na cidade informada e possuem a tag
+  # informada.
+  #
+  # Parametros necessarios:
+  # - city_id
+  # - tag_id
+  def index
+  tourist_sight = TouristSight.find(params[:tourist_sight_id])
+
+  @city = tourist_sight.city
+  @tag = Tag.find(params[:tag_id])
+  @tourist_sights = TouristSight.find_all_by_city_and_tag(@city.id, @tag.id)
+  # index.html.erb
+  end
 	
 	# Lista todos os TouristSights que estao na cidade informada e possuem a tag
 	# informada.
