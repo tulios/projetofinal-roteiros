@@ -1,14 +1,7 @@
 <div class="top">
 	<div class="header">
 		<div class="left">
-                        <% if logged_in? %>
-                          <div class="user_menu">
-                            <span><%= current_user.login %> :: opções :: </span>
-                            <%= link_to "sair", logout_path  %>
-                          </div>
-                        <% else %>
-                          <%= link_to "Cadastre-se aqui!", signup_path, :class => "signup" %>
-                        <% end %>
+                        <%= render :partial => "sessions/user_info" %>
 			<div style="margin: auto 140px;">Viajantes</div>
 		</div>
 	</div>
