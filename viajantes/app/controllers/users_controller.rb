@@ -21,9 +21,15 @@ class UsersController < ApplicationController
     if @user.errors.empty?
       self.current_user = @user
       redirect_back_or_default('/')
-      flash[:notice] = "Thanks for signing up!"
+      flash[:notice] = "Bem-vindo a bordo!"
     else
-      @states = State.load_all
+      # Recarrega os estados e as cidades se possivel
+  		@states = State.load_all
+  		  
+  		if(not @user.city.nil?)
+		    @cities = City.load_all(@user.city.state.id)			
+			end
+			
       render :action => 'new'
     end
   end
@@ -43,7 +49,7 @@ class UsersController < ApplicationController
     respond_to do |format|
       if @user.update_attributes(params[:user])
         flash[:notice] = 'Seus dados foram atualizados com sucesso.'
-        format.html { redirect_to(@user) }
+        format.html { redirect_to(edit_user_path(@user)) }
         format.xml  { head :ok }
       else
   			# Recarrega os estados e as cidades se possivel
@@ -61,23 +67,40 @@ class UsersController < ApplicationController
   
   # PUT /users/1/update_password
   def update_password
-    @user = User.find(params[:id])
+    @user = User.find(params[:user_id])
+    
+    logger.info @user.inspect
 
     if (@user.authenticated? params[:current_password])
-      respond_to do |format|
-        if @user.update_attributes(params[:user])
-          flash[:notice] = 'Seus dados foram atualizados com sucesso.'
-          format.html { redirect_to(@user) }
-        else
-  			  # Recarrega os estados e as cidades se possivel
-  		    @states = State.load_all
-  		    @cities = City.load_all(@user.city.state.id)			
-				
-          format.html { render :action => "edit" }
-          format.xml  { render :xml => @user.errors, :status => :unprocessable_entity }
+      
+      # Monta o hash para atualizar os atributos
+      userHash = {:password => params[:user_password], 
+                  :password_confirmation => params[:user_password_confirmation]}
+      
+      @user.update_attributes(userHash)
+        
+      if @user.errors.empty? 
+        flash[:notice] = 'Seus dados foram atualizados com sucesso.'
+        
+        respond_to do |format|
+          format.html { redirect_to(edit_user_path(@user)) }
+        end
+      
+      else
+        flash[:failure] = 'Não foi possível alterar a sua senha.'
+        respond_to do |format|
+          format.html { redirect_to(edit_user_path(@user)) }
         end
       end
+        
+    else
+      flash[:failure] = 'A senha atual não confere.'
+    
+      respond_to do |format|
+        format.html { redirect_to(edit_user_path(@user)) }
+      end
     end
+    
   end
 
 end
