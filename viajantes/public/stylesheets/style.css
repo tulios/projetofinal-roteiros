@@ -77,7 +77,7 @@ h1,h2,h3 {padding-top: 6px;}
 .header {
 	background: #FFF;
 	font-size: 1.2em;
-	height: 150px;
+	height: 110px;
 	margin: 0 auto;
 	padding: 10px 10px 5px;
 	width: 920px;
@@ -85,12 +85,12 @@ h1,h2,h3 {padding-top: 6px;}
 .header .left, .header .right {
 	background: #A4A4A0;
 	color: #FFF;
-	height: 150px;	
+	height: 110px;
 }
 .header .left {
 	background: #B3C2C7 url(../images/img/header2.jpg) repeat-x;
 	font: normal 2.8em "Trebuchet MS",sans-serif;
-	line-height: 150px;
+	line-height: 110px;
 	text-align: center;	
 	width: 920px;
 }
@@ -100,7 +100,7 @@ h1,h2,h3 {padding-top: 6px;}
 	background: #D9E1E5 url(../images/img/nav.gif);
 	border: 1px solid #DFEEF7;
 	border-color: #DFEEF7 #CFDEE7;
-	height: 41px;
+	height: 33px;
 }
 .navigation a {
 	background: #D9E1E5 url(../images/img/nav.gif);
@@ -108,9 +108,9 @@ h1,h2,h3 {padding-top: 6px;}
 	color: #456;
 	display: block;
 	float: left;
-	font: bold 1em sans-serif;
-	line-height: 41px;
-	padding: 0 20px;
+	font: bold 0.92em sans-serif;
+	line-height: 33px;
+	padding: 0 12px;
 	text-decoration: none;
 }
 .navigation a:hover {background-position: left bottom; color: #234;}
@@ -326,19 +326,24 @@ textarea.expanding {
 	padding: 15px 55px;
 }
 
+.fazer_login {
+	background: url(../images/fazer_login_48.png) no-repeat;
+	padding: 15px 55px;
+}
+
 .search_icon {
 	background: url(../images/search_48.png) no-repeat;
 	padding: 13px 55px;
 }
 
 .search {
-	margin: 10px -2px;
+	margin: 7px -2px;
 	float: right;
 }
 
 .search_submit {
 	background: url(../images/search_32.png) no-repeat scroll; /*168px 4px;*/
-	padding: 9px 16px;
+	padding: 8px 16px;
 	margin: 5px;
 	cursor: pointer;
 	cursor: hand;
@@ -393,7 +398,16 @@ textarea.expanding {
 	color:#111111;
 }
 
+.user_menu {
+    float: right;
+    margin: -40px 10px;
+    font-size: 14px;
+    height: 14px;
+}
 
+.user_menu span{
+    color: black;
+}
 
 
 

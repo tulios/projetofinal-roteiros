@@ -5,5 +5,8 @@
 	<a href="index.html">link</a>
 	<a href="index.html">link</a>
 	<a href="index.html">link</a>
+        <% if not logged_in? %>
+          <%= link_to "Fazer login", login_path %>
+        <% end %>
 <%= render :partial => "layouts/search" %>
 </div>

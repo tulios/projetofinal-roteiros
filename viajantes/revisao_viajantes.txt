@@ -1,8 +1,6 @@
 Casos de Uso
 
   Geral
-    1 - Adicionar asterisco para campos obrigatórios.
-    2 - Escrever o caso de uso Atribuir Tags
     3 - Revisar a consulta de pontos turisticos por tags.(paginação)
 
   Manter Ponto Turístico:
@@ -20,8 +18,6 @@ Casos de Uso
     3 - Perguntar como chegar no fluxo principal de dicas referenciando outros casos de uso.
     
   Atribuir Tags ao Ponto Turístico:
-    1 - Perguntar como chegar no fluxo principal de dicas referenciando outros casos de uso.
-    2 - Enxugar a tela de atribuição de tags.
     3 - Validar atribuição de tags sem nenhuma selecionada.
     
   Manter Estabelecimento:
