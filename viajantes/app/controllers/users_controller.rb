@@ -76,10 +76,10 @@ class UsersController < ApplicationController
       # Monta o hash para atualizar os atributos
       userHash = {:password => params[:user_password], 
                   :password_confirmation => params[:user_password_confirmation]}
-      
-      @user.update_attributes(userHash)
         
-      if @user.errors.empty? 
+      @user.update_attributes(userHash)
+      
+      if @user.errors.empty?
         flash[:notice] = 'Seus dados foram atualizados com sucesso.'
         
         respond_to do |format|
@@ -87,10 +87,20 @@ class UsersController < ApplicationController
         end
       
       else
+        logger.info @user.errors.inspect
+        
         flash[:failure] = 'Não foi possível alterar a sua senha.'
-        respond_to do |format|
-          format.html { redirect_to(edit_user_path(@user)) }
-        end
+        # Recarrega os estados e as cidades se possivel
+  		  @states = State.load_all
+  		  
+  		  if(not @user.city.nil?)
+		      @cities = City.load_all(@user.city.state.id)			
+				end
+				
+				respond_to do |format|
+          format.html { render :action => "edit" }
+          format.xml  { render :xml => @user.errors, :status => :unprocessable_entity }
+         end
       end
         
     else
