@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
+	require_role "user", :for_all_except => [:new, :create]
   # Be sure to include AuthenticationSystem in Application Controller instead
-  include AuthenticatedSystem
-  
+  # include AuthenticatedSystem
 
   # render new.rhtml
   def new

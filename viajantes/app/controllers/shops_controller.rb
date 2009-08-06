@@ -1,4 +1,6 @@
 class ShopsController < ApplicationController
+	require_role "user", :for_all_except => [:index, :show]
+
   # GET /shops
   # GET /shops.xml
   def index

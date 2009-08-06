@@ -1,4 +1,5 @@
 class TouristSightTagsController < ApplicationController
+	require_role "user", :for_all_except => :index
 
   # Lista todos os TouristSights que estao na cidade informada e possuem a tag
   # informada.

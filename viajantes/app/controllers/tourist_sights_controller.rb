@@ -1,5 +1,6 @@
 class TouristSightsController < ApplicationController
-	
+	require_role "user", :for_all_except => [:index, :show]
+
   # GET /tourist_sights
   # GET /tourist_sights.xml
   def index
