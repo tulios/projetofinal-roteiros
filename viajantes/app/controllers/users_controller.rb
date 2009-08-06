@@ -23,6 +23,11 @@ class UsersController < ApplicationController
       redirect_back_or_default('/')
       flash[:notice] = "Bem-vindo a bordo!"
     else
+    
+      logger.info "\n**Inspect de errors:\n"
+      logger.info @user.errors.inspect
+      logger.info "\n\n"
+    
       # Recarrega os estados e as cidades se possivel
   		@states = State.load_all
   		  
@@ -69,26 +74,32 @@ class UsersController < ApplicationController
   def update_password
     @user = User.find(params[:user_id])
     
-    logger.info @user.inspect
-
     if (@user.authenticated? params[:current_password])
       
       # Monta o hash para atualizar os atributos
-      userHash = {:password => params[:user_password], 
-                  :password_confirmation => params[:user_password_confirmation]}
+      userHash = {:password => params[:password], 
+                  :password_confirmation => params[:password_confirmation]}
+      
+      if(params[:password].blank? or params[:password_confirmation].blank?)
+        flash[:failure] = 'A nova senha e a a sua confirmação devem ser informadas.'
+    
+        respond_to do |format|
+          format.html { redirect_to(edit_user_path(@user)) }
+        end
         
+        return
+      end
+      
       @user.update_attributes(userHash)
       
       if @user.errors.empty?
-        flash[:notice] = 'Seus dados foram atualizados com sucesso.'
+        flash[:notice] = 'Sua senha foi atualizada com sucesso!'
         
         respond_to do |format|
           format.html { redirect_to(edit_user_path(@user)) }
         end
       
       else
-        logger.info @user.errors.inspect
-        
         flash[:failure] = 'Não foi possível alterar a sua senha.'
         # Recarrega os estados e as cidades se possivel
   		  @states = State.load_all
