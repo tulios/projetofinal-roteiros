@@ -12,6 +12,8 @@ class TouristSightsControllerTest < ActionController::TestCase
   end
 
   test "Deveria carregar o new" do
+    login_as :quentin
+
 		# Verifica se o controlador respondeu sucesso
     get :new
     assert_response :success
@@ -22,6 +24,8 @@ class TouristSightsControllerTest < ActionController::TestCase
   end
 
   test "Deveria criar um ponto turistico" do
+    login_as :quentin
+
 		# Verifica que so existe os tourist_sight criados pela fixture
 		assert_equal(2, TouristSight.count)
 
@@ -46,6 +50,8 @@ class TouristSightsControllerTest < ActionController::TestCase
   end
 
   test "Deveria carregar o edit" do
+    login_as :quentin
+
 		id = tourist_sights(:one).to_param
 		
 		# Verifica que o controlador respondeu sucesso
@@ -58,6 +64,8 @@ class TouristSightsControllerTest < ActionController::TestCase
   end
 
   test "Deveria atualizar um tourist_sight" do
+    login_as :quentin
+
 		dados_a_atualizar = { :name => "novo nome"}
 		id = tourist_sights(:one).to_param
 		ts = TouristSight.find(id)
@@ -75,6 +83,8 @@ class TouristSightsControllerTest < ActionController::TestCase
   end
 
   test "Deveria apagar um tourist_sight" do
+    login_as :quentin
+    
 		id = tourist_sights(:one).to_param
 		# Veririca a quantidade de objetos antes da exclusao
 		assert_equal(2, TouristSight.count)

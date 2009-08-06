@@ -3,6 +3,8 @@ require 'test_helper'
 class TouristSightTagsControllerTest < ActionController::TestCase
 
 	test "Deveria carregar o new" do
+    login_as :quentin
+    
 		id = tourist_sights(:one).to_param
 		
 		# Verifica se o controlador responde sucesso passando o ID
@@ -15,6 +17,8 @@ class TouristSightTagsControllerTest < ActionController::TestCase
 	end	
 	
 	test "Deveria associar varias tags a um tourist sight" do
+    login_as :quentin
+    
 		# Verifica que o tourist_sight do teste nao possui tags
 		ts = TouristSight.find(tourist_sights(:one).to_param)
 		assert_equal(0, ts.tags.length)
