@@ -11,6 +11,8 @@ class ShopsControllerTest < ActionController::TestCase
   end
 
   test "Deveria carregar a tela de cadastramento" do
+    login_as :quentin
+
     get :new
     assert_response :success
 
@@ -22,6 +24,8 @@ class ShopsControllerTest < ActionController::TestCase
   end
 
   test "Deveria criar um estabelecimento" do
+    login_as :quentin
+    
     # Verifica que so existe os shops criados pela fixture
 		assert_equal(2, Shop.count)
 
@@ -34,6 +38,8 @@ class ShopsControllerTest < ActionController::TestCase
   end
 
   test "Deveria falhar ao criar um estabelecimento" do
+    login_as :quentin
+    
     # Verifica que so existe os shops criados pela fixture
 		assert_equal(2, Shop.count)
 
@@ -64,6 +70,8 @@ class ShopsControllerTest < ActionController::TestCase
   end
 
   test "Deveria editar um estabelecimento" do
+    login_as :quentin
+    
     get :edit, :id => shops(:one).to_param
     assert_response :success
 
@@ -85,6 +93,8 @@ class ShopsControllerTest < ActionController::TestCase
   end
 
   test "Deveria atualizar o estabelecimento" do
+    login_as :quentin
+    
     shop = Shop.find(shops(:one).to_param)
     assert_not_nil(shop)
     # Verifico que o nome não é igual o novo nome
@@ -99,6 +109,8 @@ class ShopsControllerTest < ActionController::TestCase
   end
 
   test "Deveria apagar um estabelecimento" do
+    login_as :quentin
+    
     # Verifica que so existe os shops criados pela fixture
 		assert_equal(2, Shop.count)
 

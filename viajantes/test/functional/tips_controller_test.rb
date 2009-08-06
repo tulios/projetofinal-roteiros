@@ -15,6 +15,8 @@ class TipsControllerTest < ActionController::TestCase
 	end
 	
 	test "Deveria carregar o new" do
+    login_as :quentin
+
 		# Verifica que o controlador respondeu sucesso
     get :new, :tourist_sight_id => tourist_sights(:one).to_param
     assert_response :success
@@ -24,6 +26,8 @@ class TipsControllerTest < ActionController::TestCase
 	end
 	
 	test "Deveria carregar o edit" do
+    login_as :quentin
+
 		# Verifica que o controlador respondeu sucesso
     get :edit, :id => tips(:one).to_param
     assert_response :success
@@ -34,6 +38,8 @@ class TipsControllerTest < ActionController::TestCase
 	end
 	
 	test "Deveria criar uma nova dica" do
+    login_as :quentin
+
 		tourist_sight_id = tourist_sights(:one).to_param
 	
 		# Verifica que so existem as dicas criadas pela fixture
@@ -48,6 +54,8 @@ class TipsControllerTest < ActionController::TestCase
 	end
 	
 	test "Deveria atualizar os dados de uma dica" do
+    login_as :quentin
+
 		TIP_NAME = "TipName1"
 		TIP_DESC = "TipDesc1"
 		
@@ -65,6 +73,8 @@ class TipsControllerTest < ActionController::TestCase
 	end
 	
 	test "Deveria excluir uma dica" do
+    login_as :quentin
+    
 		tip_id = tips(:one).to_param
 		
 		delete :destroy, :id => tip_id
