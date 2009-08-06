@@ -29,6 +29,12 @@ h1 {
 	margin-bottom: 4px;
 }
 
+
+h2 {
+	font: normal 1.4em Tahoma,sans-serif;
+	margin-bottom: 4px;
+}
+
 code {
 
 	border: 1px solid #EEE;
@@ -323,6 +329,17 @@ textarea.expanding {
 
 .tourist_sight {
 	background: url(../images/coqueiro_48.png) no-repeat;
+	padding: 15px 55px;
+}
+
+.user_add {
+	background: url(../images/user_add_48.png) no-repeat;
+	padding: 15px 55px;
+}
+
+
+.user_edit {
+	background: url(../images/user_edit_48.png) no-repeat;
 	padding: 15px 55px;
 }
 
