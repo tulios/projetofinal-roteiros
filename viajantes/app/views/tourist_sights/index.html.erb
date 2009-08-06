@@ -1,6 +1,11 @@
 <h1 class="tourist_sight">Pontos Turísticos</h1>
-<%= link_to 'Criar um novo', new_tourist_sight_path %>
-<br /><br />
+
+<% if logged_in? %>
+	<%= link_to 'Criar um novo', new_tourist_sight_path %>
+	<br />
+<% end %>
+
+<br />
 
 <% if @tourist_sights and @tourist_sights.length > 0 %>
 

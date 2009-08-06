@@ -1,4 +1,5 @@
 class TipsController < ApplicationController
+	require_role "user", :for_all_except => :show
 
   # GET /tips/1
   # GET /tips/1.xml
