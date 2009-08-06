@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
-	require_role "user", :for_all_except => [:new, :create]
+	require_role "user", :for_all_except => [:new, :create], :unless => "current_user.me?(params[:id])"
+	
   # Be sure to include AuthenticationSystem in Application Controller instead
   # include AuthenticatedSystem
 

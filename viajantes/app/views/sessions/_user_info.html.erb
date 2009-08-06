@@ -3,22 +3,9 @@
   <div class="user_menu">
     <span>
       <%= current_user.login %>&nbsp;::
-      opções&nbsp;::
+      <%= link_to "opções", edit_user_path(current_user) %>&nbsp;::
     </span>
     <%= link_to "sair", logout_path  %>
-    <!--
-    <ul class="dropdown">
-      <li><%= current_user.login %></li>
-      <li><a href="#">opções</a>
-        <ul class="sub_menu">
-          <li><a href="#">opcao1</a></li>
-          <li><a href="#">opcao2</a></li>
-          <li><a href="#">opcao3</a></li>
-        </ul>
-      </li>
-      <li><%= link_to "sair", logout_path  %></li>
-    </ul>
-    -->
   </div>
 
 <% else %>

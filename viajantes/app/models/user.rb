@@ -98,6 +98,10 @@ class User < ActiveRecord::Base
     @activated
   end
 
+  def me? (user_id)
+    id == user_id
+  end
+
   protected
     # before filter 
     def encrypt_password
