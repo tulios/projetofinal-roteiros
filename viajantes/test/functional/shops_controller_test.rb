@@ -69,6 +69,20 @@ class ShopsControllerTest < ActionController::TestCase
     assert_equal(shops(:one).to_param, "#{assigns(:shop).id}")
   end
 
+  test "Deveria incrementar o numero de hits ao vizualizar" do
+    id = shops(:one).to_param
+    get :show, :id => id
+
+    # Verifica que o hit foi incrementado
+		assert_equal(1, assigns(:shop).hits)
+		
+		get :show, :id => id		    
+		
+		# Verifica que o hit foi incrementado
+		assert_equal(2, assigns(:shop).hits)
+
+  end
+
   test "Deveria editar um estabelecimento" do
     login_as :quentin
     

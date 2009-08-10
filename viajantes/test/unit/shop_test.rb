@@ -54,6 +54,17 @@ class ShopTest < ActiveSupport::TestCase
     assert_not_nil(shops)
     assert_equal(0, shops.length)
   end
+  
+  test "Deveria incrementar o valor de hits" do
+	  shop1 = Shop.find(shops(:one).to_param)
+	  assert_equal(0, shop1.hits)
+	  
+	  shop1.increase_hits
+	  assert_equal(1, shop1.hits)
+	  
+	  shop1 = Shop.find(shop1.id)
+	  assert_equal(1, shop1.hits)
+	end
 end
 
 

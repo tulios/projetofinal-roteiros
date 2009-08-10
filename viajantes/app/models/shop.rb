@@ -12,6 +12,10 @@ class Shop < ActiveRecord::Base
 
 	validates_presence_of :city_id, :name, :address
 
+  def increase_hits
+	  self.update_attributes(:hits => self.hits+1)
+	end
+
 	def self.find_like_name_or_key_word(value, per_page, page)
 		cond = ["Lower(name) like ? or Lower(key_words) like ?", "%#{value.downcase}%", "%#{value.downcase}%"]
 		Shop.paginate(:conditions => cond, 

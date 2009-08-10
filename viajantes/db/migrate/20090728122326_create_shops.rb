@@ -6,6 +6,7 @@ class CreateShops < ActiveRecord::Migration
       t.string :phone, :limit => 14
       t.text :description
       t.text :key_words
+      t.integer :hits,  :default => 0
       t.belongs_to :city, :null => false
       t.belongs_to :tourist_sight
 

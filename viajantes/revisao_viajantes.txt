@@ -5,12 +5,8 @@ Casos de Uso
 
   Manter Ponto Turístico:
     1 - Filtrar listagem por cidade
-    2 - Criar atributo de numero de acessos
-    3 - Ordenar listagem pelo número de acessos
     4 - Tirar editar e excluir da listagem e colocar no detalhamento
-    5 - Nos campos não obrigatórios exibir "Não preenchido" quando o usuário não o fizer
     6 - Revisar auto-grow da edição
-    7 - Adcionar ícone de ponto turístico na tela de atribuição de tags (partial?)
     
   Atribuir Ou Visualizar Dica:
     1 - Exibir apenas as 10 últimas dicas atribuidas.
@@ -21,8 +17,6 @@ Casos de Uso
     3 - Validar atribuição de tags sem nenhuma selecionada.
     
   Manter Estabelecimento:
-    1 - Criar o atributo numero de acessos
-    2 - Ordenar a listagem de estabelecimentos pelo número de acessos.
     3 - Filtrar listagem por cidade
     4 - Retirar editar e apagar da listagem e colocar no detalhamento
     

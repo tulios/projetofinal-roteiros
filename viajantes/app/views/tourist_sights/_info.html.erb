@@ -20,7 +20,13 @@
 		<td align="right" valign="top">
 			<strong>Descrição:</strong>
 		</td>
-		<td style="text-align: justify;"><%=h @tourist_sight.description %></td>
+		<td style="text-align: justify;">
+		  <% if (not @tourist_sight.description) or @tourist_sight.description.length == 0 %>
+		    <i>Não informado</i>
+		  <% else %>
+  		  <%=h @tourist_sight.description %>
+  		<% end %>
+		</td>
 	</tr>
 	<tr><td><br/></td></tr>
 </table>

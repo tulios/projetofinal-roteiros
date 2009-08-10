@@ -48,6 +48,20 @@ class TouristSightsControllerTest < ActionController::TestCase
 		assert_not_nil assigns(:tourist_sight)
 		assert_equal(Integer(id), assigns(:tourist_sight).id)
   end
+  
+  test "Deveria incrementar o numero de hits ao vizualizar" do
+    id = tourist_sights(:one).to_param
+    get :show, :id => id
+
+    # Verifica que o hit foi incrementado
+		assert_equal(1, assigns(:tourist_sight).hits)
+		
+		get :show, :id => id		    
+		
+		# Verifica que o hit foi incrementado
+		assert_equal(2, assigns(:tourist_sight).hits)
+
+  end
 
   test "Deveria carregar o edit" do
     login_as :quentin

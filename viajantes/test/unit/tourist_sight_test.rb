@@ -67,6 +67,17 @@ class TouristSightTest < ActiveSupport::TestCase
 		assert_not_nil(ts1.tips)
 		assert_equal(1, ts1.tips.length);
 	end
+	
+	test "Deveria incrementar o valor de hits" do
+	  ts1 = TouristSight.find(tourist_sights(:one).to_param)
+	  assert_equal(0, ts1.hits)
+	  
+	  ts1.increase_hits
+	  assert_equal(1, ts1.hits)
+	  
+	  ts1 = TouristSight.find(ts1.id)
+	  assert_equal(1, ts1.hits)
+	end
 
 end
 

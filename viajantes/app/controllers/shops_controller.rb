@@ -4,7 +4,7 @@ class ShopsController < ApplicationController
   # GET /shops
   # GET /shops.xml
   def index
-    @shops = Shop.paginate(:per_page => 10, :page => params[:page])
+    @shops = Shop.paginate(:per_page => 10, :page => params[:page], :order => "hits desc")
 
     respond_to do |format|
       format.html # index.html.erb
@@ -17,6 +17,7 @@ class ShopsController < ApplicationController
   def show
     @shop = Shop.find(params[:id])
 		@city = @shop.city
+		@shop.increase_hits
 
     respond_to do |format|
       format.html # show.html.erb

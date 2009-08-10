@@ -4,7 +4,7 @@ class TouristSightsController < ApplicationController
   # GET /tourist_sights
   # GET /tourist_sights.xml
   def index
-    @tourist_sights = TouristSight.paginate(:per_page => 10, :page => params[:page])
+    @tourist_sights = TouristSight.paginate(:per_page => 10, :page => params[:page], :order => "hits desc")
 
     respond_to do |format|
       format.html # index.html.erb
@@ -17,6 +17,7 @@ class TouristSightsController < ApplicationController
   def show
     @tourist_sight = TouristSight.find(params[:id])
 		@city = @tourist_sight.city
+		@tourist_sight.increase_hits
 
     respond_to do |format|
       format.html # show.html.erb
