@@ -10,9 +10,9 @@ module ApplicationHelper
   end
 
   def show_failure
-     if flash[:failure]
+     if flash[:error]
        %Q{
-          <p class="failure">#{flash[:failure]}</p>
+          <p class="failure">#{flash[:error]}</p>
         }
      end
   end

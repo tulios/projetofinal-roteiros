@@ -87,7 +87,7 @@ class UsersController < ApplicationController
   
   # PUT /users/1/update_password
   def update_password
-    @user = User.find(params[:user_id])
+    @user = User.find(params[:id])
     
     if (@user.authenticated? params[:current_password])
       
@@ -96,7 +96,7 @@ class UsersController < ApplicationController
                   :password_confirmation => params[:password_confirmation]}
       
       if(params[:password].blank? or params[:password_confirmation].blank?)
-        flash[:failure] = 'A nova senha e a a sua confirmação devem ser informadas.'
+        flash[:error] = 'A nova senha e a a sua confirmação devem ser informadas.'
     
         respond_to do |format|
           format.html { redirect_to(edit_user_path(@user)) }
@@ -115,7 +115,7 @@ class UsersController < ApplicationController
         end
       
       else
-        flash[:failure] = 'Não foi possível alterar a sua senha.'
+        flash[:error] = 'Não foi possível alterar a sua senha.'
         # Recarrega os estados e as cidades se possivel
   		  @states = State.load_all
   		  
@@ -130,7 +130,7 @@ class UsersController < ApplicationController
       end
         
     else
-      flash[:failure] = 'A senha atual não confere.'
+      flash[:error] = 'A senha atual não confere.'
     
       respond_to do |format|
         format.html { redirect_to(edit_user_path(@user)) }
