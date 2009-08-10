@@ -4,10 +4,9 @@ require 'users_controller'
 # Re-raise errors caught by the controller.
 class UsersController; def rescue_action(e) raise e end; end
 
-class UsersControllerTest < Test::Unit::TestCase
+class UsersControllerTest < ActionController::TestCase
   # Be sure to include AuthenticatedTestHelper in test/test_helper.rb instead
   # Then, you can remove it from this and the units test.
-  include AuthenticatedTestHelper
 
   def setup
     @controller = UsersController.new
@@ -15,14 +14,14 @@ class UsersControllerTest < Test::Unit::TestCase
     @response   = ActionController::TestResponse.new
   end
 
-  def test_should_allow_signup
+  test "Deveria permitir o cadastramento de novos usuarios" do
     assert_difference 'User.count' do
       create_user
       assert_response :redirect
     end
   end
 
-  def test_should_require_login_on_signup
+  test "Deveria obrigar o preenchimento do login no cadastramento" do
     assert_no_difference 'User.count' do
       create_user(:login => nil)
       assert assigns(:user).errors.on(:login)
@@ -30,7 +29,7 @@ class UsersControllerTest < Test::Unit::TestCase
     end
   end
 
-  def test_should_require_password_on_signup
+  test "Deveria obrigar o preenchimento da senha no cadastramento" do
     assert_no_difference 'User.count' do
       create_user(:password => nil)
       assert assigns(:user).errors.on(:password)
@@ -38,7 +37,7 @@ class UsersControllerTest < Test::Unit::TestCase
     end
   end
 
-  def test_should_require_password_confirmation_on_signup
+  test "Deveria obrigar o preenchimento da confirmacao da senha no cadastramento" do
     assert_no_difference 'User.count' do
       create_user(:password_confirmation => nil)
       assert assigns(:user).errors.on(:password_confirmation)
@@ -46,16 +45,13 @@ class UsersControllerTest < Test::Unit::TestCase
     end
   end
 
-  def test_should_require_email_on_signup
+  test "Deveria obrigar o preenchimento do email no cadastramento" do
     assert_no_difference 'User.count' do
       create_user(:email => nil)
       assert assigns(:user).errors.on(:email)
       assert_response :success
     end
   end
-  
-
-  
 
   protected
     def create_user(options = {})
