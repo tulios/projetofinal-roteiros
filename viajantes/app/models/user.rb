@@ -99,7 +99,7 @@ class User < ActiveRecord::Base
   end
 
   def me? (user_id)
-    id == user_id
+    id == (Integer user_id)
   end
 
   protected

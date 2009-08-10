@@ -1,6 +1,12 @@
 class UsersController < ApplicationController
-	require_role "user", :for_all_except => [:new, :create], :unless => "current_user.me?(params[:id])"
-	
+	require_role "user", :for_all_except => [:new, :create]
+	before_filter do |controller| 
+	  controller.verify_user(
+	    controller.params[:id],
+	    [:edit,:update,:update_password]
+	  )
+	end
+  
   # Be sure to include AuthenticationSystem in Application Controller instead
   # include AuthenticatedSystem
 
@@ -17,6 +23,7 @@ class UsersController < ApplicationController
     # uncomment at your own risk
     # reset_session
     @user = User.new(params[:user])
+    @user.roles << Role.find_by_name("user");
     
     @user.save
     if @user.errors.empty?
@@ -42,9 +49,16 @@ class UsersController < ApplicationController
   
   # GET /users/1/edit
   def edit
+    #verify_user params[:id]
+  
     @user = User.find(params[:id])
 		@states = State.load_all
 		@cities = City.load_all(@user.city.state.id)
+		
+		logger.info "\n**Current user: #{current_user.id}\n"
+		logger.info "\n**Param id: #{params[:id]}\n"
+		logger.info "Sou eu? #{current_user.me? (params[:id])}"
+		
 	end
 	
 	# PUT /users/1
