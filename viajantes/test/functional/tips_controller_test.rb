@@ -81,4 +81,20 @@ class TipsControllerTest < ActionController::TestCase
 		
 		assert_redirected_to assigns(:tip).tourist_sight
 	end
+
+  test "Deveria recuperar todas as dicas de um determinado ponto turistico" do
+    ts = TouristSight.find(tourist_sights(:one).to_param)
+		# Cria 20 dicas para o ponto turistico
+		(1..20).each do |number|
+			tip = Tip.new({:name => "Tips#{number}", :description => "Desc#{number}", :tourist_sight => ts})
+			tip.save
+		end
+    
+    login_as :quentin
+    get :index, :tourist_sight_id => ts.id
+    assert_response :success
+
+    # Vem 10 pois é paginado
+    assert_equal(10, assigns(:tips).length)
+  end
 end
