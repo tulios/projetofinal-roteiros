@@ -31,11 +31,6 @@ class UsersController < ApplicationController
       redirect_back_or_default('/')
       flash[:notice] = "Bem-vindo a bordo!"
     else
-    
-      logger.info "\n**Inspect de errors:\n"
-      logger.info @user.errors.inspect
-      logger.info "\n\n"
-    
       # Recarrega os estados e as cidades se possivel
   		@states = State.load_all
   		  
@@ -54,11 +49,6 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
 		@states = State.load_all
 		@cities = City.load_all(@user.city.state.id)
-		
-		logger.info "\n**Current user: #{current_user.id}\n"
-		logger.info "\n**Param id: #{params[:id]}\n"
-		logger.info "Sou eu? #{current_user.me? (params[:id])}"
-		
 	end
 	
 	# PUT /users/1

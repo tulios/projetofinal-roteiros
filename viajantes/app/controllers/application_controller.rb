@@ -14,7 +14,7 @@ class ApplicationController < ActionController::Base
     
     methods.each do |method|
       if(self.action_name == method.to_s)
-        unless(current_user.me? (user_id))
+        unless(current_user.me?(user_id))
           access_denied
         end
       end

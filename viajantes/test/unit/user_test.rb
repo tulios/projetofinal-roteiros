@@ -38,9 +38,91 @@ class UserTest < ActiveSupport::TestCase
       assert u.errors.on(:email)
     end
   end
+  
+  test "Deveria obrigar a preencher a cidade" do
+    assert_no_difference 'User.count' do
+      u = create_user(:city_id => nil)
+      assert u.errors.on(:city_id)
+    end
+  end
 
-  test "Deveria resetar a senha" do
-    users(:quentin).update_attributes(:password => 'new password', :password_confirmation => 'new password')
+  test "Deveria obrigar a preencher o sexo" do
+    assert_no_difference 'User.count' do
+      u = create_user(:sex => nil)
+      assert u.errors.on(:sex)
+    end
+  end
+
+  
+  test "Deveria obrigar a preencher a data de nascimento" do
+    assert_no_difference 'User.count' do
+      u = create_user(:birthday => nil)
+      assert u.errors.on(:birthday)
+    end
+  end
+  
+  test "Deveria validar o formato do email" do
+    assert_no_difference 'User.count' do
+      u = create_user(:email => 'email')
+      assert u.errors.on(:email)
+    end
+    
+    assert_difference 'User.count' do
+      u = create_user(:email => 'email@gmail.com')
+    end    
+  end
+  
+  test "Deveria validar o tamanho da senha" do
+    assert_no_difference 'User.count' do
+      u = create_user(:password => '123')
+      assert u.errors.on(:password)
+      
+      u = create_user(:password => '12345678901234567890123456789012345678901234567890')
+      assert u.errors.on(:password)
+    end
+  end
+  
+  test "Deveria validar o tamanho do login" do
+    assert_no_difference 'User.count' do
+      u = create_user(:login => 'eu')
+      assert u.errors.on(:login)
+      
+      u = create_user(:login => 'abcdefghijabcdefghijabcdefghijabcdefghijk')
+      assert u.errors.on(:login)
+    end
+  end
+
+  test "Deveria validar o login como unico" do
+    # Cria um usuario com o login 'login'
+    assert_difference 'User.count' do
+      u = create_user(:login => 'login')
+    end
+    
+    # Tenta criar um usuário com o mesmo login 'login'
+    assert_no_difference 'User.count' do
+      u = create_user(:login => 'login')
+      assert u.errors.on(:login)      
+    end
+  end
+  
+  test "Deveria validar o email como unico" do
+    # Cria um usuario com o login 'login'
+    assert_difference 'User.count' do
+      u = create_user(:email => 'email@gmail.com')
+    end
+    
+    # Tenta criar um usuário com o mesmo login 'login'
+    assert_no_difference 'User.count' do
+      u = create_user(:email => 'email@gmail.com')
+      assert u.errors.on(:email)      
+    end
+  end
+
+  test "Deveria trocar a senha" do
+    quentin = users(:quentin)
+    quentin.update_attributes(:password => 'new password', :password_confirmation => 'new password')
+    
+    assert(quentin.errors.empty?,  quentin.errors.inspect)
     assert_equal users(:quentin), User.authenticate('quentin', 'new password')
   end
 
@@ -94,7 +176,15 @@ class UserTest < ActiveSupport::TestCase
 
 protected
   def create_user(options = {})
-    record = User.new({ :login => 'quire', :email => 'quire@example.com', :password => 'quire', :password_confirmation => 'quire' }.merge(options))
+    userHash = { :login => 'quire',
+                 :email => 'quire@example.com', 
+                 :password => 'quire', 
+                 :password_confirmation => 'quire', 
+                 :sex => 'm', 
+                 :birthday => '05/05/1985', 
+                 :city_id => cities(:one)
+               }
+    record = User.new(userHash.merge(options))
     record.save
     record
   end
