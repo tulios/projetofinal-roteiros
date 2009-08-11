@@ -1,8 +1,5 @@
 Casos de Uso
 
-  Geral
-    3 - Revisar a consulta de pontos turisticos por tags.(paginação)
-
   Manter Ponto Turístico:
     1 - Filtrar listagem por cidade
     4 - Tirar editar e excluir da listagem e colocar no detalhamento

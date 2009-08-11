@@ -57,7 +57,7 @@ class UsersController < ApplicationController
 		
 		logger.info "\n**Current user: #{current_user.id}\n"
 		logger.info "\n**Param id: #{params[:id]}\n"
-		logger.info "Sou eu? #{current_user.me? (params[:id])}"
+		logger.info "Sou eu? #{current_user.me?(params[:id])}"
 		
 	end
 	

@@ -12,4 +12,12 @@
 
 <br />
 
-<%= render :partial => 'tourist_sights/list' %>
+<div class="box">
+	<div class="search_results">
+		<ul>
+			<%= render :partial => "tourist_sights/list" %>
+			<%= will_paginate @tourist_sights %>
+		</ul>
+	</div>
+	<br/>
+</div>
