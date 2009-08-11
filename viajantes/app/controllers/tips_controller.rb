@@ -1,5 +1,17 @@
 class TipsController < ApplicationController
-	require_role "user", :for_all_except => :show
+	require_role "user", :for_all_except => [:index, :show]
+
+	def index
+		@tourist_sight = TouristSight.find(params[:tourist_sight_id])
+		@tips = Tip.paginate_all_by_tourist_sight_id(@tourist_sight.id, 
+																								 :per_page => 10, 
+																								 :page => params[:page], 
+																								 :order => "created_at desc")
+		respond_to do |format|
+      format.html # index.html.erb
+      format.xml  { render :xml => @tourist_sights }
+  	end
+	end
 
   # GET /tips/1
   # GET /tips/1.xml

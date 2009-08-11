@@ -50,7 +50,7 @@ class TouristSightTest < ActiveSupport::TestCase
 
 	test "Deveria recuperar todos os TouristSights da mesma cidade que tenham uma tag especifica associada" do
 		ts1 = TouristSight.find(tourist_sights(:one).to_param)
-		ts2 = TouristSight.find(tourist_sights(:two).to_param)
+		TouristSight.find(tourist_sights(:two).to_param)
 		
 		city_id = ts1.city.id		
 
@@ -77,6 +77,21 @@ class TouristSightTest < ActiveSupport::TestCase
 	  
 	  ts1 = TouristSight.find(ts1.id)
 	  assert_equal(1, ts1.hits)
+	end
+
+	test "Deveria carregar apenas 10 dicas consigo" do
+		ts = TouristSight.find(tourist_sights(:one).to_param)
+		# Cria 20 dicas para o ponto turistico
+		(1..20).each do |number|
+			tip = Tip.new({:name => "Tips#{number}", :description => "Desc#{number}", :tourist_sight => ts})
+			tip.save
+		end
+
+		ts = TouristSight.find(ts.id)
+		assert_not_nil(ts)
+
+    assert(Tip.count >= 20, "quantidade na base #{Tip.count} deveria ser >= 20")
+		assert_equal(10, ts.tips.length)
 	end
 
 end

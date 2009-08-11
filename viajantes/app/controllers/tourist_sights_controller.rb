@@ -17,6 +17,7 @@ class TouristSightsController < ApplicationController
   def show
     @tourist_sight = TouristSight.find(params[:id])
 		@city = @tourist_sight.city
+		@tips = @tourist_sight.tips
 		@tourist_sight.increase_hits
 
     respond_to do |format|

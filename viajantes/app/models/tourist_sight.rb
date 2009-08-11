@@ -7,7 +7,7 @@ class TouristSight < ActiveRecord::Base
 	belongs_to :city
 	has_many :tourist_sight_tag
 	has_many :tags, :through => :tourist_sight_tag
-	has_many :tips
+	has_many :tips, :order => "created_at desc", :limit => 10
 
 	validates_presence_of :city_id, :name, :address
 

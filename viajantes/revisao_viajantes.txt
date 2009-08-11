@@ -6,8 +6,6 @@ Casos de Uso
     6 - Revisar auto-grow da edição
     
   Atribuir Ou Visualizar Dica:
-    1 - Exibir apenas as 10 últimas dicas atribuidas.
-    2 - Criar opção de visualizar todas as dicas do ponto turístico (paginação)
     3 - Perguntar como chegar no fluxo principal de dicas referenciando outros casos de uso.
     
   Atribuir Tags ao Ponto Turístico:

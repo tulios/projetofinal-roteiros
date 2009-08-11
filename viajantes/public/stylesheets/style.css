@@ -164,6 +164,10 @@ h1,h2,h3 {padding-top: 6px;}
 	text-align: center;
 }
 
+.linha_direita {
+		text-align: right !important;
+}
+
 .form td {
   padding: 5px;
 }
@@ -332,11 +336,15 @@ textarea.expanding {
 	padding: 15px 55px;
 }
 
+.tips {
+	background: url(../images/tips_48.png) no-repeat;
+	padding: 15px 55px;
+}
+
 .user_add {
 	background: url(../images/user_add_48.png) no-repeat;
 	padding: 15px 55px;
 }
-
 
 .user_edit {
 	background: url(../images/user_edit_48.png) no-repeat;
