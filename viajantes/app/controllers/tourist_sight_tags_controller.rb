@@ -36,13 +36,18 @@ class TouristSightTagsController < ApplicationController
 	# 	- tag_id
 	#		- tourist_sight_id
 	def create
-		tag_ids = params[:tag][:id]
+		if params[:tag] 
+			tag_ids = params[:tag][:id]
+		end
+
 		tourist_sight_id = params[:tourist_sight_id]
 		@tourist_sight = TouristSight.find(tourist_sight_id)
 
 		new_tags = []
-		tag_ids.each do |id|
-			new_tags << Tag.find(id)
+		if tag_ids and tag_ids.length > 0
+			tag_ids.each do |id|
+				new_tags << Tag.find(id)
+			end
 		end
 
 		if @tourist_sight.save_tags(new_tags)

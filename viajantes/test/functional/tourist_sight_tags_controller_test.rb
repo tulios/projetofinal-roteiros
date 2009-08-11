@@ -56,11 +56,43 @@ class TouristSightTagsControllerTest < ActionController::TestCase
 		get :index, :tourist_sight_id => id, :tag_id => tag.id
     assert_response :success
 	
-		# Verifica se o controlador recuperou os objetos
-		assert_equal(TouristSightTag.count, assigns(:tourist_sights).length)
+		# Verifica se o controlador recuperou o objeto
+		assert_equal(1, assigns(:tourist_sights).length)
 		assert_not_nil assigns(:city)
 		assert_not_nil assigns(:tag)
 	end
+
+  test "Deveria nao adicionar nenhuma tag e apagar as associacoes existentes" do
+    login_as :quentin
+
+		# Verifica que o tourist_sight do teste nao possui tags
+		ts = TouristSight.find(tourist_sights(:one).to_param)
+		assert_equal(0, ts.tags.length)
+
+		# Verifica se o controlador responde corretamente caso os dados sejam informados
+		post :create, :tag => { :id => [1, 2]}, :tourist_sight_id => ts.id
+		assert_redirected_to tourist_sight_path(assigns(:tourist_sight))
+
+		# Verifica se o tourist_sight utilizado recebeu as tags
+		ts = TouristSight.find(tourist_sights(:one).to_param)
+		assert_equal(2, ts.tags.length)
+
+		# Removendo todas as tags, passando id = nil
+		post :create, :tag => { :id => nil}, :tourist_sight_id => ts.id
+		assert_redirected_to tourist_sight_path(assigns(:tourist_sight))
+
+		# Verifica que o tourist_sight utilizado ficou com apenas uma tag
+		ts = TouristSight.find(tourist_sights(:one).to_param)
+		assert_equal(0, ts.tags.length)
+
+    # Removendo todas as tags, passando tag = nil
+		post :create, :tag => nil, :tourist_sight_id => ts.id
+		assert_redirected_to tourist_sight_path(assigns(:tourist_sight))
+
+		# Verifica que o tourist_sight utilizado ficou com apenas uma tag
+		ts = TouristSight.find(tourist_sights(:one).to_param)
+		assert_equal(0, ts.tags.length)
+  end
 
 end
 
