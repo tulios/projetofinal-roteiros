@@ -168,6 +168,10 @@ h1,h2,h3 {padding-top: 6px;}
 		text-align: right !important;
 }
 
+.linha_justificada {
+	text-align: justify !important;
+}
+
 .form td {
   padding: 5px;
 }
