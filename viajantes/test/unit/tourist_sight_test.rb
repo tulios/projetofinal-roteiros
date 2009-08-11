@@ -48,6 +48,28 @@ class TouristSightTest < ActiveSupport::TestCase
 		assert_equal(2, ts.tags.length)
 	end
 
+  test "Deveria nao adicionar nenhuma tag e apagar as associacoes existentes" do
+    # Gerando dados para o teste
+		tags_adicionadas = []
+		tags_adicionadas << Tag.find(tags(:one).to_param)
+		tags_adicionadas << Tag.find(tags(:two).to_param)
+
+		# Recuperando PontoTuristico da fixture
+		ts_id = tourist_sights(:one).to_param
+		ts = TouristSight.find(ts_id)
+
+		# Adicionando as 2 tags criadas ao PontoTuristico
+		ts.save_tags(tags_adicionadas)
+		ts = TouristSight.find(ts_id)
+		assert_equal(2, ts.tags.length)
+
+    # Retira todas as tags e salva
+    tags_adicionadas = []
+    ts.save_tags(tags_adicionadas)
+		ts = TouristSight.find(ts_id)
+		assert_equal(0, ts.tags.length)
+  end
+
 	test "Deveria recuperar todos os TouristSights da mesma cidade que tenham uma tag especifica associada" do
 		ts1 = TouristSight.find(tourist_sights(:one).to_param)
 		TouristSight.find(tourist_sights(:two).to_param)
