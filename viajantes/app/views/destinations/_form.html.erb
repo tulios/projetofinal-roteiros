@@ -1,0 +1,76 @@
+<table class="form">
+	<tr>
+		<td>
+			<% if @destination and @destination.city %>
+				<%= select :state, :id, @states.map{|state| [state.name, state.id] }, #select com os estados disponiveis
+								   {:include_blank => '-- escolha o estado --', :selected => @detination.city.state.id} %>	
+			<% else %>
+				<%= select :state, :id, @states.map{|state| [state.name, state.id] }, #select com os estados disponiveis
+								   :include_blank => '-- escolha o estado --' %>
+			<% end %>
+		</td>
+
+		<% form_for(@destination) do |f| %>
+      <%= f.error_messages %>
+		  <td>
+				
+			  <%= observe_field :state_id, # ID do campo observado
+												  # URL que sera chamada
+		   		                :url => {:controller => "cities", :action => "index", :format => "html"}, 
+												  :method => :get,
+				                  :frequency => 0.5, # De quanto em quanto tempo o campo sera observado
+				        	        :update => :destination_city_id, # ID do campo que sera atualizado
+				           		    :with => 'state_id', # valor que sera passado para url
+												  :before => "$('#load').show()", # O que fara antes de chamar a URL
+												  :complete => "$('#load').hide()" # O que fara depois de chamar a URL
+												  %>
+
+			  <% if @cities 
+				  # se as cidades ja estiverem populadas exibe o select com elas. Para caso de edicao.
+			  %>
+				  <%= f.select :city_id, @cities.map{|city| [city.name, city.id] }, :include_blank => true %>
+			  <% else %>
+				  <%= f.select :city_id, [], :include_blank => true %>
+			  <% end %>
+			  <%= image_tag 'load_mini.gif', :id => 'load', :style => "display: none;" %>
+
+		  </td>
+	  </tr>
+	  <tr>
+    <tr>
+      <td>
+        <%= f.label :road_map, 'Roteiro:' %><br />
+      </td>
+      <td>
+        <%= f.label :vehicle, 'Meio de Transporte:' %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <%= f.select :road_map_id, 
+          @road_maps.map{|rm| [rm.name, rm.id] }, 
+          :include_blank => true %>
+      </td>
+      <td>
+        <%= f.select :vehicle_id, 
+          @vehicles.map{|vehicle| [vehicle.name, vehicle.id] }, 
+          :include_blank => true %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <%= f.label :planned_cost, 'Custo Planejado:' %>
+      </td>      
+    </tr>
+    <tr>
+      <td>
+        <%= f.text_field :city %>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2" align="right">
+        <%= f.submit 'Salvar' %>
+      </td>
+    </tr>
+  </table>
+<% end %>
