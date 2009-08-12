@@ -1,0 +1,13 @@
+<p>
+  <b>Title:</b>
+  <%=h @roadmap.title %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%=h @roadmap.description %>
+</p>
+
+
+<%= link_to 'Edit', edit_roadmap_path(@roadmap) %> |
+<%= link_to 'Back', roadmaps_path %>

@@ -340,6 +340,11 @@ textarea.expanding {
 	padding: 15px 55px;
 }
 
+.roadmap {
+	background: url(../images/bag_48.png) no-repeat;
+	padding: 15px 55px;
+}
+
 .tips {
 	background: url(../images/tips_48.png) no-repeat;
 	padding: 15px 55px;

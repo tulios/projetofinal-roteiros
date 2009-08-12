@@ -1,0 +1,22 @@
+<h1 class="roadmap">Roteiros</h1>
+
+<table>
+  <tr>
+    <th>Título</th>
+    <th>Descrição</th>
+  </tr>
+
+<% @roadmaps.each do |roadmap| %>
+  <tr>
+    <td><%=h roadmap.title %></td>
+    <td><%=h roadmap.description %></td>
+    <td><%= link_to 'Show', roadmap %></td>
+    <td><%= link_to 'Edit', edit_roadmap_path(roadmap) %></td>
+    <td><%= link_to 'Destroy', roadmap, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New roadmap', new_roadmap_path %>

@@ -29,6 +29,7 @@ ActiveRecord::Schema.define(:version => 20090812132355) do
   create_table "roadmaps", :force => true do |t|
     t.string   "title"
     t.text   "description"
+		t.integer "city_id", :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
