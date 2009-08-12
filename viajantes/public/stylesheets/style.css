@@ -245,10 +245,10 @@ input:focus, textarea:focus, select:focus{
 }
 
 .failure {
-	color: red;
-	border: 2px solid #DDDDDD;
-	border-color: #C6D880;
-	background: url(../images/fail_24.png) #E6EFC2 no-repeat scroll 0 0;
+	color: #614342;
+	border: 2px solid;
+	border-color: #CD7054;
+	background: url(../images/fail_24.png) #EE9572 no-repeat scroll 0 0;
 	margin-bottom: 0.5em;
 	padding: 5px 0px 4px 35px;
 }
