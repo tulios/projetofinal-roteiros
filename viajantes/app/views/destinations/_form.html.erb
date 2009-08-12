@@ -1,3 +1,5 @@
+<%= mask_fields({:destination_start => "99/99/9999", :destination_end => "99/99/9999"}) %>
+
 <table class="form">
 	<tr>
 		<td>
@@ -39,7 +41,7 @@
 	  <tr>
     <tr>
       <td>
-        <%= f.label :road_map, 'Roteiro:' %><br />
+        <%= f.label :road_map, 'Roteiro:' %>
       </td>
       <td>
         <%= f.label :vehicle, 'Meio de Transporte:' %>
@@ -55,6 +57,22 @@
         <%= f.select :vehicle_id, 
           @vehicles.map{|vehicle| [vehicle.name, vehicle.id] }, 
           :include_blank => true %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <%= f.label :start, 'De:' %>
+      </td>
+      <td>
+        <%= f.label :start, 'Até:' %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+         <%= f.text_field :start %>
+      </td>
+      <td>
+         <%= f.text_field :end %>
       </td>
     </tr>
     <tr>

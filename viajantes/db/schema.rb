@@ -23,6 +23,8 @@ ActiveRecord::Schema.define(:version => 20090812134912) do
 
   create_table "destinations", :force => true do |t|
     t.float    "planned_cost"
+    t.date     "start"
+    t.date     "end"
     t.integer  "vehicle_id"
     t.integer  "road_map_id"
     t.integer  "city_id"
@@ -37,10 +39,10 @@ ActiveRecord::Schema.define(:version => 20090812134912) do
 
   create_table "roadmaps", :force => true do |t|
     t.string   "title"
-    t.text   "description"
-		t.boolean "public", :default => false
-		t.integer "city_id", :null => false
-		t.integer "user_id", :null => false
+    t.text     "description"
+    t.boolean  "public",      :default => false
+    t.integer  "city_id",                        :null => false
+    t.integer  "user_id",                        :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end

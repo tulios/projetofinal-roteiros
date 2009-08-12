@@ -6,9 +6,11 @@ class Shop < ActiveRecord::Base
 	# String: key_words
 	# City: city
 	# TouristSight: tourist_sight
+	# User: user
 
   belongs_to :city
   belongs_to :tourist_sight
+  belongs_to :user
 
 	validates_presence_of :city_id, :name, :address
 

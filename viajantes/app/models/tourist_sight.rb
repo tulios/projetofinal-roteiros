@@ -3,8 +3,10 @@ class TouristSight < ActiveRecord::Base
 	#String: address
 	#String: description
 	#City: city
+	#User: user
 
 	belongs_to :city
+	belongs_to :user
 	has_many :tourist_sight_tag
 	has_many :tags, :through => :tourist_sight_tag
 	has_many :tips, :order => "created_at desc", :limit => 10
