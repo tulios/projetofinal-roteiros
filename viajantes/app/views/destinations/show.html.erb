@@ -1,0 +1,23 @@
+<p>
+  <b>Planned cost:</b>
+  <%=h @destination.planned_cost %>
+</p>
+
+<p>
+  <b>Vehicle:</b>
+  <%=h @destination.vehicle %>
+</p>
+
+<p>
+  <b>Road map:</b>
+  <%=h @destination.road_map %>
+</p>
+
+<p>
+  <b>City:</b>
+  <%=h @destination.city %>
+</p>
+
+
+<%= link_to 'Edit', edit_destination_path(@destination) %> |
+<%= link_to 'Back', destinations_path %>
