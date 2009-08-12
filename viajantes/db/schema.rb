@@ -30,6 +30,7 @@ ActiveRecord::Schema.define(:version => 20090812132355) do
     t.string   "title"
     t.text   "description"
 		t.integer "city_id", :null => false
+		t.integer "user_id", :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end

@@ -4,6 +4,7 @@ class CreateRoadmaps < ActiveRecord::Migration
       t.string :title
       t.text :description
 			t.belongs_to :city, :null => false
+			t.belongs_to :user, :null => false
 
       t.timestamps
     end
