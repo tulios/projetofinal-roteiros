@@ -3,5 +3,9 @@ class Roadmap < ActiveRecord::Base
 	#Text: description
 	#City: city
 	belongs_to :city
+	belongs_to :user
+
+	validates_presence_of :city_id, :title
+
 
 end

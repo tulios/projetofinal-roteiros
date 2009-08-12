@@ -123,6 +123,7 @@
       shop: "Estabelecimento"
       tip: "Dica"
       user: "Usuário"
+      roadmap: "Roteiro"
       
     attributes:
       tourist_sight:
@@ -154,6 +155,12 @@
         city_id: "Cidade"
         password: "Senha"
         password_confirmation: "Confirmação da senha"
+
+      roadmap:
+        title: "Título"
+        description: "Descrição"
+        city: "Cidade"
+        city_id: "Cidade"
         
     errors:
       template:

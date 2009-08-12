@@ -25,6 +25,7 @@ class RoadmapsController < ApplicationController
   # GET /roadmaps/new.xml
   def new
     @roadmap = Roadmap.new
+		@states = State.load_all
 
     respond_to do |format|
       format.html # new.html.erb
@@ -35,19 +36,26 @@ class RoadmapsController < ApplicationController
   # GET /roadmaps/1/edit
   def edit
     @roadmap = Roadmap.find(params[:id])
+		@states = State.load_all
+		@cities = City.load_all(@roadmap.city.state.id)
   end
 
   # POST /roadmaps
   # POST /roadmaps.xml
   def create
     @roadmap = Roadmap.new(params[:roadmap])
+		@roadmap.user_id = current_user.id
 
     respond_to do |format|
       if @roadmap.save
-        flash[:notice] = 'Roadmap was successfully created.'
+        flash[:notice] = 'Roteiro criado com sucesso.'
         format.html { redirect_to(@roadmap) }
         format.xml  { render :xml => @roadmap, :status => :created, :location => @roadmap }
       else
+			
+				# Recarrega os estados e as cidades se possivel
+				load_states_and_cities
+
         format.html { render :action => "new" }
         format.xml  { render :xml => @roadmap.errors, :status => :unprocessable_entity }
       end
@@ -61,10 +69,14 @@ class RoadmapsController < ApplicationController
 
     respond_to do |format|
       if @roadmap.update_attributes(params[:roadmap])
-        flash[:notice] = 'Roadmap was successfully updated.'
+        flash[:notice] = 'Roteiro atualizado com sucesso.'
         format.html { redirect_to(@roadmap) }
         format.xml  { head :ok }
       else
+
+				# Recarrega os estados e as cidades se possivel
+				load_states_and_cities
+
         format.html { render :action => "edit" }
         format.xml  { render :xml => @roadmap.errors, :status => :unprocessable_entity }
       end
@@ -82,4 +94,17 @@ class RoadmapsController < ApplicationController
       format.xml  { head :ok }
     end
   end
+
+	# == Metodos utilitarios ==
+	private
+
+	# Carrega os estados e as cidades se possivel
+	def load_states_and_cities
+		# carrega novamente os estados para exibir no combo
+		@states = State.load_all
+		# carrega novamente as cidades se o estado tiver sido informado
+		if @tourist_sight and @tourist_sight.city
+			@cities = City.load_all(@tourist_sight.city.state.id)
+		end
+	end
 end
