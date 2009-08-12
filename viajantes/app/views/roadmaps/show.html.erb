@@ -1,13 +1,98 @@
-<p>
-  <b>Title:</b>
-  <%=h @roadmap.title %>
-</p>
+<h1 class="roadmap">Roteiro</h1>
 
-<p>
-  <b>Description:</b>
-  <%=h @roadmap.description %>
-</p>
+<% if logged_in? %>
+	<div align="right">
+		<%= link_to 'Apagar', @roadmap, :confirm => 'Você tem certeza?', :method => :delete %>
+	</div>
+<% end %>
+
+<table width="100%" class="tabela_info" cellspacing="5">
+	<tr>
+		<td align="center" colspan="2">
+			<strong>Ponto de partida</strong>
+		</td>
+	</tr>
+	<tr>
+		<td align="center" colspan="2">
+			<%= render :partial => "tourist_sights/location" %>		
+		</td>
+	</tr>
+	<% if @roadmap.user.id != current_user.id %>
+		<tr>
+			<td align="right">
+				<strong>Criado por:</strong>		
+			</td>
+			<td><%= @roadmap.user.login %></td>
+		</td>
+	<% end %>
+	<tr>
+		<td align="right">
+			<strong title="Outras pessoas podem visualizar meu roteiro">Público?</strong>
+		</td>
+		<td>
+			<% if @roadmap.public %>
+				Sim
+			<% else %>
+				Não
+			<% end %>
+		</td>
+	</tr>
+	<tr>
+		<td align="right">
+			<strong>Criado em:</strong>
+		</td>
+		<td><%= date_format(@roadmap.created_at) %></td>
+	</tr>
+	<tr>
+		<td align="right" width="12%">
+			<strong>Atualizado em:</strong>
+		</td>
+		<td><%= date_format(@roadmap.updated_at) %></td>
+	</tr>
+	<tr>
+		<td align="right">
+			<strong>Título:</strong>
+		</td>
+		<td><%=h @roadmap.title %></td>
+	</tr>
+	<tr>
+		<td align="right" valign="top">
+			<strong>Descrição:</strong>
+		</td>
+		<td style="text-align: justify;">
+			<% if (not @roadmap.description) or @roadmap.description.length == 0 %>
+		    <i>Não informado</i>
+		  <% else %>
+  		  <%=h @roadmap.description %>
+  		<% end %>
+		</td>
+	</tr>
+</table>
+
+<br/>
+<br/>
+
+<% if logged_in? %>
+	<%= link_to 'Editar', edit_roadmap_path(@roadmap) %> |
+<% end %>
+
+<%= link_to 'Voltar', roadmaps_path %>
 
 
-<%= link_to 'Edit', edit_roadmap_path(@roadmap) %> |
-<%= link_to 'Back', roadmaps_path %>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,13 +1,14 @@
 <div class="navigation">
 	<a href="index.html">Página Inicial</a>
-	<%= link_to "Roteiros", roadmaps_path %>
+	<% if logged_in? %>
+		<%= link_to "Meus Roteiros", roadmaps_path %>
+	<% end %>
 	<%= link_to "Pontos Turísticos", tourist_sights_path %>
 	<%= link_to "Estabelecimentos", shops_path %>
 	<a href="index.html">link</a>
 	<a href="index.html">link</a>
-	<a href="index.html">link</a>
-        <% if not logged_in? %>
-          <%= link_to "Fazer login", login_path %>
-        <% end %>
-<%= render :partial => "layouts/search" %>
+  <% if not logged_in? %>
+    <%= link_to "Fazer login", login_path %>
+  <% end %>
+	<%= render :partial => "layouts/search" %>
 </div>

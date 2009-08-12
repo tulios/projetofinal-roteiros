@@ -5,7 +5,7 @@
 		<td>Ponto de Partida:</td>
 	</tr>
 	<tr>
-		<td width="40%">
+		<td>
 			<% if @roadmap and @roadmap.city %>
 				<%= select :state, :id, @states.map{|state| [state.name, state.id] }, #select com os estados disponiveis
 								   {:include_blank => '-- escolha o estado --', :selected => @roadmap.city.state.id} %>	
@@ -16,7 +16,7 @@
 		</td>
 		<% form_for(@roadmap) do |f| %>
 		<%= f.error_messages %>
-		<td width="60%">
+		<td>
 				
 			<%= observe_field :state_id, # ID do campo observado
 												# URL que sera chamada
@@ -41,10 +41,14 @@
 		</td>
 	</tr>
 	<tr>
+		<td width="50%">Compartilhar meu roteiro com outras pessoas?</td>
+		<td align="left"><%= f.check_box :public %></td>
+	</tr>
+	<tr>
 		<td colspan="2"><%= f.label :title, 'Título:' %></td>
 	</tr>
 	<tr>		
-		<td colspan="2"><%= f.text_field :title, :size => 64 %></td>
+		<td colspan="2"><%= f.text_field :title, :size => 69 %></td>
 	</tr>
 	<tr>
 		<td colspan="2"><%= f.label :description, 'Descrição:' %></td>

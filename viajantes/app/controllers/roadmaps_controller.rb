@@ -1,8 +1,13 @@
 class RoadmapsController < ApplicationController
+	require_role "user" #, :for_all_except => [:index, :show]
+
   # GET /roadmaps
   # GET /roadmaps.xml
   def index
-    @roadmaps = Roadmap.all
+    @roadmaps = Roadmap.paginate_by_user_id(
+			current_user.id,
+		 :per_page => 10, :page => params[:page], :order => "updated_at desc"
+		)
 
     respond_to do |format|
       format.html # index.html.erb
@@ -15,10 +20,19 @@ class RoadmapsController < ApplicationController
   def show
     @roadmap = Roadmap.find(params[:id])
 
-    respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render :xml => @roadmap }
-    end
+		if @roadmap.user.id != current_user.id and (not @roadmap.public)
+			flash[:error] = "Esse roteiro não é público e não te pertence!"
+			redirect_to roadmaps_path
+
+		else
+			@city = @roadmap.city
+
+		  respond_to do |format|
+		    format.html # show.html.erb
+		    format.xml  { render :xml => @roadmap }
+		  end
+
+		end
   end
 
   # GET /roadmaps/new
@@ -35,7 +49,13 @@ class RoadmapsController < ApplicationController
 
   # GET /roadmaps/1/edit
   def edit
-    @roadmap = Roadmap.find(params[:id])
+		@roadmap = Roadmap.find(params[:id])
+
+		if @roadmap.user.id != current_user.id and (not @roadmap.public)
+			flash[:error] = "Esse roteiro não é público e não te pertence!"
+			redirect_to roadmaps_path
+		end
+
 		@states = State.load_all
 		@cities = City.load_all(@roadmap.city.state.id)
   end
@@ -67,32 +87,47 @@ class RoadmapsController < ApplicationController
   def update
     @roadmap = Roadmap.find(params[:id])
 
-    respond_to do |format|
-      if @roadmap.update_attributes(params[:roadmap])
-        flash[:notice] = 'Roteiro atualizado com sucesso.'
-        format.html { redirect_to(@roadmap) }
-        format.xml  { head :ok }
-      else
+		if @roadmap.user.id != current_user.id and (not @roadmap.public)
+			flash[:error] = "Esse roteiro não é público e não te pertence!"
+			redirect_to roadmaps_path
+		else
 
-				# Recarrega os estados e as cidades se possivel
-				load_states_and_cities
+		  respond_to do |format|
+		    if @roadmap.update_attributes(params[:roadmap])
+		      flash[:notice] = 'Roteiro atualizado com sucesso.'
+		      format.html { redirect_to(@roadmap) }
+		      format.xml  { head :ok }
+		    else
 
-        format.html { render :action => "edit" }
-        format.xml  { render :xml => @roadmap.errors, :status => :unprocessable_entity }
-      end
-    end
+					# Recarrega os estados e as cidades se possivel
+					load_states_and_cities
+
+		      format.html { render :action => "edit" }
+		      format.xml  { render :xml => @roadmap.errors, :status => :unprocessable_entity }
+		    end
+		  end
+
+		end
   end
 
   # DELETE /roadmaps/1
   # DELETE /roadmaps/1.xml
   def destroy
     @roadmap = Roadmap.find(params[:id])
-    @roadmap.destroy
+		
+		if @roadmap.user.id != current_user.id and (not @roadmap.public)
+			flash[:error] = "Esse roteiro não é público e não te pertence!"
+			redirect_to roadmaps_path
+		else
 
-    respond_to do |format|
-      format.html { redirect_to(roadmaps_url) }
-      format.xml  { head :ok }
-    end
+		  @roadmap.destroy
+
+		  respond_to do |format|
+		    format.html { redirect_to(roadmaps_url) }
+		    format.xml  { head :ok }
+		  end
+
+		end
   end
 
 	# == Metodos utilitarios ==

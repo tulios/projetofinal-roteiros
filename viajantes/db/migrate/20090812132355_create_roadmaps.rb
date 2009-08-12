@@ -3,6 +3,7 @@ class CreateRoadmaps < ActiveRecord::Migration
     create_table :roadmaps do |t|
       t.string :title
       t.text :description
+			t.boolean :public, :default => false
 			t.belongs_to :city, :null => false
 			t.belongs_to :user, :null => false
 

@@ -29,6 +29,7 @@ ActiveRecord::Schema.define(:version => 20090812132355) do
   create_table "roadmaps", :force => true do |t|
     t.string   "title"
     t.text   "description"
+		t.boolean "public", :default => false
 		t.integer "city_id", :null => false
 		t.integer "user_id", :null => false
     t.datetime "created_at"
