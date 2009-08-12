@@ -5,6 +5,7 @@ class CreateTouristSights < ActiveRecord::Migration
       t.string :address
       t.text :description
 			t.belongs_to :city, :null => false
+			t.belongs_to :user, :null => false
 			t.integer :hits, :default => 0
 
       t.timestamps

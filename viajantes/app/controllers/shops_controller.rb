@@ -53,6 +53,7 @@ class ShopsController < ApplicationController
   # POST /shops.xml
   def create
     @shop = Shop.new(params[:shop])
+    @shop.user_id = current_user.id
 
     respond_to do |format|
       if @shop.save

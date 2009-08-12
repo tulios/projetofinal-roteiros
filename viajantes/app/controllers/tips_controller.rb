@@ -52,6 +52,7 @@ class TipsController < ApplicationController
   def create
     @tip = Tip.new(params[:tip])
     @tip.tourist_sight = TouristSight.find(params[:tourist_sight_id])
+    @tip.user_id = current_user.id
 
     respond_to do |format|
       if @tip.save

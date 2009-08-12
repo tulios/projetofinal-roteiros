@@ -6,6 +6,7 @@ one:
   address: endereco1
   description: 
   city_id: 1
+  user_id: 1
 
 two:
   id: 2
@@ -13,3 +14,4 @@ two:
   address: endereco2
   description: 
   city_id: 1
+  user_id: 1

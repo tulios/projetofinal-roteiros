@@ -4,6 +4,7 @@ class CreateTips < ActiveRecord::Migration
       t.string :name, :null => false, :limit => 50
       t.text :description, :null => false
       t.belongs_to :tourist_sight, :null => false
+      t.belongs_to :user, :null => false
 
       t.timestamps
     end

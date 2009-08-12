@@ -44,8 +44,9 @@ ActiveRecord::Schema.define(:version => 20090806120814) do
     t.string   "phone",            :limit => 14
     t.text     "description"
     t.text     "key_words"
-    t.integer  "hits",             :default => 0
-    t.integer  "city_id",          :null => false
+    t.integer  "hits",                           :default => 0
+    t.integer  "city_id",                                       :null => false
+    t.integer  "user_id",                                       :null => false
     t.integer  "tourist_sight_id"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -68,6 +69,7 @@ ActiveRecord::Schema.define(:version => 20090806120814) do
     t.string   "name",             :limit => 50, :null => false
     t.text     "description",                    :null => false
     t.integer  "tourist_sight_id",               :null => false
+    t.integer  "user_id",                        :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -85,7 +87,8 @@ ActiveRecord::Schema.define(:version => 20090806120814) do
     t.string   "name"
     t.string   "address"
     t.text     "description"
-    t.integer  "city_id",     :null => false
+    t.integer  "city_id",                    :null => false
+    t.integer  "user_id",                    :null => false
     t.integer  "hits",        :default => 0
     t.datetime "created_at"
     t.datetime "updated_at"

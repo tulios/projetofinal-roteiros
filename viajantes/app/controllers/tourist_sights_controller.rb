@@ -49,6 +49,7 @@ class TouristSightsController < ApplicationController
   # POST /tourist_sights.xml
   def create
     @tourist_sight = TouristSight.new(params[:tourist_sight])
+    @tourist_sight.user_id = current_user.id
 		
     respond_to do |format|
       if @tourist_sight.save

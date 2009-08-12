@@ -8,6 +8,7 @@ class CreateShops < ActiveRecord::Migration
       t.text :key_words
       t.integer :hits,  :default => 0
       t.belongs_to :city, :null => false
+      t.belongs_to :user, :null => false
       t.belongs_to :tourist_sight
 
       t.timestamps

@@ -105,7 +105,7 @@ class TouristSightTest < ActiveSupport::TestCase
 		ts = TouristSight.find(tourist_sights(:one).to_param)
 		# Cria 20 dicas para o ponto turistico
 		(1..20).each do |number|
-			tip = Tip.new({:name => "Tips#{number}", :description => "Desc#{number}", :tourist_sight => ts})
+			tip = Tip.new({:name => "Tips#{number}", :description => "Desc#{number}", :tourist_sight => ts, :user_id => users(:quentin).to_param})
 			tip.save
 		end
 
