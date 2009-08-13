@@ -17,6 +17,12 @@ module ApplicationHelper
      end
   end
 
+	def check_tab?(name)
+     if name == controller_name
+       return "marcado"
+     end     
+  end
+
 	def configure_textarea_autogrow
 		%Q{
 			<script type="text/javascript">

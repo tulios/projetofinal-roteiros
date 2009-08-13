@@ -121,6 +121,14 @@ h1,h2,h3 {padding-top: 6px;}
 }
 .navigation a:hover {background-position: left bottom; color: #234;}
 
+.navigation .marcado {
+	background: #CDE4E6;
+}
+
+.navigation .marcado a:hover {
+	background-position: left bottom; color: #234;
+}
+
 /* main url(../images/img/bgmain.gif) repeat-y*/
 .main {
 	border-top: 4px solid #FFF;
