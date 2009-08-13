@@ -20,4 +20,15 @@ class RoadmapTest < ActiveSupport::TestCase
 		assert_validos(rm, [:title, :city])
 	end
 
+	test "Deveria pesquisar pelo titulo nos roteiros publicos usando like" do
+		results = Roadmap.find_like_title("Roteiro")
+		assert_not_nil(results)
+		assert_equal(2, results.length)
+
+		# Pesquisando 1 especifico
+		results = Roadmap.find_like_title("Roteiro_5")
+		assert_not_nil(results)
+		assert_equal(1, results.length)
+	end
+
 end

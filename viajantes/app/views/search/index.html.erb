@@ -12,6 +12,9 @@
 			<% if @shops and @shops.length > 0%>
 			<li><a href="#shops">Estabelecimentos</a></li>
 			<% end %>
+			<% if @roadmaps and @roadmaps.length > 0%>
+			<li><a href="#roadmaps">Roteiros</a></li>
+			<% end %>
 		</ul>
 
 		<!-- tourist_sight -->
@@ -22,6 +25,11 @@
 		<!-- shop -->
 		<% if @shops and @shops.length > 0%>
     <%= render :partial => "shops" %>
+		<% end %>
+
+		<!-- roadmap -->
+		<% if @roadmaps and @roadmaps.length > 0%>
+    <%= render :partial => "roadmaps" %>
 		<% end %>
 
 	</div>
