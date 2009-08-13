@@ -17,6 +17,12 @@ module ApplicationHelper
      end
   end
 
+	def check_tab?(name)
+     if name == controller_name
+       return "marcado"
+     end     
+  end
+
 	def configure_textarea_autogrow
 		%Q{
 			<script type="text/javascript">
@@ -61,7 +67,36 @@ module ApplicationHelper
 			javascript: collapse_box('#{arrow1_id}', '#{arrow2_id}', '#{content_id}');
 		}
 	end
+
+	def currency(value)
+		number_to_currency(value, :unit => "R$", :format => "%u %n")
+	end
 	
+	def price_format(field_ids)
+		fields = []
+		field_ids.each do |field_id|
+			fields << %Q{
+				$("#{'#'+field_id}").priceFormat(
+					{
+						prefix: 'R$ ',
+						centsSeparator: ',',  
+						thousandsSeparator: '.'
+					}
+				);
+			}
+		end
+
+		%Q{
+			<script type="text/javascript">
+				jQuery(function($){
+					$(document).ready(function(){
+						#{fields}
+					});
+				});
+			</script>
+		}
+	end
+
 	# Recebe um hash {id => mascara}. ex: {:field_1 => '99/99/9999', :field_2 => '(999) 9999-9999'}
 	def mask_fields(hash)
 		fields = []

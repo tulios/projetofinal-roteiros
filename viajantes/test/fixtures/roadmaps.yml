@@ -1,33 +1,38 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
 one:
+  id: 1
   title: Roteiro_1
   description: Roteiro_1
   city_id: 1
   user_id: 1
 
 two:
+  id: 2
   title: Roteiro_2
   description: Roteiro_2
   city_id: 1
   user_id: 1
 
 three:
+  id: 3
   title: Roteiro_3
   description: Roteiro_3
   city_id: 1
   user_id: 2
 
 four:
+  id: 4
   title: Roteiro_4
   description: Roteiro_4
   city_id: 1
-  user_id: 2
+  user_id: 1
   public: true
 
 five:
+  id: 5
   title: Roteiro_5
   description: Roteiro_5
   city_id: 1
-  user_id: 2
+  user_id: 1
   public: true

@@ -2,12 +2,12 @@
 
 one:
   planned_cost: 1.5
-  vehicle: 
-  road_map: 
-  city: 
+  vehicle: 1
+  roadmap: 5
+  city: 1
 
 two:
   planned_cost: 1.5
-  vehicle: 
-  road_map: 
-  city: 
+  vehicle: 1
+  roadmap: 5
+  city: 1

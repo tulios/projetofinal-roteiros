@@ -1,0 +1,15 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  date: 2009-08-13
+  value: 1.5
+  description: MyText
+  tourist_sight: 
+  shop: 
+
+two:
+  date: 2009-08-13
+  value: 1.5
+  description: MyText
+  tourist_sight: 
+  shop: 

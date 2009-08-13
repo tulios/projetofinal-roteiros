@@ -1,0 +1,9 @@
+<% @programs.each do |program| %>
+	<li>
+		<h4>
+			<%= link_to "#{date_format(program.date)}", program %>
+			<%= currency(program.value) %>
+		</h4>
+		<br/>
+	</li>
+<% end %>

@@ -1,0 +1,46 @@
+<%= configure_textarea_autogrow %>
+<%= mask_fields(:program_date => "99/99/9999") %>
+<%= price_format(['program_value']) %>
+
+<% form_for(@program) do |f| %>
+  <%= f.error_messages %>
+
+	<table class="form">
+		<tr>
+			<td><%= f.label :date, 'Data:' %></td>
+		</tr>
+		<tr>
+			<td>
+				<% if @program.date %>
+					<%= f.text_field :date, :value => date_format(@program.date), :size => 10 %>
+				<% else %>
+					<%= f.text_field :date, :size => 10 %>
+				<% end %>
+			</td>
+		</tr>
+		<tr>
+			<td><%= f.label :value, 'Valor:' %></td>
+		</tr>
+		<tr>
+			<td>
+				<% if @program.value %>
+					<%= f.text_field :value, :value => sprintf("%.2f", @program.value) %>
+				<% else %>
+					<%= f.text_field :value %>
+				<% end %>
+			</td>
+		</tr>
+		<tr>
+			<td><%= f.label :description, 'Descrição:' %></td>
+		</tr>
+		<tr>
+			<td>
+				<%= f.text_area :description, {:rows => 5, :class => "expanding",
+				:style => "width: 100%; min-height: 100px; max-height: 500px;"} %>
+			</td>
+		</tr>
+		<tr align="right">
+			<td><%= f.submit 'Salvar' %></td>
+		</tr>
+	</table>
+<% end %>

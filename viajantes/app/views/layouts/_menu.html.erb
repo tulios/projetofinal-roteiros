@@ -1,14 +1,17 @@
 <div class="navigation">
 	<a href="index.html">Página Inicial</a>
+
 	<% if logged_in? %>
-		<%= link_to "Meus Roteiros", roadmaps_path %>
+		<%= link_to "Meus Roteiros", roadmaps_path, :class => check_tab?('roadmaps') %>
+		<%= link_to "Programas", programs_path, :class => check_tab?('programs') %>
 	<% end %>
-	<%= link_to "Pontos Turísticos", tourist_sights_path %>
-	<%= link_to "Estabelecimentos", shops_path %>
-	<a href="index.html">link</a>
-	<a href="index.html">link</a>
+
+	<%= link_to "Pontos Turísticos", tourist_sights_path, :class => check_tab?('tourist_sights') %>
+	<%= link_to "Estabelecimentos", shops_path, :class => check_tab?('shops') %>
+
   <% if not logged_in? %>
     <%= link_to "Fazer login", login_path %>
   <% end %>
+
 	<%= render :partial => "layouts/search" %>
 </div>
