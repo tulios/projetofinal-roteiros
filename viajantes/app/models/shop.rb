@@ -18,7 +18,7 @@ class Shop < ActiveRecord::Base
 	  self.update_attributes(:hits => self.hits + 1)
 	end
 
-	def self.find_like_name_or_key_word(value, per_page, page)
+	def self.find_like_name_or_key_word(value, per_page = 10, page = 1)
 		cond = ["Lower(name) like ? or Lower(key_words) like ?", "%#{value.downcase}%", "%#{value.downcase}%"]
 		Shop.paginate(:conditions => cond, 
 									:per_page => per_page, 

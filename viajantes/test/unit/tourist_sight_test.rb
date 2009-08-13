@@ -105,7 +105,12 @@ class TouristSightTest < ActiveSupport::TestCase
 		ts = TouristSight.find(tourist_sights(:one).to_param)
 		# Cria 20 dicas para o ponto turistico
 		(1..20).each do |number|
-			tip = Tip.new({:name => "Tips#{number}", :description => "Desc#{number}", :tourist_sight => ts, :user_id => users(:quentin).to_param})
+			tip = Tip.new({
+				:name => "Tips#{number}", 
+				:description => "Desc#{number}", 
+				:tourist_sight => ts, 
+				:user_id => users(:quentin).to_param
+			})
 			tip.save
 		end
 
@@ -114,6 +119,16 @@ class TouristSightTest < ActiveSupport::TestCase
 
     assert(Tip.count >= 20, "quantidade na base #{Tip.count} deveria ser >= 20")
 		assert_equal(10, ts.tips.length)
+	end
+
+	test "Deveria pesquisar pelo nome usando like" do
+		results = TouristSight.find_like_name("PontoTuris")
+		assert_not_nil(results)
+		assert_equal(2, results.length)
+
+		results = TouristSight.find_like_name("PontoTuristo1")
+		assert_not_nil(results)
+		assert_equal(1, results.length)
 	end
 
 end
