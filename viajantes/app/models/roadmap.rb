@@ -9,5 +9,4 @@ class Roadmap < ActiveRecord::Base
 
 	validates_presence_of :city_id, :title
 
-
 end
