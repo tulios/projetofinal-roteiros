@@ -90,4 +90,35 @@ class RoadmapsControllerTest < ActionController::TestCase
 		# Verifica a quantidade apos a exclusao
 		assert_equal(2, Roadmap.count)
   end
+
+	test "Nao deveria permitir acesso as actions sem estar logado" do
+		get :index
+		assert_redirected_to new_session_path
+		get :show
+		assert_redirected_to new_session_path
+		get :new
+		assert_redirected_to new_session_path
+		get :create
+		assert_redirected_to new_session_path
+		get :edit
+		assert_redirected_to new_session_path
+		get :update
+		assert_redirected_to new_session_path
+		get :destroy
+		assert_redirected_to new_session_path
+	end
 end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
