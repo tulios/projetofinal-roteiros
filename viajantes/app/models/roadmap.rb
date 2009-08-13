@@ -6,6 +6,7 @@ class Roadmap < ActiveRecord::Base
 
 	belongs_to :city
 	belongs_to :user
+	has_many :destinations, :order => "start", :limit => 10
 
 	validates_presence_of :city_id, :title
 

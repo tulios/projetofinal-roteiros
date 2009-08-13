@@ -1,0 +1,25 @@
+<ul>
+<% @destinations.each do |destination| %>
+	<li>
+		<h4>
+			<%= link_to "#{destination.city.state.symbol}/#{destination.city.name}", roadmap_destination_path(destination.roadmap,destination) %>
+		</h4>
+		<ul>
+		  <li class="sem_li">
+	      <strong>Período:</strong>
+        <%= date_format(destination.start) %> a <%= date_format(destination.end) %>
+		  </li>
+		  
+		  <li class="sem_li">
+	      <strong>Meio de Transporte:</strong>
+	      <%= destination.vehicle.name %>
+		  </li>
+		  
+		  <li class="sem_li">
+	      <strong>Custo Planejado:</strong>
+	      <%= destination.planned_cost %>			      
+		  </li>
+		<ul>
+	</li>
+<% end %>
+</ul>

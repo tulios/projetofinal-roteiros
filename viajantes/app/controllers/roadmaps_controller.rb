@@ -19,6 +19,7 @@ class RoadmapsController < ApplicationController
   # GET /roadmaps/1.xml
   def show
     @roadmap = Roadmap.find(params[:id])
+    @destinations = @roadmap.destinations
 
 		if @roadmap.user.id != current_user.id and (not @roadmap.public)
 			flash[:error] = "Esse roteiro não é público e não te pertence!"

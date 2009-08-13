@@ -291,6 +291,23 @@ textarea.expanding {
 	background: #6C7B8B url(../images/new_tip.png) no-repeat 2px 1px;
 }
 
+.botao_new_destination {
+	color:#FFFFFF;
+	margin: 0px 0px 0px 0px;
+	padding: 3px 5px 3px 22px;
+	background: #9FB6CD url(../images/bag_16.png) no-repeat 2px 1px;
+	border: 1px solid #C1CDCD;
+	font-size:12px;
+	height: 20px;
+	cursor: pointer;
+	cursor: hand;
+}
+
+.botao_new_destination:hover {
+	color:#FFFFFF;
+	background: #6C7B8B url(../images/bag_16.png) no-repeat 2px 1px;
+}
+
 .pagination {
 	margin:0.3em;
 	padding:0.3em;
