@@ -345,6 +345,11 @@ textarea.expanding {
 	padding: 10px 55px;
 }
 
+.program {
+	background: url(../images/checklist_48.png) no-repeat;
+	padding: 15px 55px;
+}
+
 .tips {
 	background: url(../images/tips_48.png) no-repeat;
 	padding: 15px 55px;

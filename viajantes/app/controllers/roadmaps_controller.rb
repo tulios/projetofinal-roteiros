@@ -39,7 +39,12 @@ class RoadmapsController < ApplicationController
   # GET /roadmaps/new.xml
   def new
     @roadmap = Roadmap.new
+		# Inicializa o ponto de partida com a cidade natal do usuario
+		@roadmap.city = current_user.city
+	
 		@states = State.load_all
+		# Ja carrega todas as cidades do estado natal do usuario
+		@cities = City.load_all(current_user.city.state.id)
 
     respond_to do |format|
       format.html # new.html.erb

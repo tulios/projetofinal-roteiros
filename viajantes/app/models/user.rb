@@ -22,6 +22,7 @@ class User < ActiveRecord::Base
   end
   # ---------------------------------------
     
+	# Atributo com os sexos disponiveis para o cadastramento
   @@sexes = {:m => "Masculino", :f => "Feminino"}
   
   # Virtual attribute for the unencrypted password
@@ -40,10 +41,10 @@ class User < ActiveRecord::Base
   validates_confirmation_of :password,                   :if => :password_required?
   validates_length_of       :login,    :within => 3..40
   validates_length_of       :email,    :within => 3..100
-  validates_format_of :email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,}\Z)/
-  validates_format_of :birthday, :with =>  /\A\d{4}\-\d{2}\-\d{2}\Z/
+  validates_format_of 			:email, 	 :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,}\Z)/
+  validates_format_of 			:birthday, :with =>  /\A\d{4}\-\d{2}\-\d{2}\Z/
   validates_uniqueness_of   :login, :email, :case_sensitive => false
-  before_save :encrypt_password
+  before_save 							:encrypt_password
   
   # prevents a user from submitting a crafted form that bypasses activation
   # anything else you want your user to change should be added here.
@@ -114,6 +115,5 @@ class User < ActiveRecord::Base
     def password_required?
       crypted_password.blank? || !password.blank?
     end
-    
     
 end

@@ -1,0 +1,30 @@
+<h1 class="program">Programa</h1>
+
+<p>
+  <b>Date:</b>
+  <%=h date_format(@program.date) %>
+</p>
+
+<p>
+  <b>Value:</b>
+  <%=h currency(@program.value) %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%=h @program.description %>
+</p>
+
+<p>
+  <b>Tourist sight:</b>
+  <%=h @program.tourist_sight %>
+</p>
+
+<p>
+  <b>Shop:</b>
+  <%=h @program.shop %>
+</p>
+
+
+<%= link_to 'Edit', edit_program_path(@program) %> |
+<%= link_to 'Back', programs_path %>

@@ -22,12 +22,12 @@ four:
   title: Roteiro_4
   description: Roteiro_4
   city_id: 1
-  user_id: 2
+  user_id: 1
   public: true
 
 five:
   title: Roteiro_5
   description: Roteiro_5
   city_id: 1
-  user_id: 2
+  user_id: 1
   public: true

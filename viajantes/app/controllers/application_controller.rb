@@ -3,9 +3,7 @@
 
 class ApplicationController < ActionController::Base
   include AuthenticatedSystem
-  # You can move this into a different controller, if you wish.  This module gives you the require_role helpers, and others.
   include RoleRequirementSystem
-
   
   helper :all # include all helpers, all the time
   protect_from_forgery # See ActionController::RequestForgeryProtection for details
@@ -20,6 +18,15 @@ class ApplicationController < ActionController::Base
       end
     end    
   end
+
+	def currency_to_number(currency)
+  	return currency.gsub(/[\.]/, '').gsub(/[,]/, '.').gsub(/[A-Z]/, '').gsub(/[$]/, '').gsub(/[\s]/, '').to_f
+	end
+
+	def to_date(string, delimiter = '/')
+		array = string.split(delimiter)
+    Date.new(array[2].to_i,array[1].to_i,array[0].to_i) 
+	end
 
   # Scrub sensitive parameters from your log
   # filter_parameter_logging :password 
