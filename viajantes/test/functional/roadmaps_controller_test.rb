@@ -1,23 +1,36 @@
 require 'test_helper'
 
 class RoadmapsControllerTest < ActionController::TestCase
-  test "should get index" do
+  test "Deveria carregar o index" do
+		login_as :quentin
+
     get :index
     assert_response :success
     assert_not_nil assigns(:roadmaps)
+		assert(Roadmap.count > assigns(:roadmaps).length)
   end
 
-  test "should get new" do
+  test "Deveria carregar o new" do
+		login_as :quentin
+
     get :new
     assert_response :success
+		assert_not_nil assigns(:roadmap)
+		assert_not_nil assigns(:states)
   end
 
-  test "should create roadmap" do
-    assert_difference('Roadmap.count') do
-      post :create, :roadmap => { }
-    end
+  test "Deveria criar um roadmap" do
+   login_as :quentin
 
-    assert_redirected_to roadmap_path(assigns(:roadmap))
+		# Verifica que so existe os criados pela fixture
+		assert_equal(3, Roadmap.count)
+
+		# Verifica que o controlador criou um novo e redirecionou para o lugar certo
+		conteudo = { :title => "Roteiro_novo_1", :description => "Descricao_1", :city_id => "1" }
+    post :create, :roadmap => conteudo
+		assert_equal(3, Roadmap.count)
+
+    assert_redirected_to tourist_sight_path(assigns(:roadmap))
   end
 
   test "should show roadmap" do
