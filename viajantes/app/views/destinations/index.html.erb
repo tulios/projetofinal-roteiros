@@ -12,7 +12,7 @@
   <tr>
     <td><%=h destination.planned_cost %></td>
     <td><%=h destination.vehicle %></td>
-    <td><%=h destination.road_map %></td>
+    <td><%=h destination.roadmap %></td>
     <td><%=h destination.city %></td>
     <td><%= link_to 'Show', destination %></td>
     <td><%= link_to 'Edit', edit_destination_path(destination) %></td>
@@ -23,4 +23,4 @@
 
 <br />
 
-<%= link_to 'New destination', new_destination_path %>
+<%= link_to 'New destination', new_roadmap_destination_path(@roadmap) %>

@@ -1,28 +1,6 @@
-<h1>Editing destination</h1>
+<h1 class="destination">Destino</h1>
 
-<% form_for(@destination) do |f| %>
-  <%= f.error_messages %>
+<%= render :partial => 'form'%>
 
-  <p>
-    <%= f.label :planned_cost %><br />
-    <%= f.text_field :planned_cost %>
-  </p>
-  <p>
-    <%= f.label :vehicle %><br />
-    <%= f.text_field :vehicle %>
-  </p>
-  <p>
-    <%= f.label :road_map %><br />
-    <%= f.text_field :road_map %>
-  </p>
-  <p>
-    <%= f.label :city %><br />
-    <%= f.text_field :city %>
-  </p>
-  <p>
-    <%= f.submit 'Update' %>
-  </p>
-<% end %>
-
-<%= link_to 'Show', @destination %> |
-<%= link_to 'Back', destinations_path %>
+<%= link_to 'Detalhar', roadmap_destination_path(@destination.roadmap, @destination) %> |
+<%= link_to 'Voltar', @destination.roadmap %>

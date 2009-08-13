@@ -23,8 +23,10 @@ ActiveRecord::Schema.define(:version => 20090813124330) do
 
   create_table "destinations", :force => true do |t|
     t.float    "planned_cost"
+    t.date     "start"
+    t.date     "end"
     t.integer  "vehicle_id"
-    t.integer  "road_map_id"
+    t.integer  "roadmap_id"
     t.integer  "city_id"
     t.datetime "created_at"
     t.datetime "updated_at"

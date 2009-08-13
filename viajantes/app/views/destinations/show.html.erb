@@ -1,23 +1,66 @@
-<p>
-  <b>Planned cost:</b>
-  <%=h @destination.planned_cost %>
-</p>
+<h1 class="destination">Destino</h1>
 
-<p>
-  <b>Vehicle:</b>
-  <%=h @destination.vehicle %>
-</p>
+<% if logged_in? %>
+	<div align="right">
+		<%= link_to 'Apagar', roadmap_destination_path(@destination.roadmap,@destination), :confirm => 'Você tem certeza?', :method => :delete %>
+	</div>
+<% end %>
 
-<p>
-  <b>Road map:</b>
-  <%=h @destination.road_map %>
-</p>
+<table width="100%" class="tabela_info" cellspacing="5">
+	<tr>
+		<td align="center" colspan="2">
+			<strong>Cidade de destino</strong>
+		</td>
+	</tr>
+	<tr>
+		<td align="center" colspan="2">
+			<%= render :partial => "tourist_sights/location" %>		
+		</td>
+	</tr>
+	<tr>
+		<td align="right" width="18%">
+			<strong>Período:</strong>
+		</td>
+		<td><%= "#{date_format(@destination.start)} a #{date_format(@destination.end)}" %></td>
+	</tr>
+	<tr>
+		<td align="right" width="12%">
+			<strong>Meio de Transporte:</strong>
+		</td>
+		<td><%= @destination.vehicle.name %></td>
+	</tr>
+	<tr>
+		<td align="right">
+			<strong>Custo Planejado:</strong>
+		</td>
+		<td><%=h @destination.planned_cost %></td>
+	</tr>
+</table>
 
-<p>
-  <b>City:</b>
-  <%=h @destination.city %>
-</p>
+<br/>
+<br/>
+
+<% if logged_in? %>
+	<%= link_to 'Editar', edit_roadmap_destination_path(@destination.roadmap, @destination) %> |
+<% end %>
+
+<%= link_to 'Voltar', roadmaps_path %>
 
 
-<%= link_to 'Edit', edit_destination_path(@destination) %> |
-<%= link_to 'Back', destinations_path %>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
