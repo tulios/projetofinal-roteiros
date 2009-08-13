@@ -24,8 +24,15 @@ class ApplicationController < ActionController::Base
 	end
 
 	def to_date(string, delimiter = '/')
-		array = string.split(delimiter)
-    Date.new(array[2].to_i,array[1].to_i,array[0].to_i) 
+		if string and string.length > 0
+			begin
+				array = string.split(delimiter)
+			  Date.new(array[2].to_i,array[1].to_i,array[0].to_i) 
+			rescue
+				return nil
+			end
+		end
+		nil
 	end
 
   # Scrub sensitive parameters from your log

@@ -1,7 +1,13 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
 one:
-  name: MyString
+  id: 1
+  name: Carro
 
 two:
-  name: MyString
+  id: 2
+  name: Ônibus
+
+three:
+  id: 3
+  name: Avião

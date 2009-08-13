@@ -1,30 +1,52 @@
 <h1 class="program">Programa</h1>
 
-<p>
-  <b>Date:</b>
-  <%=h date_format(@program.date) %>
-</p>
+<% if logged_in? %>
+	<div align="right">
+		<%= link_to 'Apagar', @program, :confirm => 'Você tem certeza?', :method => :delete %>
+	</div>
+<% end %>
 
-<p>
-  <b>Value:</b>
-  <%=h currency(@program.value) %>
-</p>
+<table width="100%" class="tabela_info" cellspacing="5">
+	<tr>
+		<td align="right">
+			<strong>Data:</strong>		
+		</td>
+		<td><%=h date_format(@program.date) %></td>
+	</tr>
+	<tr>
+		<td align="right">
+			<strong>Custo:</strong>		
+		</td>
+		<td><%=h currency(@program.value) %></td>
+	</tr>
+	<tr>
+		<td align="right" valign="top" width="8%">
+			<strong>Descrição:</strong>
+		</td>
+		<td style="text-align: justify;">
+			<% if (not @program.description) or @program.description.length == 0 %>
+		    <i>Não informado</i>
+		  <% else %>
+  		  <%=h @program.description %>
+  		<% end %>
+		</td>
+	</tr>
+</table>
 
-<p>
-  <b>Description:</b>
-  <%=h @program.description %>
-</p>
+<br/>
+<br/>
 
-<p>
-  <b>Tourist sight:</b>
-  <%=h @program.tourist_sight %>
-</p>
+<% if logged_in? %>
+	<%= link_to 'Editar', edit_program_path(@program) %> |
+<% end %>
 
-<p>
-  <b>Shop:</b>
-  <%=h @program.shop %>
-</p>
+<%= link_to 'Voltar', programs_path %>
 
 
-<%= link_to 'Edit', edit_program_path(@program) %> |
-<%= link_to 'Back', programs_path %>
+
+
+
+
+
+
+
