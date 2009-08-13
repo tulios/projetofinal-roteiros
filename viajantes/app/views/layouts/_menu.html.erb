@@ -3,11 +3,11 @@
 
 	<% if logged_in? %>
 		<%= link_to "Meus Roteiros", roadmaps_path, :class => check_tab?('roadmaps') %>
+		<%= link_to "Programas", programs_path, :class => check_tab?('programs') %>
 	<% end %>
 
 	<%= link_to "Pontos Turísticos", tourist_sights_path, :class => check_tab?('tourist_sights') %>
 	<%= link_to "Estabelecimentos", shops_path, :class => check_tab?('shops') %>
-	<%= link_to "Programas", programs_path, :class => check_tab?('programs') %>
 
   <% if not logged_in? %>
     <%= link_to "Fazer login", login_path %>
