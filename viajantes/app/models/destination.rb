@@ -1,7 +1,15 @@
 class Destination < ActiveRecord::Base
-  belongs_to :road_map
+  
+  # Float: planned_cost
+  # Date: start
+  # Date: end
+  # Vehicle: vehicle
+  # Roadmap: road_map
+  # City: city
+  
+  belongs_to :roadmap
   belongs_to :vehicle
   belongs_to :city
   
-  validates_presence_of :road_map, :city
+  validates_presence_of :roadmap, :city
 end

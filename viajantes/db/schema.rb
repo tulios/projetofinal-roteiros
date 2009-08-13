@@ -26,7 +26,7 @@ ActiveRecord::Schema.define(:version => 20090812134912) do
     t.date     "start"
     t.date     "end"
     t.integer  "vehicle_id"
-    t.integer  "road_map_id"
+    t.integer  "roadmap_id"
     t.integer  "city_id"
     t.datetime "created_at"
     t.datetime "updated_at"

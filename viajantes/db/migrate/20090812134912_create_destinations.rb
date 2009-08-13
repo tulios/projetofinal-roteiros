@@ -5,7 +5,7 @@ class CreateDestinations < ActiveRecord::Migration
       t.date :start
       t.date :end
       t.belongs_to :vehicle
-      t.belongs_to :road_map
+      t.belongs_to :roadmap
       t.belongs_to :city
 
       t.timestamps
