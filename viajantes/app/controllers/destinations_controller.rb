@@ -50,8 +50,13 @@ class DestinationsController < ApplicationController
   # POST /destinations.xml
   def create
     @destination = Destination.new(params[:destination])
+    @destination.start_date = to_date(params[:destination][:start_date])
+    @destination.end_date = to_date(params[:destination][:end_date])
     @destination.roadmap = Roadmap.find(params[:roadmap_id])
-    
+		@destination.planned_cost = currency_to_number(params[:destination][:planned_cost])
+
+    logger.info "**Destination: "
+    logger.info "\n#{@destination.inspect}"
 
     respond_to do |format|
       if @destination.save
@@ -76,11 +81,17 @@ class DestinationsController < ApplicationController
   # PUT /destinations/1.xml
   def update
     @destination = Destination.find(params[:id])
+    params[:destination][:start_date] = to_date(params[:destination][:start_date])
+    params[:destination][:end_date] = to_date(params[:destination][:end_date])
+		params[:destination][:planned_cost] = currency_to_number(params[:destination][:planned_cost])
+
+    logger.info "\n***Destination: "
+    logger.info "\n #{@destination.inspect}\n\n"
 
     respond_to do |format|
       if @destination.update_attributes(params[:destination])
         flash[:notice] = 'Destination was successfully updated.'
-        format.html { redirect_to(roadmap_destination_path(@destination.roadmap, @destination)) }
+        format.html { redirect_to(roadmap_path(@destination.roadmap)) }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }

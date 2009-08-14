@@ -1,8 +1,8 @@
 class Destination < ActiveRecord::Base
   
   # Float: planned_cost
-  # Date: start
-  # Date: end
+  # Date: start_date
+  # Date: end_date
   # Vehicle: vehicle
   # Roadmap: road_map
   # City: city

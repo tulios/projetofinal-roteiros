@@ -7,19 +7,25 @@
 		<ul>
 		  <li class="sem_li">
 	      <strong>Período:</strong>
-        <%= date_format(destination.start) %> a <%= date_format(destination.end) %>
+        <%=h date_format(destination.start_date) %> a <%= date_format(destination.end_date) %>
 		  </li>
 		  
 		  <li class="sem_li">
 	      <strong>Meio de Transporte:</strong>
-	      <%= destination.vehicle.name %>
+	      <%=h destination.vehicle.name %>
 		  </li>
 		  
 		  <li class="sem_li">
 	      <strong>Custo Planejado:</strong>
-	      <%= destination.planned_cost %>			      
+	      <%=h currency(destination.planned_cost) %>			      
 		  </li>
-		<ul>
-	</li>
+		</ul>
+		<% if logged_in? %>
+	    <div align="right">
+	      <%= link_to 'Editar', edit_roadmap_destination_path(destination.roadmap, destination) %> | 
+		    <%= link_to 'Apagar', roadmap_destination_path(destination.roadmap, destination), :confirm => 'Você tem certeza?', :method => :delete %>
+	    </div>
+    <% end %>
+  </li>
 <% end %>
 </ul>

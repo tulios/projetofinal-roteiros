@@ -71,19 +71,21 @@
 
 <br/>
 
-<h1 class="destination">Destinos</h1>
+<h2 class="destination_32">Destinos</h1>
 
 <div class="box">
 	<div class="search_results">
-		<ul>
+	  <% if @roadmap.destinations and @roadmap.destinations.length > 0 %>
 			<%= render :partial => "destinations_list" %>
-		</ul>
+		<% else %>
+		  <center>
+		    <em>Nenhum destino encontrado.<em>
+		  </center>
+		<% end %>
 	</div>
 	<% if logged_in? %>
-	    <br />
-	      <center><%= link_to 'Novo destino', new_roadmap_destination_path(@roadmap), :class => "botao_new_destination" %></center>
-	    <br />
-    <% end %>
+	  <center><%= link_to 'Novo destino', new_roadmap_destination_path(@roadmap), :class => "botao_new_destination" %></center>
+  <% end %>
 	<br/>
 </div>
 

@@ -1,8 +1,9 @@
-<%= mask_fields({:destination_start => "99/99/9999", :destination_end => "99/99/9999"}) %>
+<%= mask_fields({:destination_start_date => "99/99/9999", :destination_end_date => "99/99/9999"}) %>
+<%= price_format(['destination_planned_cost']) %>
 
-<table class="form" width="70%">
+<table class="form" width="62%">
 	<tr>
-		<td>
+		<td width="50%">
 			<% if @destination and @destination.city %>
 				<%= select :state, :id, @states.map{|state| [state.name, state.id] }, #select com os estados disponiveis
 								   {:include_blank => '-- escolha o estado --', :selected => @destination.city.state.id} %>	
@@ -41,20 +42,24 @@
 	  <tr>
     <tr>
       <td>
-        <%= f.label :start, 'Período:' %>
+        <%= f.label 'Período:' %>
       </td>
       <td>
-        <%= f.label :planned_cost, 'Custo Planejado:' %>
+        <%= f.label :planned_cost, 'Custo Planejado:', :value => @destination.planned_cost.to_f %>
       </td>
     </tr>
     <tr>
       <td>
-         <%= f.text_field :start, :value => date_format(@destination.start), :size => 10 %>
+         <%= f.text_field :start_date, :value => date_format(@destination.start_date), :size => 10 %>
          &ensp;a&ensp;
-         <%= f.text_field :end, :value => date_format(@destination.end), :size => 10 %>
+         <%= f.text_field :end_date, :value => date_format(@destination.end_date), :size => 10 %>
       </td>
       <td>
-        <%= f.text_field :planned_cost, :size => 15 %>
+        <% if @destination.planned_cost and @destination.planned_cost > 0 %>
+          <%= f.text_field :planned_cost, :style => "width: 90%;", :value => currency(@destination.planned_cost) %>
+        <% else %>
+          <%= f.text_field :planned_cost, :style => "width: 90%;"%>
+        <% end %>        
       </td>
     </tr>
     <tr>
@@ -70,7 +75,7 @@
       </td>
     </tr>
     <tr>
-      <td colspan="2" align="right">
+      <td>
         <%= f.submit 'Salvar' %>
       </td>
     </tr>

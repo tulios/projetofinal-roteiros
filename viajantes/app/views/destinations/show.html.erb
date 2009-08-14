@@ -21,19 +21,19 @@
 		<td align="right" width="18%">
 			<strong>Período:</strong>
 		</td>
-		<td><%= "#{date_format(@destination.start)} a #{date_format(@destination.end)}" %></td>
+		<td><%=h "#{date_format(@destination.start_date)} a #{date_format(@destination.end_date)}" %></td>
 	</tr>
 	<tr>
 		<td align="right" width="12%">
 			<strong>Meio de Transporte:</strong>
 		</td>
-		<td><%= @destination.vehicle.name %></td>
+		<td><%=h @destination.vehicle.name %></td>
 	</tr>
 	<tr>
 		<td align="right">
 			<strong>Custo Planejado:</strong>
 		</td>
-		<td><%=h @destination.planned_cost %></td>
+		<td><%=h currency(@destination.planned_cost) %></td>
 	</tr>
 </table>
 
