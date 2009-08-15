@@ -163,6 +163,14 @@
         city: "Cidade"
         city_id: "Cidade"
         
+      destination:
+        start_date: "Data de início"
+        end_date: "Data fim"
+        vehicle: "Meio de transporte"
+        road_map: "Roteiro"
+        city_id: "Cidade"
+        planned_cost: "Custo planejado"
+        
     errors:
       template:
         header:
