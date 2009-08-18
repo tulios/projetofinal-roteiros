@@ -312,8 +312,32 @@ textarea.expanding {
 }
 
 .botao_new_destination:hover {
-	color:#FFFFFF;
+	color:#FFFFFF;	
 	background: #6C7B8B url(../images/bag_16.png) no-repeat 2px 1px;
+}
+
+.program_16{
+	height: 30px;
+	padding: 10px;
+	background: url(../images/checklist_32.png) no-repeat 0px 0px;
+}
+
+.botao_new_program {
+	color:#FFFFFF;
+	margin: 0px 0px 0px 0px;
+	padding: 3px 5px 3px 5px;
+	background: #9FB6CD 2px 1px;
+	border: 1px solid #C1CDCD;
+	font-size:12px;
+	height: 20px;
+	margin: 30px;
+	cursor: pointer;
+	cursor: hand;
+}
+
+.botao_new_program:hover {
+	color:#FFFFFF;
+	background: #6C7B8B 2px 1px;
 }
 
 .pagination {
@@ -445,6 +469,14 @@ textarea.expanding {
 	list-style-position: outside;
 	list-style-type: none;
 	margin: 11px;
+	border-bottom: none;
+}
+
+.search_results .sem_li_program{
+	list-style-image: none;
+	list-style-position: outside;
+	list-style-type: none;
+	margin: 5px 40px;
 	border-bottom: none;
 }
 

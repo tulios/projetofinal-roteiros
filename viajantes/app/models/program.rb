@@ -5,8 +5,10 @@ class Program < ActiveRecord::Base
 	# Float: value
 	# Text: description
 	# TouristSigh: tourist_sight
-	# Shop: shop
+	# Shop: shop	
 	
+	belongs_to :destination
+
   belongs_to :tourist_sight
   belongs_to :shop
 

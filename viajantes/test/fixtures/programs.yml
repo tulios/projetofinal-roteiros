@@ -4,6 +4,7 @@ one:
   date: 2009-08-13
   value: 1.5
   description: MyText
+  destination_id: 1
   tourist_sight: 
   shop: 
 
@@ -11,5 +12,6 @@ two:
   date: 2009-08-13
   value: 1.5
   description: MyText
+  destination_id: 1
   tourist_sight: 
   shop: 
