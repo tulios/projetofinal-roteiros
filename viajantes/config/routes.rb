@@ -1,8 +1,9 @@
 ActionController::Routing::Routes.draw do |map|
-  map.resources :programs
 
   map.resources :roadmaps do |roadmap|
-    roadmap.resources :destinations
+    roadmap.resources :destinations do |destination|
+			destination.resources :programs
+		end
   end
 
   map.resources :users

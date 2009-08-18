@@ -1,9 +1,11 @@
-<% @programs.each do |program| %>
-	<li>
+<% programs.each do |program| %>
+	<li class="sem_li_program">
 		<h4>
-			<%= link_to "#{date_format(program.date)}", program %>
-			<%= currency(program.value) %>
+			<%= date_format(program.date) %>&nbsp;
+			<%= currency(program.value) %>&nbsp;
 		</h4>
-		<br/>
+		<div style="text-align: justify; margin: 2px 15px;">
+			<small><%=h program.description %></small>
+		</div>
 	</li>
 <% end %>

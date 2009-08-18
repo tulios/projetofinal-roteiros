@@ -27,6 +27,8 @@ class ProgramsController < ApplicationController
   # GET /programs/new.xml
   def new
     @program = Program.new
+		@roadmap = Roadmap.find(params[:roadmap_id])
+		@destination = Destination.find(params[:destination_id])
 
     respond_to do |format|
       format.html # new.html.erb
@@ -43,14 +45,16 @@ class ProgramsController < ApplicationController
   # POST /programs.xml
   def create
     @program = Program.new(params[:program])
+		@program.destination = Destination.find(params[:destination_id])
 		@program.date = to_date(params[:program][:date])
 		@program.value = currency_to_number(params[:program][:value])
 
     respond_to do |format|
       if @program.save
-        flash[:notice] = 'Program was successfully created.'
-        format.html { redirect_to(@program) }
-        format.xml  { render :xml => @program, :status => :created, :location => @program }
+        flash[:notice] = 'Programa criado com sucesso.'
+        format.html { redirect_to(@program.destination.roadmap) }
+        format.xml  { render :xml => @program.destination.roadmap, 
+														 :status => :created, :location => @program.destination.roadmap }
       else
         format.html { render :action => "new" }
         format.xml  { render :xml => @program.errors, :status => :unprocessable_entity }
@@ -67,7 +71,7 @@ class ProgramsController < ApplicationController
 
     respond_to do |format|
       if @program.update_attributes(params[:program])
-        flash[:notice] = 'Program was successfully updated.'
+        flash[:notice] = 'Programa atualizado com sucesso.'
         format.html { redirect_to(@program) }
         format.xml  { head :ok }
       else

@@ -10,6 +10,8 @@ class Destination < ActiveRecord::Base
   belongs_to :roadmap
   belongs_to :vehicle
   belongs_to :city
+
+	has_many :programs
   
   validates_presence_of :roadmap, :city
 end

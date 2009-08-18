@@ -4,6 +4,7 @@ class CreatePrograms < ActiveRecord::Migration
       t.date :date
       t.float :value, :default => 0
       t.text :description
+      t.belongs_to :destination, :null => false
       t.belongs_to :tourist_sight
       t.belongs_to :shop
 
