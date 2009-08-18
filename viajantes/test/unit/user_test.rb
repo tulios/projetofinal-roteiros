@@ -174,18 +174,18 @@ class UserTest < ActiveSupport::TestCase
     assert users(:quentin).remember_token_expires_at.between?(before, after)
   end
 
-protected
-  def create_user(options = {})
-    userHash = { :login => 'quire',
-                 :email => 'quire@example.com', 
-                 :password => 'quire', 
-                 :password_confirmation => 'quire', 
-                 :sex => 'm', 
-                 :birthday => '05/05/1985', 
-                 :city_id => cities(:one)
-               }
-    record = User.new(userHash.merge(options))
-    record.save
-    record
-  end
+  protected
+    def create_user(options = {})
+      userHash = { :login => 'quire',
+                   :email => 'quire@example.com', 
+                   :password => 'quire', 
+                   :password_confirmation => 'quire', 
+                   :sex => 'm', 
+                   :birthday => '05/05/1985', 
+                   :city_id => cities(:one)
+                 }
+      record = User.new(userHash.merge(options))
+      record.save
+      record
+    end
 end
