@@ -21,22 +21,10 @@
 	      <%=h currency(destination.planned_cost) %>			      
 		  </li>
 			
-			<% if logged_in? %>
-				<li class="sem_li">
-					<span class="program_16" />
-					<%= link_to "Adicionar programa", new_roadmap_destination_program_path(@roadmap, destination), 
-											:class => "botao_new_program" %>
-				</li>
-				<li class="sem_li">
-					
-					<ul>
-						<%= render :partial => 'programs/list', :locals => {:programs => destination.programs} %>
-					</ul>				
-				
-				</li>
-			<% end %>
+			<%= render :partial => 'destinations/list_program', :locals => {:destination => destination} %>
 
 		</ul>
+
 		<% if logged_in? %>
 	    <div align="right">
 	      <%= link_to 'Editar', edit_roadmap_destination_path(destination.roadmap, destination) %> | 
@@ -44,6 +32,7 @@
 															:confirm => 'Você tem certeza?', :method => :delete %>
 	    </div>
     <% end %>
+
   </li>
 <% end %>
 </ul>

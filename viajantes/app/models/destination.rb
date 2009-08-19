@@ -14,4 +14,18 @@ class Destination < ActiveRecord::Base
 	has_many :programs
   
   validates_presence_of :roadmap, :city
+
+	def total
+		sum = 0.0
+
+		programs.each do |program|
+			sum += program.value
+		end
+
+		sum
+	end
+
+	def balance
+		planned_cost - total
+	end
 end

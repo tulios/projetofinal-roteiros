@@ -1,0 +1,33 @@
+<li class="sem_li">
+	<span class="program_32">Programas</span>
+	<% if logged_in? %>
+		<%= link_to "Novo", new_roadmap_destination_program_path(@roadmap, destination), 
+								:class => "botao_new_program" %>
+	<% end %>
+</li>
+<li class="sem_li">
+	<ul>
+		<% unless destination.programs.empty? %>
+			<%= render :partial => 'programs/list', :locals => {:programs => destination.programs} %>
+			<li>
+				<strong>Total:</strong> <%= currency(destination.total) %>
+			</li>
+			<li>
+				<strong>Saldo:</strong>
+				<% if destination.balance < 0 %>
+					<span style="color: #B22222;">
+				<% else %>
+					<span style="color: blue;">
+				<% end %>
+				<%= currency(destination.balance) %>
+				</span>
+				(<%= currency(destination.planned_cost) %> - <%= currency(destination.total) %>)
+
+			</li>
+		<% else %>
+			<li class="sem_li_program">
+				<i>Nenhum cadastrado.</i>
+			</li>
+		<% end %>
+	</ul>
+</li>

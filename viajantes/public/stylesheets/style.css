@@ -316,9 +316,9 @@ textarea.expanding {
 	background: #6C7B8B url(../images/bag_16.png) no-repeat 2px 1px;
 }
 
-.program_16{
+.program_32{
 	height: 30px;
-	padding: 10px;
+	padding: 10px 0px 10px 40px;
 	background: url(../images/checklist_32.png) no-repeat 0px 0px;
 }
 
@@ -330,7 +330,7 @@ textarea.expanding {
 	border: 1px solid #C1CDCD;
 	font-size:12px;
 	height: 20px;
-	margin: 30px;
+	margin: 10px;
 	cursor: pointer;
 	cursor: hand;
 }

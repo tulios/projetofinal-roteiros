@@ -9,7 +9,7 @@
 	<%= link_to "Estabelecimentos", shops_path, :class => check_tab?('shops') %>
 
   <% if not logged_in? %>
-    <%= link_to "Fazer login", login_path %>
+    <%= link_to "Fazer login", login_path, :class => check_tab?('sessions') %>
   <% end %>
 
 	<%= render :partial => "layouts/search" %>
