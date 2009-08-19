@@ -18,9 +18,17 @@ module ApplicationHelper
   end
 
 	def check_tab?(name)
-     if name == controller_name
-       return "marcado"
-     end     
+		if name.class == Array
+			name.each do |var|
+				if var == controller_name
+			    return "marcado"
+			  end
+			end
+		else
+			if name == controller_name
+	      return "marcado"
+	    end
+		end		
   end
 
 	def configure_textarea_autogrow
