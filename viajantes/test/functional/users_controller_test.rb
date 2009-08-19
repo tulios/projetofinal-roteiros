@@ -175,13 +175,14 @@ class UsersControllerTest < ActionController::TestCase
 
   protected
     def create_user(options = {})
-      userHash = { :login => 'quire',
+      userHash = { 
+                 :login => 'quire',
                  :email => 'quire@example.com', 
                  :password => 'quire', 
                  :password_confirmation => 'quire', 
                  :sex => 'm', 
                  :birthday => '05/05/1985', 
-                 :city_id => cities(:one)
+                 :city_id => cities(:one).to_param
                }
       post :create, :user => userHash.merge(options)
     end

@@ -10,6 +10,6 @@ one:
 two:
   id: 2
   planned_cost: 1.5
-  vehicle: 1
-  roadmap: 5
-  city: 1
+  vehicle: 2
+  roadmap: 4
+  city: 2

@@ -22,6 +22,9 @@ class UsersController < ApplicationController
     # request forgery protection.
     # uncomment at your own risk
     # reset_session
+    
+    logger.info "\n\nParametros: #{params[:user].inspect}\n\n"
+       
     @user = User.new(params[:user])
 		@user.birthday = to_date(params[:user][:birthday])
     @user.roles << Role.find_by_name("user");

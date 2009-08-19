@@ -8,12 +8,23 @@
 		<ul>
 		  <li class="sem_li">
 	      <strong>Período:</strong>
-        <%=h date_format(destination.start_date) %> a <%= date_format(destination.end_date) %>
+	      <% if destination.start_date.nil? and destination.end_date.nil? %>
+	        <em>Não informado</em>
+	      <% else %>
+	        <%=h date_format(destination.start_date) %> a <%= date_format(destination.end_date) %> 
+	        <em>
+	          (<%=h destination.number_of_days %> dias)
+	        </em>
+        <% end %>
 		  </li>
 		  
 		  <li class="sem_li">
 	      <strong>Meio de Transporte:</strong>
-	      <%=h destination.vehicle.name %>
+	      <% if destination.vehicle %>
+	        <%=h destination.vehicle.name %>
+	      <% else %>
+	        <em>Não informado</em>
+	      <% end %>
 		  </li>
 		  
 		  <li class="sem_li">

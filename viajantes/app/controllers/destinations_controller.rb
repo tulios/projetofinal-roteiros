@@ -55,9 +55,6 @@ class DestinationsController < ApplicationController
     @destination.roadmap = Roadmap.find(params[:roadmap_id])
 		@destination.planned_cost = currency_to_number(params[:destination][:planned_cost])
 
-    logger.info "**Destination: "
-    logger.info "\n#{@destination.inspect}"
-
     respond_to do |format|
       if @destination.save
         flash[:notice] = 'O destino foi criado com sucesso!'
@@ -85,15 +82,14 @@ class DestinationsController < ApplicationController
     params[:destination][:end_date] = to_date(params[:destination][:end_date])
 		params[:destination][:planned_cost] = currency_to_number(params[:destination][:planned_cost])
 
-    logger.info "\n***Destination: "
-    logger.info "\n #{@destination.inspect}\n\n"
-
     respond_to do |format|
       if @destination.update_attributes(params[:destination])
-        flash[:notice] = 'Destination was successfully updated.'
+        flash[:notice] = 'O destino foi atualizado com sucesso!'
         format.html { redirect_to(roadmap_path(@destination.roadmap)) }
         format.xml  { head :ok }
       else
+        load_states_and_cities
+        @vehicles = Vehicle.all
         format.html { render :action => "edit" }
         format.xml  { render :xml => @destination.errors, :status => :unprocessable_entity }
       end

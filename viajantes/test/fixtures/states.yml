@@ -6,3 +6,10 @@ one:
   region_id: 3
   symbol: DF
   name: Distrito Federal
+  
+two:
+  id: 10
+  country_id: 1
+  region_id: 2
+  symbol: CE
+  name: Ceará
