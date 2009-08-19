@@ -14,11 +14,13 @@ class Destination < ActiveRecord::Base
   has_many :programs
   
   validates_presence_of :roadmap, :city_id
-  validates_presence_of :start_date, :if => "not end_date.nil?"
-  validates_presence_of :end_date, :if => "not start_date.nil?"
+  validates_presence_of :start_date, :if => "end_date"
+  validates_presence_of :end_date, :if => "start_date"
   
   def validate
-    errors.add(:end_date, "deve ser antes da data se início.") if end_date < start_date
+    if(start_date and end_date)
+      errors.add(:end_date, "deve ser antes da data se início.") if end_date < start_date
+    end
   end 
   
   def number_of_days

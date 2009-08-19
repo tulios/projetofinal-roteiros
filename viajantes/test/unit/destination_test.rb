@@ -24,18 +24,36 @@ class DestinationTest < ActiveSupport::TestCase
   end
   
   test "Deveria remover um destino" do
-    num_destinations = Destination.count
-    
-    destination = destinations(:one)
-    destination.destroy
-    
-    assert_equal(Destination.count, (num_destinations - 1))
+
+    assert_difference 'Destination.count', -1 do
+      destination = destinations(:one)
+      destination.destroy
+    end
   end
 
   test "Deveria validar a presença de roadmap e city" do
     assert_no_difference 'Destination.count' do
-      d = create_destination({:roadmap => nil, :city => nil})
-      assert d.errors.on(:roadmap, :city)
+      d = create_destination({:roadmap => nil, :city_id => nil})
+      assert d.errors.on(:roadmap)
+      assert d.errors.on(:city_id)
+    end
+  end
+  
+  test "Deveria validar a presença de start_date e end_date" do
+    assert_no_difference 'Destination.count' do
+      d = create_destination({:start_date => nil})
+      assert d.errors.on(:start_date)
+      
+      d = create_destination({:end_date => nil})
+      assert d.errors.on(:end_date)
+    end
+  end
+  
+  test "Deveria validar start_date sendo antes que end_date" do
+    assert_no_difference 'Destination.count' do
+      d = create_destination({:start_date => Date.new(2009,12,10), 
+                              :end_date => Date.new(2009,10,10)})
+      assert d.errors.on(:end_date)
     end
   end
 
