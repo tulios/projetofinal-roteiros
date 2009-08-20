@@ -28,9 +28,9 @@
 			<li>
 				<strong>Saldo:</strong>
 				<% if destination.balance < 0 %>
-					<span style="color: #B22222;">
+					<span class="negative">
 				<% else %>
-					<span style="color: blue;">
+					<span class="positive">
 				<% end %>
 				<%= currency(destination.balance) %>
 				</span>

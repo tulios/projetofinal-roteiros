@@ -2,9 +2,9 @@
 <% @destinations.each_with_index do |destination, index| %>
 	<% if index.odd? %>
 		<!-- #EEEEE1 -->
-		<li style="background: #F7F7E1; padding: 5px;" class="sem_li">
+		<li class="destination_yellow">
 	<% else %>
-		<li style="background: #EFFFE2; padding: 5px;" class="sem_li">
+		<li class="destination_green">
 	<% end %>
 		<h4>
 			<%= link_to "#{destination.city.state.symbol}/#{destination.city.name}", 
