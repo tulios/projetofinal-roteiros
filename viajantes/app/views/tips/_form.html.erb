@@ -1,6 +1,6 @@
 <%= f.error_messages %>
 
-<table width="100%">
+<table class="form" width="60%">
 	<tr>
 		<td>Nome:</td>
 	</tr>
@@ -13,8 +13,9 @@
 	<tr>
 		<td>
 			<%= f.text_area :description, {
-					:rows => 5, 
-					:style => "width: 100%; min-height: 60px; max-height: 500px;"
+					:rows => 5,
+					:class => "expanding", 
+					:style => "width: 100%;"
 			} %>
 		</td>
 	</tr>

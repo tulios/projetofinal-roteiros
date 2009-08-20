@@ -20,7 +20,7 @@
 		</td>
 	<% end %>
 	<tr>
-		<td align="right">
+		<td align="right" width="20%">
 			<strong title="Outras pessoas podem visualizar meu roteiro">Público?</strong>
 		</td>
 		<td>
@@ -93,6 +93,33 @@
 	<br/>
 </div>
 
+<br/>
+
+<div class="box" style="padding: 10px;">
+  <table width="100%">
+    <tr>
+      <td align="left">
+        <strong>Custo Total Planejado:</strong> <%= currency(@roadmap.total_planned_cost) %>
+      </td>
+
+      <td align="left">
+        <strong>Custo Total Executado:</strong> <%= currency(@roadmap.total_actual_cost) %>
+      </td>
+      
+      <td align="left">
+        <strong>Saldo:</strong>
+        <% if @roadmap.balance < 0 %>
+					<span class="negative">
+				<% else %>
+					<span class="positive">
+				<% end %>
+  			<%= currency(@roadmap.balance) %>
+				</span>
+        <%= "(#{currency @roadmap.total_planned_cost} - #{currency @roadmap.total_actual_cost})" %>
+      </td>
+    </tr>
+  </table>
+</div>
 <br/>
 <br/>
 

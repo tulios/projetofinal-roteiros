@@ -17,4 +17,32 @@ class Roadmap < ActiveRecord::Base
 										 :page => page)
 	end
 
+  def total_planned_cost
+    cost = 0.0
+    
+    if destinations.length > 0
+      destinations.each do |dest|
+        cost += dest.planned_cost
+      end
+    end
+    
+    cost      
+  end
+  
+  def total_actual_cost
+     cost = 0.0
+    
+    if destinations.length > 0
+      destinations.each do |dest|
+        cost += dest.total
+      end
+    end
+    
+    cost
+  end
+  
+  def balance
+    total_planned_cost - total_actual_cost
+  end
+
 end
