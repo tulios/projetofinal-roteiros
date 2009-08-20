@@ -6,7 +6,9 @@
 				:class => check_tab?(['roadmaps', 'destinations', 'programs']) %>
 	<% end %>
 
-	<%= link_to "Pontos Turísticos", tourist_sights_path, :class => check_tab?('tourist_sights') %>
+	<%= link_to "Pontos Turísticos", tourist_sights_path, 
+			:class => check_tab?(['tourist_sights', 'tourist_sight_tags', 'tips']) %>
+
 	<%= link_to "Estabelecimentos", shops_path, :class => check_tab?('shops') %>
 
   <% if not logged_in? %>

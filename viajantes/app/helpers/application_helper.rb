@@ -20,14 +20,10 @@ module ApplicationHelper
 	def check_tab?(name)
 		if name.class == Array
 			name.each do |var|
-				if var == controller_name
-			    return "marcado"
-			  end
+				if var == controller_name then return "marcado" end
 			end
 		else
-			if name == controller_name
-	      return "marcado"
-	    end
+			if name == controller_name then return "marcado" end
 		end		
   end
 

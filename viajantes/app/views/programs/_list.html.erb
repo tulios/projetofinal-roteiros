@@ -3,6 +3,22 @@
 		<h4>
 			<%= date_format(program.date) %>&nbsp;
 			<%= currency(program.value) %>&nbsp;
+			<% if logged_in? %>
+
+				<%= link_to 'Editar', edit_roadmap_destination_program_path(
+					program.destination.roadmap.id, program.destination.id, program.id
+				) %>
+			
+				&nbsp;|&nbsp;
+
+				<%= link_to 'Apagar', roadmap_destination_program_path(
+						program.destination.roadmap.id, program.destination.id, program.id
+					), 
+					:action=>"destroy", :controller=>"programs",
+					:confirm => 'Você tem certeza?', :method => :delete 
+				%>
+
+			<% end %>
 		</h4>
 		<div style="text-align: justify; margin: 2px 15px;">
 			<small><%=h program.description %></small>

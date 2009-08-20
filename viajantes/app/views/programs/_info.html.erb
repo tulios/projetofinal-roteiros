@@ -1,0 +1,28 @@
+<table width="100%" class="tabela_info" cellspacing="5">
+	<tr>
+		<td align="right" width="5%">
+			<strong>Roteiro:</strong>
+		</td>
+		<td align="left">
+			<%= @roadmap.title %>
+		</td>
+	</tr>
+	<tr>
+		<td align="right">
+			<strong>Destino:</strong>
+		</td>
+		<td align="left">
+			<%= @destination.city.state.symbol %>/<%= @destination.city.name %>
+		</td>
+	</tr>
+	<tr>
+		<td align="right">
+			<strong>Período:</strong>
+		</td>
+		<td align="left">
+			<%= date_format(@destination.start_date) %> a <%= date_format(@destination.end_date) %>
+		</td>
+	</tr>
+</table>
+
+<br/>

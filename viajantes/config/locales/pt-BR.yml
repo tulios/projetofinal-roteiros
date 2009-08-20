@@ -116,7 +116,7 @@
   # Active Record
   activerecord:
     models:
-      tourist_sight: "Ponto Turístico"
+      tourist sight: "Ponto Turístico"
       city: "Cidade"
       state: "Estado"
       country: "País"
@@ -125,8 +125,13 @@
       tip: "Dica"
       user: "Usuário"
       roadmap: "Roteiro"
+      program: "Programa"
       
     attributes:
+      _all:
+        created_at: "Data de criação"
+        updated_at: "Data de atualização"
+
       tourist_sight:
         name: "Nome"
         address: "Endereço"
@@ -170,7 +175,15 @@
         road_map: "Roteiro"
         city_id: "Cidade"
         planned_cost: "Custo planejado"
-        
+
+      program:
+        destination: "Destino"
+        date: "Data"
+        value: "Valor"
+        description: "Descrição"
+        tourist_sight: "Ponto Turístico"
+        shop: "Estabelecimento"
+      
     errors:
       template:
         header:

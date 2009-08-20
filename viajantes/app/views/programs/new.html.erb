@@ -1,4 +1,12 @@
 <h1 class="program">Novo Programa</h1>
 
-<%= render :partial => "form" %>
+<%= configure_textarea_autogrow %>
+<%= mask_fields(:program_date => "99/99/9999") %>
+<%= price_format(['program_value']) %>
+
+<%= render :partial => "info" %>
+<% form_for([:roadmap, :destination, @program]) do |f| %>
+	<%= render :partial => "form", :locals => {:f => f} %>
+<% end %>
+
 <%= link_to 'Voltar', @roadmap %>
