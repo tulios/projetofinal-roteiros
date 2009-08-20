@@ -442,7 +442,7 @@ textarea.expanding {
 }
 
 .search_submit {
-	background: url(../images/search_32.png) no-repeat scroll; /*168px 4px;*/
+	background: url(../images/search_32.png) no-repeat scroll;
 	padding: 8px 16px;
 	margin: 5px;
 	cursor: pointer;
