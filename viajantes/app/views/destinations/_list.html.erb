@@ -1,6 +1,11 @@
 <ul>
-<% @destinations.each do |destination| %>
-	<li>
+<% @destinations.each_with_index do |destination, index| %>
+	<% if index.odd? %>
+		<!-- #EEEEE1 -->
+		<li class="destination_yellow">
+	<% else %>
+		<li class="destination_green">
+	<% end %>
 		<h4>
 			<%= link_to "#{destination.city.state.symbol}/#{destination.city.name}", 
 									roadmap_destination_path(destination.roadmap,destination) %>

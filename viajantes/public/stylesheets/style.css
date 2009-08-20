@@ -320,6 +320,8 @@ textarea.expanding {
 	height: 30px;
 	padding: 10px 0px 10px 40px;
 	background: url(../images/checklist_32.png) no-repeat 0px 0px;
+	cursor: pointer;
+	cursor: hand;
 }
 
 .botao_new_program {
@@ -477,7 +479,13 @@ textarea.expanding {
 	list-style-position: outside;
 	list-style-type: none;
 	margin: 5px 40px;
+	padding: 5px;
 	border-bottom: none;
+}
+
+.search_results .sem_li_program:hover{
+	background-color: #A8B0FF !important;
+	cursor: default;
 }
 
 .box {
@@ -520,7 +528,35 @@ textarea.expanding {
     color: black;
 }
 
+.negative {
+	color: #B22222;
+}
 
+.positive {
+	color: blue;
+}
+
+.search_results .destination_green {
+	list-style-image: none;
+	list-style-position: outside;
+	list-style-type: none;
+	margin: 11px;
+	border-bottom: none;	
+
+	background: #EFFFE2;
+	padding: 5px;
+}
+
+.search_results .destination_yellow {
+	list-style-image: none;
+	list-style-position: outside;
+	list-style-type: none;
+	margin: 11px;
+	border-bottom: none;	
+
+	background: #F7F7E1;
+	padding: 5px;
+}
 
 
 
