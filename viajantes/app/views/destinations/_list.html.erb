@@ -1,6 +1,11 @@
 <ul>
-<% @destinations.each do |destination| %>
-	<li>
+<% @destinations.each_with_index do |destination, index| %>
+	<% if index.odd? %>
+		<!-- #EEEEE1 -->
+		<li style="background: #F7F7E1; padding: 5px;" class="sem_li">
+	<% else %>
+		<li style="background: #EFFFE2; padding: 5px;" class="sem_li">
+	<% end %>
 		<h4>
 			<%= link_to "#{destination.city.state.symbol}/#{destination.city.name}", 
 									roadmap_destination_path(destination.roadmap,destination) %>

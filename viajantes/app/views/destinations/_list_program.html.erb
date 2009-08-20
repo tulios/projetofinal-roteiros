@@ -1,11 +1,24 @@
 <li class="sem_li">
-	<span class="program_32">Programas</span>
+	<span class="program_32" 
+				title="Clique aqui para ocultar/apresentar os programas"
+				onclick="<%= collapse_box("#{destination.id}_seta1", 
+																	"#{destination.id}_seta2", 
+																	"#{destination.id}_programas") %>">
+		Programas
+	</span>
+	<%= image_tag "seta_direita_16.png", :align => "left", 
+																			 :id => "#{destination.id}_seta1", 
+																			 :style => "display: none;" %>
+
+	<%= image_tag "seta_baixo_16.png", :align => "left", 
+																		 :id => "#{destination.id}_seta2" %>
+
 	<% if logged_in? %>
 		<%= link_to "Novo", new_roadmap_destination_program_path(@roadmap, destination), 
 								:class => "botao_new_program" %>
 	<% end %>
 </li>
-<li class="sem_li">
+<li id="<%= "#{destination.id}_programas" %>" class="sem_li">
 	<ul>
 		<% unless destination.programs.empty? %>
 			<%= render :partial => 'programs/list', :locals => {:programs => destination.programs} %>

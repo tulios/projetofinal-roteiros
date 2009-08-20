@@ -41,5 +41,5 @@ class Destination < ActiveRecord::Base
 	def balance
 		planned_cost - total
 	end
-  
+
 end
