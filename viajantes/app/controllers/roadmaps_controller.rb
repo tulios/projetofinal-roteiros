@@ -1,5 +1,5 @@
 class RoadmapsController < ApplicationController
-	require_role "user" #, :for_all_except => [:index, :show]
+	require_role "user", :for_all_except => :show
 
   # GET /roadmaps
   # GET /roadmaps.xml
@@ -21,7 +21,7 @@ class RoadmapsController < ApplicationController
     @roadmap = Roadmap.find(params[:id])
     @destinations = @roadmap.destinations
 
-		if @roadmap.user.id != current_user.id and (not @roadmap.public)
+		if logged_in? and @roadmap.user.id != current_user.id and (not @roadmap.public)
 			flash[:error] = "Esse roteiro não é público e não te pertence!"
 			redirect_to roadmaps_path
 

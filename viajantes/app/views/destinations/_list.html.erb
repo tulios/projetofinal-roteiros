@@ -18,7 +18,12 @@
 	      <% else %>
 	        <%=h date_format(destination.start_date) %> a <%= date_format(destination.end_date) %> 
 	        <em>
-	          (<%=h destination.number_of_days %> dias)
+	          (<%=h destination.number_of_days %> 
+						<% if destination.number_of_days == 1 %>
+							dia)
+						<% else %>
+							dias)
+						<% end %>
 	        </em>
         <% end %>
 		  </li>

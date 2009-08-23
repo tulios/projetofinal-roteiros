@@ -45,4 +45,34 @@ class Roadmap < ActiveRecord::Base
     total_planned_cost - total_actual_cost
   end
 
+	def total_of_days
+		total = 0
+				
+		if destinations.length > 0
+      destinations.each do |destination|
+        total += destination.number_of_days
+      end
+    end
+		
+		total
+	end
+
 end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

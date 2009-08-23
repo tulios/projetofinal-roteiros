@@ -1,67 +1,6 @@
 <h1 class="roadmap">Roteiro</h1>
 
-<table width="100%" class="tabela_info" cellspacing="5">
-	<tr>
-		<td align="center" colspan="2">
-			<strong>Ponto de partida</strong>
-		</td>
-	</tr>
-	<tr>
-		<td align="center" colspan="2">
-			<%= render :partial => "tourist_sights/location" %>		
-		</td>
-	</tr>
-	<% if @roadmap.user.id != current_user.id %>
-		<tr>
-			<td align="right">
-				<strong>Criado por:</strong>		
-			</td>
-			<td><%= @roadmap.user.login %></td>
-		</td>
-	<% end %>
-	<tr>
-		<td align="right" width="20%">
-			<strong title="Outras pessoas podem visualizar meu roteiro">Público?</strong>
-		</td>
-		<td>
-			<% if @roadmap.public %>
-				Sim
-			<% else %>
-				Não
-			<% end %>
-		</td>
-	</tr>
-	<tr>
-		<td align="right">
-			<strong>Criado em:</strong>
-		</td>
-		<td><%= date_format(@roadmap.created_at) %></td>
-	</tr>
-	<tr>
-		<td align="right" width="12%">
-			<strong>Atualizado em:</strong>
-		</td>
-		<td><%= date_format(@roadmap.updated_at) %></td>
-	</tr>
-	<tr>
-		<td align="right">
-			<strong>Título:</strong>
-		</td>
-		<td><%=h @roadmap.title %></td>
-	</tr>
-	<tr>
-		<td align="right" valign="top">
-			<strong>Descrição:</strong>
-		</td>
-		<td style="text-align: justify;">
-			<% if (not @roadmap.description) or @roadmap.description.length == 0 %>
-		    <i>Não informado</i>
-		  <% else %>
-  		  <%=h @roadmap.description %>
-  		<% end %>
-		</td>
-	</tr>
-</table>
+<%= render :partial => "info" %>
 
 <% if logged_in? %>
 	<div align="right">
@@ -72,31 +11,17 @@
 
 <br/>
 
-<h2 class="destination_32">Destinos</h1>
-<br/>
-
-<div class="box">
-	<div class="search_results">
-	  <% if @roadmap.destinations and @roadmap.destinations.length > 0 %>
-			<%= render :partial => "destinations_list" %>
-		<% else %>
-		  <center>
-		    <em>Nenhum destino encontrado.<em>
-		  </center>
-		<% end %>
-	</div>
-	<% if logged_in? %>
-	  <center>
-			<%= link_to 'Novo destino', new_roadmap_destination_path(@roadmap), :class => "botao_new_destination" %>
-		</center>
-  <% end %>
-	<br/>
-</div>
+<%= render :partial => "destinations_list" %>
 
 <br/>
 
 <div class="box" style="padding: 10px;">
   <table width="100%">
+		<tr>
+			<td align="left">
+				<strong>Total de dias:</strong> <%= @roadmap.total_of_days %>
+			</td>
+		</tr>
     <tr>
       <td align="left">
         <strong>Custo Total Planejado:</strong> <%= currency(@roadmap.total_planned_cost) %>
@@ -120,10 +45,13 @@
     </tr>
   </table>
 </div>
+
 <br/>
 <br/>
 
-<%= link_to 'Voltar', roadmaps_path %>
+<% if logged_in? %>
+	<%= link_to 'Voltar', roadmaps_path %>
+<% end %>
 
 
 

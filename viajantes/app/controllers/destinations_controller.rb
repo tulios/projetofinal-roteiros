@@ -1,4 +1,6 @@
 class DestinationsController < ApplicationController
+	require_role "user", :for_all_except => :show
+
   # GET /destinations
   # GET /destinations.xml
   def index
