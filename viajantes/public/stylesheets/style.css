@@ -558,6 +558,10 @@ textarea.expanding {
 	padding: 5px;
 }
 
+.clicavel {
+	cursor: pointer;
+	cursor: hand;
+}
 
 
 

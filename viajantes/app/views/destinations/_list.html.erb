@@ -1,16 +1,25 @@
 <ul>
 <% @destinations.each_with_index do |destination, index| %>
 	<% if index.odd? %>
-		<!-- #EEEEE1 -->
 		<li class="destination_yellow">
 	<% else %>
 		<li class="destination_green">
 	<% end %>
 		<h4>
-			<%= link_to "#{destination.city.state.symbol}/#{destination.city.name}", 
-									roadmap_destination_path(destination.roadmap,destination) %>
+			<%= image_tag "seta_direita_16.png", :align => "left", 
+																					 :id => "#{destination.id}_setaD1", 
+																					 :style => "display: none;" %>
+			<%= image_tag "seta_baixo_16.png", :align => "left", 
+																				 :id => "#{destination.id}_setaD2" %>
+			&nbsp;
+			<span class="clicavel" onclick="<%= collapse_box("#{destination.id}_setaD1", 
+  																										 "#{destination.id}_setaD2", 
+																											 "#{destination.id}_destinos") %>">
+
+				<%= destination.city.state.symbol %>/<%= destination.city.name %>
+			</span>
 		</h4>
-		<ul>
+		<ul id="<%= "#{destination.id}_destinos" %>">
 		  <li class="sem_li">
 	      <strong>Período:</strong>
 	      <% if destination.start_date.nil? and destination.end_date.nil? %>
