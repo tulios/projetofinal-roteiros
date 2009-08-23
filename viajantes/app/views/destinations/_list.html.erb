@@ -12,9 +12,11 @@
 			<%= image_tag "seta_baixo_16.png", :align => "left", 
 																				 :id => "#{destination.id}_setaD2" %>
 			&nbsp;
-			<span class="clicavel" onclick="<%= collapse_box("#{destination.id}_setaD1", 
-  																										 "#{destination.id}_setaD2", 
-																											 "#{destination.id}_destinos") %>">
+			<span class="clicavel" 
+						title="Clique aqui para ocultar/apresentar os destinos"
+						onclick="<%= collapse_box("#{destination.id}_setaD1", 
+																			"#{destination.id}_setaD2", 
+ 																		  "#{destination.id}_destinos") %>">
 
 				<%= destination.city.state.symbol %>/<%= destination.city.name %>
 			</span>
