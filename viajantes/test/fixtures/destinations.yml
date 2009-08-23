@@ -4,12 +4,12 @@ one:
   id: 1
   planned_cost: 1.5
   vehicle: 1
-  roadmap: 5
-  city: 1
+  city_id: 1
+  roadmap_id: 1
 
 two:
   id: 2
   planned_cost: 1.5
   vehicle: 2
-  roadmap: 4
-  city: 2
+  city_id: 1
+  roadmap_id: 1

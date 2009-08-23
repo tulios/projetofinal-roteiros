@@ -4,7 +4,7 @@ class Destination < ActiveRecord::Base
   # Date: start_date
   # Date: end_date
   # Vehicle: vehicle
-  # Roadmap: road_map
+  # Roadmap: roadmap
   # City: city
 	# Program: programs
   

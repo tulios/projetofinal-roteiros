@@ -20,7 +20,7 @@ class TouristSightsControllerTest < ActionController::TestCase
 
 		# Verifica que ele criou um obj tourist_sight e carregou os estados disponiveis
 		assert_not_nil assigns(:tourist_sight)
-		assert_equal(1, assigns(:states).length)
+		assert_equal(2, assigns(:states).length)
   end
 
   test "Deveria criar um ponto turistico" do

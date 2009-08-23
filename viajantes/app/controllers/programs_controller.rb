@@ -1,17 +1,6 @@
 class ProgramsController < ApplicationController
 	require_role "user"
 
-  # GET /programs/1
-  # GET /programs/1.xml
-  def show
-    @program = Program.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render :xml => @program }
-    end
-  end
-
   # GET /programs/new
   # GET /programs/new.xml
   def new
@@ -63,10 +52,13 @@ class ProgramsController < ApplicationController
 		params[:program][:date] = to_date(params[:program][:date])
 		params[:program][:value] = currency_to_number(params[:program][:value])
 
+		@roadmap = @program.destination.roadmap
+		@destination = @program.destination
+
     respond_to do |format|
       if @program.update_attributes(params[:program])
         flash[:notice] = 'Programa atualizado com sucesso.'
-        format.html { redirect_to(@program.destination.roadmap) }
+        format.html { redirect_to(@roadmap) }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }

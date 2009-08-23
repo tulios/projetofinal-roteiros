@@ -23,12 +23,12 @@ class RoadmapsControllerTest < ActionController::TestCase
   	login_as :quentin
 
 		# Verifica que so existe os criados pela fixture
-		assert_equal(3, Roadmap.count)
+		assert_equal(5, Roadmap.count)
 
 		# Verifica que o controlador criou um novo e redirecionou para o lugar certo
 		conteudo = { :title => "Roteiro_novo_1", :description => "Descricao_1", :city_id => "1" }
     post :create, :roadmap => conteudo
-		assert_equal(4, Roadmap.count)
+		assert_equal(6, Roadmap.count)
 
     assert_redirected_to roadmap_path(assigns(:roadmap))
 		
@@ -81,14 +81,14 @@ class RoadmapsControllerTest < ActionController::TestCase
     
 		id = roadmaps(:one).to_param
 		# Veririca a quantidade de objetos antes da exclusao
-		assert_equal(3, Roadmap.count)
+		assert_equal(5, Roadmap.count)
 
 		# Verifica se o controlador redirecionou para o lugar correto
     delete :destroy, :id => id
     assert_redirected_to roadmaps_path
 
 		# Verifica a quantidade apos a exclusao
-		assert_equal(2, Roadmap.count)
+		assert_equal(4, Roadmap.count)
   end
 
 	test "Nao deveria permitir acesso as actions sem estar logado" do

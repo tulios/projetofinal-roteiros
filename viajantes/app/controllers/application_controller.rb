@@ -4,10 +4,15 @@
 class ApplicationController < ActionController::Base
   include AuthenticatedSystem
   include RoleRequirementSystem
+	include Converters
   
   helper :all # include all helpers, all the time
   protect_from_forgery # See ActionController::RequestForgeryProtection for details
 
+  # Scrub sensitive parameters from your log
+  # filter_parameter_logging :password 
+
+	# Filtros utilitarions
   def verify_user (user_id, methods)
     
     methods.each do |method|
@@ -19,22 +24,26 @@ class ApplicationController < ActionController::Base
     end    
   end
 
-	def currency_to_number(currency)
-  	return currency.gsub(/[\.]/, '').gsub(/[,]/, '.').gsub(/[A-Z]/, '').gsub(/[$]/, '').gsub(/[\s]/, '').to_f
-	end
-
-	def to_date(string, delimiter = '/')
-		if string and string.length > 0
-			begin
-				array = string.split(delimiter)
-			  return Date.new(array[2].to_i,array[1].to_i,array[0].to_i)
-			rescue
-				return nil
-			end
-		end
-		return nil
-	end
-
-  # Scrub sensitive parameters from your log
-  # filter_parameter_logging :password 
 end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

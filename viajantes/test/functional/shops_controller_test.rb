@@ -20,7 +20,7 @@ class ShopsControllerTest < ActionController::TestCase
     assert_not_nil assigns(:shop)
     assert_not_nil assigns(:states)
     # Deve carregar o estado adicionado a fixture states.yml
-    assert_equal(1, assigns(:states).length)
+    assert_equal(2, assigns(:states).length)
   end
 
   test "Deveria criar um estabelecimento" do
@@ -54,7 +54,7 @@ class ShopsControllerTest < ActionController::TestCase
     assert_not_nil(assigns(:states))
     assert_not_nil(assigns(:cities))
 
-    assert_equal(1, assigns(:states).length)
+    assert_equal(2, assigns(:states).length)
     assert_equal(1, assigns(:cities).length)
 
     # Não pode ter salvado
@@ -95,7 +95,7 @@ class ShopsControllerTest < ActionController::TestCase
 
     # Verifica que carregou os estatos
     assert_not_nil(assigns(:states))
-    assert_equal(1, assigns(:states).length)
+    assert_equal(2, assigns(:states).length)
 
     # Verifica que carregou as cidades
     assert_not_nil(assigns(:cities))
