@@ -128,6 +128,18 @@ module ApplicationHelper
 	  end
 	end
 	
+	def focus(id)
+	  %Q{
+			<script type="text/javascript">
+				jQuery(function($){
+					$(document).ready(function(){
+					  $("#{'#'+(id)}").focus()
+					});
+				});
+			</script>
+		}
+	end
+	
 end
 
 

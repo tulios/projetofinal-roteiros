@@ -1,4 +1,10 @@
 <li class="sem_li">
+  <%= image_tag "seta_direita_16.png", :align => "left", 
+																			 :id => "#{destination.id}_seta1", 
+																			 :style => "display: none;" %>
+
+	<%= image_tag "seta_baixo_16.png", :align => "left", 
+																		 :id => "#{destination.id}_seta2" %>
 	<span class="program_32" 
 				title="Clique aqui para ocultar/apresentar os programas"
 				onclick="<%= collapse_box("#{destination.id}_seta1", 
@@ -6,13 +12,7 @@
 																	"#{destination.id}_programas") %>">
 		Programas
 	</span>
-	<%= image_tag "seta_direita_16.png", :align => "left", 
-																			 :id => "#{destination.id}_seta1", 
-																			 :style => "display: none;" %>
-
-	<%= image_tag "seta_baixo_16.png", :align => "left", 
-																		 :id => "#{destination.id}_seta2" %>
-
+	
 	<% if logged_in? %>
 		<%= link_to "Novo", new_roadmap_destination_program_path(@roadmap, destination), 
 								:class => "botao_new_program" %>
