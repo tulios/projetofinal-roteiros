@@ -8,6 +8,10 @@ class ProgramsController < ApplicationController
 		@roadmap = Roadmap.find(params[:roadmap_id])
 		@destination = Destination.find(params[:destination_id])
 
+		city_id = @destination.city.id
+		@tourist_sights = TouristSight.find_all_by_city_id(city_id)
+		@shops = Shop.find_all_by_city_id(city_id)
+
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @program }
@@ -19,6 +23,10 @@ class ProgramsController < ApplicationController
     @program = Program.find(params[:id])
 		@destination = @program.destination
 		@roadmap = @program.destination.roadmap
+		
+		city_id = @destination.city.id
+		@tourist_sights = TouristSight.find_all_by_city_id(city_id)
+		@shops = Shop.find_all_by_city_id(city_id)
   end
 
   # POST /programs
@@ -48,13 +56,25 @@ class ProgramsController < ApplicationController
   # PUT /programs/1
   # PUT /programs/1.xml
   def update
+	  params[:program][:happens_in] = params[:program][:happens_in].intern
     @program = Program.find(params[:id])
 		params[:program][:date] = to_date(params[:program][:date])
 		params[:program][:value] = currency_to_number(params[:program][:value])
 
 		@roadmap = @program.destination.roadmap
 		@destination = @program.destination
-
+		
+		# Regra para que apenas 1 seja marcado por vez (tourist_sight ou shop)
+		case params[:program][:happens_in]
+			when :tourist_sight
+				params[:program][:shop_id] = nil
+			when :shop
+				params[:program][:tourist_sight_id] = nil
+			else
+				params[:program][:tourist_sight_id] = nil
+				params[:program][:shop_id] = nil
+		end
+		
     respond_to do |format|
       if @program.update_attributes(params[:program])
         flash[:notice] = 'Programa atualizado com sucesso.'

@@ -23,6 +23,13 @@
 				</div>
 			<% end %>
 			<div class="clearer" style="text-align: justify; margin: 2px 15px;">
+				<% if program.tourist_sight %>
+					<small>Acontece em: <%= program.tourist_sight.name %></small><br/>
+					<small>Endereço: <%= program.tourist_sight.address %></small><br/>
+				<% elsif program.shop %>
+					<small>Acontece em: <%= program.shop.name %></small><br/>
+					<small>Endereço: <%= program.shop.address %></small><br/>
+				<% end %>
 				<small><%=h program.description %></small>
 			</div>
 		<div>
