@@ -36,9 +36,9 @@ ActiveRecord::Schema.define(:version => 20090813124330) do
     t.date     "date"
     t.float    "value",            :default => 0.0
     t.text     "description"
-    t.integer  "destination_id",                    :null => false
-    t.integer  "tourist_sight_id"
-    t.integer  "shop_id"
+    t.integer  "destination_id",   :null => false
+    t.integer  "tourist_sight_id", :null => true
+    t.integer  "shop_id",					 :null => true
     t.datetime "created_at"
     t.datetime "updated_at"
   end

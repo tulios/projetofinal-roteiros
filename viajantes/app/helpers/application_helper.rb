@@ -140,6 +140,17 @@ module ApplicationHelper
 		}
 	end
 	
+	def ruby_hash_to_javascript_array(hash)
+		result = "["
+		hash.keys.each_with_index do |key, index|			
+			result << "'#{key}'"
+			if index < (hash.keys.length - 1)
+				result << ", "
+			end
+		end
+		result << "]"
+		result
+	end
 end
 
 
