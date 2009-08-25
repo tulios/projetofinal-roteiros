@@ -15,3 +15,11 @@ two:
   destination_id: 1
   tourist_sight: 
   shop: 
+  
+three:
+  date: 2009-08-13
+  value: 3.5
+  description: Program3
+  destination_id: 1
+  tourist_sight: 
+  shop:

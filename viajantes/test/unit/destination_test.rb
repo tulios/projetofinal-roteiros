@@ -56,6 +56,30 @@ class DestinationTest < ActiveSupport::TestCase
       assert d.errors.on(:end_date)
     end
   end
+  
+  test "Deveria testar o numero de dias" do
+    d = create_destination({:start_date => Date.new(2009,10,20),
+                            :end_date => Date.new(2009,10,25)})
+    
+    assert_equal(5, d.number_of_days)
+  end
+  
+  test "Deveria testar o valor total do destino" do
+    destination = destinations(:one)
+    
+    sum = 0.0
+    
+    destination.programs.each do |program|
+      sum += program.value
+    end
+    
+    assert_equal(sum,destinations(:one).total)
+  end
+  
+  test "Deveria testar o valor do balanco" do
+    d = create_destination({:planned_cost => 100})
+    assert_equal(d.planned_cost - d.total, d.balance);
+  end
 
   # Protected Methods
   protected

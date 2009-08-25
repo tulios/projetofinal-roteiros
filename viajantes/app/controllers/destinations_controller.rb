@@ -1,30 +1,6 @@
 class DestinationsController < ApplicationController
 	require_role "user", :for_all_except => :show
 
-  # GET /destinations
-  # GET /destinations.xml
-  def index
-    @roadmap = Roadmap.find(params[:roadmap_id])
-    @destinations = Destination.all
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @destinations }
-    end
-  end
-
-  # GET /destinations/1
-  # GET /destinations/1.xml
-  def show
-    @destination = Destination.find(params[:id])
-    @city = @destination.city
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render :xml => @destination }
-    end
-  end
-
   # GET /destinations/new
   # GET /destinations/new.xml
   def new
@@ -45,7 +21,6 @@ class DestinationsController < ApplicationController
     @states = State.all
     @vehicles = Vehicle.all
     @cities = City.all
-    
   end
 
   # POST /destinations
