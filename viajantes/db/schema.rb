@@ -14,6 +14,9 @@ ActiveRecord::Schema.define(:version => 20090813124330) do
   create_table "cities", :force => true do |t|
     t.integer "state_id", :null => false
     t.string  "name"
+    t.boolean "capital"
+    t.float   "latitude"
+    t.float   "longitude"
   end
 
   create_table "countries", :force => true do |t|
