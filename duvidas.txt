@@ -1,0 +1,10 @@
+ - Os casos de uso Manter Roteiro, Manter Destino e Manter Programa estão muito interligados,
+ porem não existe nenhuma visão de caso de uso que nos mostre o relacionamento entre eles.
+ Imaginei que poderia haver um quinto caso de uso, Planejar Roteiro, com os passos que descrevem
+ o planejamento completo de um roteiro com destinos e programas. Cada passo de Planejar roteiro
+ referenciaria um fluxo do Manter. Isso é possível? 
+ 
+ - Devemos incluir outro ator no sistema. Este seria o usuário público, que tem acesso
+ basicamente a vizualização de conteúdo. A vizualização de conteúdo se refere a alguns 
+ fluxos específicos de alguns casos de uso, mas como fazer o usuário público se relacionar
+ com os casos de uso completos?
