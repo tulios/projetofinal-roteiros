@@ -56,7 +56,9 @@ class ProgramsController < ApplicationController
   # PUT /programs/1
   # PUT /programs/1.xml
   def update
-	  params[:program][:happens_in] = params[:program][:happens_in].intern
+  	if params[:program][:happens_in]  	
+		  params[:program][:happens_in] = params[:program][:happens_in].intern
+		end
     @program = Program.find(params[:id])
 		params[:program][:date] = to_date(params[:program][:date])
 		params[:program][:value] = currency_to_number(params[:program][:value])

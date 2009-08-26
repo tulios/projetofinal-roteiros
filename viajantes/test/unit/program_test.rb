@@ -23,4 +23,16 @@ class ProgramTest < ActiveSupport::TestCase
 		assert_validos(pm, [:date, :destination_id])
 	end
 
+	test "Deveria retornar um happens_in diferente dependendo da associacao com tourist_sight ou shop" do
+		program = Program.new
+		assert_equal(:another, program.happens_in)
+		
+		program.tourist_sight = TouristSight.new
+		assert_equal(:tourist_sight, program.happens_in)
+		
+		program.tourist_sight = nil
+		program.shop = Shop.new
+		assert_equal(:shop, program.happens_in)
+	end
+
 end
