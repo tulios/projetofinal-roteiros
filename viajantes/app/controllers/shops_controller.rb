@@ -1,3 +1,5 @@
+require 'mapsfinder'
+
 class ShopsController < ApplicationController
 	require_role "user", :for_all_except => [:index, :show]
 

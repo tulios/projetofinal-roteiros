@@ -19,7 +19,7 @@ class TouristSightsController < ApplicationController
 		@city = @tourist_sight.city
 		@tips = @tourist_sight.tips
 		@tourist_sight.increase_hits
-
+		
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @tourist_sight }

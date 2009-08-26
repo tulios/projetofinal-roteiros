@@ -3,6 +3,9 @@
 script/plugin install http://ennerchi.googlecode.com/svn/trunk/plugins/jrails
 rake jrails:install:javascripts
 
+ruby script/plugin install svn://rubyforge.org/var/svn/ym4r/Plugins/GM/trunk/ym4r_gm
+
+
 == Welcome to Rails
 
 Rails is a web-application framework that includes everything needed to create 
