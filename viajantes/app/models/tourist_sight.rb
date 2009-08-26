@@ -4,6 +4,7 @@ class TouristSight < ActiveRecord::Base
 	#String: description
 	#City: city
 	#User: user
+	#Integer: hits
 
 	belongs_to :city
 	belongs_to :user

@@ -7,6 +7,7 @@ class Shop < ActiveRecord::Base
 	# City: city
 	# TouristSight: tourist_sight
 	# User: user
+	# Integer: hits
 
   belongs_to :city
   belongs_to :tourist_sight

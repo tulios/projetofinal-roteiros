@@ -1,0 +1,6 @@
+<% @tourist_sights.each do |tourist_sight| %>
+	<li class="sem_li_root">
+			<%= link_to tourist_sight.name, tourist_sight %>&nbsp;
+			(<%=h tourist_sight.city.state.symbol %>/<%=h tourist_sight.city.name %>)
+	</li>
+<% end %>
