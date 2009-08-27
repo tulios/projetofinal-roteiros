@@ -6,6 +6,8 @@ class DestinationsController < ApplicationController
   def new
     @destination = Destination.new
     @destination.roadmap = Roadmap.find(params[:roadmap_id])
+    @roadmap = @destination.roadmap
+    @destinations =  @roadmap.destinations
     @states = State.load_all
     @vehicles = Vehicle.all
 

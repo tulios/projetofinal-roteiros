@@ -481,10 +481,6 @@ textarea.expanding {
 		padding: 5px;
 }
 
-.box_title {
-	color: black;
-}
-
 .search_submit {
 	background: url(../images/search_32.png) no-repeat scroll;
 	padding: 8px 16px;
@@ -545,8 +541,32 @@ textarea.expanding {
 	cursor: default;
 }
 
+.search_results .sem_li_destination{
+	list-style-image: none;
+	list-style-position: outside;
+	list-style-type: none;
+	margin: 5px 5px 0px 25px;
+	padding: 5px;
+	border-bottom: none;
+}
+
+.search_results .sem_li_destination:hover{
+	background-color: #A8B0FF !important;
+	cursor: default;
+}
+
+.box_title {
+	color: black;
+}
+
 .box {
 	border: 1px solid #aaaaaa; 
+	background: #ffffff repeat-x; 
+	color: #222222;
+}
+
+.box_white {
+	border: 1px solid white; 
 	background: #ffffff repeat-x; 
 	color: #222222;
 }
@@ -620,7 +640,11 @@ textarea.expanding {
 	cursor: hand;
 }
 
-
+.identado {
+	clear: both;
+	text-align: justify; 
+	margin: 2px 15px;
+}
 
 
 

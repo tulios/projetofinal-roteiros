@@ -5,7 +5,7 @@
 				<strong><%= date_format(program.date) %></strong>&nbsp;
 				<strong><%= currency(program.value) %></strong>&nbsp;
 			</div>
-			<% if logged_in? %>
+			<% if logged_in?%>
 				<div style="float: right;">
 					<%= link_to (image_tag 'edit_16.png', :border => 0), 
 							edit_roadmap_destination_program_path(
@@ -22,7 +22,7 @@
 					%>
 				</div>
 			<% end %>
-			<div class="clearer" style="text-align: justify; margin: 2px 15px;">
+			<div class="identado">
 				<% if program.tourist_sight %>
 					<small>Acontece em: <%= program.tourist_sight.name %></small><br/>
 					<small>Endereço: <%= program.tourist_sight.address %></small><br/>

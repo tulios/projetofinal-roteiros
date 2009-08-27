@@ -1,3 +1,4 @@
+<%= corner('ja_planejados') %>
 <%= focus("program_date")%>
 
 <h1 class="program">Novo Programa</h1>
@@ -7,6 +8,16 @@
 <%= price_format(['program_value']) %>
 
 <%= render :partial => "info" %>
+
+<div id="ja_planejados" style="float: right;">
+	<div class="box_white">
+		<div class="search_results">
+			<h4>Programas já planejados:</h4>
+			<%= render :partial => "list", :locals => {:programs => @destination.programs} %>
+		</div>
+	</div>
+</div>
+
 <% form_for([:roadmap, :destination, @program]) do |f| %>
 	<%= render :partial => "form", :locals => {:f => f} %>
 <% end %>
