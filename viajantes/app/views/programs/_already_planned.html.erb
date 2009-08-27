@@ -1,8 +1,8 @@
 <div id="ja_planejados" style="float: right;">
-	<div class="box_white">
+	<div class="box_white" style="width: 470px">
 		<div class="search_results">
 			<h4>Programas já planejados:</h4>
-			<%= render :partial => "list", :locals => {:programs => @destination.programs} %>
+			<%= render :partial => "simple_list", :locals => {:programs => @destination.programs} %>
 		</div>
 	</div>
 </div>

@@ -1,4 +1,10 @@
 <ul>
+<% if @destinations and @destinations.length == 0 %>
+	<li class="sem_li_destination">
+		<i>Nenhum encontrado.</li>
+	</li>
+<% end %>
+
 <% @destinations.each_with_index do |destination, index| %>
 	<li class="sem_li_destination">
 		<% if logged_in? %>
