@@ -1,11 +1,19 @@
+# City - Cidade
+#
+# Este modelo representa as cidades.
+#
+# Atributos:
+#   State: state (Estado o qual a cidade pertence)
+#   String: name (Nome da cidade)
+#
 class City < ActiveRecord::Base
-	#State: state
-	#String: name
+
 	belongs_to :state
 	
 	# Carrega todas as cidades de um determinado estado.
 	# params:
-	#		- state_id
+	#		- Integer: state_id (Identificador do estado)
+	#
 	def self.load_all(state_id)
 		begin
 			# Tenta converter para um inteiro
@@ -16,4 +24,5 @@ class City < ActiveRecord::Base
 			return []
 		end
 	end
+	
 end
