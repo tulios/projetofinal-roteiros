@@ -406,6 +406,11 @@ textarea.expanding {
 	padding: 10px 55px;
 }
 
+.roadmap_32 {
+	background: url(../images/map_48.png) no-repeat;
+	padding: 18px 23px;
+}
+
 .program {
 	background: url(../images/checklist_48.png) no-repeat;
 	padding: 15px 55px;

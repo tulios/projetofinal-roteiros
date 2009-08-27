@@ -1,3 +1,4 @@
+<%= corner('roadmaps') %>
 <h1 class="roadmap">Roteiros</h1>
 
 <% if logged_in? %>
@@ -9,7 +10,7 @@
 
 <% if @roadmaps and @roadmaps.length > 0 %>
 	
-	<div class="box">
+	<div id="roadmaps" class="box">
 		<div class="search_results">
 			<ul>
 				<%= render :partial => "list" %>

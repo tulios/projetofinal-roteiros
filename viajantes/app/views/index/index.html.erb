@@ -1,9 +1,10 @@
-<%= corner('mais_vistos', 'shops', 'tourist_sights') %>
+<%= corner('mais_vistos', 'shops', 'tourist_sights', 'roadmaps') %>
 
 <div id="mais_vistos" class="mais_vistos">
 	<h4 class="mais_vistos_banner">Mais vistos</h4>
 
 	<div class="mais_vistos_corpo">
+		
 		<div id="shops">
 			<br/>
 			<div style="float: right">
@@ -39,5 +40,23 @@
 				</div>
 			</div>
 		</div>
+		
+		<br/>
+
+		<div id="roadmaps">
+			<br/>
+			<div style="float: right">
+				<span class="roadmap_32"></span>
+			</div>
+			<span class="box_title">Roteiros de viagem</span>
+			<br/><br/>
+			<div class="box">
+				<div class="search_results_root">
+					<%= render :partial => "roadmaps/list_root" %>
+				</div>
+			</div>
+		</div>
+	
 	</div>
+	
 </div>

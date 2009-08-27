@@ -1,3 +1,5 @@
+<%= corner('tourist_sights') %>
+
 <h1 class="tourist_sight">Pontos Turísticos</h1>
 
 <% if logged_in? %>
@@ -9,7 +11,7 @@
 
 <% if @tourist_sights and @tourist_sights.length > 0 %>
 
-	<div class="box">
+	<div id="tourist_sights" class="box">
 		<div class="search_results">
 			<ul>
 				<%= render :partial => "list" %>
