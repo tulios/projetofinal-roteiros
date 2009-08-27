@@ -8,3 +8,6 @@
  basicamente a vizualização de conteúdo. A vizualização de conteúdo se refere a alguns 
  fluxos específicos de alguns casos de uso, mas como fazer o usuário público se relacionar
  com os casos de uso completos?
+ 
+ - Na descrição das iterações devemos mostrar a EAP? Nós temos um cronograma detalhado
+ que funciona melhor que a EAP.
