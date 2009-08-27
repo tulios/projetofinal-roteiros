@@ -2,7 +2,10 @@
 
 <h1 class="destination">Destino</h1>
 
+<%= render :partial => 'already_planned' %>
+
 <%= render :partial => 'form'%>
+
+<%= render :partial => 'balance_micro_box' %>
 <br/>
-<%= link_to 'Detalhar', roadmap_destination_path(@destination.roadmap, @destination) %> |
 <%= link_to 'Voltar', @destination.roadmap %>

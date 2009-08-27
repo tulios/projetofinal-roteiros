@@ -20,6 +20,8 @@ class DestinationsController < ApplicationController
   # GET /destinations/1/edit
   def edit
     @destination = Destination.find(params[:id])
+    @roadmap = @destination.roadmap
+    @destinations =  @roadmap.destinations
     @states = State.all
     @vehicles = Vehicle.all
     @cities = City.all

@@ -8,7 +8,7 @@ class Destination < ActiveRecord::Base
   # City: city
 	# Program: programs
   
-	has_many :programs
+	has_many :programs, :order => "date asc"
   
   belongs_to :roadmap
   belongs_to :vehicle
