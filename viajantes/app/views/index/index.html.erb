@@ -1,16 +1,22 @@
-<div style="float: right;">
-	<h4 class="mais_vistos">Mais vistos</h4>
+<%= corner('mais_vistos', 'shops', 'tourist_sights') %>
+
+<div id="mais_vistos" class="mais_vistos">
+	<h4 class="mais_vistos_banner">Mais vistos</h4>
 
 	<div class="mais_vistos_corpo">
 		<div id="shops">
 			<br/>
-			<span class="shop_32">Estabelecimentos</span>
+			<div style="float: right">
+				<span class="shop_32"></span>
+			</div>
+			<span class="box_title">Estabelecimentos</span>
 			<br/><br/>
 			<div class="box">
 				<div class="search_results_root">
-					<ul>
-						<%= render :partial => "shops/list_root" %>
-					</ul>
+					<%= render :partial => "shops/list_root" %>
+					<p align="right" style="margin: 0px 11px 0px 0px;">
+						<%= link_to 'ver todos &raquo;', shops_path %>
+					</p>
 				</div>
 			</div>
 		</div>
@@ -19,13 +25,17 @@
 
 		<div id="tourist_sights">
 			<br/>
-			<span class="tourist_sight_32">Pontos Turísticos</span>
+			<div style="float: right">
+				<span class="tourist_sight_32"></span>
+			</div>
+			<span class="box_title">Pontos Turísticos</span>
 			<br/><br/>
 			<div class="box">
 				<div class="search_results_root">
-					<ul>
-						<%= render :partial => "tourist_sights/list_root" %>
-					</ul>
+					<%= render :partial => "tourist_sights/list_root" %>
+					<p align="right" style="margin: 0px 11px 0px 0px;">
+						<%= link_to 'ver todos &raquo;', tourist_sights_path %>
+					</p>
 				</div>
 			</div>
 		</div>
