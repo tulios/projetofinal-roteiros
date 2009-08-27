@@ -173,7 +173,7 @@ h1,h2,h3 {padding-top: 6px;}
 }
 
 .linha_direita {
-		text-align: right !important;
+	text-align: right !important;
 }
 
 .linha_justificada {
@@ -370,15 +370,24 @@ textarea.expanding {
 
 .pagination .next_page{
 	text-decoration: none;
-	border: none;
+	border: none !important;
+}
+
+.pagination .next_page:hover{
+	text-decoration: underline;
 }
 
 .pagination .prev_page{
 	text-decoration: none;
-	border: none;
+	border: none !important;
+}
+
+.pagination .prev_page:hover{
+	text-decoration: underline;
 }
 
 .disabled {
+	text-decoration: none !important;
 }
 
 .shop {
