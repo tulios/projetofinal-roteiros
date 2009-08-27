@@ -133,7 +133,7 @@ module ApplicationHelper
 			<script type="text/javascript">
 				jQuery(function($){
 					$(document).ready(function(){
-					  $("#{'#'+(id)}").focus()
+					  $("#{'#'+(id)}").focus();
 					});
 				});
 			</script>
@@ -150,6 +150,24 @@ module ApplicationHelper
 		end
 		result << "]"
 		result
+	end
+	
+	def corner(*ids)
+		result = ""
+		ids.each do |id|
+			result << %Q{
+				$("#{'#'+(id)}").corner(); 
+			}
+		end
+		%Q{
+			<script type="text/javascript">
+				jQuery(function($){
+					$(document).ready(function(){
+					  #{result}
+					});
+				});
+			</script>
+		}
 	end
 end
 

@@ -1,4 +1,7 @@
-<%=h @city.state.country.name %>&nbsp;<strong>::</strong>&nbsp;
-<%=h @city.state.region.name %>&nbsp;<strong>::</strong>&nbsp;
-<%=h @city.state.name %>&nbsp;<strong>::</strong>&nbsp;
+<%=h @city.state.country.name %>&nbsp;<strong>&raquo;</strong>&nbsp;
+<%=h @city.state.region.name %>&nbsp;<strong>&raquo;</strong>&nbsp;
+<%=h @city.state.name %>&nbsp;<strong>&raquo;</strong>&nbsp;
 <%=h @city.name %>
+<% if @city.capital %>
+	<strong>&rarr;</strong>&nbsp;capital
+<% end %>

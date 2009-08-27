@@ -17,14 +17,14 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :tourist_sight_city_finder
 	map.resources :search
 
-
+	map.index '/index', :controller => 'index', :action => 'index'
+	
 	#Rotas do usuário e login
 	map.signup  '/signup', :controller => 'users',   :action => 'new'
 	map.login  '/login',  :controller => 'sessions', :action => 'new'
 	map.logout '/logout', :controller => 'sessions', :action => 'destroy'
 
-
-  map.root :controller => 'tourist_sights', :action => 'index'
+  map.root :controller => 'index', :action => 'index'
 
   # The priority is based upon order of creation: first created -> highest priority.
 

@@ -386,14 +386,29 @@ textarea.expanding {
 	padding: 12px 45px;
 }
 
+.shop_32 {
+	background: url(../images/shop_32.png) no-repeat;
+	padding: 9px 15px;
+}
+
 .tourist_sight {
 	background: url(../images/coqueiro_48.png) no-repeat;
 	padding: 15px 55px;
 }
 
+.tourist_sight_32 {
+	background: url(../images/coqueiro_32.png) no-repeat;
+	padding: 15px 15px;
+}
+
 .roadmap {
 	background: url(../images/map_48.png) no-repeat;
 	padding: 10px 55px;
+}
+
+.roadmap_32 {
+	background: url(../images/map_48.png) no-repeat;
+	padding: 18px 23px;
 }
 
 .program {
@@ -441,6 +456,35 @@ textarea.expanding {
 	float: right;
 }
 
+.mais_vistos {
+	background: #8DB6CD;
+	float: right; 
+	width: 230px;
+}
+
+.mais_vistos_banner {
+	color: black;
+	background: url(../images/binoculo_48.png) no-repeat;
+	padding: 15px 55px;
+}
+
+.mais_vistos_corpo {
+	margin: 0px 10px 10px 10px;
+}
+
+.mais_vistos_corpo table{
+	font-size: 11px;
+	margin: 5px 5px 2px 5px;
+}
+
+.mais_vistos_corpo td{
+		padding: 5px;
+}
+
+.box_title {
+	color: black;
+}
+
 .search_submit {
 	background: url(../images/search_32.png) no-repeat scroll;
 	padding: 8px 16px;
@@ -451,6 +495,10 @@ textarea.expanding {
 
 .search_results{
 	padding: 10px;
+}
+
+.search_results_root{
+	padding: 0px;
 }
 
 .search_results li{
@@ -471,6 +519,15 @@ textarea.expanding {
 	list-style-position: outside;
 	list-style-type: none;
 	margin: 11px;
+	border-bottom: none;
+}
+
+.search_results_root .sem_li_root{
+	font-size: 11px;
+	list-style-image: none;
+	list-style-position: outside;
+	list-style-type: none;
+	margin: 5px 11px 2px 5px;
 	border-bottom: none;
 }
 

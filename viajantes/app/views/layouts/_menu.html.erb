@@ -1,5 +1,5 @@
 <div class="navigation">
-	<a href="index.html">Página Inicial</a>
+	<%= link_to "Página Inicial", "/", :class => check_tab?('index') %>
 
 	<% if logged_in? %>
 		<%= link_to "Meus Roteiros", roadmaps_path, 
