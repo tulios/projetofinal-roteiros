@@ -1,0 +1,10 @@
+<%= configure_textarea_autogrow %>
+<%= focus("tip_name")%>
+
+<h1>Nova Dica de Ponto Turístico</h1>
+
+<% form_for([:tourist_sight,@tourist_sight_tip]) do |f| %>
+	<%= render :partial => 'tips/form', :locals => {:f => f} %>
+<% end %>
+
+<%= link_to 'Voltar', tourist_sight_path(@tourist_sight_id) %>
