@@ -128,6 +128,9 @@ ActiveRecord::Schema.define(:version => 20090828000109) do
   create_table "tourist_sights", :force => true do |t|
     t.string   "name"
     t.string   "address"
+    t.string   "phone"
+    t.string	 "email"
+    t.string	 "visitation_period"
     t.text     "description"
     t.integer  "city_id",                    :null => false
     t.integer  "user_id",                    :null => false

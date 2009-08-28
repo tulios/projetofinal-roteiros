@@ -169,6 +169,20 @@ module ApplicationHelper
 			</script>
 		}
 	end
+	
+	def rating(name, size = 5, div_id = "#{'div_'+name.to_s}")
+	
+		result = "<div id=\"#{div_id}\">"
+		size.times do |number|
+			result << %Q{
+				<input name="#{name.to_s}" type="radio" class="star"/>
+			}
+		end
+		result << "</div>"
+		
+		result
+	end
+	
 end
 
 

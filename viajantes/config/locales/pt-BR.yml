@@ -135,6 +135,9 @@
       tourist_sight:
         name: "Nome"
         address: "Endereço"
+        phone: "Telefone"
+        email: "E-mail"
+        visitation_period: "Período de visitação"                        
         city: "Cidade"
         description: "Descrição"
         city_id: "Cidade"

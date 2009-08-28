@@ -7,7 +7,7 @@
 		</td>
 	</tr>
 	<tr>
-		<td width="5%" align="right">
+		<td width="9%" align="right">
 			<strong>Nome:</strong>
 		</td>
 		<td align="left"><%=h @tourist_sight.name %></td>
@@ -18,6 +18,30 @@
 		</td>
 		<td align="left"><%=h @tourist_sight.address %></td>
 	</tr>
+	<% if @tourist_sight.phone and @tourist_sight.phone.length > 0 %>
+	<tr>
+		<td align="right">
+			<strong>Telefone:</strong>
+		</td>
+		<td align="left"><%=h @tourist_sight.phone %></td>
+	</tr>
+	<% end %>
+	<% if @tourist_sight.email and @tourist_sight.email.length > 0 %>
+	<tr>
+		<td align="right">
+			<strong>E-mail:</strong>
+		</td>
+		<td align="left"><%=h @tourist_sight.email %></td>
+	</tr>
+	<% end %>
+	<% if @tourist_sight.visitation_period and @tourist_sight.visitation_period.length > 0 %>
+	<tr>
+		<td align="right">
+			<strong>Período de visitação:</strong>
+		</td>
+		<td align="left"><%=h @tourist_sight.visitation_period %></td>
+	</tr>
+	<% end %>
 	<tr>
 		<td align="right" valign="top">
 			<strong>Descrição:</strong>
