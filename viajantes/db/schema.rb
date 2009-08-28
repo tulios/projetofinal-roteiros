@@ -9,10 +9,10 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090813124330) do
+ActiveRecord::Schema.define(:version => 20090828000109) do
 
   create_table "cities", :force => true do |t|
-    t.integer "state_id", :null => false
+    t.integer "state_id",  :null => false
     t.string  "name"
     t.boolean "capital"
     t.float   "latitude"
@@ -39,9 +39,9 @@ ActiveRecord::Schema.define(:version => 20090813124330) do
     t.date     "date"
     t.float    "value",            :default => 0.0
     t.text     "description"
-    t.integer  "destination_id",   :null => false
-    t.integer  "tourist_sight_id", :null => true
-    t.integer  "shop_id",					 :null => true
+    t.integer  "destination_id",                    :null => false
+    t.integer  "tourist_sight_id"
+    t.integer  "shop_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -117,6 +117,13 @@ ActiveRecord::Schema.define(:version => 20090813124330) do
   end
 
   add_index "tourist_sight_tags", ["tourist_sight_id", "tag_id"], :name => "index_tourist_sight_tags_on_tourist_sight_id_and_tag_id", :unique => true
+
+  create_table "tourist_sight_tips", :force => true do |t|
+    t.integer  "tourist_sight_id"
+    t.integer  "tip_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "tourist_sights", :force => true do |t|
     t.string   "name"
