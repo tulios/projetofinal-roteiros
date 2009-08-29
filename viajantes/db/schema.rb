@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090828000109) do
+ActiveRecord::Schema.define(:version => 20090829183415) do
 
   create_table "cities", :force => true do |t|
     t.integer "state_id",  :null => false
@@ -35,11 +35,19 @@ ActiveRecord::Schema.define(:version => 20090828000109) do
     t.datetime "updated_at"
   end
 
+  create_table "evaluations", :force => true do |t|
+    t.integer  "rate", 				:default => 0
+    t.text     "criticism"
+    t.integer  "city_id", 		:null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "programs", :force => true do |t|
     t.date     "date"
     t.float    "value",            :default => 0.0
     t.text     "description"
-    t.integer  "destination_id",                    :null => false
+    t.integer  "destination_id",   :null => false
     t.integer  "tourist_sight_id"
     t.integer  "shop_id"
     t.datetime "created_at"
@@ -55,8 +63,8 @@ ActiveRecord::Schema.define(:version => 20090828000109) do
     t.string   "title"
     t.text     "description"
     t.boolean  "public",      :default => false
-    t.integer  "city_id",                        :null => false
-    t.integer  "user_id",                        :null => false
+    t.integer  "city_id",     :null => false
+    t.integer  "user_id",     :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -79,9 +87,9 @@ ActiveRecord::Schema.define(:version => 20090828000109) do
     t.string   "phone",            :limit => 14
     t.text     "description"
     t.text     "key_words"
-    t.integer  "hits",                           :default => 0
-    t.integer  "city_id",                                       :null => false
-    t.integer  "user_id",                                       :null => false
+    t.integer  "hits",             :default => 0
+    t.integer  "city_id",          :null => false
+    t.integer  "user_id",          :null => false
     t.integer  "tourist_sight_id"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -129,12 +137,12 @@ ActiveRecord::Schema.define(:version => 20090828000109) do
     t.string   "name"
     t.string   "address"
     t.string   "phone"
-    t.string	 "email"
-    t.string	 "visitation_period"
+    t.string   "email"
+    t.string   "visitation_period"
     t.text     "description"
-    t.integer  "city_id",                    :null => false
-    t.integer  "user_id",                    :null => false
-    t.integer  "hits",        :default => 0
+    t.integer  "city_id",           :null => false
+    t.integer  "user_id",           :null => false
+    t.integer  "hits",              :default => 0
     t.datetime "created_at"
     t.datetime "updated_at"
   end

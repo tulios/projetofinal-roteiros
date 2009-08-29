@@ -342,6 +342,21 @@ textarea.expanding {
 	background: #6C7B8B 2px 1px;
 }
 
+.botao_avaliar {
+	color:#FFFFFF;
+	background: url(../images/star_32.png) #9FB6CD no-repeat 5px 2px;
+	border: 1px solid #C1CDCD;
+	font-size:12px;
+	padding: 10px 15px 10px 45px;	
+	cursor: pointer;
+	cursor: hand;
+}
+
+.botao_avaliar:hover {
+	color:#FFFFFF;
+	background: url(../images/star_32.png) #6C7B8B no-repeat 5px 2px;
+}
+
 .pagination {
 	margin:0.3em;
 	padding:0.3em;

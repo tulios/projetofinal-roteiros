@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  rate: 1
+  criticism: MyText
+  city: 
+
+two:
+  rate: 1
+  criticism: MyText
+  city: 
