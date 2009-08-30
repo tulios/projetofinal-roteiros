@@ -19,6 +19,9 @@ class Shop < ActiveRecord::Base
   belongs_to :city
   belongs_to :tourist_sight
   belongs_to :user
+  
+  has_many :shop_evaluations, :order => "created_at desc", :limit => 5
+  has_many :evaluations, :through => :shop_evaluations
 
 	validates_presence_of :city_id, :name, :address
 

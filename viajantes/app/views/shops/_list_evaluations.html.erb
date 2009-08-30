@@ -1,0 +1,34 @@
+<% if @shop.evaluations.nil? or @shop.evaluations.length == 0 %>
+	<i>Nenhuma encontrada.</i>
+	
+<% else %>
+
+	<div class="box">
+		<div class="search_results">
+			<ul>
+				<% @shop.evaluations.each do |evaluation| %>
+				<li class="sem_li">
+					<%= evaluation.user.login %>&nbsp;Data: <%= date_format(evaluation.created_at) %>
+					<br/>
+					<table width="100%">
+						<tr>
+							<td align="left" width="12%">Avaliação geral:</td>
+							<td align="left"><%= rating("general_#{evaluation.id}", 5, true, evaluation.general) %></td>
+						</tr>
+						<tr>
+							<td colspan="2">
+								<small>
+									<%=h evaluation.criticism %>
+								</small>
+							</td>
+					</table>
+				</li>
+				<% end %>
+			</ul>
+			<div align="center">
+				<%= link_to 'ver todas &raquo;', shops_path %>
+			</div>
+		</div>
+	</div>
+	
+<% end %>

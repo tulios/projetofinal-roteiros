@@ -1,29 +1,41 @@
 ActionController::Routing::Routes.draw do |map|
 
+	# Pontos Turisticos
   map.resources :tourist_sights do |touristSights|
 		touristSights.resources :tourist_sight_tags
 		touristSights.resources :tourist_sight_tips
 	end
 	
+	# Roteiros de viagem
   map.resources :roadmaps do |roadmap|
     roadmap.resources :destinations do |destination|
 			destination.resources :programs
 		end
   end
 
+	# Estabelecimentos
+  map.resources :shops do |shop|
+  	shop.resources :shop_evaluations
+  end
+  
+  # Usuarios
   map.resources :users
+  # Login
   map.resource :session
-  map.resources :shops
+  # Finder que procura pontos turisticos pela cidade  
   map.resources :tourist_sight_city_finder
+  # Pesquisa
 	map.resources :search
 
+	# Index
 	map.index '/index', :controller => 'index', :action => 'index'
 	
-	#Rotas do usuário e login
+	# Rotas do usuário e login
 	map.signup  '/signup', :controller => 'users',   :action => 'new'
 	map.login  '/login',  :controller => 'sessions', :action => 'new'
 	map.logout '/logout', :controller => 'sessions', :action => 'destroy'
 
+	# Controlador chamado no root (/)
   map.root :controller => 'index', :action => 'index'
 
   # The priority is based upon order of creation: first created -> highest priority.

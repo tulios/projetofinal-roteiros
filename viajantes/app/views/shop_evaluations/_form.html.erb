@@ -1,0 +1,84 @@
+<%= configure_textarea_autogrow %>
+
+<% form_for([@shop, @shop_evaluation.evaluation], 
+						:url => {:controller => :shop_evaluations, :action => :create}) do |f| %>
+						
+	<%= f.error_messages %>
+	
+	<div>
+	<%= render :partial => 'info' %>
+	<br/>
+	
+	<h3>Registre aqui sua opinião</h3>
+	<div style="float: right; width: 520px;">
+		<table>
+			<tr>
+				<td>Crítica:</td>
+			</tr>
+			<tr>
+				<td>
+					<%= f.text_area :criticism, {:rows => 5, :class => "expanding",
+						  :style => "width: 170%; min-height: 160px; max-height: 500px;"} %>
+				</td>
+			</tr>
+		</table>
+	</div>
+
+	<table class="form" width="40%">
+		<tr>
+			<td align="right"><strong>Geral:</strong></td>
+			<td><%= rating(:general , 5) %></td>
+		</tr>
+		<tr>
+			<td align="right"><strong>Serviço:</strong></td>
+			<td><%= rating(:service , 5) %></td>
+		</tr>
+		<tr>
+			<td align="right"><strong>Limpeza:</strong></td>
+			<td><%= rating(:clean , 5) %></td>
+		</tr>
+		<tr>
+			<td align="right"><strong>Localização:</strong></td>
+			<td><%= rating(:location , 5) %></td>
+		</tr>
+		<tr>
+			<td align="right"><strong>Qualidade/Preço:</strong></td>
+			<td><%= rating(:price , 5) %></td>
+		</tr>
+		<tr>
+			<td align="right"><strong>Infraestrutura:</strong></td>
+			<td><%= rating(:infrastructure , 5) %></td>
+		</tr>
+		<tr>
+			<td align="right"><strong>Atendimento:</strong></td>
+			<td><%= rating(:attendance , 5) %></td>
+		</tr>
+	</table>
+	</div>
+	<div align="right" style="width: 862px;">
+		<%= f.submit 'Salvar' %>
+	</div>
+<% end %>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

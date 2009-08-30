@@ -17,14 +17,10 @@ module ApplicationHelper
      end
   end
 
-	def check_tab?(name)
-		if name.class == Array
-			name.each do |var|
-				if var == controller_name then return "marcado" end
-			end
-		else
-			if name == controller_name then return "marcado" end
-		end		
+	def check_tab?(*name)
+		name.each do |var|
+			if var == controller_name then return "marcado" end
+		end
   end
 
 	def configure_textarea_autogrow
@@ -170,15 +166,29 @@ module ApplicationHelper
 		}
 	end
 	
-	def rating(name, size = 5, div_id = "#{'div_'+name.to_s}")
+	def rating(name, size = 5, disabled = false, check = nil, div = true, div_id = "#{'div_'+name.to_s}")
+		result = ""
 	
-		result = "<div id=\"#{div_id}\">"
+		if div
+			result << "<div id=\"#{div_id}\">"
+		end
+		
 		size.times do |number|
 			result << %Q{
-				<input name="#{name.to_s}" type="radio" class="star"/>
+				<input name="#{name.to_s}" type="radio" class="star" value="#{number + 1}" 
 			}
+			if check and check == (number + 1)
+				result << "checked=\"checked\""
+			end
+			if disabled
+				result << "disabled=\"disabled\""
+			end
+			result << "/>"
 		end
-		result << "</div>"
+		
+		if div
+			result << "</div>"
+		end
 		
 		result
 	end

@@ -324,6 +324,24 @@ textarea.expanding {
 	cursor: hand;
 }
 
+.botao {
+	color:#FFFFFF;
+	margin: 0px 0px 0px 0px;
+	padding: 3px 5px 3px 5px;
+	background: #9FB6CD 2px 1px;
+	border: 1px solid #C1CDCD;
+	font-size:12px;
+	height: 20px;
+	margin: 10px;
+	cursor: pointer;
+	cursor: hand;
+}
+
+.botao:hover {
+	color:#FFFFFF;
+	background: #6C7B8B 2px 1px;
+}
+
 .botao_new_program {
 	color:#FFFFFF;
 	margin: 0px 0px 0px 0px;
@@ -443,6 +461,16 @@ textarea.expanding {
 .destination {
 	background: url(../images/bag_48.png) no-repeat;
 	padding: 15px 55px;
+}
+
+.evaluation {
+	background: url(../images/star_48.png) no-repeat;
+	padding: 12px 55px;
+}
+
+.evaluation_32 {
+	background: url(../images/star_32.png) no-repeat;
+	padding: 7px 40px;
 }
 
 .destination_32 {

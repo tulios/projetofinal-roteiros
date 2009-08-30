@@ -1,0 +1,25 @@
+<h3><%= @shop.name %></h3>
+<table width="100%" class="tabela_info" cellspacing="5">
+	<tr>
+		<td>
+			<strong>Localizado em:</strong>
+		</td>
+	</tr>
+	<tr>		
+		<td>
+			<%= render :partial => "tourist_sights/location" %>
+		</td>
+	</tr>
+	
+	<% if @shop.key_words and @shop.key_words.length > 0 %>
+	<tr>
+		<td>
+			<strong>Palavras-chave:</strong>
+		</td>
+	</tr>
+	<tr>
+		<td><%=h @shop.key_words %></td>
+	</tr>
+	<% end %>
+	
+</table>
