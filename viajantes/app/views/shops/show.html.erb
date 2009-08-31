@@ -1,3 +1,6 @@
+<%= corner('users_evaluations') %>
+<%= corner('evaluation_average') %>
+
 <h1 class="shop">Estabelecimento</h1>
 <br/>
 
@@ -11,7 +14,14 @@
 							:class => 'botao' %>
 </h2>
 
-<%= render :partial => 'list_evaluations' %>
+<div id="users_evaluations" style="float: left; width: 670px;">
+	<%= render :partial => 'list_evaluations' %>
+</div>
+<div id="evaluation_average" style="float: right;">
+	<%= render :partial => 'evaluation_average' %>
+</div>
+
+<div class="clearer"></div>
 
 <br/>
 <br/>
