@@ -37,15 +37,15 @@ ActiveRecord::Schema.define(:version => 20090830135214) do
 
   create_table "evaluations", :force => true do |t|
     t.text     "criticism"
-    t.integer  "city_id",					:null => false
-    t.integer  "user_id",					:null => false
-	  t.integer  "general", 				:default => 0
-		t.integer  "service", 				:default => 0
-		t.integer  "clean", 					:default => 0
-		t.integer  "location", 				:default => 0
-    t.integer  "price", 					:default => 0
-    t.integer  "infrastructure",  :default => 0
-		t.integer  "attendance", 			:default => 0
+    t.integer  "city_id",                       :null => false
+    t.integer  "user_id",                       :null => false
+    t.integer  "general",        :default => 0
+    t.integer  "service",        :default => 0
+    t.integer  "clean",          :default => 0
+    t.integer  "location",       :default => 0
+    t.integer  "price",          :default => 0
+    t.integer  "infrastructure", :default => 0
+    t.integer  "attendance",     :default => 0
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -54,7 +54,7 @@ ActiveRecord::Schema.define(:version => 20090830135214) do
     t.date     "date"
     t.float    "value",            :default => 0.0
     t.text     "description"
-    t.integer  "destination_id",   :null => false
+    t.integer  "destination_id",                    :null => false
     t.integer  "tourist_sight_id"
     t.integer  "shop_id"
     t.datetime "created_at"
@@ -70,8 +70,8 @@ ActiveRecord::Schema.define(:version => 20090830135214) do
     t.string   "title"
     t.text     "description"
     t.boolean  "public",      :default => false
-    t.integer  "city_id",     :null => false
-    t.integer  "user_id",     :null => false
+    t.integer  "city_id",                        :null => false
+    t.integer  "user_id",                        :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -93,9 +93,7 @@ ActiveRecord::Schema.define(:version => 20090830135214) do
     t.integer "evaluation_id", :null => false
   end
 
-  add_index "shop_evaluations", ["shop_id", "evaluation_id"], 
-  					:name => "index_shop_evaluations_on_shop_id_and_evaluation_id", 
-  					:unique => true
+  add_index "shop_evaluations", ["shop_id", "evaluation_id"], :name => "index_shop_evaluations_on_shop_id_and_evaluation_id", :unique => true
 
   create_table "shops", :force => true do |t|
     t.string   "name"
@@ -103,9 +101,9 @@ ActiveRecord::Schema.define(:version => 20090830135214) do
     t.string   "phone",            :limit => 14
     t.text     "description"
     t.text     "key_words"
-    t.integer  "hits",             :default => 0
-    t.integer  "city_id",          :null => false
-    t.integer  "user_id",          :null => false
+    t.integer  "hits",                           :default => 0
+    t.integer  "city_id",                                       :null => false
+    t.integer  "user_id",                                       :null => false
     t.integer  "tourist_sight_id"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -125,10 +123,9 @@ ActiveRecord::Schema.define(:version => 20090830135214) do
   add_index "tags", ["name"], :name => "index_tags_on_name", :unique => true
 
   create_table "tips", :force => true do |t|
-    t.string   "name",             :limit => 50, :null => false
-    t.text     "description",                    :null => false
-    t.integer  "tourist_sight_id",               :null => false
-    t.integer  "user_id",                        :null => false
+    t.string   "name",        :limit => 50, :null => false
+    t.text     "description",               :null => false
+    t.integer  "user_id",                   :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -140,9 +137,7 @@ ActiveRecord::Schema.define(:version => 20090830135214) do
     t.datetime "updated_at"
   end
 
-  add_index "tourist_sight_tags", ["tourist_sight_id", "tag_id"], 
-  					:name => "index_tourist_sight_tags_on_tourist_sight_id_and_tag_id", 
-  					:unique => true
+  add_index "tourist_sight_tags", ["tourist_sight_id", "tag_id"], :name => "index_tourist_sight_tags_on_tourist_sight_id_and_tag_id", :unique => true
 
   create_table "tourist_sight_tips", :force => true do |t|
     t.integer  "tourist_sight_id"
@@ -158,8 +153,8 @@ ActiveRecord::Schema.define(:version => 20090830135214) do
     t.string   "email"
     t.string   "visitation_period"
     t.text     "description"
-    t.integer  "city_id",           :null => false
-    t.integer  "user_id",           :null => false
+    t.integer  "city_id",                          :null => false
+    t.integer  "user_id",                          :null => false
     t.integer  "hits",              :default => 0
     t.datetime "created_at"
     t.datetime "updated_at"

@@ -3,8 +3,10 @@
 
 <h1>Nova Dica de Ponto Turístico</h1>
 
-<% form_for([:tourist_sight,@tourist_sight_tip]) do |f| %>
+<% form_for([@tourist_sight, @tourist_sight_tip.tip], 
+						:url => {:controller => :tourist_sight_tips, :action => :create}) do |f| %>
+
 	<%= render :partial => 'tips/form', :locals => {:f => f} %>
 <% end %>
 
-<%= link_to 'Voltar', tourist_sight_path(@tourist_sight_id) %>
+<%= link_to 'Voltar', tourist_sight_path(@tourist_sight.id) %>

@@ -18,6 +18,11 @@
 	</div>
 <% end %>
 
+<br/>
+<h2 class="tips_32">Dicas</h2>
+<%= render "tips_list" %>
+
+<!--
 <%= image_tag "taxinha_amarela_32.png", :class => "icone_barra_dica"%>
 <div class="barra" 
 		 title="Clique aqui para apresentar/ocultar as dicas disponíveis"
@@ -26,6 +31,7 @@
 	<%= image_tag "seta_baixo_16.png", :align => "right", :style => "display: none;", :id => "seta2" %>
 	Dicas
 </div>
+-->
 
 <div id="dicas" style="border: 1px solid #C1CDCD; display: none; border-top: 0px;" align="center">
 	<%= render "tips_list" %>

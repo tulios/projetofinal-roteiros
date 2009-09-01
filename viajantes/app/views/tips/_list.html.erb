@@ -1,22 +1,37 @@
-<% if @tips and @tips.length > 0 %>
-	<table class="tabela" with=100% cellspacing="2">
-		<tr>
-		  <th width="20%">Nome</th>
-		  <th width="80%">Descrição</th>
-		</tr>
+<%= corner "tips_list" %>
 
-	<% @tips.each_with_index do |tip, index| %>
-		<% if index.odd? %>
-			<tr class="odd">
-			<% else %>
-			<tr class="even">
-		<% end %>
-		  <td><%=h tip.name %></td>
-		  <td class="linha_justificada"><%=h tip.description %></td>
-		</tr>
-	<% end %>	
-	</table>
-<% else %>
-	<br/>
-	<em>Nenhuma dica encontrada.</em>
-<% end %>
+<div id="tips_list" class="box_white">
+  <div class="search_results">
+	  <ul>
+		  <% if @tourist_sight.tips.nil? or @tourist_sight.tips.length == 0 %>
+			  <li class="sem_li" style="margin: auto;">
+				  <i>Nenhuma encontrada.</i>
+			  </li>
+	    <% else %>
+
+        <% @tourist_sight.tourist_sight_tips.each_with_index do |tourist_sight_tip, index| %>
+	        <li class="sem_li_tip">
+	          <div class="tip_name">
+	            <strong><%=h tourist_sight_tip.tip.name %></strong>
+	            <em><%= date_format tourist_sight_tip.tip.created_at %></em>
+              
+              <% if owner? tourist_sight_tip.tip %>
+                <%= link_to "Apagar", 
+							    tourist_sight_tourist_sight_tip_path(
+								    @tourist_sight.id, tourist_sight_tip.id
+							    ), 
+							    :action=>"destroy", :controller=>"tourist_sight_tip",
+							    :confirm => 'Você tem certeza?', :method => :delete,
+							    :title => "Apagar"
+					      %>
+              <% end %>
+	          </div>
+	          <div class="tip_description">
+              <%=simple_format tourist_sight_tip.tip.description %>
+	          </div>
+	        </li>
+        <% end %>
+      <% end %>
+    </ul>	
+  </div>
+</div>
