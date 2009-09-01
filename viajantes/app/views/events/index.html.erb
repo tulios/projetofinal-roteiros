@@ -5,4 +5,21 @@
 	<br/>
 <% end %>
 
+<br />
 
+<% if @events and @events.length > 0 %>
+	
+	<div id="events" class="box">
+		<div class="search_results">
+			<ul>
+				<%= render :partial => "list" %>
+				<%= will_paginate @events %>
+			</ul>
+		</div>
+		<br/>
+	</div>
+
+<% else %>
+	<i>Nenhum evento encontrado.</i>
+	<br />
+<% end %>

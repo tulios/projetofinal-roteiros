@@ -1,38 +1,5 @@
-<p>
-  <b>City:</b>
-  <%=h @event.city %>
-</p>
+<h1 class="event">Evento</h1>
 
-<p>
-  <b>Name:</b>
-  <%=h @event.name %>
-</p>
-
-<p>
-  <b>Time:</b>
-  <%=h @event.time %>
-</p>
-
-<p>
-  <b>Tourist sight:</b>
-  <%=h @event.tourist_sight %>
-</p>
-
-<p>
-  <b>Shops:</b>
-  <%=h @event.shop %>
-</p>
-
-<p>
-  <b>Cost:</b>
-  <%=h @event.cost %>
-</p>
-
-<p>
-  <b>Description:</b>
-  <%=h @event.description %>
-</p>
+<%= render :partial => "info" %>
 
 
-<%= link_to 'Edit', edit_event_path(@event) %> |
-<%= link_to 'Back', events_path %>
