@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090813124330) do
+ActiveRecord::Schema.define(:version => 20090827123427) do
 
   create_table "cities", :force => true do |t|
     t.integer "state_id", :null => false
@@ -32,13 +32,25 @@ ActiveRecord::Schema.define(:version => 20090813124330) do
     t.datetime "updated_at"
   end
 
+  create_table "events", :force => true do |t|
+    t.integer  "city_id"
+    t.string   "name"
+    t.time     "time"
+    t.integer  "tourist_sight_id"
+    t.integer  "shops_id"
+    t.boolean  "cost"
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "programs", :force => true do |t|
     t.date     "date"
     t.float    "value",            :default => 0.0
     t.text     "description"
-    t.integer  "destination_id",   :null => false
-    t.integer  "tourist_sight_id", :null => true
-    t.integer  "shop_id",					 :null => true
+    t.integer  "destination_id",                    :null => false
+    t.integer  "tourist_sight_id"
+    t.integer  "shop_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

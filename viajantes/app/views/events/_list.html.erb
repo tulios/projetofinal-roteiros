@@ -1,0 +1,14 @@
+<% @event.each do |event| %>
+	<li>
+		<h4>
+				<%= link_to event.name, event %>&nbsp;
+				(<%=h event.city.state.symbol %>/<%=h event.city.name %>)
+		</h4>
+		<p style="text-align: justify;">
+			<small>
+				<br/>
+				<%= event.description %>
+			</small>
+		</p>
+	</li>
+<% end %>

@@ -184,6 +184,10 @@ h1,h2,h3 {padding-top: 6px;}
   padding: 5px;
 }
 
+.form .datetime select {
+  width: auto;
+}
+
 .tabela_info {
 	border: 1px solid #C1CDCD;
 	margin: 0px 0 0 0;
@@ -384,6 +388,11 @@ textarea.expanding {
 .shop {
 	background: url(../images/shop_48.png) no-repeat;
 	padding: 12px 45px;
+}
+
+.event {
+	background: url(../images/ticket_48.png) no-repeat;
+	padding: 12px 55px;
 }
 
 .tourist_sight {

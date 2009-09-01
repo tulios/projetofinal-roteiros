@@ -11,6 +11,8 @@
 
 	<%= link_to "Estabelecimentos", shops_path, :class => check_tab?('shops') %>
 
+	<%= link_to "Eventos", events_path, :class => check_tab?('events') %>
+
   <% if not logged_in? %>
     <%= link_to "Fazer login", login_path, :class => check_tab?('sessions') %>
   <% end %>
