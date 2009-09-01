@@ -18,12 +18,8 @@ class ShopsController < ApplicationController
   # GET /shops/1.xml
   def show
     @shop = Shop.find(params[:id])
-    @evaluations = Evaluation.paginate(
-    	:joins => "inner join shop_evaluations se on se.evaluation_id = evaluations.id",
-    	:per_page => 5, 
-    	:page => params[:page], 
-    	:order => "created_at desc"
-    )
+    @evaluations = @shop.evaluations(params[:page])
+    @average = @shop.evaluation_average
 		@city = @shop.city
 		@shop.increase_hits
 

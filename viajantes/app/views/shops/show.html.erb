@@ -10,16 +10,18 @@
 
 <h2 class="evaluation_32">
 	Avaliação de outros usuários
-	<%= link_to 'Avaliar', new_shop_shop_evaluation_path(@shop), 
-							:class => 'botao' %>
+	<% if logged_in? %>
+		<%= link_to 'Avaliar', new_shop_shop_evaluation_path(@shop), 
+								:class => 'botao' %>
+	<% end %>
 </h2>
 
 <div id="users_evaluations" style="float: left; width: 670px;">
-	<%= render :partial => 'list_evaluations' %>
+	<%= render :partial => 'evaluations/list' %>
 </div>
 
 <div id="evaluation_average" style="float: right;">
-	<%= render :partial => 'evaluation_average' %>
+	<%= render :partial => 'evaluations/average' %>
 </div>
 
 <div class="clearer"></div>

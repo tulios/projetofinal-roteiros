@@ -203,6 +203,13 @@ module ApplicationHelper
 	  end
 	  
 	  return false;
+  end
+  
+	def evaluation_path_generator(evaluation)
+		case controller_name.intern
+			when :shops
+				return shop_shop_evaluation_path(params[:id],evaluation.especified_type)
+		end
 	end
 	
 end

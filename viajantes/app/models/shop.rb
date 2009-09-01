@@ -20,9 +20,6 @@ class Shop < ActiveRecord::Base
   belongs_to :tourist_sight
   belongs_to :user
   
-  has_many :shop_evaluations, :limit => 5
-  has_many :evaluations, :through => :shop_evaluations, :order => "created_at desc", :limit => 5
-
 	validates_presence_of :city_id, :name, :address
 
 	def evaluation_average
@@ -36,6 +33,18 @@ class Shop < ActiveRecord::Base
 		end
 		
 		Evaluation.new(hash)
+	end
+	
+	def evaluations(page = 1, per_page = 5)
+		
+		Evaluation.paginate(
+			:select => "*, se.id as especified_type",
+			:conditions => ["shop_id = ?", id],
+			:joins => "inner join shop_evaluations se on se.evaluation_id = evaluations.id",
+    	:per_page => per_page, 
+    	:page => page, 
+    	:order => "created_at desc"
+		)
 	end
 
 	# Aumenta o número de acessos em 1.

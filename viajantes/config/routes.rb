@@ -1,4 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :events
+
 
 	# Pontos Turisticos
   map.resources :tourist_sights do |touristSights|
