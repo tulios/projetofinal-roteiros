@@ -17,8 +17,12 @@ class Evaluation < ActiveRecord::Base
   
 	validates_presence_of :user_id, :city_id, :criticism
   
+  def self.rates
+  	@@rates
+  end
+  
   def fill_rates(hash)
-  	@@rates.each do |rate|
+  	Evaluation.rates.each do |rate|
   		if hash[rate] and hash[rate].length > 0
   			self[rate] = hash[rate].to_i
   		end

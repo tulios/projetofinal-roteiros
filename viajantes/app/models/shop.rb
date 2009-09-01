@@ -20,10 +20,23 @@ class Shop < ActiveRecord::Base
   belongs_to :tourist_sight
   belongs_to :user
   
-  has_many :shop_evaluations, :order => "created_at desc", :limit => 5
-  has_many :evaluations, :through => :shop_evaluations
+  has_many :shop_evaluations, :limit => 5
+  has_many :evaluations, :through => :shop_evaluations, :order => "created_at desc", :limit => 5
 
 	validates_presence_of :city_id, :name, :address
+
+	def evaluation_average
+		
+		hash = {}
+		Evaluation.rates.each do |rate|
+			hash[rate] = Evaluation.average(
+				rate, :conditions => ["se.shop_id = ?", id],
+							:joins => "inner join shop_evaluations se on se.evaluation_id = evaluations.id"
+			)
+		end
+		
+		Evaluation.new(hash)
+	end
 
 	# Aumenta o número de acessos em 1.
 	#
