@@ -1,17 +1,22 @@
 class TouristSight < ActiveRecord::Base
 	#String: name
 	#String: address
+	#String: fone
+	#String: email
+	#String: visitation_period
 	#String: description
 	#City: city
 	#User: user
+	#Integer: hits
 
 	belongs_to :city
 	belongs_to :user
 	has_many :tourist_sight_tag
 	has_many :tags, :through => :tourist_sight_tag
-	has_many :tips, :order => "created_at desc", :limit => 10
+	has_many :tourist_sight_tips, :order => "created_at desc", :limit => 10
 
 	validates_presence_of :city_id, :name, :address
+	validates_format_of   :email, :allow_nil => true, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,}\Z)/
 
 	def save_tags(new_tags)
 		TouristSightTag.destroy_all(:tourist_sight_id => id)

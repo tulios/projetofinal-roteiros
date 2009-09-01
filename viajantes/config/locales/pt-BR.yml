@@ -126,6 +126,7 @@
       user: "Usuário"
       roadmap: "Roteiro"
       program: "Programa"
+      evaluation: "Avaliação"
       
     attributes:
       _all:
@@ -135,6 +136,9 @@
       tourist_sight:
         name: "Nome"
         address: "Endereço"
+        phone: "Telefone"
+        email: "E-mail"
+        visitation_period: "Período de visitação"                        
         city: "Cidade"
         description: "Descrição"
         city_id: "Cidade"
@@ -183,6 +187,18 @@
         description: "Descrição"
         tourist_sight: "Ponto Turístico"
         shop: "Estabelecimento"
+
+      evaluation:
+        criticism: "Crítica"
+        city_id: "Cidade"
+        user: "Usuário"
+        general: "Geral"
+        service: "Serviço"
+        clean: "Limpeza"
+        location: "Localização"
+        price: "Qualidade/Preço"
+        infrastructure: "Infraestrutura"
+        attendance: "Atendimento"
       
     errors:
       template:

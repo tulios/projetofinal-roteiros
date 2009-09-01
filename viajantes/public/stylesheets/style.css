@@ -173,7 +173,7 @@ h1,h2,h3 {padding-top: 6px;}
 }
 
 .linha_direita {
-		text-align: right !important;
+	text-align: right !important;
 }
 
 .linha_justificada {
@@ -328,6 +328,24 @@ textarea.expanding {
 	cursor: hand;
 }
 
+.botao {
+	color:#FFFFFF;
+	margin: 0px 0px 0px 0px;
+	padding: 3px 5px 3px 5px;
+	background: #9FB6CD 2px 1px;
+	border: 1px solid #C1CDCD;
+	font-size:12px;
+	height: 20px;
+	margin: 10px;
+	cursor: pointer;
+	cursor: hand;
+}
+
+.botao:hover {
+	color:#FFFFFF;
+	background: #6C7B8B 2px 1px;
+}
+
 .botao_new_program {
 	color:#FFFFFF;
 	margin: 0px 0px 0px 0px;
@@ -344,6 +362,21 @@ textarea.expanding {
 .botao_new_program:hover {
 	color:#FFFFFF;
 	background: #6C7B8B 2px 1px;
+}
+
+.botao_avaliar {
+	color:#FFFFFF;
+	background: url(../images/star_32.png) #9FB6CD no-repeat 5px 2px;
+	border: 1px solid #C1CDCD;
+	font-size:12px;
+	padding: 10px 15px 10px 45px;	
+	cursor: pointer;
+	cursor: hand;
+}
+
+.botao_avaliar:hover {
+	color:#FFFFFF;
+	background: url(../images/star_32.png) #6C7B8B no-repeat 5px 2px;
 }
 
 .pagination {
@@ -374,20 +407,34 @@ textarea.expanding {
 
 .pagination .next_page{
 	text-decoration: none;
-	border: none;
+	border: none !important;
+}
+
+.pagination .next_page:hover{
+	text-decoration: underline;
 }
 
 .pagination .prev_page{
 	text-decoration: none;
-	border: none;
+	border: none !important;
+}
+
+.pagination .prev_page:hover{
+	text-decoration: underline;
 }
 
 .disabled {
+	text-decoration: none !important;
 }
 
 .shop {
 	background: url(../images/shop_48.png) no-repeat;
 	padding: 12px 45px;
+}
+
+.shop_32 {
+	background: url(../images/shop_32.png) no-repeat;
+	padding: 9px 15px;
 }
 
 .event {
@@ -400,9 +447,19 @@ textarea.expanding {
 	padding: 15px 55px;
 }
 
+.tourist_sight_32 {
+	background: url(../images/coqueiro_32.png) no-repeat;
+	padding: 15px 15px;
+}
+
 .roadmap {
 	background: url(../images/map_48.png) no-repeat;
 	padding: 10px 55px;
+}
+
+.roadmap_32 {
+	background: url(../images/map_48.png) no-repeat;
+	padding: 18px 23px;
 }
 
 .program {
@@ -413,6 +470,16 @@ textarea.expanding {
 .destination {
 	background: url(../images/bag_48.png) no-repeat;
 	padding: 15px 55px;
+}
+
+.evaluation {
+	background: url(../images/star_48.png) no-repeat;
+	padding: 12px 55px;
+}
+
+.evaluation_32 {
+	background: url(../images/star_32.png) no-repeat;
+	padding: 7px 40px;
 }
 
 .destination_32 {
@@ -450,6 +517,31 @@ textarea.expanding {
 	float: right;
 }
 
+.mais_vistos {
+	background: #8DB6CD;
+	float: right; 
+	width: 230px;
+}
+
+.mais_vistos_banner {
+	color: black;
+	background: url(../images/binoculo_48.png) no-repeat;
+	padding: 15px 55px;
+}
+
+.mais_vistos_corpo {
+	margin: 0px 10px 10px 10px;
+}
+
+.mais_vistos_corpo table{
+	font-size: 11px;
+	margin: 5px 5px 2px 5px;
+}
+
+.mais_vistos_corpo td{
+		padding: 5px;
+}
+
 .search_submit {
 	background: url(../images/search_32.png) no-repeat scroll;
 	padding: 8px 16px;
@@ -460,6 +552,10 @@ textarea.expanding {
 
 .search_results{
 	padding: 10px;
+}
+
+.search_results_root{
+	padding: 0px;
 }
 
 .search_results li{
@@ -483,6 +579,15 @@ textarea.expanding {
 	border-bottom: none;
 }
 
+.search_results_root .sem_li_root{
+	font-size: 11px;
+	list-style-image: none;
+	list-style-position: outside;
+	list-style-type: none;
+	margin: 5px 11px 2px 5px;
+	border-bottom: none;
+}
+
 .search_results .sem_li_program{
 	list-style-image: none;
 	list-style-position: outside;
@@ -497,8 +602,32 @@ textarea.expanding {
 	cursor: default;
 }
 
+.search_results .sem_li_destination{
+	list-style-image: none;
+	list-style-position: outside;
+	list-style-type: none;
+	margin: 5px 5px 0px 25px;
+	padding: 5px;
+	border-bottom: none;
+}
+
+.search_results .sem_li_destination:hover{
+	background-color: #A8B0FF !important;
+	cursor: default;
+}
+
+.box_title {
+	color: black;
+}
+
 .box {
 	border: 1px solid #aaaaaa; 
+	background: #ffffff repeat-x; 
+	color: #222222;
+}
+
+.box_white {
+	border: 1px solid white; 
 	background: #ffffff repeat-x; 
 	color: #222222;
 }
@@ -572,7 +701,11 @@ textarea.expanding {
 	cursor: hand;
 }
 
-
+.identado {
+	clear: both;
+	text-align: justify; 
+	margin: 2px 15px;
+}
 
 
 

@@ -5,20 +5,4 @@
 	<br/>
 <% end %>
 
-<br />
-<% if @events and @events.length > 0 %>
-	
-	<div class="box">
-		<div class="search_results">
-			<ul>
-				<%= render :partial => "list" %>
-				<%= will_paginate @events %>
-			</ul>
-		</div>
-		<br/>
-	</div>
 
-<% else %>
-	<i>Nenhum estabelecimento encontrado.</i>
-	<br />
-<% end %>

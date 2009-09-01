@@ -1,4 +1,5 @@
 <%= configure_textarea_autogrow %>
+<%= mask_fields({:tourist_sight_phone => "(99) 9999-9999"}) %>
 
 <table class="form">
 	<tr>
@@ -45,6 +46,22 @@
 	<tr>
 		<td><%= f.text_field :name, :style => "width: 100%;" %></td>
 		<td><%= f.text_field :address, :style => "width: 100%;" %></td>	
+	</tr>
+	<tr>
+		<td><%= f.label :phone, 'Telefone:' %></td>
+		<td><%= f.label :email, 'E-mail:' %></td>
+	</tr>
+	<tr>
+		<td><%= f.text_field :phone, :style => "width: 100%;" %></td>
+		<td><%= f.text_field :email, :style => "width: 100%;" %></td>
+	</tr>
+	<tr>
+		<td><%= f.label :visitation_period, 'Período de visitação:' %></td>
+	</tr>
+	<tr>
+		<td colspan="2">
+			<%= f.text_field :visitation_period, :style => "width: 100%;" %>
+		</td>
 	</tr>
 	<tr>
 		<td><%= f.label :description, 'Descrição:' %></td>

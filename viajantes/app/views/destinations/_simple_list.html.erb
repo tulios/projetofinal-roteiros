@@ -1,0 +1,59 @@
+<ul>
+<% if @destinations and @destinations.length == 0 %>
+	<li class="sem_li_destination">
+		<i>Nenhum encontrado.</li>
+	</li>
+<% end %>
+
+<% @destinations.each_with_index do |destination, index| %>
+	<li class="sem_li_destination">
+		<% if logged_in? %>
+	    <div style="float: right;">
+	      <%= link_to image_tag('edit_16.png', :border => 0), 
+	      		edit_roadmap_destination_path(destination.roadmap, destination) %> &nbsp; 
+		    <%= link_to image_tag('delete_16.png', :border => 0), 
+		    		roadmap_destination_path(destination.roadmap, destination), 
+						:confirm => 'Você tem certeza?', :method => :delete %>
+	    </div>
+    <% end %>
+	
+		<h4>
+			<%= destination.city.state.symbol %>/<%= destination.city.name %>
+		</h4>
+		
+		<div class="identado">
+		  <small>
+		    Período:
+		    <% if destination.start_date.nil? and destination.end_date.nil? %>
+		      <em>Não informado</em>
+		    <% else %>
+		      <%=h date_format(destination.start_date) %> a <%= date_format(destination.end_date) %> 
+		      <em>
+		        (<%=h destination.number_of_days %> 
+						<% if destination.number_of_days == 1 %>
+							dia)
+						<% else %>
+							dias)
+						<% end %>
+		      </em>
+		    <% end %>
+				
+				<br/>
+				
+		    Meio de Transporte:
+		    <% if destination.vehicle %>
+		      <%=h destination.vehicle.name %>
+		    <% else %>
+		      <em>Não informado</em>
+		    <% end %>
+				
+				<br/>
+				
+		    Custo Planejado:
+		    <%=h currency(destination.planned_cost) %>			      
+			</small>
+		</div>
+
+  </li>
+<% end %>
+</ul>

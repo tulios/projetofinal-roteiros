@@ -6,6 +6,8 @@ class DestinationsController < ApplicationController
   def new
     @destination = Destination.new
     @destination.roadmap = Roadmap.find(params[:roadmap_id])
+    @roadmap = @destination.roadmap
+    @destinations =  @roadmap.destinations
     @states = State.load_all
     @vehicles = Vehicle.all
 
@@ -18,6 +20,8 @@ class DestinationsController < ApplicationController
   # GET /destinations/1/edit
   def edit
     @destination = Destination.find(params[:id])
+    @roadmap = @destination.roadmap
+    @destinations =  @roadmap.destinations
     @states = State.all
     @vehicles = Vehicle.all
     @cities = City.all

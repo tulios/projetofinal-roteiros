@@ -1,63 +1,27 @@
+<%= corner('users_evaluations') %>
+<%= corner('evaluation_average') %>
+
 <h1 class="shop">Estabelecimento</h1>
 <br/>
 
-<table width="100%" class="tabela_info" cellspacing="5">
-	<tr>
-		<td colspan="2" align="center">
-			<%= render :partial => "tourist_sights/location" %>
-		</td>
-	</tr>
-	<tr>
-		<td width="13%" align="right">
-			<strong>Nome:</strong>
-		</td>
-		<td><%=h @shop.name %></td>
-	</tr>
-	<tr>
-		<td width="13%" align="right">
-			<strong>Endereço:</strong>
-		</td>
-		<td><%=h @shop.address %></td>
-	</tr>
-	<% if @shop.phone and @shop.phone.length > 0 %>
-	<tr>
-		<td width="13%" align="right">
-			<strong>Telefone:</strong>
-		</td>
-		<td><%=h @shop.phone %></td>
-	</tr>
-	<% end %>
-	<tr>
-		<td width="13%" align="right" valign="top">
-			<strong>Descrição:</strong>
-		</td>
-		<td style="text-align: justify;">
-		  <% if (not @shop.description) or @shop.description.length == 0 %>
-		    <i>Não informado</i>
-		  <% else %>
-  		  <%=h @shop.description %>
-  		<% end %>
-		</td>
-	</tr>
-	<% if @shop.key_words and @shop.key_words.length > 0 %>
-	<tr>
-		<td width="13%" align="right">
-			<strong>Palavras-chave:</strong>
-		</td>
-		<td><%=h @shop.key_words %></td>
-	</tr>
-	<% end %>
-	<% if @shop.tourist_sight %>
-	<tr>
-		<td width="13%" align="right">
-			<strong>Associado a:</strong>
-		</td>
-		<td>
-			<%= link_to "#{@shop.tourist_sight.name}", @shop.tourist_sight %>
-		</td>
-	</tr>
-	<% end %>
-</table>
+<%= render :partial => 'info' %>
+
+<br/>
+
+<h2 class="evaluation_32">
+	Avaliação de outros usuários
+	<%= link_to 'Avaliar', new_shop_shop_evaluation_path(@shop), 
+							:class => 'botao' %>
+</h2>
+
+<div id="users_evaluations" style="float: left; width: 670px;">
+	<%= render :partial => 'list_evaluations' %>
+</div>
+<div id="evaluation_average" style="float: right;">
+	<%= render :partial => 'evaluation_average' %>
+</div>
+
+<div class="clearer"></div>
 
 <br/>
 <br/>

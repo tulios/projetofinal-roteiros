@@ -3,6 +3,9 @@ class CreateCities < ActiveRecord::Migration
     create_table :cities do |t|
 		  t.belongs_to :state, :null => false
       t.string :name
+      t.boolean :capital
+      t.float :latitude
+      t.float :longitude
     end
   end
 

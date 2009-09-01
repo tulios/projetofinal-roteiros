@@ -3,6 +3,9 @@ class CreateTouristSights < ActiveRecord::Migration
     create_table :tourist_sights do |t|
       t.string :name
       t.string :address
+      t.string :phone
+      t.string :email
+      t.string :visitation_period
       t.text :description
 			t.belongs_to :city, :null => false
 			t.belongs_to :user, :null => false

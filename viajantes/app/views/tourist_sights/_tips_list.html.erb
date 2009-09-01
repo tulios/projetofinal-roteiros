@@ -1,6 +1,6 @@
 <%= render :partial => "tips/list" %>
 
-<% if @tourist_sight.tips and @tourist_sight.tips.length == 10 %>
+<% if @tourist_sight.tourist_sight_tips and @tourist_sight.tourist_sight_tips.length == 10 %>
 	<table class="tabela">
 		<tr>
 			<td colspan="2" class="linha_direita">
@@ -12,7 +12,7 @@
 
 <% if logged_in? %>
 	<br /><br />
-	<%= link_to 'Nova dica', new_tourist_sight_tip_path(@tourist_sight), :class => "botao_new_tip" %>
+	<%= link_to 'Nova dica', new_tourist_sight_tourist_sight_tip_path(@tourist_sight), :class => "botao_new_tip" %>
 	<br /><br />
 <% end %>
 

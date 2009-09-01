@@ -17,7 +17,7 @@ class TouristSightsController < ApplicationController
   def show
     @tourist_sight = TouristSight.find(params[:id])
 		@city = @tourist_sight.city
-		@tips = @tourist_sight.tips
+		@tips = @tourist_sight.tourist_sight_tips
 		@tourist_sight.increase_hits
 		
     respond_to do |format|
@@ -51,6 +51,11 @@ class TouristSightsController < ApplicationController
     @tourist_sight = TouristSight.new(params[:tourist_sight])
     @tourist_sight.user_id = current_user.id
 		
+		# Permite emails nulos, se a pessoa nao preencher eh nulo
+		if @tourist_sight.email and @tourist_sight.email.length == 0
+			@tourist_sight.email = nil
+		end
+		
     respond_to do |format|
       if @tourist_sight.save
         flash[:notice] = 'Ponto turístico criado com sucesso.'
@@ -71,6 +76,11 @@ class TouristSightsController < ApplicationController
   # PUT /tourist_sights/1.xml
   def update
     @tourist_sight = TouristSight.find(params[:id])
+
+		# Permite emails nulos, se a pessoa nao preencher eh nulo
+		if @tourist_sight.email and @tourist_sight.email.length == 0
+			@tourist_sight.email = nil
+		end
 
     respond_to do |format|
       if @tourist_sight.update_attributes(params[:tourist_sight])

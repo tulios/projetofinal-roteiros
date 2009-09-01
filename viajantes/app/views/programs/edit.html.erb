@@ -7,6 +7,9 @@
 <%= price_format(['program_value']) %>
 
 <%= render :partial => "info" %>
+
+<%= render :partial => "already_planned" %>
+
 <% form_for([@roadmap, @destination, @program]) do |f| %>
 	<%= render :partial => "form", :locals => {:f => f} %>
 <% end %>

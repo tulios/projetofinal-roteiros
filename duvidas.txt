@@ -1,0 +1,26 @@
+
+ - Os casos de uso Manter Roteiro, Manter Destino e Manter Programa estão muito interligados,
+ porem não existe nenhuma visão de caso de uso que nos mostre o relacionamento entre eles.
+ Imaginei que poderia haver um quinto caso de uso, Planejar Roteiro, com os passos que descrevem
+ o planejamento completo de um roteiro com destinos e programas. Cada passo de Planejar roteiro
+ referenciaria um fluxo do Manter. Isso é possível? 
+ 
+ Deixa a modelagem dos casos de uso como os CRUDs separados. A modelagem não precisa ficar tão alto nivel assim.
+ Podemos criar um diagrama de atividades.
+ 
+ - Devemos incluir outro ator no sistema. Este seria o usuário público, que tem acesso
+ basicamente a vizualização de conteúdo. A vizualização de conteúdo se refere a alguns 
+ fluxos específicos de alguns casos de uso, mas como fazer o usuário público se relacionar
+ com os casos de uso completos?
+
+Colocamos o ator se relacionando com os casos de uso mas especificamos na setinha (entre chaves) o fluxo que esse 
+esse ator irá executar. Podemos colocar essa observação como nota.
+ 
+ 
+ - Na descrição das iterações devemos mostrar a EAP? Nós temos um cronograma detalhado
+ que funciona melhor que a EAP.
+  Podemos colocar na parte da EAP a tabela com as fases, atividades sem as datas e o cronograma no final.
+  
+ 
+Outras questões:
+  Adicionar as principais categorias em evento, estabelecimento (hotel) etc. 

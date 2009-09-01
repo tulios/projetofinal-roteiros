@@ -1,3 +1,5 @@
+<%= corner('shops') %>
+
 <h1 class="shop">Estabelecimentos</h1>
 
 <% if logged_in? %>
@@ -8,7 +10,7 @@
 <br />
 <% if @shops and @shops.length > 0 %>
 	
-	<div class="box">
+	<div id="shops" class="box">
 		<div class="search_results">
 			<ul>
 				<%= render :partial => "list" %>
