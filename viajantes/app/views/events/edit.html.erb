@@ -1,0 +1,40 @@
+<h1>Editing event</h1>
+
+<% form_for(@event) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :city %><br />
+    <%= f.text_field :city %>
+  </p>
+  <p>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :time %><br />
+    <%= f.datetime_select :time %>
+  </p>
+  <p>
+    <%= f.label :tourist_sight %><br />
+    <%= f.text_field :tourist_sight %>
+  </p>
+  <p>
+    <%= f.label :shops %><br />
+    <%= f.text_field :shop %>
+  </p>
+  <p>
+    <%= f.label :cost %><br />
+    <%= f.check_box :cost %>
+  </p>
+  <p>
+    <%= f.label :description %><br />
+    <%= f.text_area :description %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @event %> |
+<%= link_to 'Back', event_path %>

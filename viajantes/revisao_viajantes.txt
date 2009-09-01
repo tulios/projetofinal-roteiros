@@ -16,4 +16,4 @@ Casos de Uso
    Pagina inicial
     1 - Cidades mais visitadas (gráfico)
     2 - Pontos Turísticos e estabelecimentos melhor avaliados
-    
+    3 - Eventos na cidade do usuário logado
