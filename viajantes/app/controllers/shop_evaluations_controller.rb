@@ -1,4 +1,12 @@
 class ShopEvaluationsController < ApplicationController
+	require_role "user", :for_all_except => :show
+	
+	def show
+		@shop = Shop.find(params[:shop_id])
+		@city = @shop.city
+		@shop_evaluation = ShopEvaluation.find(params[:id])
+		@evaluation = @shop_evaluation.evaluation
+	end
 	
 	def new
 		@shop = Shop.find(params[:shop_id])

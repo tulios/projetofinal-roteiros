@@ -28,4 +28,8 @@ class Evaluation < ActiveRecord::Base
   		end
   	end
   end
+  
+  def especified_type
+  	Integer(read_attribute('especified_type'))
+  end
 end

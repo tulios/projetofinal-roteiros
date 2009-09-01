@@ -1,7 +1,7 @@
 <div class="box_white">
 	<div class="search_results">
 		<ul>
-			<% if @shop.evaluations.nil? or @shop.evaluations.length == 0 %>
+			<% if @evaluations.nil? or @evaluations.length == 0 %>
 				<li class="sem_li" style="margin: auto;">
 					<i>Nenhuma encontrada.</i>
 				</li>
@@ -22,7 +22,8 @@
 						<tr>
 							<td colspan="2" style="text-align: justify;">
 								<small>
-									<%=h evaluation.criticism %>
+									<%= simple_format truncate(evaluation.criticism, :length => 370) %>
+									<%= link_to 'ler mais', evaluation_path_generator(evaluation) %>
 								</small>
 							</td>
 						</tr>
