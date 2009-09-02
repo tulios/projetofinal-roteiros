@@ -3,7 +3,7 @@ class CreateEvents < ActiveRecord::Migration
     create_table :events do |t|
       t.belongs_to :city
       t.string :name
-      t.time :time
+      t.timestamp :time
       t.belongs_to :tourist_sight
       t.belongs_to :shops
       t.boolean :cost

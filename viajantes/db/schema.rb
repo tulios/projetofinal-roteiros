@@ -35,6 +35,18 @@ ActiveRecord::Schema.define(:version => 20090902121037) do
     t.datetime "updated_at"
   end
 
+  create_table "events", :force => true do |t|
+    t.integer   "city_id"
+    t.string    "name"
+    t.timestamp "time"
+    t.integer   "tourist_sight_id"
+    t.integer   "shops_id"
+    t.boolean   "cost"
+    t.text      "description"
+		t.datetime  "created_at"
+    t.datetime  "updated_at"
+  end
+
   create_table "evaluations", :force => true do |t|
     t.text     "criticism"
     t.integer  "city_id",                       :null => false
@@ -46,18 +58,6 @@ ActiveRecord::Schema.define(:version => 20090902121037) do
     t.integer  "price",          :default => 0
     t.integer  "infrastructure", :default => 0
     t.integer  "attendance",     :default => 0
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "events", :force => true do |t|
-    t.integer  "city_id"
-    t.string   "name"
-    t.time     "time"
-    t.integer  "tourist_sight_id"
-    t.integer  "shops_id"
-    t.boolean  "cost"
-    t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
