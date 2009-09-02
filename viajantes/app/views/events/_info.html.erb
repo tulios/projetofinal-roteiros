@@ -16,7 +16,7 @@
 		<td align="right">
 			<strong>Data:</strong>
 		</td>
-		<td align="left"><%=h @event.time %> <strong>&nbsp;&nbsp;Não está funcionando</strong></td>
+		<td align="left"><%= time_format(@event.time) %>
 	</tr>
 	<tr>
 		<td align="right">

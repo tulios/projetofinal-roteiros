@@ -123,6 +123,13 @@ module ApplicationHelper
 	   date.strftime("%d/%m/%Y")
 	  end
 	end
+
+	# Formata a data e hora no formato brasileiro: dd/mm/YYYY
+	def time_format(time)
+	  if time
+	   time.strftime("%d/%m/%Y %I:%M")
+	  end
+	end
 	
 	def focus(id)
 	  %Q{
