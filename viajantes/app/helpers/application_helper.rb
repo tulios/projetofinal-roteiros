@@ -212,6 +212,15 @@ module ApplicationHelper
 		end
 	end
 	
+	def evaluation_hash_destroyer(evaluation)
+		case controller_name.intern
+			when :shops
+				return {:action => "destroy", :controller => :shop_evaluations,
+							  :confirm => 'Você tem certeza?', :method => :delete,
+							  :title => "Apagar"}
+		end
+	end
+	
 end
 
 

@@ -12,7 +12,11 @@
 					<strong>
 					<%= evaluation.user.login %>
 					</strong>
-					&nbsp;Data: <%= date_format(evaluation.created_at) %>
+					&nbsp;<i><%= date_format(evaluation.created_at) %></i>
+					<% if owner? evaluation %>
+						&nbsp;<%= link_to 'apagar', evaluation_path_generator(evaluation),
+																				evaluation_hash_destroyer(evaluation) %>
+					<% end %>
 					<br/>
 					<table width="100%">
 						<tr>
