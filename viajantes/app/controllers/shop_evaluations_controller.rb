@@ -53,4 +53,17 @@ class ShopEvaluationsController < ApplicationController
 		end
 	end
 
+	def destroy
+		@shop_evaluation = ShopEvaluation.find(params[:id])
+		shop = @shop_evaluation.shop
+		@shop_evaluation.destroy
+	
+    respond_to do |format|
+      format.html { 
+				redirect_to(:controller => :shops, :action => :show, :id => shop.id)
+			}
+      format.xml  { head :ok }
+    end
+  end
+
 end
