@@ -12,7 +12,7 @@ class TouristSight < ActiveRecord::Base
 	belongs_to :city
 	belongs_to :user
 	has_many :tourist_sight_tag
-	has_many :tourist_sight_tips, :order => "created_at desc", :limit => 10
+	has_many :tourist_sight_tips, :order => "created_at desc", :limit => 5
 	
 	has_many :tags, :through => :tourist_sight_tag
 	has_many :tips, :through => :tourist_sight_tips
@@ -30,6 +30,16 @@ class TouristSight < ActiveRecord::Base
 			tst.save
 		end
 
+	end
+	
+	def tourist_sight_tips(page = 1, per_page = 5)
+		
+		TouristSightTip.paginate(
+			:conditions => ["tourist_sight_id = ?", id],
+    	:per_page => per_page, 
+    	:page => page, 
+    	:order => "created_at desc"
+		)
 	end
 	
 	def increase_hits
