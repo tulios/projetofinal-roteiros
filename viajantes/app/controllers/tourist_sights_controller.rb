@@ -16,6 +16,8 @@ class TouristSightsController < ApplicationController
   # GET /tourist_sights/1.xml
   def show
     @tourist_sight = TouristSight.find(params[:id])
+    @evaluations = @tourist_sight.evaluations(params[:page])
+    @average = @tourist_sight.evaluation_average
 		@city = @tourist_sight.city
 		@tips = @tourist_sight.tips(params[:page])
 		@tourist_sight.increase_hits

@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090902115908) do
+ActiveRecord::Schema.define(:version => 20090902121037) do
 
   create_table "cities", :force => true do |t|
     t.integer "state_id",  :null => false
@@ -146,6 +146,13 @@ ActiveRecord::Schema.define(:version => 20090902115908) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "tourist_sight_evaluations", :force => true do |t|
+    t.integer "tourist_sight_id", :null => false
+    t.integer "evaluation_id",    :null => false
+  end
+
+  add_index "tourist_sight_evaluations", ["tourist_sight_id", "evaluation_id"], :name => "index_tourist_sight_evaluations", :unique => true
 
   create_table "tourist_sight_tags", :force => true do |t|
     t.integer  "tourist_sight_id", :null => false

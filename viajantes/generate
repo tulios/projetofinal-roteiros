@@ -115,4 +115,114 @@ no changes added to commit (use "git add" and/or "git commit -a")
 #	viajantes/test/functional/shop_tip_controller_test.rb
 #	viajantes/test/unit/helpers/shop_tip_helper_test.rb
 no changes added to commit (use "git add" and/or "git commit -a")
-]0;pedro@pedro-laptop: ~/Faculdade/Projeto/proj
+]0;pedro@pedro-laptop: ~/Faculdade/Projeto/projetofinal-roteirospedro@pedro-laptop:~/Faculdade/Projeto/projetofinal-roteiros$ git add viajantes/
+]0;pedro@pedro-laptop: ~/Faculdade/Projeto/projetofinal-roteirospedro@pedro-laptop:~/Faculdade/Projeto/projetofinal-roteiros$ [H[2Jpedro@pedro-laptop:~/Faculdade/Projeto/projetofinal-roteiros$ git add viajantes/[8Pstatus
+# On branch master
+# Changes to be committed:
+#   (use "git reset HEAD <file>..." to unstage)
+#
+#	new file:   viajantes/app/controllers/shop_tips_controller.rb
+#	modified:   viajantes/app/controllers/shops_controller.rb
+#	modified:   viajantes/app/controllers/tourist_sights_controller.rb
+#	modified:   viajantes/app/helpers/application_helper.rb
+#	new file:   viajantes/app/helpers/shop_tip_helper.rb
+#	modified:   viajantes/app/models/shop.rb
+#	modified:   viajantes/app/models/tip.rb
+#	modified:   viajantes/app/models/tourist_sight.rb
+#	new file:   viajantes/app/views/shop_tips/create.html.erb
+#	new file:   viajantes/app/views/shop_tips/destroy.html.erb
+#	new file:   viajantes/app/views/shop_tips/new.html.erb
+#	modified:   viajantes/app/views/shops/show.html.erb
+#	modified:   viajantes/app/views/tips/_list.html.erb
+#	modified:   viajantes/app/views/tourist_sight_tips/new.html.erb
+#	modified:   viajantes/app/views/tourist_sights/show.html.erb
+#	modified:   viajantes/config/routes.rb
+#	modified:   viajantes/db/schema.rb
+#	new file:   viajantes/generate
+#	new file:   viajantes/test/functional/shop_tip_controller_test.rb
+#	new file:   viajantes/test/unit/helpers/shop_tip_helper_test.rb
+#
+# Changed but not updated:
+#   (use "git add/rm <file>..." to update what will be committed)
+#
+#	deleted:    viajantes/app/views/tourist_sights/_tips_list.html.erb
+#
+]0;pedro@pedro-laptop: ~/Faculdade/Projeto/projetofinal-roteirospedro@pedro-laptop:~/Faculdade/Projeto/projetofinal-roteiros$ git commit -a -m ""F"i"n"a"l"i"z"a"d"o" "o"a" "[1P"[1P"[1P"a" "d"i"c"a" "p"a"r"a" "p"o"n"t"o" "t"u"[1P"[1P"[1P"[1P"[1P"[1P"[1P"[1P"T"O"u"r"i"s"[1P"[1P"[1P"[1P"[1P"o"u"r"i"s"t"S"i"g"h"t" "w" "[1P"[1P"r"[1P"e" "f"e"i"t"a" "a" "d"i"c"a" "a" "[1P"[1P"p"a"r"a" "S"h"o"p"."
+Created commit e29ecef: Finalizado a dica para TouristSight e feita a dica para Shop.
+ 21 files changed, 317 insertions(+), 47 deletions(-)
+ create mode 100644 viajantes/app/controllers/shop_tips_controller.rb
+ create mode 100644 viajantes/app/helpers/shop_tip_helper.rb
+ create mode 100644 viajantes/app/views/shop_tips/create.html.erb
+ create mode 100644 viajantes/app/views/shop_tips/destroy.html.erb
+ create mode 100644 viajantes/app/views/shop_tips/new.html.erb
+ delete mode 100644 viajantes/app/views/tourist_sights/_tips_list.html.erb
+ create mode 100644 viajantes/generate
+ create mode 100644 viajantes/test/functional/shop_tip_controller_test.rb
+ create mode 100644 viajantes/test/unit/helpers/shop_tip_helper_test.rb
+]0;pedro@pedro-laptop: ~/Faculdade/Projeto/projetofinal-roteirospedro@pedro-laptop:~/Faculdade/Projeto/projetofinal-roteiros$ [H[2Jpedro@pedro-laptop:~/Faculdade/Projeto/projetofinal-roteiros$ git commit -a -m "Finalizado a dica para TouristSight e feita a dica para Shop."[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cstatus[K
+# On branch master
+# Your branch is ahead of 'origin/master' by 1 commit.
+#
+nothing to commit (working directory clean)
+]0;pedro@pedro-laptop: ~/Faculdade/Projeto/projetofinal-roteirospedro@pedro-laptop:~/Faculdade/Projeto/projetofinal-roteiros$ 
+]0;pedro@pedro-laptop: ~/Faculdade/Projeto/projetofinal-roteirospedro@pedro-laptop:~/Faculdade/Projeto/projetofinal-roteiros$ 
+]0;pedro@pedro-laptop: ~/Faculdade/Projeto/projetofinal-roteirospedro@pedro-laptop:~/Faculdade/Projeto/projetofinal-roteiros$ 
+]0;pedro@pedro-laptop: ~/Faculdade/Projeto/projetofinal-roteirospedro@pedro-laptop:~/Faculdade/Projeto/projetofinal-roteiros$ 
+]0;pedro@pedro-laptop: ~/Faculdade/Projeto/projetofinal-roteirospedro@pedro-laptop:~/Faculdade/Projeto/projetofinal-roteiros$ git pull origin master
+remote: Counting objects: 1   [Kremote: Counting objects: 92, done.[K
+remote: Compressing objects:   1% (1/55)   [Kremote: Compressing objects:   3% (2/55)   [Kremote: Compressing objects:   5% (3/55)   [Kremote: Compressing objects:   7% (4/55)   [Kremote: Compressing objects:   9% (5/55)   [Kremote: Compressing objects:  10% (6/55)   [Kremote: Compressing objects:  12% (7/55)   [Kremote: Compressing objects:  14% (8/55)   [Kremote: Compressing objects:  16% (9/55)   [Kremote: Compressing objects:  18% (10/55)   [Kremote: Compressing objects:  20% (11/55)   [Kremote: Compressing objects:  21% (12/55)   [Kremote: Compressing objects:  23% (13/55)   [Kremote: Compressing objects:  25% (14/55)   [Kremote: Compressing objects:  27% (15/55)   [Kremote: Compressing objects:  29% (16/55)   [Kremote: Compressing objects:  30% (17/55)   [Kremote: Compressing objects:  32% (18/55)   [Kremote: Compressing objects:  34% (19/55)   [Kremote: Compressing objects:  36% (20/55)   [Kremote: Compressing objects:  38% (21/55)   [Kremote: Compressing objects:  40% (22/55)   [Kremote: Compressing objects:  41% (23/55)   [Kremote: Compressing objects:  43% (24/55)   [Kremote: Compressing objects:  45% (25/55)   [Kremote: Compressing objects:  47% (26/55)   [Kremote: Compressing objects:  49% (27/55)   [Kremote: Compressing objects:  50% (28/55)   [Kremote: Compressing objects:  52% (29/55)   [Kremote: Compressing objects:  54% (30/55)   [Kremote: Compressing objects:  56% (31/55)   [Kremote: Compressing objects:  58% (32/55)   [Kremote: Compressing objects:  60% (33/55)   [Kremote: Compressing objects:  61% (34/55)   [Kremote: Compressing objects:  63% (35/55)   [Kremote: Compressing objects:  65% (36/55)   [Kremote: Compressing objects:  67% (37/55)   [Kremote: Compressing objects:  69% (38/55)   [Kremote: Compressing objects:  70% (39/55)   [Kremote: Compressing objects:  72% (40/55)   [Kremote: Compressing objects:  74% (41/55)   [Kremote: Compressing objects:  76% (42/55)   [Kremote: Compressing objects:  78% (43/55)   [Kremote: Compressing objects:  80% (44/55)   [Kremote: Compressing objects:  81% (45/55)   [Kremote: Compressing objects:  83% (46/55)   [Kremote: Compressing objects:  85% (47/55)   [Kremote: Compressing objects:  87% (48/55)   [Kremote: Compressing objects:  89% (49/55)   [Kremote: Compressing objects:  90% (50/55)   [Kremote: Compressing objects:  92% (51/55)   [Kremote: Compressing objects:  94% (52/55)   [Kremote: Compressing objects:  96% (53/55)   [Kremote: Compressing objects:  98% (54/55)   [Kremote: Compressing objects: 100% (55/55)   [Kremote: Compressing objects: 100% (55/55), done.[K
+remote: Total 56 (delta 34), reused 0 (delta 0)[K
+Unpacking objects:   1% (1/56)   Unpacking objects:   3% (2/56)   Unpacking objects:   5% (3/56)   Unpacking objects:   7% (4/56)   Unpacking objects:   8% (5/56)   Unpacking objects:  10% (6/56)   Unpacking objects:  12% (7/56)   Unpacking objects:  14% (8/56)   Unpacking objects:  16% (9/56)   Unpacking objects:  17% (10/56)   Unpacking objects:  19% (11/56)   Unpacking objects:  21% (12/56)   Unpacking objects:  23% (13/56)   Unpacking objects:  25% (14/56)   Unpacking objects:  26% (15/56)   Unpacking objects:  28% (16/56)   Unpacking objects:  30% (17/56)   Unpacking objects:  32% (18/56)   Unpacking objects:  33% (19/56)   Unpacking objects:  35% (20/56)   Unpacking objects:  37% (21/56)   Unpacking objects:  39% (22/56)   Unpacking objects:  41% (23/56)   Unpacking objects:  42% (24/56)   Unpacking objects:  44% (25/56)   Unpacking objects:  46% (26/56)   Unpacking objects:  48% (27/56)   Unpacking objects:  50% (28/56)   Unpacking objects:  51% (29/56)   Unpacking objects:  53% (30/56)   Unpacking objects:  55% (31/56)   Unpacking objects:  57% (32/56)   Unpacking objects:  58% (33/56)   Unpacking objects:  60% (34/56)   Unpacking objects:  62% (35/56)   Unpacking objects:  64% (36/56)   Unpacking objects:  66% (37/56)   Unpacking objects:  67% (38/56)   Unpacking objects:  69% (39/56)   Unpacking objects:  71% (40/56)   Unpacking objects:  73% (41/56)   Unpacking objects:  75% (42/56)   Unpacking objects:  76% (43/56)   Unpacking objects:  78% (44/56)   Unpacking objects:  80% (45/56)   Unpacking objects:  82% (46/56)   Unpacking objects:  83% (47/56)   Unpacking objects:  85% (48/56)   Unpacking objects:  87% (49/56)   Unpacking objects:  89% (50/56)   Unpacking objects:  91% (51/56)   Unpacking objects:  92% (52/56)   Unpacking objects:  94% (53/56)   Unpacking objects:  96% (54/56)   Unpacking objects:  98% (55/56)   Unpacking objects: 100% (56/56)   Unpacking objects: 100% (56/56), done.
+From git@github.com:tulios/projetofinal-roteiros
+ * branch            master     -> FETCH_HEAD
+Auto-merged viajantes/app/controllers/tourist_sights_controller.rb
+Auto-merged viajantes/app/helpers/application_helper.rb
+Auto-merged viajantes/app/models/tourist_sight.rb
+CONFLICT (content): Merge conflict in viajantes/app/models/tourist_sight.rb
+Auto-merged viajantes/app/views/tourist_sights/show.html.erb
+CONFLICT (content): Merge conflict in viajantes/app/views/tourist_sights/show.html.erb
+Auto-merged viajantes/config/routes.rb
+Auto-merged viajantes/db/schema.rb
+CONFLICT (content): Merge conflict in viajantes/db/schema.rb
+Automatic merge failed; fix conflicts and then commit the result.
+]0;pedro@pedro-laptop: ~/Faculdade/Projeto/projetofinal-roteirospedro@pedro-laptop:~/Faculdade/Projeto/projetofinal-roteiros$ git status
+viajantes/app/models/tourist_sight.rb: needs merge
+viajantes/app/views/tourist_sights/show.html.erb: needs merge
+viajantes/db/schema.rb: needs merge
+# On branch master
+# Your branch is ahead of 'origin/master' by 1 commit.
+#
+# Changes to be committed:
+#   (use "git reset HEAD <file>..." to unstage)
+#
+#	modified:   viajantes/app/controllers/shop_evaluations_controller.rb
+#	new file:   viajantes/app/controllers/tourist_sight_evaluations_controller.rb
+#	modified:   viajantes/app/controllers/tourist_sights_controller.rb
+#	modified:   viajantes/app/helpers/application_helper.rb
+#	new file:   viajantes/app/helpers/tourist_sight_evaluations_helper.rb
+#	new file:   viajantes/app/models/tourist_sight_evaluation.rb
+#	modified:   viajantes/app/views/layouts/_menu.html.erb
+#	new file:   viajantes/app/views/tourist_sight_evaluations/_form.html.erb
+#	new file:   viajantes/app/views/tourist_sight_evaluations/_info.html.erb
+#	new file:   viajantes/app/views/tourist_sight_evaluations/new.html.erb
+#	new file:   viajantes/app/views/tourist_sight_evaluations/show.html.erb
+#	modified:   viajantes/config/routes.rb
+#	new file:   viajantes/db/migrate/20090902121037_create_tourist_sight_evaluations.rb
+#	new file:   viajantes/test/fixtures/tourist_sight_evaluations.yml
+#	new file:   viajantes/test/functional/tourist_sight_evaluations_controller_test.rb
+#	new file:   viajantes/test/unit/helpers/tourist_sight_evaluations_helper_test.rb
+#	new file:   viajantes/test/unit/tourist_sight_evaluation_test.rb
+#
+# Changed but not updated:
+#   (use "git add <file>..." to update what will be committed)
+#
+#	unmerged:   viajantes/app/models/tourist_sight.rb
+#	unmerged:   viajantes/app/views/tourist_sights/show.html.erb
+#	unmerged:   viajantes/db/schema.rb
+#	modified:   viajantes/generate
+#
+]0;pedro@pedro-laptop: ~/Faculdade/Projeto/projetofinal-roteirospedro@pedro-laptop:~/Faculdade/Projeto/projetofinal-roteiros$ 
+]0;pedro@pedro-laptop: ~/Faculdade/Projeto/projetofinal-roteirospedro@pedro-laptop:~/Faculdade/Projeto/projetofinal-roteiros$ 
+]0;pedro@pedro-laptop: ~/Faculdade/Projeto/projetofinal-roteirospedro@pedro-laptop:~/Faculdade/Projeto/projetofinal-roteiros$ 
+]0;pedro@pedro-laptop: ~/Faculdade/Projeto/projetofinal-roteirospedro@pedro-laptop:~/Faculdade/Projeto/projetofinal-roteiros$ 
+]0;p

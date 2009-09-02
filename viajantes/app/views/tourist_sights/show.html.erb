@@ -1,3 +1,6 @@
+<%= corner('users_evaluations') %>
+<%= corner('evaluation_average') %>
+
 <% if logged_in? %>
 	<div style="float: right;" title="Adicionar/Remover TAG">
 		<%= link_to (image_tag 'tag_add_remove_48.png', :border => 0), 
@@ -18,9 +21,24 @@
 	</div>
 <% end %>
 
+<h2 class="evaluation_32">
+	Avaliação de outros usuários
+	<% if logged_in? %>
+		<%= link_to 'Avaliar', new_tourist_sight_tourist_sight_evaluation_path(@tourist_sight), 
+								:class => 'botao' %>
+	<% end %>
+</h2>
 
-<br/>
-<br/>
+<div id="users_evaluations" style="float: left; width: 670px;">
+	<%= render :partial => 'evaluations/list' %>
+</div>
+
+<div id="evaluation_average" style="float: right;">
+	<%= render :partial => 'evaluations/average' %>
+</div>
+
+<div class="clearer"></div>
+
 <br/>
 <br/>
 
