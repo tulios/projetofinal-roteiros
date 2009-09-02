@@ -18,6 +18,7 @@ ActionController::Routing::Routes.draw do |map|
 	# Estabelecimentos
   map.resources :shops do |shop|
   	shop.resources :shop_evaluations
+  	shop.resources :shop_tips
   end
   
   # Usuarios

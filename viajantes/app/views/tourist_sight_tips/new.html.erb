@@ -1,7 +1,7 @@
 <%= configure_textarea_autogrow %>
 <%= focus("tip_name")%>
 
-<h1>Nova Dica de Ponto Turístico</h1>
+<h1 class="tips">Nova Dica de Ponto Turístico</h1>
 
 <% form_for([@tourist_sight, @tourist_sight_tip.tip], 
 						:url => {:controller => :tourist_sight_tips, :action => :create}) do |f| %>

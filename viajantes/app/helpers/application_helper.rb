@@ -220,6 +220,30 @@ module ApplicationHelper
 							  :title => "Apagar"}
 		end
 	end
+	
+	def tip_path_generator(tip)
+		case controller_name.intern
+			when :tourist_sights
+				return tourist_sight_tourist_sight_tip_path(params[:id],tip.especified_type)
+			
+			when :shops
+				return shop_shop_tip_path(params[:id],tip.especified_type)
+		end
+	end
+	
+	def tip_hash_destroyer(tip)
+		case controller_name.intern
+			when :tourist_sights
+				return {:action => "destroy", :controller => :tourist_sight_tips,
+							  :confirm => 'Você tem certeza?', :method => :delete,
+							  :title => "Apagar"}
+							  
+			when :shops
+				return {:action => "destroy", :controller => :shop_tips,
+							  :confirm => 'Você tem certeza?', :method => :delete,
+							  :title => "Apagar"}
+		end
+	end
 
 end
 

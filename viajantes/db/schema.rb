@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090830135214) do
+ActiveRecord::Schema.define(:version => 20090902115908) do
 
   create_table "cities", :force => true do |t|
     t.integer "state_id",  :null => false
@@ -35,18 +35,6 @@ ActiveRecord::Schema.define(:version => 20090830135214) do
     t.datetime "updated_at"
   end
 
-  create_table "events", :force => true do |t|
-    t.integer  "city_id"
-    t.string   "name"
-    t.time     "time"
-    t.integer  "tourist_sight_id"
-    t.integer  "shops_id"
-    t.boolean  "cost"
-    t.text     "description"
-		t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "evaluations", :force => true do |t|
     t.text     "criticism"
     t.integer  "city_id",                       :null => false
@@ -58,6 +46,18 @@ ActiveRecord::Schema.define(:version => 20090830135214) do
     t.integer  "price",          :default => 0
     t.integer  "infrastructure", :default => 0
     t.integer  "attendance",     :default => 0
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "events", :force => true do |t|
+    t.integer  "city_id"
+    t.string   "name"
+    t.time     "time"
+    t.integer  "tourist_sight_id"
+    t.integer  "shops_id"
+    t.boolean  "cost"
+    t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -107,6 +107,11 @@ ActiveRecord::Schema.define(:version => 20090830135214) do
 
   add_index "shop_evaluations", ["shop_id", "evaluation_id"], :name => "index_shop_evaluations_on_shop_id_and_evaluation_id", :unique => true
 
+  create_table "shop_tips", :force => true do |t|
+    t.integer "shop_id"
+    t.integer "tip_id"
+  end
+
   create_table "shops", :force => true do |t|
     t.string   "name"
     t.string   "address"
@@ -152,10 +157,8 @@ ActiveRecord::Schema.define(:version => 20090830135214) do
   add_index "tourist_sight_tags", ["tourist_sight_id", "tag_id"], :name => "index_tourist_sight_tags_on_tourist_sight_id_and_tag_id", :unique => true
 
   create_table "tourist_sight_tips", :force => true do |t|
-    t.integer  "tourist_sight_id"
-    t.integer  "tip_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.integer "tourist_sight_id", :null => false
+    t.integer "tip_id",           :null => false
   end
 
   create_table "tourist_sights", :force => true do |t|

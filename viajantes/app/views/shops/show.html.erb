@@ -24,9 +24,23 @@
 	<%= render :partial => 'evaluations/average' %>
 </div>
 
+<br/>
+<br/>
+<br/>
+<br/>
+
+<h2 class="tips_32">
+  Dicas &nbsp;
+  <% if logged_in? %>
+	  <%= link_to 'Nova dica', new_shop_shop_tip_path(@shop), :class => "botao" %>
+  <% end %>
+</h2>
+<div style="float: left; width: 670px;">
+  <%= render :partial => 'tips/list' %>
+</div>
+
 <div class="clearer"></div>
 
-<%= render :partial => 'tips/list' %>
 
 <br/>
 <br/>

@@ -41,8 +41,19 @@ class Shop < ActiveRecord::Base
 			:select => "*, se.id as especified_type",
 			:conditions => ["shop_id = ?", id],
 			:joins => "inner join shop_evaluations se on se.evaluation_id = evaluations.id",
-    	:per_page => per_page, 
-    	:page => page, 
+    	:per_page => per_page,
+    	:page => page,
+    	:order => "created_at desc"
+		)
+	end
+	
+	def tips(page = 1, per_page = 5)
+		Tip.paginate(
+			:select => "*, st.id as especified_type",
+			:joins => "inner join shop_tips st on st.tip_id = tips.id",
+			:conditions => ["st.shop_id = ?", id],
+    	:per_page => per_page,
+    	:page => page,
     	:order => "created_at desc"
 		)
 	end

@@ -32,12 +32,13 @@ class TouristSight < ActiveRecord::Base
 
 	end
 	
-	def tourist_sight_tips(page = 1, per_page = 5)
-		
-		TouristSightTip.paginate(
-			:conditions => ["tourist_sight_id = ?", id],
-    	:per_page => per_page, 
-    	:page => page, 
+	def tips(page = 1, per_page = 5)
+		Tip.paginate(
+			:select => "*, tst.id as especified_type",
+			:conditions => ["tst.tourist_sight_id = ?", id],
+			:joins => "inner join tourist_sight_tips tst on tst.tip_id = tips.id",
+    	:per_page => per_page,
+    	:page => page,
     	:order => "created_at desc"
 		)
 	end

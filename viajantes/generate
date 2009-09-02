@@ -1,0 +1,118 @@
+Script iniciado em Qua 02 Set 2009 10:20:47 BRT
+]0;pedro@pedro-laptop: ~/Faculdade/Projeto/projetofinal-roteiros/viajantespedro@pedro-laptop:~/Faculdade/Projeto/projetofinal-roteiros/viajantes$ script/server [C[C[C[C[C[C[C[C[C[C[C[C[Cgit pull origin master[8Pscript/server git pull origin master[8Pscript/server [Kscript/server git pull origin masterls[Kcd projetofinal-roteiros/viajantes/ls[Kcd projetofinal-roteiros/viajantes/ls[Kgit pull origin master[8Pscript/server [Kscript generate controller shop_tip new create destroy[1P[1@/
+      exists  app/controllers/
+      exists  app/helpers/
+      create  app/views/shop_tip
+      exists  test/functional/
+      exists  test/unit/helpers/
+      create  app/controllers/shop_tip_controller.rb
+      create  test/functional/shop_tip_controller_test.rb
+      create  app/helpers/shop_tip_helper.rb
+      create  test/unit/helpers/shop_tip_helper_test.rb
+      create  app/views/shop_tip/new.html.erb
+      create  app/views/shop_tip/create.html.erb
+      create  app/views/shop_tip/destroy.html.erb
+]0;pedro@pedro-laptop: ~/Faculdade/Projeto/projetofinal-roteiros/viajantespedro@pedro-laptop:~/Faculdade/Projeto/projetofinal-roteiros/viajantes$ 
+]0;pedro@pedro-laptop: ~/Faculdade/Projeto/projetofinal-roteiros/viajantespedro@pedro-laptop:~/Faculdade/Projeto/projetofinal-roteiros/viajantes$ 
+]0;pedro@pedro-laptop: ~/Faculdade/Projeto/projetofinal-roteiros/viajantespedro@pedro-laptop:~/Faculdade/Projeto/projetofinal-roteiros/viajantes$ 
+]0;pedro@pedro-laptop: ~/Faculdade/Projeto/projetofinal-roteiros/viajantespedro@pedro-laptop:~/Faculdade/Projeto/projetofinal-roteiros/viajantes$ 
+]0;pedro@pedro-laptop: ~/Faculdade/Projeto/projetofinal-roteiros/viajantespedro@pedro-laptop:~/Faculdade/Projeto/projetofinal-roteiros/viajantes$ 
+]0;pedro@pedro-laptop: ~/Faculdade/Projeto/projetofinal-roteiros/viajantespedro@pedro-laptop:~/Faculdade/Projeto/projetofinal-roteiros/viajantes$ 
+]0;pedro@pedro-laptop: ~/Faculdade/Projeto/projetofinal-roteiros/viajantespedro@pedro-laptop:~/Faculdade/Projeto/projetofinal-roteiros/viajantes$ 
+]0;pedro@pedro-laptop: ~/Faculdade/Projeto/projetofinal-roteiros/viajantespedro@pedro-laptop:~/Faculdade/Projeto/projetofinal-roteiros/viajantes$ 
+]0;pedro@pedro-laptop: ~/Faculdade/Projeto/projetofinal-roteiros/viajantespedro@pedro-laptop:~/Faculdade/Projeto/projetofinal-roteiros/viajantes$ 
+]0;pedro@pedro-laptop: ~/Faculdade/Projeto/projetofinal-roteiros/viajantespedro@pedro-laptop:~/Faculdade/Projeto/projetofinal-roteiros/viajantes$ 
+]0;pedro@pedro-laptop: ~/Faculdade/Projeto/projetofinal-roteiros/viajantespedro@pedro-laptop:~/Faculdade/Projeto/projetofinal-roteiros/viajantes$ 
+]0;pedro@pedro-laptop: ~/Faculdade/Projeto/projetofinal-roteiros/viajantespedro@pedro-laptop:~/Faculdade/Projeto/projetofinal-roteiros/viajantes$ 
+]0;pedro@pedro-laptop: ~/Faculdade/Projeto/projetofinal-roteiros/viajantespedro@pedro-laptop:~/Faculdade/Projeto/projetofinal-roteiros/viajantes$ 
+]0;pedro@pedro-laptop: ~/Faculdade/Projeto/projetofinal-roteiros/viajantespedro@pedro-laptop:~/Faculdade/Projeto/projetofinal-roteiros/viajantes$ 
+]0;pedro@pedro-laptop: ~/Faculdade/Projeto/projetofinal-roteiros/viajantespedro@pedro-laptop:~/Faculdade/Projeto/projetofinal-roteiros/viajantes$ 
+]0;pedro@pedro-laptop: ~/Faculdade/Projeto/projetofinal-roteiros/viajantespedro@pedro-laptop:~/Faculdade/Projeto/projetofinal-roteiros/viajantes$ [H[2Jpedro@pedro-laptop:~/Faculdade/Projeto/projetofinal-roteiros/viajantes$ git sa[Ktatus
+# On branch master
+# Changed but not updated:
+#   (use "git add/rm <file>..." to update what will be committed)
+#
+#	modified:   app/controllers/shops_controller.rb
+#	modified:   app/controllers/tourist_sights_controller.rb
+#	modified:   app/helpers/application_helper.rb
+#	modified:   app/models/shop.rb
+#	modified:   app/models/tip.rb
+#	modified:   app/models/tourist_sight.rb
+#	modified:   app/views/shops/show.html.erb
+#	modified:   app/views/tips/_list.html.erb
+#	modified:   app/views/tourist_sight_tips/new.html.erb
+#	deleted:    app/views/tourist_sights/_tips_list.html.erb
+#	modified:   app/views/tourist_sights/show.html.erb
+#	modified:   config/routes.rb
+#	modified:   db/schema.rb
+#
+# Untracked files:
+#   (use "git add <file>..." to include in what will be committed)
+#
+#	app/controllers/shop_tips_controller.rb
+#	app/helpers/shop_tip_helper.rb
+#	app/views/shop_tips/
+#	generate
+#	test/functional/shop_tip_controller_test.rb
+#	test/unit/helpers/shop_tip_helper_test.rb
+no changes added to commit (use "git add" and/or "git commit -a")
+]0;pedro@pedro-laptop: ~/Faculdade/Projeto/projetofinal-roteiros/viajantespedro@pedro-laptop:~/Faculdade/Projeto/projetofinal-roteiros/viajantes$ git add app/controllers/[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[Kcd ../
+]0;pedro@pedro-laptop: ~/Faculdade/Projeto/projetofinal-roteirospedro@pedro-laptop:~/Faculdade/Projeto/projetofinal-roteiros$ git status
+# On branch master
+# Changed but not updated:
+#   (use "git add/rm <file>..." to update what will be committed)
+#
+#	modified:   viajantes/app/controllers/shops_controller.rb
+#	modified:   viajantes/app/controllers/tourist_sights_controller.rb
+#	modified:   viajantes/app/helpers/application_helper.rb
+#	modified:   viajantes/app/models/shop.rb
+#	modified:   viajantes/app/models/tip.rb
+#	modified:   viajantes/app/models/tourist_sight.rb
+#	modified:   viajantes/app/views/shops/show.html.erb
+#	modified:   viajantes/app/views/tips/_list.html.erb
+#	modified:   viajantes/app/views/tourist_sight_tips/new.html.erb
+#	deleted:    viajantes/app/views/tourist_sights/_tips_list.html.erb
+#	modified:   viajantes/app/views/tourist_sights/show.html.erb
+#	modified:   viajantes/config/routes.rb
+#	modified:   viajantes/db/schema.rb
+#
+# Untracked files:
+#   (use "git add <file>..." to include in what will be committed)
+#
+#	viajantes/app/controllers/shop_tips_controller.rb
+#	viajantes/app/helpers/shop_tip_helper.rb
+#	viajantes/app/views/shop_tips/
+#	viajantes/generate
+#	viajantes/test/functional/shop_tip_controller_test.rb
+#	viajantes/test/unit/helpers/shop_tip_helper_test.rb
+no changes added to commit (use "git add" and/or "git commit -a")
+]0;pedro@pedro-laptop: ~/Faculdade/Projeto/projetofinal-roteirospedro@pedro-laptop:~/Faculdade/Projeto/projetofinal-roteiros$ [H[2Jpedro@pedro-laptop:~/Faculdade/Projeto/projetofinal-roteiros$ git status
+# On branch master
+# Changed but not updated:
+#   (use "git add/rm <file>..." to update what will be committed)
+#
+#	modified:   viajantes/app/controllers/shops_controller.rb
+#	modified:   viajantes/app/controllers/tourist_sights_controller.rb
+#	modified:   viajantes/app/helpers/application_helper.rb
+#	modified:   viajantes/app/models/shop.rb
+#	modified:   viajantes/app/models/tip.rb
+#	modified:   viajantes/app/models/tourist_sight.rb
+#	modified:   viajantes/app/views/shops/show.html.erb
+#	modified:   viajantes/app/views/tips/_list.html.erb
+#	modified:   viajantes/app/views/tourist_sight_tips/new.html.erb
+#	deleted:    viajantes/app/views/tourist_sights/_tips_list.html.erb
+#	modified:   viajantes/app/views/tourist_sights/show.html.erb
+#	modified:   viajantes/config/routes.rb
+#	modified:   viajantes/db/schema.rb
+#
+# Untracked files:
+#   (use "git add <file>..." to include in what will be committed)
+#
+#	viajantes/app/controllers/shop_tips_controller.rb
+#	viajantes/app/helpers/shop_tip_helper.rb
+#	viajantes/app/views/shop_tips/
+#	viajantes/generate
+#	viajantes/test/functional/shop_tip_controller_test.rb
+#	viajantes/test/unit/helpers/shop_tip_helper_test.rb
+no changes added to commit (use "git add" and/or "git commit -a")
+]0;pedro@pedro-laptop: ~/Faculdade/Projeto/proj

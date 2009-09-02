@@ -3,38 +3,34 @@
 <div id="tips_list" class="box_white">
   <div class="search_results">
 	  <ul>
-		  <% if @tourist_sight.tips.nil? or @tourist_sight.tips.length == 0 %>
+		  <% if @tips.nil? or @tips.length == 0 %>
 			  <li class="sem_li" style="margin: auto;">
 				  <i>Nenhuma encontrada.</i>
 			  </li>
 	    <% else %>
 
-        <% @tourist_sight_tips.each_with_index do |tourist_sight_tip, index| %>
+        <% @tips.each_with_index do |tip, index| %>
 	        <li class="sem_li_tip">
 	          <div class="tip_name">
-	            <strong><%=h tourist_sight_tip.tip.name %></strong>
-	            <em><%= date_format tourist_sight_tip.tip.created_at %></em>
+	            <strong><%=h tip.name %></strong>
+	            <em><%= date_format tip.created_at %></em>
               
-              <% if owner? tourist_sight_tip.tip %>
+              <% if owner? tip %>
                 <%= link_to "Apagar", 
-							    tourist_sight_tourist_sight_tip_path(
-								    @tourist_sight.id, tourist_sight_tip.id
-							    ), 
-							    :action=>"destroy", :controller=>"tourist_sight_tip",
-							    :confirm => 'Você tem certeza?', :method => :delete,
-							    :title => "Apagar"
+							    tip_path_generator(tip),
+							    tip_hash_destroyer(tip)
 					      %>
               <% end %>
 	          </div>
 	          <div class="tip_description">
-              <%=simple_format tourist_sight_tip.tip.description %>
+              <%=simple_format tip.description %>
 	          </div>
 	        </li>
         <% end %>
+        <li class="sem_li">
+          <%= will_paginate @tips %>
+        </li>
       <% end %>
-      <li class="sem_li">
-        <%= will_paginate @tourist_sight_tips %>
-      </li>
     </ul>	
   </div>
 </div>
