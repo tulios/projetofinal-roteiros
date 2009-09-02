@@ -44,7 +44,6 @@ class ShopEvaluationsController < ApplicationController
 				end
 				
 			else
-				#@shop_evaluation.evaluation = Evaluation.new
 				@city = @shop.city
 				format.html { render :action => "new" }
 			end
@@ -52,5 +51,18 @@ class ShopEvaluationsController < ApplicationController
 	    format.html { redirect_to(@shop) }
 		end
 	end
+
+	def destroy
+		@shop_evaluation = ShopEvaluation.find(params[:id])
+		shop = @shop_evaluation.shop
+		@shop_evaluation.destroy
+	
+    respond_to do |format|
+      format.html { 
+				redirect_to(:controller => :shops, :action => :show, :id => shop.id)
+			}
+      format.xml  { head :ok }
+    end
+  end
 
 end

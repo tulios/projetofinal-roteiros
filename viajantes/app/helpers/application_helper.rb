@@ -216,9 +216,26 @@ module ApplicationHelper
 		case controller_name.intern
 			when :shops
 				return shop_shop_evaluation_path(params[:id],evaluation.especified_type)
+				
+			when :tourist_sights
+				return tourist_sight_tourist_sight_evaluation_path(params[:id],evaluation.especified_type)
 		end
 	end
 	
+	def evaluation_hash_destroyer(evaluation)
+		case controller_name.intern
+			when :shops
+				return {:action => "destroy", :controller => :shop_evaluations,
+							  :confirm => 'Você tem certeza?', :method => :delete,
+							  :title => "Apagar"}
+							  
+			when :tourist_sights
+				return {:action => "destroy", :controller => :tourist_sights_evaluations,
+							  :confirm => 'Você tem certeza?', :method => :delete,
+							  :title => "Apagar"}
+		end
+	end
+
 end
 
 

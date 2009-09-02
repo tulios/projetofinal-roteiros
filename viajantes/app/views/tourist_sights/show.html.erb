@@ -1,3 +1,6 @@
+<%= corner('users_evaluations') %>
+<%= corner('evaluation_average') %>
+
 <% if logged_in? %>
 	<div style="float: right;" title="Adicionar/Remover TAG">
 		<%= link_to (image_tag 'tag_add_remove_48.png', :border => 0), 
@@ -18,24 +21,33 @@
 	</div>
 <% end %>
 
+<h2 class="evaluation_32">
+	Avaliação de outros usuários
+	<% if logged_in? %>
+		<%= link_to 'Avaliar', new_tourist_sight_tourist_sight_evaluation_path(@tourist_sight), 
+								:class => 'botao' %>
+	<% end %>
+</h2>
+
+<div id="users_evaluations" style="float: left; width: 670px;">
+	<%= render :partial => 'evaluations/list' %>
+</div>
+
+<div id="evaluation_average" style="float: right;">
+	<%= render :partial => 'evaluations/average' %>
+</div>
+
+<div class="clearer"></div>
+
 <br/>
-<h2 class="tips_32">Dicas</h2>
+<h2 class="tips_32">
+  Dicas &nbsp;
+  <% if logged_in? %>
+	  <%= link_to 'Nova dica', new_tourist_sight_tourist_sight_tip_path(@tourist_sight), :class => "botao_new_tip" %>
+  <% end %>
+</h2>
+
 <%= render "tips_list" %>
-
-<!--
-<%= image_tag "taxinha_amarela_32.png", :class => "icone_barra_dica"%>
-<div class="barra" 
-		 title="Clique aqui para apresentar/ocultar as dicas disponíveis"
-		 onclick="<%= collapse_box('seta1', 'seta2', 'dicas') %>">
-	<%= image_tag "seta_direita_16.png", :align => "right", :id => "seta1" %>
-	<%= image_tag "seta_baixo_16.png", :align => "right", :style => "display: none;", :id => "seta2" %>
-	Dicas
-</div>
--->
-
-<div id="dicas" style="border: 1px solid #C1CDCD; display: none; border-top: 0px;" align="center">
-	<%= render "tips_list" %>
-</div>
 
 <br /><br />
 
