@@ -9,7 +9,7 @@
 			  </li>
 	    <% else %>
 
-        <% @tourist_sight.tourist_sight_tips.each_with_index do |tourist_sight_tip, index| %>
+        <% @tourist_sight_tips.each_with_index do |tourist_sight_tip, index| %>
 	        <li class="sem_li_tip">
 	          <div class="tip_name">
 	            <strong><%=h tourist_sight_tip.tip.name %></strong>
@@ -32,6 +32,9 @@
 	        </li>
         <% end %>
       <% end %>
+      <li class="sem_li">
+        <%= will_paginate @tourist_sight_tips %>
+      </li>
     </ul>	
   </div>
 </div>
