@@ -3,8 +3,6 @@ class CreateTouristSightTips < ActiveRecord::Migration
     create_table :tourist_sight_tips do |t|
       t.belongs_to :tourist_sight, :null => false
       t.belongs_to :tip, :null => false
-
-      t.timestamps
     end
   end
 
