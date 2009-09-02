@@ -16,16 +16,18 @@
 		<td align="right">
 			<strong>Data:</strong>
 		</td>
-		<td align="left"><%=h @event.time %></td>
+		<td align="left"><%=h @event.time %> <strong>&nbsp;&nbsp;Não está funcionando</strong></td>
 	</tr>
 	<tr>
 		<td align="right">
-			<br><br><strong>falta:</strong></br></br>
-			<br><br>&nbsp</br></br>
-		</td>
-		<td>
-			<br><br>nome e endereço do ponto turistico ou estabelecimento, Possui custo?		</br></br>
-			<br><br>&nbsp</br></br>
+
+			<% if @event.tourist_sight %>
+				<strong>Acontece em: </strong><%= @event.tourist_sight.name %><br/>
+				<strong>Endereço: </strong><%= @event.tourist_sight.address %><br/>
+			<% elsif @event.shop %>
+				<strong>Acontece em: </strong><%= @event.shop.name %><br/>
+				<strong>Endereço: </strong><%= @event.shop.address %><br/>
+			<% end %>
 		</td>
 	</tr>
 	<tr>

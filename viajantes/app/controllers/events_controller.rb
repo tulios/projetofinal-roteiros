@@ -29,6 +29,8 @@ class EventsController < ApplicationController
     @event = Event.new
 		@states = State.load_all
 
+
+
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @event }
@@ -38,6 +40,8 @@ class EventsController < ApplicationController
   # GET /events/1/edit
   def edit
     @event = Event.find(params[:id])
+		@states = State.load_all
+		@cities = City.load_all(@event.city.state.id)
   end
 
   # POST /events
@@ -47,7 +51,7 @@ class EventsController < ApplicationController
 
     respond_to do |format|
       if @event.save
-        flash[:notice] = 'Event was successfully created.'
+        flash[:notice] = 'Evento criado com sucesso.'
         format.html { redirect_to(@event) }
         format.xml  { render :xml => @event, :status => :created, :location => @event }
       else
@@ -64,7 +68,7 @@ class EventsController < ApplicationController
 
     respond_to do |format|
       if @event.update_attributes(params[:event])
-        flash[:notice] = 'Event was successfully updated.'
+        flash[:notice] = 'Evento atualizado com successo.'
         format.html { redirect_to(@event) }
         format.xml  { head :ok }
       else

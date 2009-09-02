@@ -3,3 +3,10 @@
 <%= render :partial => "info" %>
 
 
+
+
+<% if logged_in? %>
+	<%= link_to 'Editar', edit_event_path(@event) %> |
+<% end %>
+
+<%= link_to 'Voltar', event_path %>
