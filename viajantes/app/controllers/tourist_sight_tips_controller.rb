@@ -1,4 +1,5 @@
 class TouristSightTipsController < ApplicationController
+  require_role "user"
   
   # GET tourist_sight/tourist_sight_id/tips/new
   # GET tourist_sight/tourist_sight_id/tips/new.xml
@@ -25,7 +26,7 @@ class TouristSightTipsController < ApplicationController
      )
 
     respond_to do |format|
-      if @tourist_sight_tip.save
+      if @tip.save and @tourist_sight_tip.save
         flash[:notice] = 'Dica criada com sucesso.'
         format.html { 
 					redirect_to(:controller => "tourist_sights", 
@@ -35,7 +36,7 @@ class TouristSightTipsController < ApplicationController
 				}
       else
 				# Recriando objeto e repopulando id de TouristSight
-				@tourist_sight_id = params[:tourist_sight_id]
+				@tourist_sight = TouristSight.find(params[:tourist_sight_id])
 
         format.html { render :action => "new" }
         format.xml  { render :xml => @tourist_sight_tip.errors, :status => :unprocessable_entity }

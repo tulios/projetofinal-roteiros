@@ -16,7 +16,6 @@
 		<% form_for(@tourist_sight) do |f| %>
 			<%= f.error_messages %>
 		<td>
-				
 			<%= observe_field :state_id, # ID do campo observado
 												# URL que sera chamada
 		 		                :url => {:controller => "cities", :action => "index", :format => "html"}, 
@@ -40,8 +39,14 @@
 		</td>
 	</tr>
 	<tr>
-		<td><%= f.label :name, 'Nome:' %></td>
-		<td><%= f.label :address, 'Endereço:' %></td>
+		<td>
+		  <span class="obrigatorio">*</span>
+		  <%= f.label :name, 'Nome:' %>
+		</td>
+		<td>
+		  <span class="obrigatorio">*</span>
+		  <%= f.label :address, 'Endereço:' %>
+		</td>
 	</tr>
 	<tr>
 		<td><%= f.text_field :name, :style => "width: 100%;" %></td>

@@ -724,6 +724,10 @@ textarea.expanding {
 	margin: 2px 15px;
 }
 
+.obrigatorio {
+  color: red;
+}
+
 
 
 

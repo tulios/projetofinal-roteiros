@@ -17,3 +17,6 @@ Casos de Uso
     1 - Cidades mais visitadas (gráfico)
     2 - Pontos Turísticos e estabelecimentos melhor avaliados
     3 - Eventos na cidade do usuário logado
+    
+   Destino:
+    1 - Pau na hora de salvar sem preencher nada.

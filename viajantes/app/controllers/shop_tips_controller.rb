@@ -1,11 +1,12 @@
 class ShopTipsController < ApplicationController
+  require_role "user"
   
   # GET tourist_sight/tourist_sight_id/tips/new
   # GET tourist_sight/tourist_sight_id/tips/new.xml
   def new
     @shop_tip = ShopTip.new
     @shop_tip.tip = Tip.new
-    @shop = TouristSight.find(params[:shop_id])
+    @shop = Shop.find(params[:shop_id])
 
     respond_to do |format|
       format.html # new.html.erb
@@ -25,7 +26,7 @@ class ShopTipsController < ApplicationController
      )
 
     respond_to do |format|
-      if @shop_tip.save
+      if @tip.save and @shop_tip.save
         flash[:notice] = 'Dica criada com sucesso.'
         format.html { 
 					redirect_to(:controller => "shops", 
@@ -35,8 +36,8 @@ class ShopTipsController < ApplicationController
 				}
       else
 				# Recriando objeto e repopulando id de TouristSight
-				@shop_id = params[:shop_id]
-
+				@shop = Shop.find(params[:shop_id])
+				
         format.html { render :action => "new" }
         format.xml  { render :xml => @shop_tip.errors, :status => :unprocessable_entity }
       end

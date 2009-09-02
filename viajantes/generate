@@ -225,4 +225,390 @@ viajantes/db/schema.rb: needs merge
 ]0;pedro@pedro-laptop: ~/Faculdade/Projeto/projetofinal-roteirospedro@pedro-laptop:~/Faculdade/Projeto/projetofinal-roteiros$ 
 ]0;pedro@pedro-laptop: ~/Faculdade/Projeto/projetofinal-roteirospedro@pedro-laptop:~/Faculdade/Projeto/projetofinal-roteiros$ 
 ]0;pedro@pedro-laptop: ~/Faculdade/Projeto/projetofinal-roteirospedro@pedro-laptop:~/Faculdade/Projeto/projetofinal-roteiros$ 
-]0;p
+]0;pedro@pedro-laptop: ~/Faculdade/Projeto/projetofinal-roteirospedro@pedro-laptop:~/Faculdade/Projeto/projetofinal-roteiros$ git commit -a -m ""R"e"s"o"l"i"[1P"v"i"d"o"s" "o"s" "c"o"n"f"l"i"t"o"s"
+Created commit a3e73a3: Resolvidos os conflitos
+]0;pedro@pedro-laptop: ~/Faculdade/Projeto/projetofinal-roteirospedro@pedro-laptop:~/Faculdade/Projeto/projetofinal-roteiros$ [H[2Jpedro@pedro-laptop:~/Faculdade/Projeto/projetofinal-roteiros$ git commit -a -m "Resolvidos os conflitos"status[K
+# On branch master
+# Your branch is ahead of 'origin/master' by 5 commits.
+#
+nothing to commit (working directory clean)
+]0;pedro@pedro-laptop: ~/Faculdade/Projeto/projetofinal-roteirospedro@pedro-laptop:~/Faculdade/Projeto/projetofinal-roteiros$ git statuscommit -a -m "Resolvidos os conflitos"status[Kpull origin master
+From git@github.com:tulios/projetofinal-roteiros
+ * branch            master     -> FETCH_HEAD
+Already up-to-date.
+]0;pedro@pedro-laptop: ~/Faculdade/Projeto/projetofinal-roteirospedro@pedro-laptop:~/Faculdade/Projeto/projetofinal-roteiros$ git st[K[K[K[K[K[Ka[Krake db;c[K[K:create[K[K[K[K[K[Kdrop:all
+rake aborted!
+No Rakefile found (looking for: rakefile, Rakefile, rakefile.rb, Rakefile.rb)
+/home/pedro/.gem/ruby/1.8/gems/rake-0.8.7/lib/rake.rb:2377:in `raw_load_rakefile'
+(See full trace by running task with --trace)
+]0;pedro@pedro-laptop: ~/Faculdade/Projeto/projetofinal-roteirospedro@pedro-laptop:~/Faculdade/Projeto/projetofinal-roteiros$ cd viajantes/
+]0;pedro@pedro-laptop: ~/Faculdade/Projeto/projetofinal-roteiros/viajantespedro@pedro-laptop:~/Faculdade/Projeto/projetofinal-roteiros/viajantes$ rake db:drop:all
+(in /home/pedro/Faculdade/Projeto/projetofinal-roteiros/viajantes)
+NOTA:  banco de dados "viajantes" não existe, ignorando
+NOTA:  banco de dados "viajantes" não existe, ignorando
+]0;pedro@pedro-laptop: ~/Faculdade/Projeto/projetofinal-roteiros/viajantespedro@pedro-laptop:~/Faculdade/Projeto/projetofinal-roteiros/viajantes$ [H[2Jpedro@pedro-laptop:~/Faculdade/Projeto/projetofinal-roteiros/viajantes$ rake db:drop:all
+(in /home/pedro/Faculdade/Projeto/projetofinal-roteiros/viajantes)
+NOTA:  banco de dados "viajantes" não existe, ignorando
+NOTA:  banco de dados "viajantes" não existe, ignorando
+NOTA:  banco de dados "viajantes" não existe, ignorando
+]0;pedro@pedro-laptop: ~/Faculdade/Projeto/projetofinal-roteiros/viajantespedro@pedro-laptop:~/Faculdade/Projeto/projetofinal-roteiros/viajantes$ rake db:drop:all[K[K[K[K[K[K[K[KcreateL[K:all
+(in /home/pedro/Faculdade/Projeto/projetofinal-roteiros/viajantes)
+viajantes already exists
+viajantes already exists
+]0;pedro@pedro-laptop: ~/Faculdade/Projeto/projetofinal-roteiros/viajantespedro@pedro-laptop:~/Faculdade/Projeto/projetofinal-roteiros/viajantes$ rake db:create:all[K[K[K[K[K[K[K[K[K[Kmir[Kgrate
+(in /home/pedro/Faculdade/Projeto/projetofinal-roteiros/viajantes)
+==  CreateTouristSights: migrating ============================================
+-- create_table(:tourist_sights)
+NOTA:  CREATE TABLE criará sequência implícita "tourist_sights_id_seq" para coluna serial "tourist_sights.id"
+NOTA:  CREATE TABLE / PRIMARY KEY criará índice implícito "tourist_sights_pkey" na tabela "tourist_sights"
+   -> 0.0343s
+==  CreateTouristSights: migrated (0.0346s) ===================================
+
+==  CreateCountries: migrating ================================================
+-- create_table(:countries)
+NOTA:  CREATE TABLE criará sequência implícita "countries_id_seq" para coluna serial "countries.id"
+NOTA:  CREATE TABLE / PRIMARY KEY criará índice implícito "countries_pkey" na tabela "countries"
+   -> 0.0100s
+==  CreateCountries: migrated (0.0102s) =======================================
+
+==  CreateRegions: migrating ==================================================
+-- create_table(:regions)
+NOTA:  CREATE TABLE criará sequência implícita "regions_id_seq" para coluna serial "regions.id"
+NOTA:  CREATE TABLE / PRIMARY KEY criará índice implícito "regions_pkey" na tabela "regions"
+   -> 0.0069s
+==  CreateRegions: migrated (0.0070s) =========================================
+
+==  CreateStates: migrating ===================================================
+-- create_table(:states)
+NOTA:  CREATE TABLE criará sequência implícita "states_id_seq" para coluna serial "states.id"
+NOTA:  CREATE TABLE / PRIMARY KEY criará índice implícito "states_pkey" na tabela "states"
+   -> 0.0103s
+==  CreateStates: migrated (0.0105s) ==========================================
+
+==  CreateCities: migrating ===================================================
+-- create_table(:cities)
+NOTA:  CREATE TABLE criará sequência implícita "cities_id_seq" para coluna serial "cities.id"
+NOTA:  CREATE TABLE / PRIMARY KEY criará índice implícito "cities_pkey" na tabela "cities"
+   -> 0.0066s
+==  CreateCities: migrated (0.0068s) ==========================================
+
+==  CreateTags: migrating =====================================================
+-- create_table(:tags)
+NOTA:  CREATE TABLE criará sequência implícita "tags_id_seq" para coluna serial "tags.id"
+NOTA:  CREATE TABLE / PRIMARY KEY criará índice implícito "tags_pkey" na tabela "tags"
+   -> 0.0061s
+-- add_index(:tags, :name, {:unique=>true})
+   -> 0.0029s
+==  CreateTags: migrated (0.0094s) ============================================
+
+==  CreateTouristSightTags: migrating =========================================
+-- create_table(:tourist_sight_tags)
+NOTA:  CREATE TABLE criará sequência implícita "tourist_sight_tags_id_seq" para coluna serial "tourist_sight_tags.id"
+NOTA:  CREATE TABLE / PRIMARY KEY criará índice implícito "tourist_sight_tags_pkey" na tabela "tourist_sight_tags"
+   -> 0.0072s
+-- add_index(:tourist_sight_tags, [:tourist_sight_id, :tag_id], {:unique=>true})
+   -> 0.0027s
+==  CreateTouristSightTags: migrated (0.0103s) ================================
+
+==  CreateTips: migrating =====================================================
+-- create_table(:tips)
+NOTA:  CREATE TABLE criará sequência implícita "tips_id_seq" para coluna serial "tips.id"
+NOTA:  CREATE TABLE / PRIMARY KEY criará índice implícito "tips_pkey" na tabela "tips"
+   -> 0.0096s
+==  CreateTips: migrated (0.0146s) ============================================
+
+==  CreateShops: migrating ====================================================
+-- create_table(:shops)
+NOTA:  CREATE TABLE criará sequência implícita "shops_id_seq" para coluna serial "shops.id"
+NOTA:  CREATE TABLE / PRIMARY KEY criará índice implícito "shops_pkey" na tabela "shops"
+   -> 0.0104s
+==  CreateShops: migrated (0.0106s) ===========================================
+
+==  CreateUsers: migrating ====================================================
+-- create_table("users", {:force=>true})
+NOTA:  CREATE TABLE criará sequência implícita "users_id_seq" para coluna serial "users.id"
+NOTA:  CREATE TABLE / PRIMARY KEY criará índice implícito "users_pkey" na tabela "users"
+   -> 0.0124s
+==  CreateUsers: migrated (0.0128s) ===========================================
+
+==  CreateRoles: migrating ====================================================
+-- create_table("roles")
+NOTA:  CREATE TABLE criará sequência implícita "roles_id_seq" para coluna serial "roles.id"
+NOTA:  CREATE TABLE / PRIMARY KEY criará índice implícito "roles_pkey" na tabela "roles"
+   -> 0.0063s
+-- create_table("roles_users", {:id=>false})
+   -> 0.0030s
+-- add_index("roles_users", "role_id")
+   -> 0.0044s
+-- add_index("roles_users", "user_id")
+   -> 0.0030s
+==  CreateRoles: migrated (0.0177s) ===========================================
+
+==  CreateRoadmaps: migrating =================================================
+-- create_table(:roadmaps)
+NOTA:  CREATE TABLE criará sequência implícita "roadmaps_id_seq" para coluna serial "roadmaps.id"
+NOTA:  CREATE TABLE / PRIMARY KEY criará índice implícito "roadmaps_pkey" na tabela "roadmaps"
+   -> 0.0137s
+==  CreateRoadmaps: migrated (0.0139s) ========================================
+
+==  CreateVehicles: migrating =================================================
+-- create_table(:vehicles)
+NOTA:  CREATE TABLE criará sequência implícita "vehicles_id_seq" para coluna serial "vehicles.id"
+NOTA:  CREATE TABLE / PRIMARY KEY criará índice implícito "vehicles_pkey" na tabela "vehicles"
+   -> 0.0074s
+==  CreateVehicles: migrated (0.0076s) ========================================
+
+==  CreateDestinations: migrating =============================================
+-- create_table(:destinations)
+NOTA:  CREATE TABLE criará sequência implícita "destinations_id_seq" para coluna serial "destinations.id"
+NOTA:  CREATE TABLE / PRIMARY KEY criará índice implícito "destinations_pkey" na tabela "destinations"
+   -> 0.0094s
+==  CreateDestinations: migrated (0.0096s) ====================================
+
+==  CreatePrograms: migrating =================================================
+-- create_table(:programs)
+NOTA:  CREATE TABLE criará sequência implícita "programs_id_seq" para coluna serial "programs.id"
+NOTA:  CREATE TABLE / PRIMARY KEY criará índice implícito "programs_pkey" na tabela "programs"
+   -> 0.0103s
+==  CreatePrograms: migrated (0.0105s) ========================================
+
+==  CreateEvents: migrating ===================================================
+-- create_table(:events)
+NOTA:  CREATE TABLE criará sequência implícita "events_id_seq" para coluna serial "events.id"
+NOTA:  CREATE TABLE / PRIMARY KEY criará índice implícito "events_pkey" na tabela "events"
+   -> 0.0163s
+==  CreateEvents: migrated (0.0165s) ==========================================
+
+==  CreateTouristSightTips: migrating =========================================
+-- create_table(:tourist_sight_tips)
+NOTA:  CREATE TABLE criará sequência implícita "tourist_sight_tips_id_seq" para coluna serial "tourist_sight_tips.id"
+NOTA:  CREATE TABLE / PRIMARY KEY criará índice implícito "tourist_sight_tips_pkey" na tabela "tourist_sight_tips"
+   -> 0.0075s
+==  CreateTouristSightTips: migrated (0.0078s) ================================
+
+==  CreateEvaluations: migrating ==============================================
+-- create_table(:evaluations)
+NOTA:  CREATE TABLE criará sequência implícita "evaluations_id_seq" para coluna serial "evaluations.id"
+NOTA:  CREATE TABLE / PRIMARY KEY criará índice implícito "evaluations_pkey" na tabela "evaluations"
+   -> 0.0167s
+==  CreateEvaluations: migrated (0.0170s) =====================================
+
+==  CreateShopEvaluations: migrating ==========================================
+-- create_table(:shop_evaluations)
+NOTA:  CREATE TABLE criará sequência implícita "shop_evaluations_id_seq" para coluna serial "shop_evaluations.id"
+NOTA:  CREATE TABLE / PRIMARY KEY criará índice implícito "shop_evaluations_pkey" na tabela "shop_evaluations"
+   -> 0.0112s
+-- add_index(:shop_evaluations, [:shop_id, :evaluation_id], {:unique=>true})
+   -> 0.0041s
+==  CreateShopEvaluations: migrated (0.0158s) =================================
+
+==  CreateShopTips: migrating =================================================
+-- create_table(:shop_tips)
+NOTA:  CREATE TABLE criará sequência implícita "shop_tips_id_seq" para coluna serial "shop_tips.id"
+NOTA:  CREATE TABLE / PRIMARY KEY criará índice implícito "shop_tips_pkey" na tabela "shop_tips"
+   -> 0.0066s
+==  CreateShopTips: migrated (0.0068s) ========================================
+
+==  CreateTouristSightEvaluations: migrating ==================================
+-- create_table(:tourist_sight_evaluations)
+NOTA:  CREATE TABLE criará sequência implícita "tourist_sight_evaluations_id_seq" para coluna serial "tourist_sight_evaluations.id"
+NOTA:  CREATE TABLE / PRIMARY KEY criará índice implícito "tourist_sight_evaluations_pkey" na tabela "tourist_sight_evaluations"
+   -> 0.0080s
+-- add_index(:tourist_sight_evaluations, [:tourist_sight_id, :evaluation_id], {:name=>"index_tourist_sight_evaluations", :unique=>true})
+   -> 0.0030s
+==  CreateTouristSightEvaluations: migrated (0.0113s) =========================
+
+]0;pedro@pedro-laptop: ~/Faculdade/Projeto/projetofinal-roteiros/viajantespedro@pedro-laptop:~/Faculdade/Projeto/projetofinal-roteiros/viajantes$ [H[2Jpedro@pedro-laptop:~/Faculdade/Projeto/projetofinal-roteiros/viajantes$ rake db:migrate[K[K[K[K[K[K[Ksche[K[K[K[Kscript:load
+(in /home/pedro/Faculdade/Projeto/projetofinal-roteiros/viajantes)
+rake aborted!
+Don't know how to build task 'db:script:load'
+
+(See full trace by running task with --trace)
+]0;pedro@pedro-laptop: ~/Faculdade/Projeto/projetofinal-roteiros/viajantespedro@pedro-laptop:~/Faculdade/Projeto/projetofinal-roteiros/viajantes$ rake db:script:loads:load
+(in /home/pedro/Faculdade/Projeto/projetofinal-roteiros/viajantes)
+Dropando schema e recriando tabelas com rake
+(in /home/pedro/Faculdade/Projeto/projetofinal-roteiros/viajantes)
+-- create_table("cities", {:force=>true})
+NOTA:  CREATE TABLE criará sequência implícita "cities_id_seq" para coluna serial "cities.id"
+NOTA:  CREATE TABLE / PRIMARY KEY criará índice implícito "cities_pkey" na tabela "cities"
+   -> 0.0738s
+-- create_table("countries", {:force=>true})
+NOTA:  CREATE TABLE criará sequência implícita "countries_id_seq" para coluna serial "countries.id"
+NOTA:  CREATE TABLE / PRIMARY KEY criará índice implícito "countries_pkey" na tabela "countries"
+   -> 0.0445s
+-- create_table("destinations", {:force=>true})
+NOTA:  CREATE TABLE criará sequência implícita "destinations_id_seq" para coluna serial "destinations.id"
+NOTA:  CREATE TABLE / PRIMARY KEY criará índice implícito "destinations_pkey" na tabela "destinations"
+   -> 0.0411s
+-- create_table("evaluations", {:force=>true})
+NOTA:  CREATE TABLE criará sequência implícita "evaluations_id_seq" para coluna serial "evaluations.id"
+NOTA:  CREATE TABLE / PRIMARY KEY criará índice implícito "evaluations_pkey" na tabela "evaluations"
+   -> 0.0789s
+-- create_table("events", {:force=>true})
+NOTA:  CREATE TABLE criará sequência implícita "events_id_seq" para coluna serial "events.id"
+NOTA:  CREATE TABLE / PRIMARY KEY criará índice implícito "events_pkey" na tabela "events"
+   -> 0.0163s
+-- create_table("programs", {:force=>true})
+NOTA:  CREATE TABLE criará sequência implícita "programs_id_seq" para coluna serial "programs.id"
+NOTA:  CREATE TABLE / PRIMARY KEY criará índice implícito "programs_pkey" na tabela "programs"
+   -> 0.0430s
+-- create_table("regions", {:force=>true})
+NOTA:  CREATE TABLE criará sequência implícita "regions_id_seq" para coluna serial "regions.id"
+NOTA:  CREATE TABLE / PRIMARY KEY criará índice implícito "regions_pkey" na tabela "regions"
+   -> 0.0187s
+-- create_table("roadmaps", {:force=>true})
+NOTA:  CREATE TABLE criará sequência implícita "roadmaps_id_seq" para coluna serial "roadmaps.id"
+NOTA:  CREATE TABLE / PRIMARY KEY criará índice implícito "roadmaps_pkey" na tabela "roadmaps"
+   -> 0.0268s
+-- create_table("roles", {:force=>true})
+NOTA:  CREATE TABLE criará sequência implícita "roles_id_seq" para coluna serial "roles.id"
+NOTA:  CREATE TABLE / PRIMARY KEY criará índice implícito "roles_pkey" na tabela "roles"
+   -> 0.0166s
+-- create_table("roles_users", {:force=>true, :id=>false})
+   -> 0.0114s
+-- add_index("roles_users", ["role_id"], {:name=>"index_roles_users_on_role_id"})
+   -> 0.0057s
+-- add_index("roles_users", ["user_id"], {:name=>"index_roles_users_on_user_id"})
+   -> 0.0051s
+-- create_table("shop_evaluations", {:force=>true})
+NOTA:  CREATE TABLE criará sequência implícita "shop_evaluations_id_seq" para coluna serial "shop_evaluations.id"
+NOTA:  CREATE TABLE / PRIMARY KEY criará índice implícito "shop_evaluations_pkey" na tabela "shop_evaluations"
+   -> 0.0202s
+-- add_index("shop_evaluations", ["shop_id", "evaluation_id"], {:name=>"index_shop_evaluations_on_shop_id_and_evaluation_id", :unique=>true})
+   -> 0.0063s
+-- create_table("shop_tips", {:force=>true})
+NOTA:  CREATE TABLE criará sequência implícita "shop_tips_id_seq" para coluna serial "shop_tips.id"
+NOTA:  CREATE TABLE / PRIMARY KEY criará índice implícito "shop_tips_pkey" na tabela "shop_tips"
+   -> 0.0191s
+-- create_table("shops", {:force=>true})
+NOTA:  CREATE TABLE criará sequência implícita "shops_id_seq" para coluna serial "shops.id"
+NOTA:  CREATE TABLE / PRIMARY KEY criará índice implícito "shops_pkey" na tabela "shops"
+   -> 0.0282s
+-- create_table("states", {:force=>true})
+NOTA:  CREATE TABLE criará sequência implícita "states_id_seq" para coluna serial "states.id"
+NOTA:  CREATE TABLE / PRIMARY KEY criará índice implícito "states_pkey" na tabela "states"
+   -> 0.0293s
+-- create_table("tags", {:force=>true})
+NOTA:  CREATE TABLE criará sequência implícita "tags_id_seq" para coluna serial "tags.id"
+NOTA:  CREATE TABLE / PRIMARY KEY criará índice implícito "tags_pkey" na tabela "tags"
+   -> 0.0215s
+-- add_index("tags", ["name"], {:name=>"index_tags_on_name", :unique=>true})
+   -> 0.0066s
+-- create_table("tips", {:force=>true})
+NOTA:  CREATE TABLE criará sequência implícita "tips_id_seq" para coluna serial "tips.id"
+NOTA:  CREATE TABLE / PRIMARY KEY criará índice implícito "tips_pkey" na tabela "tips"
+   -> 0.1186s
+-- create_table("tourist_sight_evaluations", {:force=>true})
+NOTA:  CREATE TABLE criará sequência implícita "tourist_sight_evaluations_id_seq" para coluna serial "tourist_sight_evaluations.id"
+NOTA:  CREATE TABLE / PRIMARY KEY criará índice implícito "tourist_sight_evaluations_pkey" na tabela "tourist_sight_evaluations"
+   -> 0.0153s
+-- add_index("tourist_sight_evaluations", ["tourist_sight_id", "evaluation_id"], {:name=>"index_tourist_sight_evaluations", :unique=>true})
+   -> 0.0034s
+-- create_table("tourist_sight_tags", {:force=>true})
+NOTA:  CREATE TABLE criará sequência implícita "tourist_sight_tags_id_seq" para coluna serial "tourist_sight_tags.id"
+NOTA:  CREATE TABLE / PRIMARY KEY criará índice implícito "tourist_sight_tags_pkey" na tabela "tourist_sight_tags"
+   -> 0.0120s
+-- add_index("tourist_sight_tags", ["tourist_sight_id", "tag_id"], {:name=>"index_tourist_sight_tags_on_tourist_sight_id_and_tag_id", :unique=>true})
+   -> 0.0037s
+-- create_table("tourist_sight_tips", {:force=>true})
+NOTA:  CREATE TABLE criará sequência implícita "tourist_sight_tips_id_seq" para coluna serial "tourist_sight_tips.id"
+NOTA:  CREATE TABLE / PRIMARY KEY criará índice implícito "tourist_sight_tips_pkey" na tabela "tourist_sight_tips"
+   -> 0.0136s
+-- create_table("tourist_sights", {:force=>true})
+NOTA:  CREATE TABLE criará sequência implícita "tourist_sights_id_seq" para coluna serial "tourist_sights.id"
+NOTA:  CREATE TABLE / PRIMARY KEY criará índice implícito "tourist_sights_pkey" na tabela "tourist_sights"
+   -> 0.0204s
+-- create_table("users", {:force=>true})
+NOTA:  CREATE TABLE criará sequência implícita "users_id_seq" para coluna serial "users.id"
+NOTA:  CREATE TABLE / PRIMARY KEY criará índice implícito "users_pkey" na tabela "users"
+   -> 0.0181s
+-- create_table("vehicles", {:force=>true})
+NOTA:  CREATE TABLE criará sequência implícita "vehicles_id_seq" para coluna serial "vehicles.id"
+NOTA:  CREATE TABLE / PRIMARY KEY criará índice implícito "vehicles_pkey" na tabela "vehicles"
+   -> 0.0197s
+-- initialize_schema_migrations_table()
+   -> 0.0020s
+-- assume_migrated_upto_version(20090902121037)
+   -> 0.0026s
+Scripts:
+Executando: 01_insert_paises_regioes_estados_cidades.sql
+	Script executado com sucesso
+Executando: 02_insert_tags.sql
+	Script executado com sucesso
+Executando: 03_insert_roles.sql
+	Script executado com sucesso
+Executando: 04_insert_meios_de_transporte.sql
+	Script executado com sucesso
+Executando: 05_usuarios.sql
+ setval 
+--------
+      2
+(1 registro)
+
+	Script executado com sucesso
+Executando: 06_insert_pontos_turisticos_brasilia.sql
+ setval 
+--------
+     20
+(1 registro)
+
+	Script executado com sucesso
+Executando: 07_insert_tags_paras_pontos_turisticos_brasilia.sql
+ setval 
+--------
+     33
+(1 registro)
+
+	Script executado com sucesso
+Executando: 08_insert_estabelecimentos_brasilia.sql
+ setval 
+--------
+      5
+(1 registro)
+
+	Script executado com sucesso
+]0;pedro@pedro-laptop: ~/Faculdade/Projeto/projetofinal-roteiros/viajantespedro@pedro-laptop:~/Faculdade/Projeto/projetofinal-roteiros/viajantes$ rake db:scripts:load[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K
+]0;pedro@pedro-laptop: ~/Faculdade/Projeto/projetofinal-roteiros/viajantespedro@pedro-laptop:~/Faculdade/Projeto/projetofinal-roteiros/viajantes$ 
+]0;pedro@pedro-laptop: ~/Faculdade/Projeto/projetofinal-roteiros/viajantespedro@pedro-laptop:~/Faculdade/Projeto/projetofinal-roteiros/viajantes$ 
+]0;pedro@pedro-laptop: ~/Faculdade/Projeto/projetofinal-roteiros/viajantespedro@pedro-laptop:~/Faculdade/Projeto/projetofinal-roteiros/viajantes$ 
+]0;pedro@pedro-laptop: ~/Faculdade/Projeto/projetofinal-roteiros/viajantespedro@pedro-laptop:~/Faculdade/Projeto/projetofinal-roteiros/viajantes$ gi[K[Kcd ../
+]0;pedro@pedro-laptop: ~/Faculdade/Projeto/projetofinal-roteirospedro@pedro-laptop:~/Faculdade/Projeto/projetofinal-roteiros$ git sa[Ktatus
+# On branch master
+# Your branch is ahead of 'origin/master' by 5 commits.
+#
+# Changed but not updated:
+#   (use "git add <file>..." to update what will be committed)
+#
+#	modified:   viajantes/app/views/layouts/_menu.html.erb
+#	modified:   viajantes/app/views/shops/show.html.erb
+#	modified:   viajantes/app/views/tourist_sights/show.html.erb
+#	modified:   viajantes/generate
+#
+no changes added to commit (use "git add" and/or "git commit -a")
+]0;pedro@pedro-laptop: ~/Faculdade/Projeto/projetofinal-roteirospedro@pedro-laptop:~/Faculdade/Projeto/projetofinal-roteiros$ 
+]0;pedro@pedro-laptop: ~/Faculdade/Projeto/projetofinal-roteirospedro@pedro-laptop:~/Faculdade/Projeto/projetofinal-roteiros$ 
+]0;pedro@pedro-laptop: ~/Faculdade/Projeto/projetofinal-roteirospedro@pedro-laptop:~/Faculdade/Projeto/projetofinal-roteiros$ 
+]0;pedro@pedro-laptop: ~/Faculdade/Projeto/projetofinal-roteirospedro@pedro-laptop:~/Faculdade/Projeto/projetofinal-roteiros$ 
+]0;pedro@pedro-laptop: ~/Faculdade/Projeto/projetofinal-roteirospedro@pedro-laptop:~/Faculdade/Projeto/projetofinal-roteiros$ ls
+[00m[00mcronograma.ods[00m  [00mcronograma.pdf[00m  [01;34mdocumentacao[00m  [00mdocumentoPreProjeto.odt[00m  [00mdocumentoPreProjeto.pdf[00m  [00mduvidas.txt[00m  [00mduvidas.txt~[00m  [01;34mviajantes[00m
+[m]0;pedro@pedro-laptop: ~/Faculdade/Projeto/projetofinal-roteirospedro@pedro-laptop:~/Faculdade/Projeto/projetofinal-roteiros$ 
+]0;pedro@pedro-laptop: ~/Faculdade/Projeto/projetofinal-roteirospedro@pedro-laptop:~/Faculdade/Projeto/projetofinal-roteiros$ 
+]0;pedro@pedro-laptop: ~/Faculdade/Projeto/projetofinal-roteirospedro@pedro-laptop:~/Faculdade/Projeto/projetofinal-roteiros$ 
+]0;pedro@pedro-laptop: ~/Faculdade/Projeto/projetofinal-roteirospedro@pedro-laptop:~/Faculdade/Projeto/projetofinal-roteiros$ 
+]0;pedro@pedro-laptop: ~/Faculdade/Projeto/projetofinal-roteirospedro@pedro-laptop:~/Faculdade/Projeto/projetofinal-roteiros$ 
+]0;pedro@pedro-laptop: ~/Faculdade/Projeto/projetofinal-roteirospedro@pedro-laptop:~/Faculdade/Projeto/projetofinal-roteiros$ git syta[K[K[Ktatus
+# On branch master
+# Your branch is ahead of 'origin/master' by 5 commits.
+#
+# Changed but not updated:
+#   (use "git add <file>..." to update what will be committed)
+#
+#	modified:   viajantes/app/controllers/shop_tips_controller.rb
+#	modified:   viajantes/app/controllers/tourist_sight_tips_controller.rb
+#	modified:   viajantes/app/views/evaluations/_form.html.erb
+#	modified:   viajantes/app/views/layouts/_menu.html.erb
+#	modified:   viajantes/app/views/roadmaps/_form.html.erb
+#	modified:   viajantes/app/views/shops/show.html.erb
+#	modified:   viajantes/app/views/tips/_form.html.erb
+#	modified:   viajantes/app/views/tourist_sights/_form.html.erb
+#	modified: 

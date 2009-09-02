@@ -2,7 +2,10 @@
 
 <table class="form" >
 	<tr>
-		<td>Ponto de Partida:</td>
+		<td>
+		  <span class="obrigatorio">*</span>
+		  Ponto de Partida:
+		</td>
 	</tr>
 	<tr>
 		<td>
@@ -45,7 +48,10 @@
 		<td align="left"><%= f.check_box :public %></td>
 	</tr>
 	<tr>
-		<td colspan="2"><%= f.label :title, 'Título:' %></td>
+		<td colspan="2">
+		  <span class="obrigatorio">*</span>
+		  <%= f.label :title, 'Título:' %>
+		</td>
 	</tr>
 	<tr>		
 		<td colspan="2"><%= f.text_field :title, :size => 69 %></td>

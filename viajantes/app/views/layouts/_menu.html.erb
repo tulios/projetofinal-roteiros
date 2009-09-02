@@ -7,10 +7,15 @@
 	<% end %>
 
 	<%= link_to "Pontos Turísticos", tourist_sights_path, 
-			:class => check_tab?('tourist_sights', 'tourist_sight_tags', 'tips', 'tourist_sight_evaluations') %>
+			:class => check_tab?( 'tourist_sights', 
+			                      'tourist_sight_tags', 
+			                      'tips', 
+			                      'tourist_sight_evaluations',
+			                      'tourist_sight_tips'
+			                    ) %>
 
 	<%= link_to "Estabelecimentos", shops_path, 
-			:class => check_tab?('shops', 'shop_evaluations') %>
+			:class => check_tab?('shops', 'shop_evaluations', 'shop_tips') %>
 
 	<%= link_to "Eventos", events_path, :class => check_tab?('events') %>
 
