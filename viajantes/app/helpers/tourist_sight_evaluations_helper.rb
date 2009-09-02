@@ -1,0 +1,2 @@
+module TouristSightEvaluationsHelper
+end

@@ -44,7 +44,6 @@ class ShopEvaluationsController < ApplicationController
 				end
 				
 			else
-				#@shop_evaluation.evaluation = Evaluation.new
 				@city = @shop.city
 				format.html { render :action => "new" }
 			end

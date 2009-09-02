@@ -33,9 +33,34 @@ class TouristSight < ActiveRecord::Base
 	end
 	
 	def tourist_sight_tips(page = 1, per_page = 5)
-		
+	
 		TouristSightTip.paginate(
 			:conditions => ["tourist_sight_id = ?", id],
+    	:per_page => per_page, 
+    	:page => page, 
+    	:order => "created_at desc"
+		)
+	end
+	
+	def evaluation_average
+		
+		hash = {}
+		Evaluation.rates.each do |rate|
+			hash[rate] = Evaluation.average(
+				rate, :conditions => ["tse.tourist_sight_id = ?", id],
+							:joins => "inner join tourist_sight_evaluations tse on tse.evaluation_id = evaluations.id"
+			)
+		end
+		
+		Evaluation.new(hash)
+	end
+	
+	def evaluations(page = 1, per_page = 5)
+		
+		Evaluation.paginate(
+			:select => "*, tse.id as especified_type",
+			:conditions => ["tourist_sight_id = ?", id],
+			:joins => "inner join tourist_sight_evaluations tse on tse.evaluation_id = evaluations.id",
     	:per_page => per_page, 
     	:page => page, 
     	:order => "created_at desc"
