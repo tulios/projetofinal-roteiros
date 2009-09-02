@@ -8,10 +8,6 @@
 #   Tip: tip (A dica do ponto turístico)
 #
 class TouristSightTip < ActiveRecord::Base
-  # TouristSight: tourist_sight
-  # Tip: tip
-  
   belongs_to :tourist_sight
   belongs_to :tip, :dependent => :destroy
-  
 end

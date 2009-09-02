@@ -1,19 +1,2 @@
 <%= render :partial => "tips/list" %>
 
-<% if @tourist_sight.tips and @tourist_sight.tips.length == 10 %>
-	<table class="tabela">
-		<tr>
-			<td colspan="2" class="linha_direita">
-				<%= link_to 'Ver todas', tourist_sight_tips_path(@tourist_sight) %>
-			</td>
-		</tr>
-	</table>
-<% end %>
-
-
-
-
-
-
-
-

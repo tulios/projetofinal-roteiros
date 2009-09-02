@@ -211,7 +211,6 @@ module ApplicationHelper
 				return shop_shop_evaluation_path(params[:id],evaluation.especified_type)
 		end
 	end
-	
 end
 
 
