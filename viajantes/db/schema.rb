@@ -40,7 +40,7 @@ ActiveRecord::Schema.define(:version => 20090902121037) do
     t.string    "name"
     t.timestamp "time"
     t.integer   "tourist_sight_id"
-    t.integer   "shops_id"
+    t.integer   "shop_id"
     t.boolean   "cost"
     t.text      "description"
 		t.datetime  "created_at"
