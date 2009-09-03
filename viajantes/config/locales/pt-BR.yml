@@ -122,6 +122,7 @@
       country: "País"
       region: "Região"
       shop: "Estabelecimento"
+      event: "Evento"
       tip: "Dica"
       user: "Usuário"
       roadmap: "Roteiro"
@@ -165,6 +166,16 @@
         city_id: "Cidade"
         password: "Senha"
         password_confirmation: "Confirmação da senha"
+
+      event:
+        name: "Nome"
+        time: "Data e Hora"
+        city: "Cidade"
+        city_id: "Cidade"
+        description: "Descrição"
+        tourist_sight: "Ponto Turístico"
+        shop: "Estabelecimento"
+        cust: "Custo"
 
       roadmap:
         title: "Título"
