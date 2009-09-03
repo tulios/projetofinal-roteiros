@@ -66,9 +66,12 @@ class DestinationsControllerTest < ActionController::TestCase
     assert_response :success
 
     assert(assigns(:destination))
-    assert(assigns(:destination).roadmap)
+    assert(assigns(:roadmap))
+
+    assert(assigns(:destinations))
     assert(assigns(:states))
     assert(assigns(:vehicles))
+    assert(assigns(:cities))
     
     assert_equal(State.count, assigns(:states).size)
     assert_equal(Vehicle.count, assigns(:vehicles).size)

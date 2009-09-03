@@ -21,6 +21,7 @@ class DestinationsController < ApplicationController
   def edit
     @destination = Destination.find(params[:id])
     @roadmap = @destination.roadmap
+
     @destinations =  @roadmap.destinations
     @states = State.all
     @vehicles = Vehicle.all

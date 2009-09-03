@@ -34,10 +34,15 @@ class Destination < ActiveRecord::Base
     end
   end
   
-  # Cálcula o número de dias neste destino (end_date - start_date)
+  # Cálcula o número de dias neste destino (end_date - start_date). Caso as datas
+  # nao tenham sido informadas sera retornado zero (0).
 	#
   def number_of_days
-    end_date - start_date
+    if end_date and start_date
+      return end_date - start_date
+    end
+  
+    0
   end
 
 	# Cálcula o total gasto neste destino. O cálculo é realizado através
@@ -46,9 +51,11 @@ class Destination < ActiveRecord::Base
 	def total
 		sum = 0.0
 
-		programs.each do |program|
-			sum += program.value
-		end
+    if programs and programs.length > 0
+		  programs.each do |program|
+			  sum += program.value
+		  end
+    end
 
 		sum
 	end
