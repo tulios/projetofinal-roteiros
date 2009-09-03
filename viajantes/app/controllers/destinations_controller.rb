@@ -32,9 +32,11 @@ class DestinationsController < ApplicationController
   # POST /destinations.xml
   def create
     @destination = Destination.new(params[:destination])
+    @roadmap = Roadmap.find(params[:roadmap_id])
+
     @destination.start_date = to_date(params[:destination][:start_date])
     @destination.end_date = to_date(params[:destination][:end_date])
-    @destination.roadmap = Roadmap.find(params[:roadmap_id])
+    @destination.roadmap = @roadmap
 		@destination.planned_cost = currency_to_number(params[:destination][:planned_cost])
 
     respond_to do |format|
@@ -49,6 +51,7 @@ class DestinationsController < ApplicationController
         # Recarrega os estados e cidades
         load_states_and_cities
         @vehicles = Vehicle.all
+        @destinations =  @roadmap.destinations
       
         format.html { render :action => "new" }
         format.xml  { render :xml => @destination.errors, :status => :unprocessable_entity }
@@ -60,6 +63,8 @@ class DestinationsController < ApplicationController
   # PUT /destinations/1.xml
   def update
     @destination = Destination.find(params[:id])
+    @roadmap = @destination.roadmap
+
     params[:destination][:start_date] = to_date(params[:destination][:start_date])
     params[:destination][:end_date] = to_date(params[:destination][:end_date])
 		params[:destination][:planned_cost] = currency_to_number(params[:destination][:planned_cost])
@@ -72,6 +77,8 @@ class DestinationsController < ApplicationController
       else
         load_states_and_cities
         @vehicles = Vehicle.all
+        @destinations =  @roadmap.destinations
+
         format.html { render :action => "edit" }
         format.xml  { render :xml => @destination.errors, :status => :unprocessable_entity }
       end
