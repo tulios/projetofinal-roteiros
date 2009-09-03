@@ -7,6 +7,7 @@
 
 <% if logged_in? %>
 	<%= link_to 'Editar', edit_event_path(@event) %> |
+	<%= link_to 'Apagar', @program, :confirm => 'Você tem certeza?', :method => :delete %> |
 <% end %>
 
 <%= link_to 'Voltar', events_path %>
