@@ -1,5 +1,14 @@
 <%= configure_textarea_autogrow %>
 
+<script type="text/javascript">
+	function show(id, array){
+		for(var x = 0; x<array.length; x=x+1){
+			$('#'+array[x]).hide();
+		}
+		$('#'+id).show(200);
+	}
+</script>
+
 <table class="form">
 	<tr>
 		<td width="50%" colspan="2">
@@ -60,6 +69,37 @@
 				%>
 				<%= label_tag Event.happens_in_options[option] %><br/>
 			<% end %>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2">
+			<% if @event.tourist_sight %>
+			<div id="tourist_sight">
+			<% else %>
+			<div id="tourist_sight" style="display: none;">
+			<% end %>
+				<% if @tourist_sights and @tourist_sights.length > 0 %>
+					<%= collection_select(:event, :tourist_sight_id, 
+																@tourist_sights, :id, :name, 
+																options ={:prompt => "-- Escolha um ponto turístico --"}) %>
+				<% else %>
+					<i>Nenhum ponto turístico encontrado.</i>
+				<% end %>
+			</div>
+			
+			<% if @event.shop %>
+			<div id="shop">
+			<% else %>
+			<div id="shop" style="display: none;">
+			<% end %>
+				<% if @shops and @shops.length > 0 %>
+					<%= collection_select(:event, :shop_id, 
+																@shops, :id, :name, 
+																options ={:prompt => "-- Escolha um estabelecimento --"}) %>
+				<% else %>
+					<i>Nenhum estabelecimento encontrado.</i>
+				<% end %>
+			</div>
 		</td>
 	</tr>
 	<tr>

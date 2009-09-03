@@ -28,8 +28,7 @@ class EventsController < ApplicationController
 	def new
     @event = Event.new
 		@states = State.load_all
-
-
+	
 
     respond_to do |format|
       format.html # new.html.erb
@@ -55,6 +54,7 @@ class EventsController < ApplicationController
         format.html { redirect_to(@event) }
         format.xml  { render :xml => @event, :status => :created, :location => @event }
       else
+				@states = State.load_all
         format.html { render :action => "new" }
         format.xml  { render :xml => @event.errors, :status => :unprocessable_entity }
       end
