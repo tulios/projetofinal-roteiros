@@ -3,6 +3,12 @@
 
 <table class="form">
 	<tr>
+	  <td>
+	    <span class="obrigatorio">*</span>
+	    Cidade: 
+	  </td>
+	</tr>
+	<tr>
 		<td>
 			<% if @shop and @shop.city %>
 				<%= select :state, :id, @states.map{|state| [state.name, state.id] }, #select com os estados disponiveis
@@ -68,7 +74,10 @@
 		</td>
 	</tr>
 	<tr>
-		<td>Nome:</td>
+		<td>
+	    <span class="obrigatorio">*</span>
+		  Nome:
+		</td>
 		<td>Telefone:</td>
 	</tr>
 	<tr>
@@ -76,7 +85,10 @@
 		<td><%= f.text_field :phone %></td>
 	</tr>
 	<tr>
-		<td colspan="2">Endereço:</td>
+		<td colspan="2">
+		  <span class="obrigatorio">*</span>
+		  Endereço:
+		</td>
 	</tr>
 	<tr>
 		<td colspan="2">
