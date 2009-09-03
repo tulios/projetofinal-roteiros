@@ -37,7 +37,7 @@ class Roadmap < ActiveRecord::Base
   def total_planned_cost
     cost = 0.0
     
-    if destinations.length > 0
+    if destinations and destinations.length > 0
       destinations.each do |dest|
         cost += dest.planned_cost
       end
@@ -52,7 +52,7 @@ class Roadmap < ActiveRecord::Base
   def total_actual_cost
      cost = 0.0
     
-    if destinations.length > 0
+    if destinations and destinations.length > 0
       destinations.each do |dest|
         cost += dest.total
       end
@@ -74,7 +74,7 @@ class Roadmap < ActiveRecord::Base
 	def total_of_days
 		total = 0
 				
-		if destinations.length > 0
+		if destinations and destinations.length > 0
       destinations.each do |destination|
         total += destination.number_of_days
       end
