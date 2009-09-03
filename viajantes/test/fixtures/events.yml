@@ -3,19 +3,17 @@
 one:
   city: 
   name: MyString
-  date: 2009-08-27
-  time: 2009-08-27 09:34:27
+  time: 2009-08-27
   tourist_sight: 
-  shops: 
+  shop: 
   cost: false
   description: MyText
 
 two:
   city: 
   name: MyString
-  date: 2009-08-27
-  time: 2009-08-27 09:34:27
+  time: 2009-08-27
   tourist_sight: 
-  shops: 
+  shop: 
   cost: false
   description: MyText

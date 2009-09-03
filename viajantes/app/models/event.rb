@@ -12,6 +12,8 @@ class Event < ActiveRecord::Base
   belongs_to :tourist_sight
   belongs_to :shop
 
+	validates_presence_of :city_id, :name, :time
+
 	attr_accessor :happens_in
 	@@happens_in_options = {:tourist_sight => "Ponto Turístico",
 													:shop => "Estabelecimento",

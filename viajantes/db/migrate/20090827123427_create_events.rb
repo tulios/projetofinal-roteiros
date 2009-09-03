@@ -5,7 +5,7 @@ class CreateEvents < ActiveRecord::Migration
       t.string :name
       t.timestamp :time
       t.belongs_to :tourist_sight
-      t.belongs_to :shops
+      t.belongs_to :shop
       t.boolean :cost
       t.text :description
 
