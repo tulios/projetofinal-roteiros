@@ -1,12 +1,4 @@
-<%= corner('ja_planejados','saldo') %>
-<%= focus("state_id")%>
-
 <h1 class="destination">Novo Destino</h1>
 
-<%= render :partial => 'already_planned' %>
+<%= render :partial => 'new_edit_core'%>
 
-<%= render :partial => 'form'%>
-
-<%= render :partial => 'balance_micro_box' %>
-<br/>
-<%= link_to 'Voltar', roadmap_path(@destination.roadmap) %>

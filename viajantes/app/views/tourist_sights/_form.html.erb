@@ -3,6 +3,12 @@
 
 <table class="form">
 	<tr>
+	  <td>
+	    <span class="obrigatorio">*</span>
+	    Cidade: 
+	  </td>
+	</tr>
+	<tr>
 		<td>
 			<% if @tourist_sight and @tourist_sight.city %>
 				<%= select :state, :id, @states.map{|state| [state.name, state.id] }, #select com os estados disponiveis
