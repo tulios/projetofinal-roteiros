@@ -23,6 +23,8 @@ class ActiveSupport::TestCase
   # The only drawback to using transactional fixtures is when you actually 
   # need to test transactions.  Since your test is bracketed by a transaction,
   # any transactions started in your code will be automatically rolled back.
+
+  # Caso esteja true o banco nao eh afetado pelos testes. A transação realiza rollback
   self.use_transactional_fixtures = true
 
   # Instantiated fixtures are slow, but give you @david where otherwise you
