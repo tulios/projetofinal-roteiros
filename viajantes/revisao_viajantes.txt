@@ -4,19 +4,16 @@ Casos de Uso
     1 - Filtrar listagem por cidade
     2 - Tirar editar e excluir da listagem e colocar no detalhamento
     3 - Revisar auto-grow da edição
-    4 - Adicionar campos imagem, fone, email, Período de visitação
+    4 - Adicionar campos imagem
     
     
   Manter Estabelecimento:
     1 - Filtrar listagem por cidade
     2 - Retirar editar e apagar da listagem e colocar no detalhamento
-    3 - Adicionar campos email, site, fax, imagem, informações adicionais
+    3 - Adicionar campo imagem
     
     
    Pagina inicial
     1 - Cidades mais visitadas (gráfico)
     2 - Pontos Turísticos e estabelecimentos melhor avaliados
     3 - Eventos na cidade do usuário logado
-    
-   Destino:
-    1 - Pau na hora de salvar sem preencher nada.

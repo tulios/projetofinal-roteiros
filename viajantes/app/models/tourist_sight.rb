@@ -18,7 +18,7 @@ class TouristSight < ActiveRecord::Base
 	has_many :tips, :through => :tourist_sight_tips
 
 	validates_presence_of :city_id, :name, :address
-	validates_format_of   :email, :allow_nil => true, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,}\Z)/
+  validates_format_of   :email, :allow_nil => true, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,}\Z)/
 
 	def save_tags(new_tags)
 		TouristSightTag.destroy_all(:tourist_sight_id => id)

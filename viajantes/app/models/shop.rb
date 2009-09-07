@@ -7,7 +7,11 @@
 # 	String: name (O nome do estabelecimento)
 # 	String: address (endereço)
 # 	String: phone (telefone)
-# 	String: description (A descrição do estabelecimento)
+#   String: fax
+#   String: email (E-mail de contato)
+#   String: site
+# 	Text: description (A descrição do estabelecimento)
+#   Text: additional_info (Informações adicionais, por exemplo, preços, etc.)
 # 	String: key_words (Palavras-chave que identificam o estabelecimento)
 # 	City: city (A cidade na qual o estabelecimento pertence)
 # 	TouristSight: tourist_sight (O possível ponto-turístico que este estabelecimento pode estar vinculado)
@@ -21,6 +25,7 @@ class Shop < ActiveRecord::Base
   belongs_to :user
   
 	validates_presence_of :city_id, :name, :address
+	validates_format_of   :email, :allow_nil => true, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,}\Z)/
 
 	def evaluation_average
 		
