@@ -9,9 +9,12 @@
 	}
 </script>
 
-<table class="form">
+<table class="form" width="46%" border="0" style="float: left;">
 	<tr>
-		<td><%= f.label :date, 'Data:' %></td>
+		<td>
+		  <span class="obrigatorio">*</span>
+		  <%= f.label :date, 'Data:' %>
+	  </td>
 		<td><%= f.label :value, 'Valor:' %></td>
 	</tr>
 	<tr>

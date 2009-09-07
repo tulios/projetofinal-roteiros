@@ -1,7 +1,13 @@
 <%= mask_fields({:destination_start_date => "99/99/9999", :destination_end_date => "99/99/9999"}) %>
 <%= price_format(['destination_planned_cost']) %>
 
-<table class="form" width="62%">
+<table class="form" width="62%" style="float: left;">
+	<tr>
+	  <td>
+	    <span class="obrigatorio">*</span>
+	    Cidade:
+	  </td>
+	</tr>
 	<tr>
 		<td width="50%">
 			<% if @destination and @destination.city %>

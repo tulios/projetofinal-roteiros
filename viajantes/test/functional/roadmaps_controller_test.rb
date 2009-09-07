@@ -94,8 +94,6 @@ class RoadmapsControllerTest < ActionController::TestCase
 	test "Nao deveria permitir acesso as actions sem estar logado" do
 		get :index
 		assert_redirected_to new_session_path
-		get :show
-		assert_redirected_to new_session_path
 		get :new
 		assert_redirected_to new_session_path
 		get :create

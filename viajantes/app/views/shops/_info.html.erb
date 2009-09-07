@@ -24,6 +24,30 @@
 		<td><%=h @shop.phone %></td>
 	</tr>
 	<% end %>
+	<% if @shop.fax and @shop.fax.length > 0 %>
+	<tr>
+		<td width="13%" align="right">
+			<strong>Fax:</strong>
+		</td>
+		<td><%=h @shop.fax %></td>
+	</tr>
+	<% end %>
+	<% if @shop.email and @shop.email.length > 0 %>
+	<tr>
+		<td width="13%" align="right">
+			<strong>E-mail:</strong>
+		</td>
+		<td><%=h @shop.email %></td>
+	</tr>
+	<% end %>
+	<% if @shop.site and @shop.site.length > 0 %>
+	<tr>
+		<td width="13%" align="right">
+			<strong>Web site:</strong>
+		</td>
+		<td><%=h @shop.site %></td>
+	</tr>
+	<% end %>
 	<tr>
 		<td width="13%" align="right" valign="top">
 			<strong>Descrição:</strong>
@@ -36,6 +60,16 @@
   		<% end %>
 		</td>
 	</tr>
+	<% if @shop.additional_info and @shop.additional_info.length > 0 %>
+	<tr>
+		<td width="13%" align="right" valign="top">
+			<strong>Informações adicionais:</strong>
+		</td>
+		<td style="text-align: justify;">
+		  <%=h @shop.additional_info %>
+		</td>
+	</tr>
+	<% end %>
 	<% if @shop.key_words and @shop.key_words.length > 0 %>
 	<tr>
 		<td width="13%" align="right">

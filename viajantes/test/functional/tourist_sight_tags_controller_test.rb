@@ -18,9 +18,14 @@ class TouristSightTagsControllerTest < ActionController::TestCase
 	
 	test "Deveria associar varias tags a um tourist sight" do
     login_as :quentin
-    
+
+    ts = TouristSight.new(:name => "TS1",
+                          :address => "address",
+                          :city_id => 1,
+                          :user_id => 1)
+    assert(ts.save)
+
 		# Verifica que o tourist_sight do teste nao possui tags
-		ts = TouristSight.find(tourist_sights(:one).to_param)
 		assert_equal(0, ts.tags.length)
 		
 		# Verifica se o controlador responde corretamente caso os dados sejam informados
@@ -28,7 +33,7 @@ class TouristSightTagsControllerTest < ActionController::TestCase
 		assert_redirected_to tourist_sight_path(assigns(:tourist_sight))
 		
 		# Verifica se o tourist_sight utilizado recebeu as tags
-		ts = TouristSight.find(tourist_sights(:one).to_param)
+    ts = TouristSight.find(ts.id);
 		assert_equal(2, ts.tags.length)
 
 		# Removendo uma das tags salvas
@@ -36,7 +41,7 @@ class TouristSightTagsControllerTest < ActionController::TestCase
 		assert_redirected_to tourist_sight_path(assigns(:tourist_sight))
 		
 		# Verifica que o tourist_sight utilizado ficou com apenas uma tag
-		ts = TouristSight.find(tourist_sights(:one).to_param)
+    ts = TouristSight.find(ts.id);
 		assert_equal(1, ts.tags.length)
 	end
 
@@ -65,8 +70,13 @@ class TouristSightTagsControllerTest < ActionController::TestCase
   test "Deveria nao adicionar nenhuma tag e apagar as associacoes existentes" do
     login_as :quentin
 
-		# Verifica que o tourist_sight do teste nao possui tags
-		ts = TouristSight.find(tourist_sights(:one).to_param)
+    ts = TouristSight.new(:name => "TS1",
+                          :address => "address",
+                          :city_id => 1,
+                          :user_id => 1)
+    assert(ts.save)
+
+		# Verifica que o tourist_sight do teste nao possui tags		
 		assert_equal(0, ts.tags.length)
 
 		# Verifica se o controlador responde corretamente caso os dados sejam informados
@@ -74,7 +84,7 @@ class TouristSightTagsControllerTest < ActionController::TestCase
 		assert_redirected_to tourist_sight_path(assigns(:tourist_sight))
 
 		# Verifica se o tourist_sight utilizado recebeu as tags
-		ts = TouristSight.find(tourist_sights(:one).to_param)
+		ts = TouristSight.find(ts.id)
 		assert_equal(2, ts.tags.length)
 
 		# Removendo todas as tags, passando id = nil
@@ -82,7 +92,7 @@ class TouristSightTagsControllerTest < ActionController::TestCase
 		assert_redirected_to tourist_sight_path(assigns(:tourist_sight))
 
 		# Verifica que o tourist_sight utilizado ficou com apenas uma tag
-		ts = TouristSight.find(tourist_sights(:one).to_param)
+		ts = TouristSight.find(ts.id)
 		assert_equal(0, ts.tags.length)
 
     # Removendo todas as tags, passando tag = nil
@@ -90,7 +100,7 @@ class TouristSightTagsControllerTest < ActionController::TestCase
 		assert_redirected_to tourist_sight_path(assigns(:tourist_sight))
 
 		# Verifica que o tourist_sight utilizado ficou com apenas uma tag
-		ts = TouristSight.find(tourist_sights(:one).to_param)
+		ts = TouristSight.find(ts.id)
 		assert_equal(0, ts.tags.length)
   end
 

@@ -3,6 +3,12 @@
 
 <table class="form">
 	<tr>
+	  <td>
+	    <span class="obrigatorio">*</span>
+	    Cidade: 
+	  </td>
+	</tr>
+	<tr>
 		<td>
 			<% if @tourist_sight and @tourist_sight.city %>
 				<%= select :state, :id, @states.map{|state| [state.name, state.id] }, #select com os estados disponiveis
@@ -30,9 +36,10 @@
 			<% if @cities 
 				# se as cidades ja estiverem populadas exibe o select com elas. Para caso de edicao.
 			%>
-				<%= f.select :city_id, @cities.map{|city| [city.name, city.id] }, :include_blank => true %>
+				<%= f.select :city_id, @cities.map{|city| [city.name, city.id] }, 
+				             :include_blank => '-- escolha a cidade --' %>
 			<% else %>
-				<%= f.select :city_id, [], :include_blank => true %>
+				<%= f.select :city_id, [], :include_blank => '-- escolha a cidade --' %>
 			<% end %>
 			<%= image_tag 'load_mini.gif', :id => 'load', :style => "display: none;" %>
 

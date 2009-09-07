@@ -1,7 +1,13 @@
 <%= configure_textarea_autogrow %>
-<%= mask_fields({:shop_phone => "(99) 9999-9999"}) %>
+<%= mask_fields({:shop_phone => "(99) 9999-9999", :shop_fax => "(99) 9999-9999"}) %>
 
 <table class="form">
+	<tr>
+	  <td>
+	    <span class="obrigatorio">*</span>
+	    Cidade: 
+	  </td>
+	</tr>
 	<tr>
 		<td>
 			<% if @shop and @shop.city %>
@@ -31,9 +37,10 @@
 			<% if @cities 
 				# se as cidades ja estiverem populadas exibe o select com elas. Para caso de edicao.
 			%>
-				<%= f.select :city_id, @cities.map{|city| [city.name, city.id] }, :include_blank => true %>
+				<%= f.select :city_id, @cities.map{|city| [city.name, city.id] }, 
+              			 :include_blank => '-- escolha a cidade --' %>
 			<% else %>
-				<%= f.select :city_id, [], :include_blank => true %>
+				<%= f.select :city_id, [], :include_blank => '-- escolha a cidade --' %>
 			<% end %>
 			<%= image_tag 'load_mini.gif', :id => 'load', :style => "display: none;" %>
 		</td>
@@ -68,20 +75,42 @@
 		</td>
 	</tr>
 	<tr>
-		<td>Nome:</td>
-		<td>Telefone:</td>
+		<td colspan="2">
+	    <span class="obrigatorio">*</span>
+		  Nome:
+		</td>
 	</tr>
 	<tr>
-		<td><%= f.text_field :name %></td>
-		<td><%= f.text_field :phone %></td>
+		<td colspan="2">
+		  <%= f.text_field :name, :style => "width: 100%" %>
+		</td>
 	</tr>
 	<tr>
-		<td colspan="2">Endereço:</td>
+		<td colspan="2">
+		  <span class="obrigatorio">*</span>
+		  Endereço:
+		</td>
 	</tr>
 	<tr>
 		<td colspan="2">
 			<%= f.text_field :address, :style => "width: 100%" %>
 		</td>
+	</tr>
+	<tr>
+	  <td>Telefone:</td>
+	  <td>Fax:</td>
+	</tr>
+	<tr>
+	  <td><%= f.text_field :phone %></td>
+	  <td><%= f.text_field :fax %></td>
+	</tr>
+	<tr>
+	  <td>E-mail:</td>
+	  <td>Web site:</td>
+	</tr>
+	<tr>
+	  <td><%= f.text_field :email %></td>
+	  <td><%= f.text_field :site %></td>	  
 	</tr>
 	<tr>
 		<td colspan="2">Descrição:</td>
@@ -90,6 +119,15 @@
 		<td colspan="2">
 			<%= f.text_area :description, {:rows => 5, :class => "expanding",
 							  			:style => "width: 100%; min-height: 100px; max-height: 500px;"} %>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2">Informações adicionais (ex: preços, condições de entrada, etc):</td>
+	</tr>
+	<tr>
+		<td colspan="2">
+			<%= f.text_area :additional_info, {:rows => 3, :class => "expanding",
+							  			:style => "width: 100%; min-height: 60px; max-height: 500px;"} %>
 		</td>
 	</tr>
 	<tr>

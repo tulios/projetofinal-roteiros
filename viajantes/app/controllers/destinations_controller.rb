@@ -50,6 +50,8 @@ class DestinationsController < ApplicationController
       else
         # Recarrega os estados e cidades
         load_states_and_cities
+        @roadmap = @destination.roadmap
+        @destinations =@roadmap.destinations
         @vehicles = Vehicle.all
         @destinations =  @roadmap.destinations
       
