@@ -10,4 +10,6 @@
 class TouristSightTip < ActiveRecord::Base
   belongs_to :tourist_sight
   belongs_to :tip, :dependent => :destroy
+  
+  validates_presence_of :tourist_sight, :tip
 end

@@ -9,5 +9,7 @@
 #
 class ShopTip < ActiveRecord::Base
   belongs_to :shop
-  belongs_to :tip
+  belongs_to :tip, :dependent => :destroy
+  
+  validates_presence_of :shop, :tip
 end
