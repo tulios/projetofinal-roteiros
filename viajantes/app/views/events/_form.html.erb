@@ -11,6 +11,12 @@
 
 <table class="form">
 	<tr>
+	  <td>
+	    <span class="obrigatorio">*</span>
+	    Cidade:
+	  </td>
+	</tr>
+	<tr>
 		<td width="50%" colspan="2">
 			<% if @event and @event.city %>
 				<%= select :state, :id, @states.map{|state| [state.name, state.id] }, #select com os estados disponiveis
@@ -47,7 +53,11 @@
 		</td>
 	</tr>
 	<tr>
-		<td colspan="2">Nome:</td>
+	  
+		<td colspan="2">
+		  <span class="obrigatorio">*</span>
+		  Nome:
+		</td>
 		<td colspan="3">Data e hora:</td>
 	</tr>
 	<tr>
