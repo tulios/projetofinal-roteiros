@@ -31,7 +31,7 @@ class EventsControllerTest < ActionController::TestCase
 		assert_equal(2, Event.count)
 
 		# Verifica que o controlador criou um novo e redirecionou para o lugar certo
-		conteudo = { :name => "Evento_3", :time => Time.parse('2009-11-10'), :city_id => "1" }
+		conteudo = { :name => "Evento_3", :time => Time.parse('2009-11-11'), :city_id => "1" }
     post :create, :event => conteudo
 		assert_equal(3, Event.count)
 
