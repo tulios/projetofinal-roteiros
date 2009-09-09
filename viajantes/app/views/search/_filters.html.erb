@@ -1,7 +1,7 @@
 ﻿<div style="padding: 0px 0px 15px 0px;">
   <%= corner('advance') %>
-  <a href="#" onclick="javascript: $('#advance').toggle(200);">Pesquisa avançada</a>
-  
+  <a href="#" onclick="javascript: $('#advance').toggle('slow');">Pesquisa avançada</a>
+  <br/>
   <% if @advance_search %>
     <div id="advance" class="blue_box">
   <% else %>
@@ -33,7 +33,7 @@
         "<option value=\"\">-- escolha a cidade --</option> 
         #{options_from_collection_for_select(@cities, :id, :name, @city_id)}" %>
       <% else %>
-        <%= select_tag :city_id, options_for_select(["-- escolha a cidade --", 0]) %>
+        <%= select_tag :city_id, "<option value=\"\">-- escolha a cidade --</option>" %>
       <% end %>
       <%= image_tag 'load_mini.gif', :id => 'load', :style => "display: none;" %>
       
