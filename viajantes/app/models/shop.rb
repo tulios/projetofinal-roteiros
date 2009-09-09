@@ -76,8 +76,13 @@ class Shop < ActiveRecord::Base
 	# 	- Integer: per_page (O tamanho máximo da página retornada)
 	#		- Integer: page (O número da página retornada)
 	#
-	def self.find_like_name_or_key_word(value, per_page = 10, page = 1)
-		cond = ["Lower(name) like ? or Lower(key_words) like ?", "%#{value.downcase}%", "%#{value.downcase}%"]
+	def self.find_like_name_or_key_word(value, per_page = 10, page = 1, city_id = nil)
+	  if city_id
+	    cond = ["(Lower(name) like ? or Lower(key_words) like ?) and city_id = ?",
+	            "%#{value.downcase}%", "%#{value.downcase}%", city_id]
+	  else
+		  cond = ["Lower(name) like ? or Lower(key_words) like ?", "%#{value.downcase}%", "%#{value.downcase}%"]
+		end
 		Shop.paginate(:conditions => cond, 
 									:per_page => per_page, 
 									:page => page)

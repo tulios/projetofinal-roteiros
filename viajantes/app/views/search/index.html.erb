@@ -2,6 +2,34 @@
 
 <h1 class="search_icon">Resultado da pesquisa</h1>
 
+<% form_tag search_index_path , :method => :get do %>
+<table width="100%">
+  <tr>
+    <td width="5%">Pesquisar:</td>
+    <td width="30%"><%= text_field_tag  "value", @value, :size => 50 %></td>
+    <td><%= submit_tag "pesquisar" %></td>
+  </tr>
+  <tr>
+    <td colspan="3">
+      <%= corner('advance') %>
+      <a href="#" onclick="javascript: $('#advance').toggle('slow');">
+        Pesquisa avançada
+      </a>
+      <br/>
+      <% if @advance_search %>
+        <div id="advance" class="blue_box">
+      <% else %>
+        <div id="advance" style="display: none;" class="blue_box">
+      <% end %>
+        <%= render :partial => "search/filters_form" %>
+      </div>
+    </td>
+  <tr>
+</table>
+<% end %>
+
+<br/>
+
 <% if @results %>
 
 	<div id="tabs">
