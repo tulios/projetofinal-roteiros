@@ -24,8 +24,13 @@ class Roadmap < ActiveRecord::Base
 	# 	- Integer: per_page (O tamanho máximo da página retornada)
 	#		- Integer: page (O número da página retornada)
 	#
-	def self.find_like_title(value, per_page = 10, page = 1)
-		cond = ["Lower(title) like ? and public = ?", "%#{value.downcase}%", "#{true}"]
+	def self.find_like_title(value, per_page = 10, page = 1, city_id = nil)
+	  if city_id
+	    cond = ["(Lower(title) like ? and public = ?) and city_id = ?", 
+	            "%#{value.downcase}%", "#{true}", city_id]
+	  else
+		  cond = ["Lower(title) like ? and public = ?", "%#{value.downcase}%", "#{true}"]
+		end
 		Roadmap.paginate(:conditions => cond, 
 										 :per_page => per_page, 
 										 :page => page)

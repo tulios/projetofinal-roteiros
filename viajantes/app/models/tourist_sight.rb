@@ -79,10 +79,17 @@ class TouristSight < ActiveRecord::Base
 													:page => page)
 	end
 
-	def self.find_like_name(value, per_page = 10, page = 1)
+	def self.find_like_name(value, per_page = 10, page = 1, city_id = nil)
+	  if city_id
+	    return TouristSight.paginate(:conditions => ["Lower(name) like ? and city_id = ?",
+	                                                 "%#{value.downcase}%", city_id], 
+                                   :per_page => per_page, 
+                                   :page => page)
+	  end
 		TouristSight.paginate(:conditions => ["Lower(name) like ?", "%#{value.downcase}%"], 
 													:per_page => per_page, 
 													:page => page)
+		
 	end
 end
 
