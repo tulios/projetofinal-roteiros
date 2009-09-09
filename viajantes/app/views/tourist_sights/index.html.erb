@@ -7,7 +7,7 @@
 	<br />
 <% end %>
 
-<br />
+<%= render :partial => "search/filters", :locals => {:form_path => tourist_sights_path} %>
 
 <% if @tourist_sights and @tourist_sights.length > 0 %>
 
