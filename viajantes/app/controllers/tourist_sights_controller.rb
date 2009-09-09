@@ -4,7 +4,23 @@ class TouristSightsController < ApplicationController
   # GET /tourist_sights
   # GET /tourist_sights.xml
   def index
-    @tourist_sights = TouristSight.paginate(:per_page => 10, :page => params[:page], :order => "hits desc")
+    @states = State.load_all
+    
+    # Caso tenha usado a pesquisa, seleciona pela cidade
+    if params[:state_id] and params[:state_id].length > 0 and 
+       params[:city_id] and params[:city_id].length > 0
+      
+      @state_id = Integer(params[:state_id])
+      @city_id = Integer(params[:city_id])
+      @cities = City.load_all(@state_id)
+      
+      @tourist_sights = TouristSight.paginate(:conditions => ["city_id = ?", @city_id],
+                                              :per_page => 10, :page => params[:page], :order => "hits desc")
+      @advance_search = true
+    else
+    # Caso contrario pega todas
+      @tourist_sights = TouristSight.paginate(:per_page => 10, :page => params[:page], :order => "hits desc")
+    end
 
     respond_to do |format|
       format.html # index.html.erb

@@ -1,19 +1,19 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
 one:
-  city: 
-  name: MyString
-  time: 2009-08-27
+  city_id: 1 
+  name: Evento_1
+  time: 2009-08-27 12:00:00
   tourist_sight: 
   shop: 
   cost: false
-  description: MyText
+  description: Evento_1
 
 two:
-  city: 
-  name: MyString
-  time: 2009-08-27
+  city_id: 2 
+  name: Evento_2
+  time: 2009-08-27 15:00:00
   tourist_sight: 
   shop: 
-  cost: false
-  description: MyText
+  cost: true
+  description: Evento_2
