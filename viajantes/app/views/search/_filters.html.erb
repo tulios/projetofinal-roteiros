@@ -8,6 +8,10 @@
     <div id="advance" style="display: none;" class="blue_box">
   <% end %>
     <% form_tag form_path, :method => :get do %>
+      <div style="float: right">
+        <%= submit_tag "pesquisar" %>
+      </div>
+    
       <% if @state_id %>
         <%= select_tag :state_id,  "<option value=\"\">-- escolha o estado --</option> 
         #{options_from_collection_for_select(@states, :id, :name, @state_id)}" %>	
@@ -37,9 +41,6 @@
       <% end %>
       <%= image_tag 'load_mini.gif', :id => 'load', :style => "display: none;" %>
       
-      <div style="float: right">
-        <%= submit_tag "pesquisar" %>
-      </div>
     <% end %>
   </div>
 </div>
