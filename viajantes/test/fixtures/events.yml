@@ -1,6 +1,7 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
 one:
+  id: 1
   city_id: 1 
   name: Evento_1
   time: 2009-08-27 12:00:00
@@ -10,6 +11,7 @@ one:
   description: Evento_1
 
 two:
+  id: 2
   city_id: 2 
   name: Evento_2
   time: 2009-08-27 15:00:00

@@ -243,6 +243,8 @@ module ApplicationHelper
 			
 			when :shops
 				return shop_shop_tip_path(params[:id],tip.especified_type)
+			when :events
+			  return event_event_tip_path(params[:id],tip.especified_type)
 		end
 	end
 	
@@ -255,6 +257,11 @@ module ApplicationHelper
 							  
 			when :shops
 				return {:action => "destroy", :controller => :shop_tips,
+							  :confirm => 'Você tem certeza?', :method => :delete,
+							  :title => "Apagar"}
+		  
+		  when :events
+				return {:action => "destroy", :controller => :event_tips,
 							  :confirm => 'Você tem certeza?', :method => :delete,
 							  :title => "Apagar"}
 		end

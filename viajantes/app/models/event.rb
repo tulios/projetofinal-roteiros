@@ -34,5 +34,16 @@ class Event < ActiveRecord::Base
 
 		@happens_in
 	end
+	
+	def tips(page = 1, per_page = 5)
+		Tip.paginate(
+			:select => "*, et.id as especified_type",
+			:joins => "inner join event_tips et on et.tip_id = tips.id",
+			:conditions => ["et.event_id = ?", id],
+    	:per_page => per_page,
+    	:page => page,
+    	:order => "created_at desc"
+		)
+	end
 
 end

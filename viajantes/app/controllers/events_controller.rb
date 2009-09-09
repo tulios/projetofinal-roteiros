@@ -16,6 +16,7 @@ class EventsController < ApplicationController
   def show
     @event = Event.find(params[:id])
 		@city = @event.city
+		@tips = @event.tips
 
     respond_to do |format|
       format.html # show.html.erb

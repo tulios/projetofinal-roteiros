@@ -1,8 +1,6 @@
 class ShopTipsController < ApplicationController
   require_role "user"
   
-  # GET tourist_sight/tourist_sight_id/tips/new
-  # GET tourist_sight/tourist_sight_id/tips/new.xml
   def new
     @shop_tip = ShopTip.new
     @shop_tip.tip = Tip.new
@@ -35,7 +33,7 @@ class ShopTipsController < ApplicationController
 										 )
 				}
       else
-				# Recriando objeto e repopulando id de TouristSight
+				# Recriando objeto e repopulando id de Shop
 				@shop = Shop.find(params[:shop_id])
 				
         format.html { render :action => "new" }

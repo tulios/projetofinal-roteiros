@@ -15,7 +15,7 @@ class ShopTipTest < ActiveSupport::TestCase
     assert st.errors.empty?, st.errors.full_messages.to_sentence
   end
   
-  test "Deveria apagar um tourist_sight_tip" do
+  test "Deveria apagar um shop_tip" do
     st = create_shop_tip
 
     assert_difference "ShopTip.count and Tip.count", -1 do
@@ -25,9 +25,9 @@ class ShopTipTest < ActiveSupport::TestCase
   
   test "Deveria validar a presença de tip e shop" do
     assert_no_difference "ShopTip.count" do
-      tst = create_shop_tip(:tip => nil, :shop => nil)
-      assert tst.errors.on(:tip)
-      assert tst.errors.on(:shop)
+      st = create_shop_tip(:tip => nil, :shop => nil)
+      assert st.errors.on(:tip)
+      assert st.errors.on(:shop)
     end
   end
   

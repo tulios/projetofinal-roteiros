@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090902121037) do
+ActiveRecord::Schema.define(:version => 20090909125937) do
 
   create_table "cities", :force => true do |t|
     t.integer "state_id",  :null => false
@@ -35,18 +35,6 @@ ActiveRecord::Schema.define(:version => 20090902121037) do
     t.datetime "updated_at"
   end
 
-  create_table "events", :force => true do |t|
-    t.integer   "city_id"
-    t.string    "name"
-    t.timestamp "time"
-    t.integer   "tourist_sight_id"
-    t.integer   "shop_id"
-    t.boolean   "cost"
-    t.text      "description"
-		t.datetime  "created_at"
-    t.datetime  "updated_at"
-  end
-
   create_table "evaluations", :force => true do |t|
     t.text     "criticism"
     t.integer  "city_id",                       :null => false
@@ -58,6 +46,23 @@ ActiveRecord::Schema.define(:version => 20090902121037) do
     t.integer  "price",          :default => 0
     t.integer  "infrastructure", :default => 0
     t.integer  "attendance",     :default => 0
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "event_tips", :force => true do |t|
+    t.integer "event_id"
+    t.integer "tip_id"
+  end
+
+  create_table "events", :force => true do |t|
+    t.integer  "city_id"
+    t.string   "name"
+    t.datetime "time"
+    t.integer  "tourist_sight_id"
+    t.integer  "shop_id"
+    t.boolean  "cost"
+    t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
