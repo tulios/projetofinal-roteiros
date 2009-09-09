@@ -8,38 +8,10 @@
     <div id="advance" style="display: none;" class="blue_box">
   <% end %>
     <% form_tag form_path, :method => :get do %>
-      <% if @state_id %>
-        <%= select_tag :state_id,  "<option value=\"\">-- escolha o estado --</option> 
-        #{options_from_collection_for_select(@states, :id, :name, @state_id)}" %>	
-      <% else %>
-        <%= select_tag :state_id,
-        "<option value=\"\">-- escolha o estado --</option> 
-        #{options_from_collection_for_select(@states, :id, :name, params[:state_id])}" %>
-      <% end %>
-      <%= observe_field :state_id, # ID do campo observado
-                        # URL que sera chamada
-                        :url => {:controller => "cities", :action => "index", :format => "html"}, 
-                        :method => :get,
-                        :frequency => 0.5, # De quanto em quanto tempo o campo sera observado
-                        :update => :city_id, # ID do campo que sera atualizado
-                        :with => 'state_id', # valor que sera passado para url
-                        :before => "$('#load').show()", # O que fara antes de chamar a URL
-                        :complete => "$('#load').hide()" # O que fara depois de chamar a URL
-                        %>
-      <% if @cities 
-        # se as cidades ja estiverem populadas exibe o select com elas. Para caso de edicao.
-      %>
-        <%= select_tag :city_id, 
-        "<option value=\"\">-- escolha a cidade --</option> 
-        #{options_from_collection_for_select(@cities, :id, :name, @city_id)}" %>
-      <% else %>
-        <%= select_tag :city_id, "<option value=\"\">-- escolha a cidade --</option>" %>
-      <% end %>
-      <%= image_tag 'load_mini.gif', :id => 'load', :style => "display: none;" %>
-      
       <div style="float: right">
         <%= submit_tag "pesquisar" %>
       </div>
+      <%= render :partial => "search/filters_form" %>
     <% end %>
   </div>
 </div>
