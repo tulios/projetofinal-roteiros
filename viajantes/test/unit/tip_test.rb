@@ -2,72 +2,63 @@ require 'test_helper'
 
 class TipTest < ActiveSupport::TestCase
 
-	test "Deveria criar uma dica para um ponto turístico" do
-
-		#verifica as validações da dica		
-		tip = Tip.new
-		assert (not tip.valid?)
-		
-		#verifica se os atributos estao sendo validados
-		assert_invalidos(tip, [:name, :description, :tourist_sight])
-		
-		#recupera um ponto turistico
-		ts_id = tourist_sights(:one).to_param
-		ts = TouristSight.find(ts_id)
-		
-		#instancia uma nova dica com atributos válidos
-		tip = Tip.new({:name => "Tip1", :description => "Desc1", :tourist_sight => ts})
-
-		assert_validos(tip, [:name, :description, :tourist_sight])
+	test "Deveria criar uma dica" do
+    assert_difference "Tip.count" do
+      tip = create_tip
+      assert (not tip.new_record?), "#{tip.errors.full_messages.to_sentence}"
+    end
 	end
 	
 	test "Deveria alterar os dados de uma dica" do
-
-		NOVO_NOME = "Novo nome"
-		NOVA_DESCRICAO = "Nova descricao"
-
-		#recupera a dica da fixture
-		tip = tips(:one)
-		
-		#verifica que o objeto da fixture é valido
-		assert_validos(tip, [:name, :description, :tourist_sight])
-
-		#recupera o segundo tourist sight
-		ts2 = tourist_sights(:two)
-		
-		#seta os atributos e salva
-		tip.name = "Novo nome"
-		tip.description = "Nova descricao"
-		tip.tourist_sight = ts2
-		tip.save
-		
-		#recupera a dica salva e verifica que o objeto é valido
-		tip = Tip.find(tip.id)
-		assert_validos(tip, [:name, :description, :tourist_sight])
-		
-		assert_equal(tip.name, NOVO_NOME);
-		assert_equal(tip.description, NOVA_DESCRICAO);
-		assert_equal(tip.tourist_sight.id, 2);
+    tip = create_tip
+    update_tip(tip)
+    assert tip.errors.empty?, tip.errors.full_messages.to_sentence
 	end
 	
 	test "Deveria remover uma dica" do 
-		
-		#recupera a dica da fixture
-		tip = Tip.find(tips(:one).to_param)
-		assert(tip.valid?)
-	
-		tip_id = tip.id
-		
-		#remove a dica
-		tip.destroy
-		
-		begin
-			tip = Tip.find(tip_id)
-			fail("Recuperou mas não deveria.")
-		rescue ActiveRecord::RecordNotFound => e
-			#ok
-		end
-		
+		assert_difference 'Tip.count', -1 do
+      tip = tips(:one)
+      tip.destroy
+    end		
 	end
+	
+	test "Deveria validar a presença de name, description e user" do
+	  assert_no_difference 'Tip.count' do
+	    tip = create_tip({:name => nil, :description => nil, :user => nil})
+	    assert tip.errors.on(:name)
+	    assert tip.errors.on(:description)
+	    assert tip.errors.on(:user)
+	  end
+	end
+	
+	test "Deveria validar o tamanho de name" do
+	  assert_no_difference 'Tip.count' do
+	    tip = create_tip({:name => "test"}) # name com apenas 4 letras
+	    assert tip.errors.on(:name)
+	  end
+	end
+	
+	# Métodos protegidos
+	protected
+	
+	def create_tip(options = {})
+    tip_hash = { :name => "NomeDaDica",
+                 :description => "DescricaoDaDica",
+                 :user => users(:quentin),
+               }
+               
+    tip = Tip.new(tip_hash.merge(options))
+    tip.save
+    tip
+  end
+  
+  def update_tip(tip, options = {})
+    tip_hash = { :name => "NomeDaDica2",
+                 :description => "DescricaoDaDica2",
+                 :user => users(:aaron),
+               }
+               
+    tip = tip.update_attributes(tip_hash.merge(options))
+  end
 
 end

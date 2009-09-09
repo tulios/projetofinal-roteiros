@@ -522,10 +522,19 @@ textarea.expanding {
 	float: right;
 }
 
+
 .mais_vistos {
-	background: #8DB6CD;
-	float: right; 
-	width: 230px;
+	
+    background: #8DB6CD;
+	
+    float: right; 
+	
+    width: 230px;
+}
+
+.blue_box {
+    background: #8DB6CD;
+    padding: 5px;
 }
 
 .mais_vistos_banner {

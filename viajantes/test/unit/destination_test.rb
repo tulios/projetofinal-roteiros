@@ -12,14 +12,14 @@ class DestinationTest < ActiveSupport::TestCase
   test "Deveria atualizar um destino" do
     destination = create_destination
     
-    destinationHash = { :city_id => cities(:two),
+    destination_hash = { :city_id => cities(:two),
                         :vehicle => vehicles(:two),
                         :start_date => Date.new(2010,10,10),
                         :end_date => Date.new(2010,10,20),
                         :planned_cost => 200.0
                       }
     
-    destination.update_attributes(destinationHash)
+    destination.update_attributes(destination_hash)
     assert destination.errors.empty?, destination.errors.full_messages.to_sentence
   end
   
