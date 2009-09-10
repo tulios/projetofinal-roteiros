@@ -51,8 +51,8 @@ ActiveRecord::Schema.define(:version => 20090910101755) do
   end
 
   create_table "event_evaluations", :force => true do |t|
-    t.integer  "event_id",      :null => false
-    t.integer  "evaluation_id", :null => false
+    t.integer "event_id",      :null => false
+    t.integer "evaluation_id", :null => false
   end
 
   add_index "event_evaluations", ["event_id", "evaluation_id"], :name => "index_event_evaluations_on_event_id_and_evaluation_id", :unique => true

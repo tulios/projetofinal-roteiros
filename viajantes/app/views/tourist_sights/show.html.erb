@@ -12,6 +12,7 @@
 
 <%= render :partial => 'info' %>
 
+<!-- Tags -->
 <% if @tourist_sight.tags and @tourist_sight.tags.length > 0 %>
 	<div class="tag">
 		<% @tourist_sight.tags.each_with_index do |tag, index| %>
@@ -20,38 +21,45 @@
 		<% end %>
 	</div>
 <% end %>
+<!-- /Tags -->
 
+<br/><br/>
+
+<!-- Titulo Avaliacoes -->
 <h2 class="evaluation_32">
-	Avaliação de outros usuários
-	<% if logged_in? %>
-		<%= link_to 'Avaliar', new_tourist_sight_tourist_sight_evaluation_path(@tourist_sight), 
-								:class => 'botao' %>
-	<% end %>
-</h2>
-
-<div id="users_evaluations" style="float: left; width: 670px;">
-	<%= render :partial => 'evaluations/list' %>
-</div>
-
-<div id="evaluation_average" style="float: right;">
-	<%= render :partial => 'evaluations/average' %>
-</div>
-
-
-<br/>
-<br/>
-<br/>
-<br/>
-
-<h2 class="tips_32">
-  Dicas &nbsp;
+  Avaliação de outros usuários
   <% if logged_in? %>
-	  <%= link_to 'Nova dica', new_tourist_sight_tourist_sight_tip_path(@tourist_sight), :class => "botao" %>
+	  <%= link_to 'Avaliar', new_tourist_sight_tourist_sight_evaluation_path(@tourist_sight), 
+							  :class => 'botao' %>
   <% end %>
 </h2>
-<div style="width: 670px;">
-  <%= render :partial => 'tips/list' %>
+<!-- /Titulo Avaliacoes -->
+
+<!-- Media das Avaliacoes -->
+<div id="evaluation_average" style="float: right;">
+  <%= render :partial => 'evaluations/average' %>
 </div>
+<!-- /Media das Avaliacoes -->
+
+<!-- Div de Avaliacoes e Dicas -->
+<div style="width: 670px;">
+  <div id="users_evaluations">
+	  <%= render :partial => 'evaluations/list' %>
+  </div>
+
+  <br/><br/>
+
+  <h2 class="tips_32">
+    Dicas &nbsp;
+    <% if logged_in? %>
+	    <%= link_to 'Nova dica', new_tourist_sight_tourist_sight_tip_path(@tourist_sight), :class => "botao" %>
+    <% end %>
+  </h2>
+  <div>
+    <%= render :partial => 'tips/list' %>
+  </div>
+</div>
+<!-- /Div de Avaliacoes e Dicas -->
 
 <div class="clearer"></div>
 
