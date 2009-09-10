@@ -8,6 +8,6 @@
     <%= link_to "sair", logout_path  %>
   </div>
 
-<% else %>
-  <%= link_to "Cadastre-se aqui!", signup_path, :class => "signup" %>
+<% elsif not controller_name == "index"%>
+  <%= link_to "Cadastre-se aqui!", signup_path, :class => "signup", :style => "float: right;" %>
 <% end %>

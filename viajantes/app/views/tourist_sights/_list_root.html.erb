@@ -1,6 +1,6 @@
 <table>
-<% if @tourist_sights and @tourist_sights.length > 0 %>
-	<% @tourist_sights.each do |tourist_sight| %>
+<% if tourist_sights and tourist_sights.length > 0 %>
+	<% tourist_sights.each do |tourist_sight| %>
 		<tr>
 				<td>
 					<%= link_to tourist_sight.name, tourist_sight %>&nbsp;

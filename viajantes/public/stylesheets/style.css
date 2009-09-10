@@ -427,6 +427,11 @@ textarea.expanding {
 	text-decoration: none !important;
 }
 
+.viajantes {
+	background: url(../images/viajantes_48.png) no-repeat;
+	padding: 15px 55px;
+}
+
 .shop {
 	background: url(../images/shop_48.png) no-repeat;
 	padding: 12px 45px;
@@ -440,6 +445,12 @@ textarea.expanding {
 .event {
 	background: url(../images/ticket_48.png) no-repeat;
 	padding: 12px 55px;
+}
+
+
+.event_32 {
+	background: url(../images/ticket_32.png) no-repeat;
+	padding: 9px 15px;
 }
 
 .tourist_sight {
@@ -523,13 +534,13 @@ textarea.expanding {
 }
 
 
-.mais_vistos {
+.coluna_vertical {
 	
     background: #8DB6CD;
 	
-    float: right; 
+    /*float: right; */
 	
-    width: 230px;
+    width: 225px;
 }
 
 .blue_box {
@@ -543,16 +554,22 @@ textarea.expanding {
 	padding: 15px 55px;
 }
 
-.mais_vistos_corpo {
+.ultimos_adicionados_banner {
+	color: black;
+	background: url(../images/clock_48.png) no-repeat;
+	padding: 15px 55px;
+}
+
+.coluna_vertical_corpo {
 	margin: 0px 10px 10px 10px;
 }
 
-.mais_vistos_corpo table{
+.coluna_vertical_corpo table{
 	font-size: 11px;
 	margin: 5px 5px 2px 5px;
 }
 
-.mais_vistos_corpo td{
+.coluna_vertical_corpo td{
 		padding: 5px;
 }
 
@@ -659,7 +676,6 @@ textarea.expanding {
 }
 
 .signup {
-	float: right;
 	background: #99CC22 url(../images/img/botao_cadastre.png) repeat-x scroll 0 0;
 	border: 1px solid #DDFF66;
 	color: #333333;

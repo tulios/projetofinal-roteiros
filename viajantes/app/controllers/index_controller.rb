@@ -1,10 +1,18 @@
 class IndexController < ApplicationController
 	
 	def index
+	  # Mais vizualizados
+		@most_viewed_shops = Shop.paginate(:per_page => 5, :page => 1, :order => "hits desc")
+		@most_viewed_tourist_sights = TouristSight.paginate(:per_page => 5, :page => 1, :order => "hits desc")
+		
+		# Últimos Adicionados 
+		@last_added_shops = Shop.paginate(:per_page => 5, :page => 1, :order => "created_at desc")
+		@last_added_tourist_sights = TouristSight.paginate(:per_page => 5, :page => 1, :order => "created_at desc")
+		@last_added_events = Event.paginate(:per_page => 5, :page => 1, :order => "created_at desc")
+		
+		@roadmaps = Roadmap.paginate_all_by_public(true, :per_page => 5, :page => 1, :order => "created_at desc")
 
-		@shops = Shop.paginate(:per_page => 5, :page => 1, :order => "hits desc")
-		@tourist_sights = TouristSight.paginate(:per_page => 5, :page => 1, :order => "hits desc")
-		@roadmaps = Roadmap.paginate_all_by_public(true, :per_page => 5, :page => 1, :order => "updated_at desc")
+    
 
 		# Pagina inicial do usuario
 		if logged_in?
