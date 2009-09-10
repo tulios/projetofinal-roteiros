@@ -45,5 +45,49 @@ class Event < ActiveRecord::Base
     	:order => "created_at desc"
 		)
 	end
+	
+	def evaluation_average
+		
+		hash = {}
+		Evaluation.rates.each do |rate|
+			hash[rate] = Evaluation.average(
+				rate, :conditions => ["ee.event_id = ?", id],
+							:joins => "inner join event_evaluations ee on ee.evaluation_id = evaluations.id"
+			)
+		end
+		
+		Evaluation.new(hash)
+	end
+	
+	def evaluations(page = 1, per_page = 5)
+		
+		Evaluation.paginate(
+			:select => "*, ee.id as especified_type",
+			:conditions => ["event_id = ?", id],
+			:joins => "inner join event_evaluations ee on ee.evaluation_id = evaluations.id",
+    	:per_page => per_page,
+    	:page => page,
+    	:order => "created_at desc"
+		)
+	end
 
 end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

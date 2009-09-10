@@ -1,0 +1,33 @@
+<% form_for([@event, @event_evaluation.evaluation], 
+						:url => {:controller => :event_evaluations, :action => :create}) do |f| %>
+						
+	<%= f.error_messages %>
+	
+	<%= render :partial => 'info' %>
+	<br/>
+
+	<%= render :partial => 'evaluations/form', :locals => {:f => f} %>
+<% end %>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

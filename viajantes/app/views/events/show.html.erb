@@ -1,12 +1,40 @@
+<%= corner('users_evaluations') %>
+<%= corner('evaluation_average') %>
+
 <h1 class="event">Evento</h1>
 
 <%= render :partial => "info" %>
 
 <% if logged_in? %>
-	<%= link_to 'Editar', edit_event_path(@event) %> |
-	<%= link_to 'Apagar', @program, :confirm => 'Você tem certeza?', :method => :delete %>
+	<div style="float: right;">
+		<%= link_to 'Editar', edit_event_path(@event) %> |
+		<%= link_to 'Apagar', @program, :confirm => 'Você tem certeza?', :method => :delete %>
+	</div>
 <% end %>
+
 <br><br/>
+
+<h2 class="evaluation_32">
+	Avaliação de outros usuários
+	<% if logged_in? %>
+		<%= link_to 'Avaliar', new_event_event_evaluation_path(@event), 
+								:class => 'botao' %>
+	<% end %>
+</h2>
+
+<div id="users_evaluations" style="float: left; width: 670px;">
+	<%= render :partial => 'evaluations/list' %>
+</div>
+
+<div id="evaluation_average" style="float: right;">
+	<%= render :partial => 'evaluations/average' %>
+</div>
+
+<br/>
+<br/>
+<br/>
+<br/>
+
 <h2 class="tips_32">
   Dicas &nbsp;
   <% if logged_in? %>
@@ -18,5 +46,6 @@
 </div>
 
 <div class="clearer"></div>
+
 <br/>
 <%= link_to 'Voltar', events_path %>

@@ -3,7 +3,10 @@
 
 	<% if logged_in? %>
 		<%= link_to "Meus Roteiros", roadmaps_path, 
-				:class => check_tab?('roadmaps', 'destinations', 'programs') %>
+				:class => check_tab?( 'roadmaps', 
+														  'destinations',
+														  'programs'
+														) %>
 	<% end %>
 
 	<%= link_to "Pontos Turísticos", tourist_sights_path, 
@@ -15,12 +18,21 @@
 			                    ) %>
 
 	<%= link_to "Estabelecimentos", shops_path, 
-			:class => check_tab?('shops', 'shop_evaluations', 'shop_tips') %>
+			:class => check_tab?( 'shops', 
+													  'shop_evaluations',
+													  'shop_tips'
+													) %>
 
-	<%= link_to "Eventos", events_path, :class => check_tab?('events') %>
+	<%= link_to "Eventos", events_path, 
+			:class => check_tab?( 'events',
+														'event_evaluations',
+														'event_tips'
+													) %>
 
   <% if not logged_in? %>
-    <%= link_to "Fazer login", login_path, :class => check_tab?('sessions') %>
+    <%= link_to "Fazer login", login_path, 
+    		:class => check_tab?('sessions') %>
+    		
   <% end %>
 
 	<%= render :partial => "layouts/search" %>

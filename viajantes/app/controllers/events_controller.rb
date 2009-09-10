@@ -17,6 +17,8 @@ class EventsController < ApplicationController
     @event = Event.find(params[:id])
 		@city = @event.city
 		@tips = @event.tips
+		@evaluations = @event.evaluations(params[:page])
+		@average = @event.evaluation_average
 
     respond_to do |format|
       format.html # show.html.erb

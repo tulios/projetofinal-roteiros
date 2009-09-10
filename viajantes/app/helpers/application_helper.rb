@@ -219,6 +219,9 @@ module ApplicationHelper
 				
 			when :tourist_sights
 				return tourist_sight_tourist_sight_evaluation_path(params[:id],evaluation.especified_type)
+			
+			when :events
+				return event_event_evaluation_path(params[:id],evaluation.especified_type)
 		end
 	end
 	
@@ -230,7 +233,12 @@ module ApplicationHelper
 							  :title => "Apagar"}
 							  
 			when :tourist_sights
-				return {:action => "destroy", :controller => :tourist_sights_evaluations,
+				return {:action => "destroy", :controller => :tourist_sight_evaluations,
+							  :confirm => 'Você tem certeza?', :method => :delete,
+							  :title => "Apagar"}
+							  
+			when :events
+				return {:action => "destroy", :controller => :event_evaluations,
 							  :confirm => 'Você tem certeza?', :method => :delete,
 							  :title => "Apagar"}
 		end
@@ -243,6 +251,7 @@ module ApplicationHelper
 			
 			when :shops
 				return shop_shop_tip_path(params[:id],tip.especified_type)
+				
 			when :events
 			  return event_event_tip_path(params[:id],tip.especified_type)
 		end

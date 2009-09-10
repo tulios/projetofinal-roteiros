@@ -18,9 +18,9 @@
 		</td>
 		<td align="left"><%= time_format(@event.time) %>
 	</tr>
+	<% if @event.tourist_sight or @event.shop %>
 	<tr>
 		<td align="right">
-
 			<% if @event.tourist_sight %>
 				<strong>Acontece em: </strong><%= @event.tourist_sight.name %><br/>
 				<strong>Endereço: </strong><%= @event.tourist_sight.address %><br/>
@@ -30,6 +30,7 @@
 			<% end %>
 		</td>
 	</tr>
+	<% end %>
 	<tr>
 		<td align="right" valign="top">
 			<strong>Descrição:</strong>
@@ -42,5 +43,4 @@
   		<% end %>
 		</td>
 	</tr>
-	<tr><td><br/></td></tr>
 </table>
