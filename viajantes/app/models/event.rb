@@ -2,7 +2,7 @@ class Event < ActiveRecord::Base
 
 	# City: city
 	# String: name
-	# Time: time
+	# Timestamp: time
 	# TouristSight: tourist_sight
 	# Shop: shop
 	# Boolean: cost

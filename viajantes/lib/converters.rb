@@ -38,7 +38,7 @@ module Converters
 
 		if valid_string?(string)
 			array = string.split(delimiter)
-		  return Date.new(array[2].to_i,array[1].to_i,array[0].to_i)
+		  return DateTime.new(array[2].to_i,array[1].to_i,array[0].to_i)
 		end
 
 		nil

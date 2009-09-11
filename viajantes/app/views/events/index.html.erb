@@ -7,7 +7,7 @@
 	<br/>
 <% end %>
 
-<br />
+<%= render :partial => "search/filters", :locals => {:form_path => events_path} %>
 
 <% if @events and @events.length > 0 %>
 	

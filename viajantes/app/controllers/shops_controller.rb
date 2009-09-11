@@ -8,7 +8,7 @@ class ShopsController < ApplicationController
   def index
     @states = State.load_all
     
-     # Caso tenha usado a pesquisa, seleciona pela cidade
+    # Caso tenha usado a pesquisa, seleciona pela cidade
     if params[:state_id] and params[:state_id].length > 0 and 
        params[:city_id] and params[:city_id].length > 0
       

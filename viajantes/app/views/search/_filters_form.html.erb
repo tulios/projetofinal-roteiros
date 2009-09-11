@@ -26,3 +26,28 @@
   <%= select_tag :city_id, "<option value=\"\">-- escolha a cidade --</option>" %>
 <% end %>
 <%= image_tag 'load_mini.gif', :id => 'load', :style => "display: none;" %>
+<% if controller_name == EventsController.controller_name %>
+	<%= mask_fields({:start => "99/99/9999", :end => "99/99/9999"}) %>
+	de <%= text_field_tag :start, @start, :size => 10 %> até <%= text_field_tag :end, @end, :size => 10 %>
+<% end %>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
