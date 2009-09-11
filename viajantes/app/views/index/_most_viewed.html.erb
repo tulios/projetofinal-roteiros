@@ -1,11 +1,11 @@
-<%= corner('mais_vistos', 'shops', 'tourist_sights', 'roadmaps') %>
+<%= corner('mais_vistos', 'most_viewed_shops', 'most_viewed_tourist_sights', 'most_viewed_roadmaps') %>
 
 <div id="mais_vistos" class="coluna_vertical">
 	<h4 class="mais_vistos_banner">Mais vistos</h4>
 
 	<div class="coluna_vertical_corpo">
 		
-		<div id="shops">
+		<div id="most_viewed_shops">
 			<br/>
 			<div style="float: right">
 				<span class="shop_32"></span>
@@ -24,7 +24,7 @@
 
 		<br/>
 
-		<div id="tourist_sights">
+		<div id="most_viewed_tourist_sights">
 			<br/>
 			<div style="float: right">
 				<span class="tourist_sight_32"></span>
@@ -33,7 +33,8 @@
 			<br/><br/>
 			<div class="box">
 				<div class="search_results_root">
-					<%= render :partial => "tourist_sights/list_root", :locals => {:tourist_sights => @most_viewed_tourist_sights} %>
+					<%= render :partial => "tourist_sights/list_root", 
+							:locals => {:tourist_sights => @most_viewed_tourist_sights} %>
 					<p align="right" style="margin: 0px 11px 0px 0px;">
 						<%= link_to 'ver todos &raquo;', tourist_sights_path %>
 					</p>

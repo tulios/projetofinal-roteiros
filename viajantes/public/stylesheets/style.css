@@ -556,8 +556,8 @@ textarea.expanding {
 
 .ultimos_adicionados_banner {
 	color: black;
-	background: url(../images/clock_48.png) no-repeat;
-	padding: 15px 55px;
+	background: url(../images/new_clock_48.png) no-repeat;
+	padding: 18px 55px;
 }
 
 .coluna_vertical_corpo {
@@ -673,6 +673,13 @@ textarea.expanding {
 	border: 1px solid white; 
 	background: #ffffff repeat-x; 
 	color: #222222;
+}
+
+.box_white_main {
+	border: 1px solid white; 
+	background: #ffffff repeat-x; 
+	color: #222222;
+	padding: 10px 10px 0px 10px;
 }
 
 .signup {
