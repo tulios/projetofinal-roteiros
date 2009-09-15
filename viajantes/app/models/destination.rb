@@ -1,13 +1,13 @@
 # Destination - Destino
 #
 # Este modelo representa um dos vários destinos possíveis 
-# em um roteiro de viagem (roadmap).
+# em um roteiro de viagem (Roadmap).
 #
 # Atributos:
-# 	Float: planned_cost (Valor planejado para o destino)
+# 	Float: planned_cost (Custo planejado para o destino)
 # 	Date: start_date (Data de início)
 # 	Date: end_date (Data de fim)
-# 	Vehicle: vehicle (Qual meio de transporte foi utilizado para se chegar aqui)
+# 	Vehicle: vehicle (O meio de transporte utilizado para se chegar a este destino)
 # 	Roadmap: roadmap (Roteiro de viagem o qual este destino pertence)
 # 	City: city (Cidade do destino)
 # 	Program: programs (Programas planejados a serem executados neste destino)
@@ -34,8 +34,8 @@ class Destination < ActiveRecord::Base
     end
   end
   
-  # Cálcula o número de dias neste destino (end_date - start_date). Caso as datas
-  # nao tenham sido informadas sera retornado zero (0).
+  # Calcula o número de dias neste destino (end_date - start_date). 
+  # Caso as datas nao tenham sido informadas sera retornado zero (0).
 	#
   def number_of_days
     if end_date and start_date
@@ -60,8 +60,8 @@ class Destination < ActiveRecord::Base
 		sum
 	end
 
-	# Cálcula o saldo do destino, o total dos programas adicionados subtraido do custo
-	# planejado (planned_cost - total).
+	# Cálcula o saldo do destino, o total dos programas adicionados 
+	# subtraido do custo planejado (planned_cost - total).
 	#
 	def balance
 		planned_cost - total

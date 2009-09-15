@@ -27,8 +27,11 @@ class Shop < ActiveRecord::Base
 	validates_presence_of :city_id, :name, :address
 	validates_format_of   :email, :allow_nil => true, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,}\Z)/
 
+  # Realiza uma consulta pelas avaliações do estabelecimento 
+  # retornando uma avaliação com os valores médios 
+  # das notas atribuídas para cada críterio de avaliação.
+  #
 	def evaluation_average
-		
 		hash = {}
 		Evaluation.rates.each do |rate|
 			hash[rate] = Evaluation.average(
@@ -40,8 +43,14 @@ class Shop < ActiveRecord::Base
 		Evaluation.new(hash)
 	end
 	
+	# Realiza uma consulta paginada pelas avaliações 
+	# do estabelecimento, ordenadas pela data de criação.
+	# 
+	#   params:
+	#     - Integer: page (pagina atual da paginação)
+	#     - Ineger: per_page (número de registros por página)
+	#  
 	def evaluations(page = 1, per_page = 5)
-		
 		Evaluation.paginate(
 			:select => "*, se.id as especified_type",
 			:conditions => ["shop_id = ?", id],
@@ -52,6 +61,13 @@ class Shop < ActiveRecord::Base
 		)
 	end
 	
+	# Realiza uma consulta paginada pelas dicas 
+	# do estabelecimento, ordenadas pela data de criação.
+	# 
+	#   params:
+	#     - Integer: page (pagina atual da paginação)
+	#     - Ineger: per_page (número de registros por página)
+	#  
 	def tips(page = 1, per_page = 5)
 		Tip.paginate(
 			:select => "*, st.id as especified_type",
@@ -69,7 +85,8 @@ class Shop < ActiveRecord::Base
 	  self.update_attributes(:hits => self.hits + 1)
 	end
 
-	# Recupera todos os estabelecimentos com o nome ou as palavras-chave parecidas com o valor informado.
+	# Recupera todos os estabelecimentos com o nome ou as 
+	# palavras-chave parecidas com o valor informado.
 	#
 	# params:
 	#		- String: value (O valor pesquisado)

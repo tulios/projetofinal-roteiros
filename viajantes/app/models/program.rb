@@ -23,6 +23,9 @@ class Program < ActiveRecord::Base
 	validates_presence_of :date, :value, :destination_id
 
 	attr_accessor :happens_in
+	
+  # Variável de classe com as opções onde o programa pode acontecer
+	#
 	@@happens_in_options = {:tourist_sight => "Ponto Turístico",
 													:shop => "Estabelecimento",
 													:another => "Outro"}

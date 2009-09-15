@@ -3,8 +3,11 @@
 # Este modelo representa as cidades.
 #
 # Atributos:
-#   State: state (Estado o qual a cidade pertence)
-#   String: name (Nome da cidade)
+#   State:    state (Estado o qual a cidade pertence)
+#   String:   name (Nome da cidade)
+#   Boolean:  capital (Verdadeiro se a cidade for a capital do estado)  
+#   Float:    latitude (Número que indica a latitude da cidade no mapa)
+#   Float:    longitude (Número que indica a longitude da cidade no mapa)
 #
 class City < ActiveRecord::Base
 

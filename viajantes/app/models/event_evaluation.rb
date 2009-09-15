@@ -1,7 +1,13 @@
+# EventEvaluation - Avaliacao De Evento
+#
+# Este modelo representa as avaliações de eventos.
+# É uma classe associativa entre Event e Evaluation
+#
+# Atributos:
+#  Event: event (A evento o qual a avaliação pertence)
+#  Evaluation: evaluation (A avaliação do evento)
+#
 class EventEvaluation < ActiveRecord::Base
-	# Event: event
-	# Evaluation: evaluation
-	
   belongs_to :event
   belongs_to :evaluation, :dependent => :destroy
 end
