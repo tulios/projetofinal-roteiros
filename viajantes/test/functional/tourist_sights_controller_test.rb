@@ -110,6 +110,28 @@ class TouristSightsControllerTest < ActionController::TestCase
 		# Verifica a quantidade apos a exclusao
 		assert_equal(1, TouristSight.count)
   end
+  
+  test "Deveria filtrar os resultados pela cidade" do
+  	# Verifica se o controlador respondeu sucesso
+    get :index
+    assert_response :success
+
+		# Verifica que ele carregou os tourist_sights
+    assert_not_nil assigns(:tourist_sights)
+    assert_equal(2, assigns(:tourist_sights).length)
+    
+    # Verifica que não existem pontos turísticos cadastrados para fortaleza
+    get :index, :state_id => 10, :city_id => 2
+    assert_response :success
+		assert_not_nil assigns(:tourist_sights)
+    assert_equal(0, assigns(:tourist_sights).length)
+    
+    # Verifica que existem 2 pontos turisticos em brasilia
+    get :index, :state_id => 20, :city_id => 1
+    assert_response :success
+		assert_not_nil assigns(:tourist_sights)
+    assert_equal(2, assigns(:tourist_sights).length)
+  end
 end
 
 

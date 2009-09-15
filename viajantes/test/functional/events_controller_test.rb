@@ -94,4 +94,26 @@ class EventsControllerTest < ActionController::TestCase
 
 		assert_equal(1, Event.count)
   end
+  
+  test "Deveria filtrar os resultados pela cidade" do
+  	# Verifica se o controlador respondeu sucesso
+    get :index
+    assert_response :success
+
+		# Verifica que ele carregou os eventos
+    assert_not_nil assigns(:events)
+    assert_equal(2, assigns(:events).length)
+    
+    # Verifica que existe 1 evento cadastrado para fortaleza
+    get :index, :state_id => 10, :city_id => 2
+    assert_response :success
+		assert_not_nil assigns(:events)
+    assert_equal(1, assigns(:events).length)
+    
+    # Verifica que existe 1 evento em brasilia
+    get :index, :state_id => 20, :city_id => 1
+    assert_response :success
+		assert_not_nil assigns(:events)
+    assert_equal(1, assigns(:events).length)
+  end
 end

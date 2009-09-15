@@ -34,7 +34,7 @@ class ProgramsController < ApplicationController
   def create
     @program = Program.new(params[:program])
 		@program.destination = Destination.find(params[:destination_id])
-		@program.date = to_date(params[:program][:date])
+		@program.date = to_date(params[:program][:date], true)
 		@program.value = currency_to_number(params[:program][:value])
 
     respond_to do |format|
@@ -60,7 +60,7 @@ class ProgramsController < ApplicationController
 		  params[:program][:happens_in] = params[:program][:happens_in].intern
 		end
     @program = Program.find(params[:id])
-		params[:program][:date] = to_date(params[:program][:date])
+		params[:program][:date] = to_date(params[:program][:date], true)
 		params[:program][:value] = currency_to_number(params[:program][:value])
 
 		@roadmap = @program.destination.roadmap
@@ -82,6 +82,7 @@ class ProgramsController < ApplicationController
         flash[:notice] = 'Programa atualizado com sucesso.'
         format.html { redirect_to(@roadmap) }
         format.xml  { head :ok }
+        
       else
         format.html { render :action => "edit" }
         format.xml  { render :xml => @program.errors, :status => :unprocessable_entity }

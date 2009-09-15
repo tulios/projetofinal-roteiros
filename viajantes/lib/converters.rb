@@ -11,9 +11,13 @@ module Converters
 	end
 
 	# String to date
-	def to_date(string, delimiter = '/')
+	def to_date(string, just_date = false, delimiter = '/')
 		begin
-			return string_to_date(string, delimiter)
+			if just_date
+				return string_to_date(string, delimiter)
+			else
+				return string_to_datetime(string, delimiter)
+			end
 
 		rescue
 			return nil
@@ -33,8 +37,8 @@ module Converters
 		string and string?(string) and string.length > 0
 	end
 
-	# Converte uma string para Date
-	def string_to_date(string, delimiter)
+	# Converte uma string para DateTime
+	def string_to_datetime(string, delimiter)
 
 		if valid_string?(string)
 			array = string.split(delimiter)
@@ -44,6 +48,19 @@ module Converters
 		nil
 
 	end
+	
+	# Converte uma string para Date
+	def string_to_date(string, delimiter)
+
+		if valid_string?(string)
+			array = string.split(delimiter)
+		  return Date.new(array[2].to_i,array[1].to_i,array[0].to_i)
+		end
+
+		nil
+
+	end
+	
 end
 
 
