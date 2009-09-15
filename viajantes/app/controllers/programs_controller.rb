@@ -34,7 +34,7 @@ class ProgramsController < ApplicationController
   def create
     @program = Program.new(params[:program])
 		@program.destination = Destination.find(params[:destination_id])
-		@program.date = to_date(params[:program][:date])
+		@program.date = to_date(params[:program][:date], true)
 		@program.value = currency_to_number(params[:program][:value])
 
     respond_to do |format|
