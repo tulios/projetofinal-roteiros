@@ -3,10 +3,10 @@
 one:
   id: 1
   state_id: 20 
-  name: Brasília=capital=
+  name: Brasília
   
 two:
   id: 2
   state_id: 10 
-  name: Fortaleza=capital=
+  name: Fortaleza
 

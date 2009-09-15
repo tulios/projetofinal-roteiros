@@ -134,4 +134,26 @@ class ShopsControllerTest < ActionController::TestCase
 
 		assert_equal(1, Shop.count)
   end
+  
+  test "Deveria filtrar os resultados pela cidade" do
+  	# Verifica se o controlador respondeu sucesso
+    get :index
+    assert_response :success
+
+		# Verifica que ele carregou os tourist_sights
+    assert_not_nil assigns(:shops)
+    assert_equal(2, assigns(:shops).length)
+    
+    # Verifica que não existem estebelecimentos cadastrados para fortaleza
+    get :index, :state_id => 10, :city_id => 2
+    assert_response :success
+		assert_not_nil assigns(:shops)
+    assert_equal(0, assigns(:shops).length)
+    
+    # Verifica que existem 2 estabelecimentos em brasilia
+    get :index, :state_id => 20, :city_id => 1
+    assert_response :success
+		assert_not_nil assigns(:shops)
+    assert_equal(2, assigns(:shops).length)
+  end
 end
