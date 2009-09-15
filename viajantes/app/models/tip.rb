@@ -3,9 +3,9 @@
 # Este modelo representa as dicas.
 # 
 # Atributos:
-#    - String: name (Nome da dica)
-#    - Text: description (Descrição da dica)
-#    - User: user (Usuário o qual a dica pertence)
+#   String: name (Nome da dica)
+#   Text: description (Descrição da dica)
+#   User: user (Usuário o qual a dica pertence)
 #    
 class Tip < ActiveRecord::Base	
 	belongs_to :user

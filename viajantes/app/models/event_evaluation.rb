@@ -4,8 +4,8 @@
 # É uma classe associativa entre Event e Evaluation
 #
 # Atributos:
-#  Event: event (Evento o qual a avaliação pertence)
-#  Evaluation: evaluation (A avaliação do evento)
+#   Event: event (Evento o qual a avaliação pertence)
+#   Evaluation: evaluation (A avaliação do evento)
 #
 class EventEvaluation < ActiveRecord::Base
   belongs_to :event

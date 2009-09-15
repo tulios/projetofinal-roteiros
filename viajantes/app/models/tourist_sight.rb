@@ -3,15 +3,15 @@
 # Este modelo representa os pontos túristicos.
 # 
 # Atributos:
-#	  - String: name (O nome do ponto turístico)
-#	  - String: address (O endereço do ponto turístico)
-#	  - String: fone (O telefone do ponto turístico)
-#	  - String: email (O e-mail do ponto turístico)
-#	  - String: visitation_period (O período de visitação do ponto turístico)
-#	  - String: description (A descrição do ponto turístico)
-#	  - City: city (A cidade a qual o ponto turístico pertence)
-#	  - User: user (O usuário o qual o ponto turístico pertence)
-#	  - Integer: hits (Quantidade de acessos deste ponto turístico)
+#	  String: name (O nome do ponto turístico)
+#	  String: address (O endereço do ponto turístico)
+#	  String: fone (O telefone do ponto turístico)
+#	  String: email (O e-mail do ponto turístico)
+#	  String: visitation_period (O período de visitação do ponto turístico)
+#	  String: description (A descrição do ponto turístico)
+#	  City: city (A cidade a qual o ponto turístico pertence)
+#	  User: user (O usuário o qual o ponto turístico pertence)
+#	  Integer: hits (Quantidade de acessos deste ponto turístico)
 #	  
 class TouristSight < ActiveRecord::Base
 	belongs_to :city

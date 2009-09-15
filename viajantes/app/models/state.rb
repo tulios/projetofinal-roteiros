@@ -3,10 +3,10 @@
 # Este modelo representa os estados.
 # 
 # Atributos:
-#    - Country: country (O país o qual o estado pertence)
-#    - Region: region (A região a qual o estado pertence)
-#    - String: symbol (A sliga do estado)
-#    - String: name (O nome do estado)
+#   Country: country (O país o qual o estado pertence)
+#   Region: region (A região a qual o estado pertence)
+#   String: symbol (A sliga do estado)
+#   String: name (O nome do estado)
 # 
 class State < ActiveRecord::Base
 	belongs_to :country

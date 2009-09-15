@@ -4,7 +4,7 @@
 # A tag tem o intúito de ajudar na classificação dos objetos.
 # 
 # Atributos:
-#    - String: name (Nome da tag)
+#   String: name (Nome da tag)
 # 
 class Tag < ActiveRecord::Base
 	validates_presence_of :name
