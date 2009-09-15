@@ -24,3 +24,7 @@ Casos de Uso
     4 - Listar os estabelecimentos/ponto turístico que estejam na seguinte situação:
     			>= (média da quantidade de avaliações) e > avaliação geral
 >>>>>>> a6fb19f76a273b2f53d51db20a15da2354f19d99:viajantes/revisao_viajantes.txt
+
+	Pesquisa
+		1 - A pesquisa está apenas no estabelecimento e ponto turístico
+		2 - verificar se o fluxo do caso de uso pesquisa está correto
