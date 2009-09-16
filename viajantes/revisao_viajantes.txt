@@ -5,25 +5,29 @@ Casos de Uso
     2 - Tirar editar e excluir da listagem e colocar no detalhamento
     3 - Revisar auto-grow da edição
     4 - Adicionar campos imagem
-		5 - Revisar email (em cadastro não é obrigatório e em alterar é obrigatório)
+    5 - Revisar tela de pesquisar tag por cidade (voltar, imagem e etc)    
+    6 - Revisar edição de ponto turístico (voltar e detalhar)
+		7 - Revisar email (em cadastro não é obrigatório e em alterar é obrigatório)
     
+  Manter Roteiro:
+    1 - Revisar tela de edição (voltar e detalhar)
+    
+  Manter Programa:
+    1 - Ordenar pontos turíticos e estabelecimentos alfabeticamente 
+        ao criar um novo programa
     
   Manter Estabelecimento:
     1 - Filtrar listagem por cidade
     2 - Retirar editar e apagar da listagem e colocar no detalhamento
-    3 - Adicionar campo imagem
+    3 - Adicionar campo imagem  
 		4 - Revisar email (campo obrigatório mesmo? Se sim, colocar asterístico)
-    
     
    Pagina inicial
     1 - Cidades mais visitadas (gráfico)
     2 - Pontos Turísticos e estabelecimentos melhor avaliados
     3 - Eventos na cidade do usuário logado
-<<<<<<< HEAD:viajantes/revisao_viajantes.txt
-=======
     4 - Listar os estabelecimentos/ponto turístico que estejam na seguinte situação:
     			>= (média da quantidade de avaliações) e > avaliação geral
->>>>>>> a6fb19f76a273b2f53d51db20a15da2354f19d99:viajantes/revisao_viajantes.txt
 
 	Pesquisa
 		1 - A pesquisa está apenas no estabelecimento e ponto turístico

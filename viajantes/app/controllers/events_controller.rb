@@ -1,7 +1,21 @@
+# EventsController - Controlador de Eventos
+# 
+# Este controlador é responsável por processar e 
+# responder as requisições relativas aos eventos. 
+# 
 class EventsController < ApplicationController
 
   # GET /events
   # GET /events.xml
+  # 
+	# Carrega todos os eventos de uma cidade dentro de um período específico.
+	#
+	# Params:
+	#   - state_id (Id do estado)
+	#   - city_id (Id da cidade)
+	#   - start (Data de inicio)
+	#   - end (Data final)
+	#
   def index
   	@states = State.load_all
   	
@@ -60,8 +74,15 @@ class EventsController < ApplicationController
     end
   end
 
-  # GET /events/1
-  # GET /events/1.xml
+  # GET /events/id
+  # GET /events/id.xml
+  # 
+	# Exibe os dados do evento.
+	#
+	# Params:
+	#   - id (Id do evento)
+	#   - page (número da página da paginação de avaliações)
+	#
   def show
     @event = Event.find(params[:id])
 		@city = @event.city
@@ -77,6 +98,9 @@ class EventsController < ApplicationController
 
   # GET /events/new
   # GET /events/new.xml
+  # 
+	# Carrega a tela para a criação de um novo evento.
+	#
 	def new
     @event = Event.new
 		@states = State.load_all
@@ -88,7 +112,14 @@ class EventsController < ApplicationController
     end
   end
 
-  # GET /events/1/edit
+  # GET /events/id/edit.xml
+  # GET /events/id/new.xml
+  # 
+	# Carrega a tela de edição de evento.
+	#
+	# Params:
+	#   - id (Id do evento)
+	#
   def edit
     @event = Event.find(params[:id])
 		@states = State.load_all
@@ -97,6 +128,12 @@ class EventsController < ApplicationController
 
   # POST /events
   # POST /events.xml
+  # 
+	# Cria um novo evento com os dados submetidos
+	#
+	# Params:
+	#   - event (Hash com os dados do evento)
+	#
   def create
     @event = Event.new(params[:event])
 
@@ -113,8 +150,15 @@ class EventsController < ApplicationController
     end
   end
 
-  # PUT /events/1
-  # PUT /events/1.xml
+  # PUT /events/id
+  # PUT /events/id.xml
+  # 
+	# Atualiza um evento com os dados submetidos.
+	#
+	# Params:
+	#   - id (Id do evento)
+	#   - event (Hash com os dados do evento)
+	#
   def update
     @event = Event.find(params[:id])
 
@@ -131,8 +175,14 @@ class EventsController < ApplicationController
     end
   end
 
-  # DELETE /events/1
-  # DELETE /events/1.xml
+  # DELETE /events/id
+  # DELETE /events/id.xml
+  # 
+	# Exclui um evento
+	#
+	# Params:
+	#   - id (Id do evento)
+	#
   def destroy
     @event = Event.find(params[:id])
     @event.destroy
@@ -144,19 +194,30 @@ class EventsController < ApplicationController
   end
   
   private
+  
+  # Retorna true se os valores de state_id 
+  # e city_id tiverem sido submetidos
+  #
   def has_city?
   	params[:state_id] and params[:state_id].length > 0 and 
     params[:city_id] and params[:city_id].length > 0
   end
   
+  # Retorna true caso o param seja diferente de nil 
+  # e seu comprimento for maior que zero.
+  #
   def has?(param)
   	param and param.length > 0
   end
   
+  # Converte uma data em uma string no formato dd/mm/aaaa
+  #
   def to_string(date)
   	date.strftime("%d/%m/%Y")
   end
   
+  # Monta uma query a partir das condições e os valores passados por parametro
+  #
   def prepare_condition(query, att)
   	condition = []
 
