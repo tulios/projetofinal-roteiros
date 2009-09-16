@@ -4,12 +4,12 @@
 # Exemplos de eventos são: shows, festas, peças, de teatros e etc.
 # 
 # Atributos:
-#  City: city (Cidade onde o evento irá ocorrer)
-#  String: name (Nome do evento)
-#  Timestamp: time (hora e dia em que o evento irá ocorrer)
-#  TouristSight: tourist_sight (Ponto Turístico onde o evento acontece, se for o caso)
-#  Boolean: cost (Representa se o evento tem custo)
-#  String: description (Descrição do evento)
+#   City: city (Cidade onde o evento irá ocorrer)
+#   String: name (Nome do evento)
+#   Timestamp: time (hora e dia em que o evento irá ocorrer)
+#   TouristSight: tourist_sight (Ponto Turístico onde o evento acontece, se for o caso)
+#   Boolean: cost (Representa se o evento tem custo)
+#   String: description (Descrição do evento)
 #
 class Event < ActiveRecord::Base
 

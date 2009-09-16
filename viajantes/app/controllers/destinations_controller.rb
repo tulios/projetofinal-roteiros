@@ -1,8 +1,19 @@
+# DestinationsController - Controlador de Destinos
+# 
+# Este controlador é responsável por processar e 
+# responder as requisições relativas aos destinos. 
+# 
 class DestinationsController < ApplicationController
 	require_role "user", :for_all_except => :show
 
-  # GET /destinations/new
-  # GET /destinations/new.xml
+  # GET /roadmaps/roadmap_id/destinations/new
+  # GET /roadmaps/roadmap_id/destinations/new.xml
+  # 
+	# Carrega o tela para criação de um novo destino.
+	#
+	# Params:
+	#   - roadmap_id (Id do roteiro)
+	#
   def new
     @destination = Destination.new
     @destination.roadmap = Roadmap.find(params[:roadmap_id])
@@ -17,7 +28,15 @@ class DestinationsController < ApplicationController
     end
   end
 
-  # GET /destinations/1/edit
+  # GET /roadmaps/roadmap_id/destinations/id/edit
+  # GET /roadmaps/roadmap_id/destinations/id/edit.xml
+  # 
+	# Carrega a tela de edição de um destino.
+	#
+	# Params:
+	#   - roadmap_id (Id do roteiro)
+	#   - id (Id do destino)
+	#
   def edit
     @destination = Destination.find(params[:id])
     @roadmap = @destination.roadmap
@@ -28,8 +47,15 @@ class DestinationsController < ApplicationController
     @cities = City.all
   end
 
-  # POST /destinations
-  # POST /destinations.xml
+  # POST /roadmaps/roadmap_id/destinations
+  # POST /roadmaps/roadmap_id/destinations.xml
+  # 
+	# Cria um novo destino com os dados submetidos.
+	#
+	# Params:
+	#   - roadmap_id (Id do roteiro)
+	#   - destination (Hash com os dados do destino)
+	#
   def create
     @destination = Destination.new(params[:destination])
     @roadmap = Roadmap.find(params[:roadmap_id])
@@ -61,8 +87,16 @@ class DestinationsController < ApplicationController
     end
   end
 
-  # PUT /destinations/1
-  # PUT /destinations/1.xml
+  # PUT /roadmaps/roadmap_id/destinations/id
+  # PUT /roadmaps/roadmap_id/destinations/id.xml
+  # 
+	# Atualiza os dados de um destino com os dados submetidos.
+	#
+	# Params:
+	#   - roadmap_id (Id do roteiro)
+	#   - id (Id do destino)
+	#   - destination (Hash com os dados do roteiro)
+	#
   def update
     @destination = Destination.find(params[:id])
     @roadmap = @destination.roadmap
@@ -87,8 +121,15 @@ class DestinationsController < ApplicationController
     end
   end
 
-  # DELETE /destinations/1
-  # DELETE /destinations/1.xml
+  # DELETE /roadmaps/roadmap_id/destinations/id
+  # DELETE /roadmaps/roadmap_id/destinations/id.xml
+  # 
+	# Exclui um destino.
+	#
+	# Params:
+	#   - roadmap_id (Id do roteiro)
+	#   - id (Id do destino)
+	#
   def destroy
     @destination = Destination.find(params[:id])
     @roadmap = @destination.roadmap

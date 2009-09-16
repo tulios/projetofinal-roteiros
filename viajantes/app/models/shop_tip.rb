@@ -1,7 +1,7 @@
 # Shop Tip - Dica de Estabelecimento
 #
 # Este modelo representa as dicas de estabelecimentos. 
-# É uma classe associativa entre Tip e Shop.
+# É uma classe associativa entre Shop e Tip.
 #
 # Atributos:
 #   Shop: shop (O ponto turístico o qual a dica pertence)
