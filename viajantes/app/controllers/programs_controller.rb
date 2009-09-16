@@ -1,8 +1,20 @@
+# ProgramsController - Controlador de Programas
+# 
+# Este controlador é responsável por processar e 
+# responder as requisições relativas aos programas. 
+# 
 class ProgramsController < ApplicationController
 	require_role "user"
 
-  # GET /programs/new
-  # GET /programs/new.xml
+  # GET /roadmaps/roadmap_id/destinations/destination_id/programs/new
+  # GET /roadmaps/roadmap_id/destinations/destination_id/programs/new.xml
+  # 
+	# Carrega o tela para criação de um novo programa.
+	#
+	# Params:
+	#   - roadmap_id (Id do roteiro)
+	#   - destination_id (Id do destino)
+	#
   def new
     @program = Program.new
 		@roadmap = Roadmap.find(params[:roadmap_id])
@@ -18,7 +30,16 @@ class ProgramsController < ApplicationController
     end
   end
 
-  # GET /programs/1/edit
+  # GET /roadmaps/roadmap_id/destinations/destination_id/programs/id/edit
+  # GET /roadmaps/roadmap_id/destinations/destination_id/programs/id/edit.xml
+  # 
+	# Carrega a tela de edição de um programa.
+	#
+	# Params:
+	#   - roadmap_id (Id do roteiro)
+	#   - destination_id (Id do destino)   
+	#   - id (Id do programa)
+	#
   def edit
     @program = Program.find(params[:id])
 		@destination = @program.destination
@@ -29,8 +50,16 @@ class ProgramsController < ApplicationController
 		@shops = Shop.find_all_by_city_id(city_id)
   end
 
-  # POST /programs
-  # POST /programs.xml
+  # POST /roadmaps/roadmap_id/destinations/destination_id/programs
+  # POST /roadmaps/roadmap_id/destinations/destination_id/programs.xml
+  # 
+	# Cria um novo programa com os dados submetidos.
+	#
+	# Params:
+	#   - roadmap_id (Id do roteiro)
+	#   - destination_id
+	#   - program (Hash com os dados do programa)
+	#
   def create
     @program = Program.new(params[:program])
 		@program.destination = Destination.find(params[:destination_id])
@@ -46,15 +75,23 @@ class ProgramsController < ApplicationController
       else
 				@destination = @program.destination
 				@roadmap = @program.destination.roadmap
-
         format.html { render :action => "new" }
         format.xml  { render :xml => @program.errors, :status => :unprocessable_entity }
       end
     end
   end
 
-  # PUT /programs/1
-  # PUT /programs/1.xml
+  # PUT /roadmaps/roadmap_id/destinations/destination_id/programs/id
+  # PUT /roadmaps/roadmap_id/destinations/destination_id/programs/id.xml
+  # 
+	# Atualiza os dados de um programa com os dados submetidos.
+	#
+	# Params:
+	#   - roadmap_id (Id do roteiro)
+	#   - destination_id (Id do destino)
+	#   - id (Id do programa)
+	#   - programa(Hash com os dados do programa)
+	#
   def update
   	if params[:program][:happens_in]  	
 		  params[:program][:happens_in] = params[:program][:happens_in].intern
@@ -90,8 +127,16 @@ class ProgramsController < ApplicationController
     end
   end
 
-  # DELETE /programs/1
-  # DELETE /programs/1.xml
+  # DELETE /roadmaps/roadmap_id/destinations/destination_id/programs/id
+  # DELETE /roadmaps/roadmap_id/destinations/destination_id/programs/id.xml
+  # 
+	# Exclui um programa.
+	#
+	# Params:
+	#   - roadmap_id (Id do roteiro)
+	#   - destination_id (Id do destino)
+	#   - id (Id do programa)
+	#
   def destroy
     @program = Program.find(params[:id])
 		roadmap = @program.destination.roadmap
