@@ -113,7 +113,7 @@ class TouristSight < ActiveRecord::Base
 		TouristSight.paginate(:conditions => ["city_id = ? and tags.id = ?", city_id, tag_id], 
 													:joins => :tags,
 													:per_page => per_page,
-													:page => page
+													:page => page,
 													:order => "hits desc")
 	end
 

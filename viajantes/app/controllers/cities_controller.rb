@@ -1,8 +1,17 @@
+# CitiesController - Controlador de Cidades
+# 
+# Este controlador é responsável por processar e 
+# responder as requisições relativas às cidades. 
+#  
 class CitiesController < ApplicationController
 
-	# Utilizado para carregar as cidades de um determinado estado
+  # GET /cities
+  # 
+	# Carrega todas as cidades de um determinado estado
+	#
 	# Params:
-	#  - state_id
+	#   - state_id (Id do estado)
+	#
 	def index
     @cities = City.load_all(params[:state_id])
 		respond_to do |format|
