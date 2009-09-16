@@ -21,6 +21,7 @@ Casos de Uso
     2 - Retirar editar e apagar da listagem e colocar no detalhamento
     3 - Adicionar campo imagem  
 		4 - Revisar email (campo obrigatório mesmo? Se sim, colocar asterístico)
+		5 - Revisar tela de edição (voltar e detalhar)
     
    Pagina inicial
     1 - Cidades mais visitadas (gráfico)
