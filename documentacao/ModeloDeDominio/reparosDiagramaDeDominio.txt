@@ -1,0 +1,6 @@
+Reparos no modelo de dominio
+
+1 - não existe dica em destino e roteiro
+2 - colocar fax, email, website e informações adicionais em estabelecimento
+3 - o evento deve estar ligado a ponto turistico também
+4 - nao existe avaliacao de cidade
