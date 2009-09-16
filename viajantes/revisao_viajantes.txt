@@ -19,8 +19,5 @@ Casos de Uso
     1 - Cidades mais visitadas (gráfico)
     2 - Pontos Turísticos e estabelecimentos melhor avaliados
     3 - Eventos na cidade do usuário logado
-<<<<<<< HEAD:viajantes/revisao_viajantes.txt
-=======
     4 - Listar os estabelecimentos/ponto turístico que estejam na seguinte situação:
     			>= (média da quantidade de avaliações) e > avaliação geral
->>>>>>> a6fb19f76a273b2f53d51db20a15da2354f19d99:viajantes/revisao_viajantes.txt

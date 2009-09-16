@@ -1,0 +1,18 @@
+<map version="0.8.1">
+<!-- To view this file, download free mind mapping software FreeMind from http://freemind.sourceforge.net -->
+<node CREATED="1253097284254" ID="Freemind_Link_1011289496" MODIFIED="1253097487931" TEXT="Lista de destinos">
+<node CREATED="1253024061454" HGAP="34" ID="Freemind_Link_672632146" MODIFIED="1253097419596" POSITION="right" TEXT="Novo destino" VSHIFT="1">
+<node CREATED="1253024075398" ID="Freemind_Link_504958207" MODIFIED="1253024076957" TEXT="Salvar"/>
+<node CREATED="1253024078174" ID="Freemind_Link_1783657020" MODIFIED="1253024080244" TEXT="Voltar"/>
+<node CREATED="1253024598804" ID="Freemind_Link_979627982" MODIFIED="1253024602459" TEXT="Editar outro destino"/>
+<node CREATED="1253024603604" ID="Freemind_Link_975169525" MODIFIED="1253024606798" TEXT="Apagar outro destino"/>
+</node>
+<node CREATED="1253024297291" HGAP="31" ID="Freemind_Link_30159650" MODIFIED="1253097363299" POSITION="right" TEXT="Editar" VSHIFT="11">
+<node CREATED="1253024334742" ID="Freemind_Link_1156201742" MODIFIED="1253024337062" TEXT="Salvar"/>
+<node CREATED="1253024338129" ID="Freemind_Link_840010612" MODIFIED="1253024339116" TEXT="Voltar"/>
+<node CREATED="1253024340865" ID="Freemind_Link_1870683514" MODIFIED="1253024346743" TEXT="Editar outro destino"/>
+<node CREATED="1253024347954" ID="Freemind_Link_1743252377" MODIFIED="1253024356104" TEXT="Apagar outro destino"/>
+</node>
+<node CREATED="1253024376977" HGAP="32" ID="Freemind_Link_426639783" MODIFIED="1253097378636" POSITION="right" TEXT="Apagar" VSHIFT="11"/>
+</node>
+</map>

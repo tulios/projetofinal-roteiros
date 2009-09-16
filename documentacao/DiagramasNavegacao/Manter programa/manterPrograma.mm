@@ -1,0 +1,18 @@
+<map version="0.8.1">
+<!-- To view this file, download free mind mapping software FreeMind from http://freemind.sourceforge.net -->
+<node CREATED="1253097654021" ID="Freemind_Link_1068789046" MODIFIED="1253097678286" TEXT="Lista de programas">
+<node CREATED="1253024275012" HGAP="30" ID="Freemind_Link_1983762372" MODIFIED="1253097719140" POSITION="right" TEXT="Novo" VSHIFT="9">
+<node CREATED="1253024396942" ID="Freemind_Link_1633806808" MODIFIED="1253024399552" TEXT="Salvar"/>
+<node CREATED="1253024403879" ID="Freemind_Link_1577142221" MODIFIED="1253024405150" TEXT="Voltar"/>
+<node CREATED="1253024488796" ID="Freemind_Link_833085469" MODIFIED="1253024494006" TEXT="Editar outro programa"/>
+<node CREATED="1253024495177" ID="Freemind_Link_1244856843" MODIFIED="1253024498738" TEXT="Apagar outro programa"/>
+</node>
+<node CREATED="1253024538196" HGAP="33" ID="Freemind_Link_1583798382" MODIFIED="1253097735268" POSITION="right" TEXT="Editar" VSHIFT="11">
+<node CREATED="1253024559578" ID="Freemind_Link_1687613946" MODIFIED="1253024564020" TEXT="Salvar"/>
+<node CREATED="1253024565041" ID="Freemind_Link_1721936228" MODIFIED="1253024566124" TEXT="Voltar"/>
+<node CREATED="1253024566944" ID="Freemind_Link_29008018" MODIFIED="1253024573422" TEXT="Editar outro programa"/>
+<node CREATED="1253024574709" ID="Freemind_Link_1945664119" MODIFIED="1253024580014" TEXT="Apagar outro programa"/>
+</node>
+<node CREATED="1253024542692" HGAP="30" ID="Freemind_Link_564875848" MODIFIED="1253097744925" POSITION="right" TEXT="Apagar" VSHIFT="8"/>
+</node>
+</map>
