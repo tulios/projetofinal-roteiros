@@ -33,3 +33,6 @@ Casos de Uso
 	Pesquisa
 		1 - A pesquisa está apenas no estabelecimento e ponto turístico
 		2 - verificar se o fluxo do caso de uso pesquisa está correto
+
+	Manter evento
+		1 - Colocar o editar no padrão do manter estabelecimento e manter ponto turístico (ou vice versa)
