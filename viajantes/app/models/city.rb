@@ -10,7 +10,6 @@
 #   Float:    longitude (Número que indica a longitude da cidade no mapa)
 #
 class City < ActiveRecord::Base
-
 	belongs_to :state
 	
 	# Carrega todas as cidades de um determinado estado.
