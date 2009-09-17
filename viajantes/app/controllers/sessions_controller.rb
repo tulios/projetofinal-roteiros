@@ -16,7 +16,6 @@ class SessionsController < ApplicationController
       end
       flash.clear
       redirect_back_or_default('/')
-      #flash[:notice] = "Logged in successfully"
     else
       flash[:error] = "Usuário ou senha inválido"
       render :action => 'new'
@@ -27,7 +26,6 @@ class SessionsController < ApplicationController
     self.current_user.forget_me if logged_in?
     cookies.delete :auth_token
     reset_session
-    #flash[:notice] = "You have been logged out."
     redirect_back_or_default('/login')
   end
 end
