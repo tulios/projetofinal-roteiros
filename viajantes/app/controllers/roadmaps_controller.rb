@@ -80,7 +80,7 @@ class RoadmapsController < ApplicationController
       else
 			
 				# Recarrega os estados e as cidades se possivel
-				load_states_and_cities
+				load_states_and_cities(@roadmap)
 
         format.html { render :action => "new" }
         format.xml  { render :xml => @roadmap.errors, :status => :unprocessable_entity }
@@ -106,7 +106,7 @@ class RoadmapsController < ApplicationController
 		    else
 
 					# Recarrega os estados e as cidades se possivel
-					load_states_and_cities
+					load_states_and_cities(@roadmap)
 
 		      format.html { render :action => "edit" }
 		      format.xml  { render :xml => @roadmap.errors, :status => :unprocessable_entity }
@@ -136,16 +136,4 @@ class RoadmapsController < ApplicationController
 		end
   end
 
-	# == Metodos utilitarios ==
-	private
-
-	# Carrega os estados e as cidades se possivel
-	def load_states_and_cities
-		# carrega novamente os estados para exibir no combo
-		@states = State.load_all
-		# carrega novamente as cidades se o estado tiver sido informado
-		if @tourist_sight and @tourist_sight.city
-			@cities = City.load_all(@tourist_sight.city.state.id)
-		end
-	end
 end

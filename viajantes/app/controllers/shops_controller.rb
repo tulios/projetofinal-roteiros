@@ -83,7 +83,7 @@ class ShopsController < ApplicationController
         format.xml  { render :xml => @shop, :status => :created, :location => @shop }
       else
 
-				load_states_and_cities
+				load_states_and_cities(@shop)
 
         format.html { render :action => "new" }
         format.xml  { render :xml => @shop.errors, :status => :unprocessable_entity }
@@ -103,7 +103,7 @@ class ShopsController < ApplicationController
         format.xml  { head :ok }
       else
 				
-				load_states_and_cities
+				load_states_and_cities(@shop)
 
         format.html { render :action => "edit" }
         format.xml  { render :xml => @shop.errors, :status => :unprocessable_entity }
@@ -122,17 +122,6 @@ class ShopsController < ApplicationController
       format.xml  { head :ok }
     end
   end
-
-	private
-
-	def load_states_and_cities
-		# carrega novamente os estados para exibir no combo
-		@states = State.load_all
-		# carrega novamente as cidades se o estado tiver sido informado
-		if @shop and @shop.city
-			@cities = City.load_all(@shop.city.state.id)
-		end
-	end
 
 end
 
