@@ -11,6 +11,9 @@ Casos de Uso
     
   Manter Roteiro:
     1 - Revisar tela de edição (voltar e detalhar)
+    2 - Adicionar o fluxo de exclusão.
+    3 - Adicionar um botão para listar todos na pesquisa.
+    4 - 
     
   Manter Programa:
     1 - Ordenar pontos turíticos e estabelecimentos alfabeticamente 
