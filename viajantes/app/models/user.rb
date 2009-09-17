@@ -9,6 +9,7 @@ require 'digest/sha1'
 #   String: email (O e-mail do usuário)
 #   Date: birthday (A data de nascimento do usuário)
 #   City: city (A cidade onde o usuário mora)
+#		String: sex (O sexo do usuário)
 #   String: crypted_password (A senha criptografada do usuário)
 # 
 class User < ActiveRecord::Base
