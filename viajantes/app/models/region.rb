@@ -8,4 +8,5 @@
 #   String: name (Nome da região)
 #
 class Region < ActiveRecord::Base
+	belongs_to :country
 end
