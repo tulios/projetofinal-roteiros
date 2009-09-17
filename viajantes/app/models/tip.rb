@@ -5,6 +5,7 @@
 # Atributos:
 #   String: name (Nome da dica)
 #   Text: description (Descrição da dica)
+#		DateTime: created_at (Data de criacao)
 #   User: user (Usuário o qual a dica pertence)
 #    
 class Tip < ActiveRecord::Base	
