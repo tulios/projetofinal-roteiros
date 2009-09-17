@@ -143,8 +143,7 @@ ActiveRecord::Schema.define(:version => 20090910101755) do
   end
 
   create_table "states", :force => true do |t|
-    t.integer "country_id", :null => false
-    t.integer "region_id",  :null => false
+    t.integer "region_id", :null => false
     t.string  "symbol"
     t.string  "name"
   end
