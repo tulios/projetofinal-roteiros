@@ -10,7 +10,7 @@
 #   Integer: clean (Nota para o critério limpeza)
 #   Integer: location (Nota para o critério localização)
 #   Integer: price (Nota para o critério preço)
-#   Integer: infraestrutura (Nota para o critério infraestrutura)
+#   Integer: infraestructure (Nota para o critério infraestrutura)
 #   Integer: attendance (Nota para o críterio atendimento)
 #   City: cidade (Cidade)
 #   User: user (Usuário a qual a crítica pertence)
