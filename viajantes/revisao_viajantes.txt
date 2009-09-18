@@ -13,7 +13,6 @@ Casos de Uso
     1 - Revisar tela de edição (voltar e detalhar)
     2 - Adicionar o fluxo de exclusão.
     3 - Adicionar um botão para listar todos na pesquisa.
-    4 - 
     
   Manter Programa:
     1 - Ordenar pontos turíticos e estabelecimentos alfabeticamente 
@@ -36,6 +35,7 @@ Casos de Uso
 	Pesquisa
 		1 - A pesquisa está apenas no estabelecimento e ponto turístico
 		2 - verificar se o fluxo do caso de uso pesquisa está correto
+		3 - Ao clicar o texto "pesquise aqui não está apagando"
 
 	Manter evento
 		1 - Colocar o editar no padrão do manter estabelecimento e manter ponto turístico (ou vice versa)
