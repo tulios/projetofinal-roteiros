@@ -8,6 +8,7 @@ Casos de Uso
     5 - Revisar tela de pesquisar tag por cidade (voltar, imagem e etc)    
     6 - Revisar edição de ponto turístico (voltar e detalhar)
 		7 - Revisar email (em cadastro não é obrigatório e em alterar é obrigatório)
+    8 - Adicionar um combo-box com todas as tags na pesquisa avançada. 
     
   Manter Roteiro:
     1 - Revisar tela de edição (voltar e detalhar)
