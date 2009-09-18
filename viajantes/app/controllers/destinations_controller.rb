@@ -75,7 +75,7 @@ class DestinationsController < ApplicationController
         format.xml  { render :xml => @destination, :status => :created, :location => @destination }
       else
         # Recarrega os estados e cidades
-        load_states_and_cities
+        load_states_and_cities(@destination)
         @roadmap = @destination.roadmap
         @destinations =@roadmap.destinations
         @vehicles = Vehicle.all
@@ -111,7 +111,7 @@ class DestinationsController < ApplicationController
         format.html { redirect_to(roadmap_path(@destination.roadmap)) }
         format.xml  { head :ok }
       else
-        load_states_and_cities
+        load_states_and_cities(@destination)
         @vehicles = Vehicle.all
         @destinations =  @roadmap.destinations
 
@@ -141,13 +141,4 @@ class DestinationsController < ApplicationController
     end
   end
   
-  # Carrega os estados e as cidades se possivel
-	def load_states_and_cities
-		# carrega novamente os estados para exibir no combo
-		@states = State.load_all
-		# carrega novamente as cidades se o estado tiver sido informado
-		if @destination and @destination.city
-			@cities = City.load_all(@destination.city.state.id)
-		end
-	end
 end
