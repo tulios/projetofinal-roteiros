@@ -18,6 +18,7 @@ body {
 	font: normal 62.5% Tahoma,sans-serif;
 	text-align: center;
 	padding-bottom: 30px;
+	border-top: 2px solid #B5B5B5;
 }
 
 p,code,ul {padding-bottom: 1.2em;}
@@ -758,6 +759,27 @@ textarea.expanding {
 
 .obrigatorio {
   color: red;
+}
+
+.usernav {
+	height: 24px;
+	padding-left: 22px;
+	padding-top: 3px;
+	margin-right: 23px;
+	margin-top: -2px;
+	position: absolute;
+	right: 0px;
+	background: transparent url(../images/usernav_bg.png) no-repeat scroll 0 0;
+}
+
+.usernav .cap {
+	background: transparent url(../images/usernav_bg.png) no-repeat scroll 0 0;
+	background-position:right top;
+	height: 24px;
+	position: absolute;
+	right: -23px;
+	top: 0;
+	width: 23px;
 }
 
 

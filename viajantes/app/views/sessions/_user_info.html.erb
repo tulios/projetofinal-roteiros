@@ -1,13 +1,14 @@
 <% if logged_in? %>
 
-  <div class="user_menu">
-    <span>
-      <%= current_user.login %>&nbsp;::
-      <%= link_to "opções", edit_user_path(current_user) %>&nbsp;::
-    </span>
-    <%= link_to "sair", logout_path  %>
-  </div>
+	<div class="usernav">
+		<span>
+		  <%= current_user.login %>&nbsp;::
+		  <%= link_to "opções", edit_user_path(current_user) %>&nbsp;::
+		</span>
+		<%= link_to "sair", logout_path  %>
+		<span class="cap"></span>
+	</div>
 
-<% elsif not controller_name == "index"%>
-  <%= link_to "Cadastre-se aqui!", signup_path, :class => "signup", :style => "float: right;" %>
 <% end %>
+
+
