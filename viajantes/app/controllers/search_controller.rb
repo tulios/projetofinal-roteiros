@@ -17,20 +17,23 @@ class SearchController < ApplicationController
       @shops = Shop.find_like_name_or_key_word(@value, 10, params[:page_shop], @city_id)
       @tourist_sights = TouristSight.find_like_name(@value, 10, params[:page_ts], @city_id)
       @roadmaps = Roadmap.find_like_title(@value, 10, params[:page_rm], @city_id)
+      @events = Event.find_like_name(@value, 10, params[:page_event], @city_id)
       
       @advance_search = true
     else    
       # Consultas
       @shops = Shop.find_like_name_or_key_word(@value, 10, params[:page_shop])
       @tourist_sights = TouristSight.find_like_name(@value, 10, params[:page_ts])
-      @roadmaps = Roadmap.find_like_title(@value, 10, params[:page_rm])		
+      @roadmaps = Roadmap.find_like_title(@value, 10, params[:page_rm])	
+      @events = Event.find_like_name(@value, 10, params[:page_event])	
     end
 
 		# Variavel que determina se houve resultados
 		@results = (
 			(@shops and @shops.length > 0) or 
 			(@tourist_sights and @tourist_sights.length > 0) or
-			(@roadmaps and @roadmaps.length > 0)
+			(@roadmaps and @roadmaps.length > 0) or
+ 			(@events and @events.length > 0)			
 		)
 
 		# Aba que deve ficar selecionada

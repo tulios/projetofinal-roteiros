@@ -66,6 +66,25 @@ class Event < ActiveRecord::Base
 		)
 	end
 
+  # Recupera todos os eventos com o título parecido com o valor informado.
+	#
+	# params:
+	#		- String: value (O valor pesquisado)
+	# 	- Integer: per_page (O tamanho máximo da página retornada)
+	#		- Integer: page (O número da página retornada)
+	#
+	def self.find_like_name(value, per_page = 10, page = 1, city_id = nil)
+	  if city_id
+	    cond = ["(Lower(name) like ?) and city_id = ?", 
+	            "%#{value.downcase}%", city_id]
+	  else
+		  cond = ["Lower(name) like ?", "%#{value.downcase}%"]
+		end
+		Event.paginate(:conditions => cond, 
+										 :per_page => per_page, 
+										 :page => page)
+	end
+
   # Realiza uma consulta pelas avaliações do evento 
   # retornando uma avaliação com os valores médios 
   # das notas atribuídas para cada críterio de avaliação.

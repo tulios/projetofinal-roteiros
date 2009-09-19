@@ -36,29 +36,40 @@
 		<ul>
 			<% if @tourist_sights and @tourist_sights.length > 0%>
 			<li><a href="#tourist_sights">Pontos Turísticos</a></li>
+			<% else %>
+			 <li style="display: none;"><a href="#tourist_sights"></a></li>
 			<% end %>
+			
 			<% if @shops and @shops.length > 0%>
 			<li><a href="#shops">Estabelecimentos</a></li>
+			<% else %>
+			 <li style="display: none;"><a href="#shops"></a></li>
 			<% end %>
+			
 			<% if @roadmaps and @roadmaps.length > 0%>
 			<li><a href="#roadmaps">Roteiros</a></li>
+			<% else %>
+			 <li style="display: none;"><a href="#roadmaps"></a></li>
+			<% end %>
+			
+			<% if @events and @events.length > 0%>
+			<li><a href="#events">Eventos</a></li>
+      <% else %>  
+			 <li style="display: none;"><a href="#events"></a></li>
 			<% end %>
 		</ul>
 
 		<!-- tourist_sight -->
-		<% if @tourist_sights and @tourist_sights.length > 0 %>
     <%= render :partial => "tourist_sights" %>
-		<% end %>
 
 		<!-- shop -->
-		<% if @shops and @shops.length > 0%>
     <%= render :partial => "shops" %>
-		<% end %>
 
 		<!-- roadmap -->
-		<% if @roadmaps and @roadmaps.length > 0%>
     <%= render :partial => "roadmaps" %>
-		<% end %>
+		
+		<!-- event -->
+    <%= render :partial => "events" %>
 
 	</div>
 
