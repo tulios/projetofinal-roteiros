@@ -18,11 +18,9 @@ class EventTipsController < ApplicationController
     @tip.user = current_user
     event = Event.find(params[:event_id]) 
         
-    @event_tip = EventTip.new(
-      { :tip => @tip, 
-        :event => event
-      }
-     )
+    @event_tip = EventTip.new({
+    	:tip => @tip, :event => event
+    })
 
     respond_to do |format|
       if @tip.save and @event_tip.save

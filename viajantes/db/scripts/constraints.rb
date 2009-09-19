@@ -171,7 +171,7 @@ module Constraints
 	#
 	def self.apply(sql)
 		begin
-			con = ActiveRecord::Base.connection()
+			con = ActiveRecord::Base.connection
 			con.begin_db_transaction
 			con.execute(sql)
 			con.commit_db_transaction

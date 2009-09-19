@@ -199,8 +199,7 @@ class EventsController < ApplicationController
   # e city_id tiverem sido submetidos
   #
   def has_city?
-  	params[:state_id] and params[:state_id].length > 0 and 
-    params[:city_id] and params[:city_id].length > 0
+  	has?(params[:state_id]) and has?(params[:city_id])
   end
   
   # Retorna true caso o param seja diferente de nil 
