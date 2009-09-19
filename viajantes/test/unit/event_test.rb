@@ -63,6 +63,18 @@ class EventTest < ActiveSupport::TestCase
     event.save
     event
   end
+  
+  test "Deveria recuperar os eventos com o nome parecido ao pesquisado" do
+    value = "evento"
+    events = Event.find_like_name(value);
+    assert events
+    assert_equal events.size, Event.count
+    
+    events.each do |event|
+      assert Regexp.new(value, Regexp::IGNORECASE).match(event.name)
+    end
+    
+  end
 	
 
 end

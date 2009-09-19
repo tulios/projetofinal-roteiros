@@ -38,7 +38,7 @@ module ApplicationHelper
 		if selected 
 			add = "{selected: #{selected}}"
 		end
-
+		
 		%Q{
 			<script type="text/javascript">
 				$(document).ready (function() {
