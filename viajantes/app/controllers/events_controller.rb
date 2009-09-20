@@ -86,7 +86,7 @@ class EventsController < ApplicationController
   def show
     @event = Event.find(params[:id])
 		@city = @event.city
-		@tips = @event.tips
+		@tips = @event.tips(params[:page_tips])
 		@evaluations = @event.evaluations(params[:page])
 		@average = @event.evaluation_average
 

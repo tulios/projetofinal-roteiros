@@ -37,7 +37,7 @@ class ShopsController < ApplicationController
   def show
     @shop = Shop.find(params[:id])
     @evaluations = @shop.evaluations(params[:page])
-    @tips = @shop.tips(params[:page])
+    @tips = @shop.tips(params[:page_tips])
     @average = @shop.evaluation_average
 		@city = @shop.city
 		@shop.increase_hits

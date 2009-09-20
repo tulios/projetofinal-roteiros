@@ -37,7 +37,7 @@ class TouristSightsController < ApplicationController
     @evaluations = @tourist_sight.evaluations(params[:page])
     @average = @tourist_sight.evaluation_average
 		@city = @tourist_sight.city
-		@tips = @tourist_sight.tips(params[:page])
+		@tips = @tourist_sight.tips(params[:page_tips])
 		@tourist_sight.increase_hits
 		
     respond_to do |format|

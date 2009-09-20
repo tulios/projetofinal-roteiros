@@ -50,7 +50,7 @@ class Shop < ActiveRecord::Base
 	#     - Integer: page (pagina atual da paginação)
 	#     - Ineger: per_page (número de registros por página)
 	#  
-	def evaluations(page = 1, per_page = 5)
+	def evaluations(page = 1, per_page = Config::PAGE_SIZE)
 		Evaluation.paginate(
 			:select => "*, se.id as especified_type",
 			:conditions => ["shop_id = ?", id],
@@ -68,7 +68,7 @@ class Shop < ActiveRecord::Base
 	#     - Integer: page (pagina atual da paginação)
 	#     - Ineger: per_page (número de registros por página)
 	#  
-	def tips(page = 1, per_page = 5)
+	def tips(page = 1, per_page = Config::PAGE_SIZE)
 		Tip.paginate(
 			:select => "*, st.id as especified_type",
 			:joins => "inner join shop_tips st on st.tip_id = tips.id",
@@ -93,7 +93,7 @@ class Shop < ActiveRecord::Base
 	# 	- Integer: per_page (O tamanho máximo da página retornada)
 	#		- Integer: page (O número da página retornada)
 	#
-	def self.find_like_name_or_key_word(value, per_page = 10, page = 1, city_id = nil)
+	def self.find_like_name_or_key_word(value, per_page = Config::PAGE_SIZE, page = 1, city_id = nil)
 	  if city_id
 	    cond = ["(Lower(name) like ? or Lower(key_words) like ?) and city_id = ?",
 	            "%#{value.downcase}%", "%#{value.downcase}%", city_id]

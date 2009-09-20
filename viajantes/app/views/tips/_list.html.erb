@@ -28,7 +28,7 @@
 	        </li>
         <% end %>
         <li class="sem_li">
-          <%= will_paginate @tips %>
+          <%= will_paginate @tips, :param_name => :page_tips %>
         </li>
       <% end %>
     </ul>	

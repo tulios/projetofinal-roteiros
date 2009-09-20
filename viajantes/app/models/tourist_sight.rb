@@ -49,7 +49,7 @@ class TouristSight < ActiveRecord::Base
 	#     - Integer: page (pagina atual da paginação)
 	#     - Ineger: per_page (número de registros por página)
 	#  
-	def tips(page = 1, per_page = 5)
+	def tips(page = 1, per_page = Config::PAGE_SIZE)
 		Tip.paginate(
 			:select => "*, tst.id as especified_type",
 			:conditions => ["tst.tourist_sight_id = ?", id],
@@ -83,7 +83,7 @@ class TouristSight < ActiveRecord::Base
 	#     - Integer: page (pagina atual da paginação)
 	#     - Ineger: per_page (número de registros por página)
 	#  
-	def evaluations(page = 1, per_page = 5)
+	def evaluations(page = 1, per_page = Config::PAGE_SIZE)
 		Evaluation.paginate(
 			:select => "*, tse.id as especified_type",
 			:conditions => ["tourist_sight_id = ?", id],
@@ -109,7 +109,7 @@ class TouristSight < ActiveRecord::Base
 	#     - Integer: per_page (número de registros por página)
 	#     - Integer: page (pagina atual da paginação)
 	#  
-	def self.find_all_by_city_and_tag(city_id, tag_id, per_page = 10, page = 1)
+	def self.find_all_by_city_and_tag(city_id, tag_id, per_page = Config::PAGE_SIZE, page = 1)
 		TouristSight.paginate(:conditions => ["city_id = ? and tags.id = ?", city_id, tag_id], 
 													:joins => :tags,
 													:per_page => per_page,
@@ -126,7 +126,7 @@ class TouristSight < ActiveRecord::Base
 	#     - Integer: per_page (número de registros por página)
 	#     - Integer: page (pagina atual da paginação)
 	#  
-	def self.find_like_name(value, per_page = 10, page = 1, city_id = nil)
+	def self.find_like_name(value, per_page = Config::PAGE_SIZE, page = 1, city_id = nil)
 	  if city_id
 	    return TouristSight.paginate(:conditions => ["Lower(name) like ? and city_id = ?",
 	                                                 "%#{value.downcase}%", city_id], 

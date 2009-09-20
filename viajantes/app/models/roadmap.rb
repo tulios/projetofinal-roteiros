@@ -13,7 +13,7 @@ class Roadmap < ActiveRecord::Base
 
 	belongs_to :city
 	belongs_to :user
-	has_many :destinations, :order => "start_date", :limit => 10
+	has_many :destinations, :order => "start_date", :limit => Config::PAGE_SIZE
 
 	validates_presence_of :city_id, :title
 
@@ -24,7 +24,7 @@ class Roadmap < ActiveRecord::Base
 	# 	- Integer: per_page (O tamanho máximo da página retornada)
 	#		- Integer: page (O número da página retornada)
 	#
-	def self.find_like_title(value, per_page = 10, page = 1, city_id = nil)
+	def self.find_like_title(value, per_page = Config::PAGE_SIZE, page = 1, city_id = nil)
 	  if city_id
 	    cond = ["(Lower(title) like ? and public = ?) and city_id = ?", 
 	            "%#{value.downcase}%", "#{true}", city_id]
