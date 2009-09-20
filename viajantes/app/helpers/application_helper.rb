@@ -1,8 +1,7 @@
 # Methods added to this helper will be available to all templates in the application.
-require 'config'
+require 'lib/config'
 
 module ApplicationHelper
-	include Config
 	
 	def show_success
      if flash[:notice]

@@ -104,7 +104,6 @@ class EventsController < ApplicationController
 	def new
     @event = Event.new
 		@states = State.load_all
-	
 
     respond_to do |format|
       format.html # new.html.erb
