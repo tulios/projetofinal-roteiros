@@ -7,7 +7,7 @@
 		</td>
 	</tr>
 	<tr>
-		<td width="9%" align="right">
+		<td width="11%" align="right">
 			<strong>Nome:</strong>
 		</td>
 		<td align="left"><%=h @event.name %></td>
@@ -17,6 +17,18 @@
 			<strong>Data:</strong>
 		</td>
 		<td align="left"><%= time_format(@event.time) %>
+	</tr>
+	<tr>
+		<td align="right">
+			<strong>Possui custo?</strong>
+		</td>
+		<td align="left">
+			<% if @event.cost %>
+				Sim
+			<% else %>
+				Não
+			<% end %>
+		</td>
 	</tr>
 	<% if @event.tourist_sight or @event.shop %>
 	<tr>

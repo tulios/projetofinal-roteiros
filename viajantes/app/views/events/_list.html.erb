@@ -3,6 +3,9 @@
 		<h4>
 				<%= link_to event.name, event %>&nbsp;
 				(<%=h event.city.state.symbol %>/<%=h event.city.name %>)
+				<% if event.cost %>
+					&nbsp;<small>possui custo</small>
+				<% end %>
 		</h4>
 		<p style="text-align: justify;">
 			<small>
