@@ -6,6 +6,12 @@
 
 <%= render :partial => 'info' %>
 
+<% if logged_in? %>
+	<div style="float: right;">
+		<%= link_to 'Editar', edit_shop_path(@shop) %>
+	</div>
+<% end %>
+
 <br/><br/>
 
 <!-- Titulo Avaliacoes -->
@@ -50,9 +56,5 @@
 
 <br/>
 <br/>
-
-<% if logged_in? %>
-	<%= link_to 'Editar', edit_shop_path(@shop) %> |
-<% end %>
 
 <%= link_to 'Voltar', shops_path %>

@@ -29,6 +29,3 @@ Casos de Uso
 		1 - A pesquisa está apenas no estabelecimento e ponto turístico (roteiro publico e eventos também)
 		2 - verificar se o fluxo do caso de uso pesquisa está correto
 		3 - Ao clicar o texto "pesquise aqui não está apagando" (está sim? aonde não está?)
-
-	Manter evento
-		1 - Colocar o editar no padrão do manter estabelecimento e manter ponto turístico (ou vice versa)

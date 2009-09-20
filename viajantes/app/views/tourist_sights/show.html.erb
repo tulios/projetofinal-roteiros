@@ -11,6 +11,11 @@
 <h1 class="tourist_sight">Ponto Turístico</h1>
 
 <%= render :partial => 'info' %>
+<% if logged_in? %>
+	<div style="float: right;">
+		<%= link_to 'Editar', edit_tourist_sight_path(@tourist_sight) %>
+	</div>
+<% end %>
 
 <!-- Tags -->
 <% if @tourist_sight.tags and @tourist_sight.tags.length > 0 %>
@@ -64,9 +69,5 @@
 <div class="clearer"></div>
 
 <br /><br />
-
-<% if logged_in? %>
-	<%= link_to 'Editar', edit_tourist_sight_path(@tourist_sight) %> |
-<% end %>
 
 <%= link_to 'Voltar', tourist_sights_path %>
