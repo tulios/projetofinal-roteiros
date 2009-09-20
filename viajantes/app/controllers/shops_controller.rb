@@ -98,7 +98,17 @@ class ShopsController < ApplicationController
   def update
     @shop = Shop.find(params[:id])
 
+		# Caso não tenha sido preenchido seta nil para que o allow_nil deixe
+		# de validar o formato desse email. (Conferir em app/models/shop.rb)
+		if params[:shop][:email] and params[:shop][:email].strip.length == 0
+			params[:shop][:email] = nil
+		end
+
     respond_to do |format|
+    	logger.info "#"
+    	logger.info "# #{params[:shop]}"
+    	logger.info "#"
+    	
       if @shop.update_attributes(params[:shop])
         flash[:notice] = 'Estabelecimento atualizado com sucesso.'
         format.html { redirect_to(@shop) }

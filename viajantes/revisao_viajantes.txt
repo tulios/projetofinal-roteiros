@@ -1,17 +1,12 @@
 Casos de Uso
 
   Manter Ponto Turístico:
-    1 - Filtrar listagem por cidade
     2 - Tirar editar e excluir da listagem e colocar no detalhamento
     3 - Revisar auto-grow da edição
     4 - Adicionar campos imagem
-    5 - Revisar tela de pesquisar tag por cidade (voltar, imagem e etc)    
-    6 - Revisar edição de ponto turístico (voltar e detalhar)
-		7 - Revisar email (em cadastro não é obrigatório e em alterar é obrigatório)
     8 - Adicionar um combo-box com todas as tags na pesquisa avançada. 
     
   Manter Roteiro:
-    1 - Revisar tela de edição (voltar e detalhar)
     2 - Adicionar o fluxo de exclusão.
     3 - Adicionar um botão para listar todos na pesquisa.
     
@@ -20,11 +15,8 @@ Casos de Uso
         ao criar um novo programa
     
   Manter Estabelecimento:
-    1 - Filtrar listagem por cidade
     2 - Retirar editar e apagar da listagem e colocar no detalhamento
     3 - Adicionar campo imagem  
-		4 - Revisar email (campo obrigatório mesmo? Se sim, colocar asterístico)
-		5 - Revisar tela de edição (voltar e detalhar)
     
    Pagina inicial
     1 - Cidades mais visitadas (gráfico)
@@ -34,9 +26,9 @@ Casos de Uso
     			>= (média da quantidade de avaliações) e > avaliação geral
 
 	Pesquisa
-		1 - A pesquisa está apenas no estabelecimento e ponto turístico
+		1 - A pesquisa está apenas no estabelecimento e ponto turístico (roteiro publico e eventos também)
 		2 - verificar se o fluxo do caso de uso pesquisa está correto
-		3 - Ao clicar o texto "pesquise aqui não está apagando"
+		3 - Ao clicar o texto "pesquise aqui não está apagando" (está sim? aonde não está?)
 
 	Manter evento
 		1 - Colocar o editar no padrão do manter estabelecimento e manter ponto turístico (ou vice versa)

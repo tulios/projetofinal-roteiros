@@ -97,9 +97,10 @@ class TouristSightsController < ApplicationController
   def update
     @tourist_sight = TouristSight.find(params[:id])
 
-		# Permite emails nulos, se a pessoa nao preencher eh nulo
-		if @tourist_sight.email and @tourist_sight.email.length == 0
-			@tourist_sight.email = nil
+		# Caso não tenha sido preenchido seta nil para que o allow_nil deixe
+		# de validar o formato desse email. (Conferir em app/models/tourist_sight.rb)
+		if params[:tourist_sight][:email] and params[:tourist_sight][:email].strip.length == 0
+			params[:tourist_sight][:email] = nil
 		end
 
     respond_to do |format|

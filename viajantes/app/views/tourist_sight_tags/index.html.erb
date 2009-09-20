@@ -1,4 +1,6 @@
-<h1>Pontos Turísticos</h1>
+<%= corner('tourist_sights') %>
+
+<h1 class="tourist_sight">Pontos Turísticos</h1>
 <table class="tabela_info" width="100%">
   <tr>
     <td align="center" width="5%"><%= image_tag 'globe_32.png', {:border => 0, :title => "Localização"} %></td>
@@ -12,7 +14,7 @@
 
 <br />
 
-<div class="box">
+<div id="tourist_sights" class="box">
 	<div class="search_results">
 		<ul>
 			<%= render :partial => "tourist_sights/list" %>
