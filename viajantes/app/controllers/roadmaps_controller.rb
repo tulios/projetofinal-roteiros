@@ -6,7 +6,9 @@ class RoadmapsController < ApplicationController
   def index
     @roadmaps = Roadmap.paginate_by_user_id(
 			current_user.id,
-		 :per_page => 10, :page => params[:page], :order => "updated_at desc"
+		  :per_page => Config::PAGE_SIZE, 
+		  :page => params[:page], 
+		  :order => "updated_at desc"
 		)
 
     respond_to do |format|

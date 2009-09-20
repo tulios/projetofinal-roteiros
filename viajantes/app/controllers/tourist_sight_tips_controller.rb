@@ -19,11 +19,9 @@ class TouristSightTipsController < ApplicationController
     @tip.user = current_user
     tourist_sight = TouristSight.find(params[:tourist_sight_id]) 
         
-    @tourist_sight_tip = TouristSightTip.new(
-      { :tip => @tip, 
-        :tourist_sight => tourist_sight
-      }
-     )
+    @tourist_sight_tip = TouristSightTip.new({
+    	:tip => @tip, :tourist_sight => tourist_sight
+    })
 
     respond_to do |format|
       if @tip.save and @tourist_sight_tip.save

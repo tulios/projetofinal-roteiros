@@ -15,11 +15,13 @@ class TouristSightsController < ApplicationController
       @cities = City.load_all(@state_id)
       
       @tourist_sights = TouristSight.paginate(:conditions => ["city_id = ?", @city_id],
-                                              :per_page => 10, :page => params[:page], :order => "hits desc")
+                                              :per_page => Config::PAGE_SIZE, 
+                                              :page => params[:page], :order => "hits desc")
       @advance_search = true
     else
     # Caso contrario pega todas
-      @tourist_sights = TouristSight.paginate(:per_page => 10, :page => params[:page], :order => "hits desc")
+      @tourist_sights = TouristSight.paginate(:per_page => Config::PAGE_SIZE, 
+      																			  :page => params[:page], :order => "hits desc")
     end
 
     respond_to do |format|

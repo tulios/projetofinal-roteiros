@@ -1,9 +1,10 @@
 class UsersController < ApplicationController
 	require_role "user", :for_all_except => [:new, :create]
+	
+	# Filtro que restringe o acesso as funcionalidades mapeadas apenas para o usuário logado
 	before_filter do |controller| 
 	  controller.verify_user(
-	    controller.params[:id],
-	    [:edit,:update,:update_password]
+	    controller.params[:id], [:edit,:update,:update_password]
 	  )
 	end
   
@@ -46,8 +47,6 @@ class UsersController < ApplicationController
   
   # GET /users/1/edit
   def edit
-    #verify_user params[:id]
-  
     @user = User.find(params[:id])
 		@states = State.load_all
 		@cities = City.load_all(@user.city.state.id)

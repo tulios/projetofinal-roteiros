@@ -60,12 +60,12 @@ class EventsController < ApplicationController
       # Prepara a query com os dados informados
       condition = prepare_condition(query, att)
       
-      @events = Event.paginate(	:conditions => condition,
-      													:per_page => 10, :page => params[:page], :order => "time desc")
+      @events = Event.paginate(:conditions => condition,
+      												 :per_page => Config::PAGE_SIZE, :page => params[:page], :order => "time desc")
       
       @advance_search = true
     else    
-      @events = Event.paginate(:per_page => 10, :page => params[:page], :order => "time desc")
+      @events = Event.paginate(:per_page => Config::PAGE_SIZE, :page => params[:page], :order => "time desc")
     end
   	
     respond_to do |format|

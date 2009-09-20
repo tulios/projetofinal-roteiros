@@ -13,8 +13,6 @@ class StateTest < ActiveSupport::TestCase
     
     state1 = states[0]
     
-    puts state1.inspect
-    
     assert_equal "Brasil", state1.country.name
   end
 
