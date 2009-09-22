@@ -5,7 +5,6 @@ Casos de Uso
     * Revisar auto-grow da edição
     * Adicionar campos imagem
     * Adicionar um combo-box com todas as tags na pesquisa avançada. 
-    * Mostrar sempre a pesquisa avançada
     
   Manter Roteiro:
     * Adicionar o fluxo de exclusão.
@@ -18,7 +17,6 @@ Casos de Uso
   Manter Estabelecimento:
     * Retirar editar e apagar da listagem e colocar no detalhamento
     * Adicionar campo imagem 
-    * Mostrar sempre a pesquisa avançada 
     
    Pagina inicial
     1 - Cidades mais visitadas (gráfico)

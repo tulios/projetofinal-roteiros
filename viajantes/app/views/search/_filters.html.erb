@@ -1,16 +1,11 @@
 ﻿<div style="padding: 0px 0px 15px 0px;">
   <%= corner('advance') %>
-  <a href="#" onclick="javascript: $('#advance').toggle('slow');">Pesquisa avançada</a>
   <br/>
-  <% if @advance_search %>
     <div id="advance" class="blue_box">
-  <% else %>
-    <div id="advance" style="display: none;" class="blue_box">
-  <% end %>
     <% form_tag form_path, :method => :get do %>
 
       <div style="float: right">
-        <%= submit_tag "pesquisar" %>
+        <%= submit_tag "filtrar" %>
       </div>
 
       <%= render :partial => "search/filters_form" %>

@@ -19,8 +19,6 @@ class ShopsController < ApplicationController
       @shops = Shop.paginate(:conditions => ["city_id = ?", @city_id],
                              :per_page => Config::PAGE_SIZE, 
                              :page => params[:page], :order => "hits desc")
-      
-      @advance_search = true
     else    
       @shops = Shop.paginate(:per_page => Config::PAGE_SIZE, 
       											 :page => params[:page], :order => "hits desc")

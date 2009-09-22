@@ -17,7 +17,6 @@ class TouristSightsController < ApplicationController
       @tourist_sights = TouristSight.paginate(:conditions => ["city_id = ?", @city_id],
                                               :per_page => Config::PAGE_SIZE, 
                                               :page => params[:page], :order => "hits desc")
-      @advance_search = true
     else
     # Caso contrario pega todas
       @tourist_sights = TouristSight.paginate(:per_page => Config::PAGE_SIZE, 
