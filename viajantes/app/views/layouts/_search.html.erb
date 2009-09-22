@@ -1,14 +1,22 @@
-<div style="float: right;" class="search">
-		<% @value = 'pesquise aqui' unless @value and @value.length > 0 %>
-		<% form_tag search_index_path, :method => :get, :id => 'form_search' do %>
-			<%= text_field_tag 'value',  @value, 
-			{
-				:size => 15, :style => "color: rgb(136, 136, 136); font-size: 11px;",
-				:id => "search_field", 
-				:onclick => keep_value('pesquise aqui', 'search_field'),
-				:onblur => keep_value('pesquise aqui', 'search_field')
-			}
-			%>
-			<span id="search_submit" class="search_submit" onclick="<%= submit('form_search') %>"></span>
-		<% end %>
+<div class="search">
+		<table>
+		  <tr>
+		    <td valign="top">
+		      <% @value = 'pesquise aqui' unless @value and @value.length > 0 %>
+		      <% form_tag search_index_path, :method => :get, :id => 'form_search' do %>
+			      <%= text_field_tag 'value',  @value, 
+			      {
+				      :size => 15, :style => "color: rgb(136, 136, 136); font-size: 11px;",
+				      :id => "search_field", 
+				      :onclick => keep_value('pesquise aqui', 'search_field'),
+				      :onblur => keep_value('pesquise aqui', 'search_field')
+			      }
+			      %>
+		      <% end %>
+		    </td>
+		    <td valign="top">
+		      <span id="search_submit" class="search_submit" onclick="<%= submit('form_search') %>"></span>
+		    </td>		    
+		  </tr>
+		</table>
 </div>
