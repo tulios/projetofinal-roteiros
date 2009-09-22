@@ -41,18 +41,6 @@ class EventTest < ActiveSupport::TestCase
       event.destroy
     end
   end
-	
-	test "Deveria retornar um happens_in diferente dependendo da associacao com tourist_sight ou shop" do
-		event = Event.new
-		assert_equal(:another, event.happens_in)
-		
-		event.tourist_sight = TouristSight.new
-		assert_equal(:tourist_sight, event.happens_in)
-		
-		event.tourist_sight = nil
-		event.shop = Shop.new
-		assert_equal(:shop, event.happens_in)
-	end
 
 	def create_event(options = {})
     eventHash = {       :city_id => cities(:one),

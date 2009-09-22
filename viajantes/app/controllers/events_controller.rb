@@ -4,6 +4,7 @@
 # responder as requisições relativas aos eventos. 
 # 
 class EventsController < ApplicationController
+  require_role "user", :for_all_except => [:index, :show]
 
   # GET /events
   # GET /events.xml

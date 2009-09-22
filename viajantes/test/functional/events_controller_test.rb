@@ -11,7 +11,7 @@ class EventsControllerTest < ActionController::TestCase
     assert_equal(2, assigns(:events).length)
   end  
 
-	  test "Deveria carregar a tela de cadastramento" do
+	test "Deveria carregar a tela de cadastramento" do
     login_as :quentin
 
     get :new
@@ -28,14 +28,13 @@ class EventsControllerTest < ActionController::TestCase
     login_as :quentin
     
     # Verifica que so existe os eventos criados pela fixture
-		assert_equal(2, Event.count)
+		assert_difference "Event.count" do
+		  # Verifica que o controlador criou um novo e redirecionou para o lugar certo
+		  conteudo = { :name => "Evento_3", :time => Time.parse('2009-11-11'), :city_id => "1" }
+      post :create, :event => conteudo
 
-		# Verifica que o controlador criou um novo e redirecionou para o lugar certo
-		conteudo = { :name => "Evento_3", :time => Time.parse('2009-11-11'), :city_id => "1" }
-    post :create, :event => conteudo
-		assert_equal(3, Event.count)
-
-    assert_redirected_to event_path(assigns(:event))
+      assert_redirected_to event_path(assigns(:event))
+		end
   end
 
   test "Deveria detalhar um evento" do
@@ -81,18 +80,41 @@ class EventsControllerTest < ActionController::TestCase
     # Verifico se alterou
     assert_equal("novo nome", assigns(:event).name)
   end
+  
+  test "Não Deveria deixar outro usuário atualizar o evento" do
+    # Faz o login com um usuário que não é o dono do objeto
+    login_as :aaron
+    
+    event = Event.find(events(:one).to_param)
+    assert_not_nil(event)
+    # Verifico que o nome não é igual o novo nome
+    assert_not_equal(event.name, "novo nome")
+
+    # Tenta atualizar o evento
+    put :update, :id => events(:one).to_param, :event => {:name => "novo nome"}
+    assert_redirected_to event_path(assigns(:event))
+
+    # Verifico que o evento não foi alterado
+    assert_not_equal("novo nome", assigns(:event).name)
+  end
 
   test "Deveria apagar um evento" do
     login_as :quentin
     
-    # Verifica que so existe os eventos criados pela fixture
-		assert_equal(2, Event.count)
-
-		# Verifica que o controlador apagou e redirecionou para o lugar certo
-    post :destroy, :id => events(:one).to_param
-    assert_redirected_to events_path
-
-		assert_equal(1, Event.count)
+    assert_difference "Event.count", -1 do
+      post :destroy, :id => events(:one).to_param
+      assert_redirected_to events_path
+    end
+  end
+  
+  test "Não deveria deixar apagar um evento" do
+    # Faz o login com um usuário que não é o dono do objeto
+    login_as :aaron
+    
+    assert_no_difference "Event.count" do
+      post :destroy, :id => events(:one).to_param
+      assert_redirected_to assigns(:event)
+    end
   end
   
   test "Deveria filtrar os resultados pela cidade" do
@@ -116,4 +138,32 @@ class EventsControllerTest < ActionController::TestCase
 		assert_not_nil assigns(:events)
     assert_equal(1, assigns(:events).length)
   end
+  
+  test "Não deveria deixar carregar a tela new sem estar logado" do
+    put :new
+    assert_response 302
+  end
+
+  test "Não deveria deixar carregar a tela edit sem estar logado" do
+    put :edit, :id => events(:one).to_param
+    assert_response 302
+  end
+  
+  test "Não deveria deixar fazer o create sem estar logado" do
+    conteudo = { :name => "Evento_3", :time => Time.parse('2009-11-11'), :city_id => "1" }
+    post :create, :event => conteudo
+
+    assert_response 302
+  end
+  
+  test "Não deveria deixar fazer o update sem estar logado" do
+   put :update, :id => events(:one).to_param, :event => {:name => "novo nome"}
+    assert_response 302
+  end
+  
+  test "Não deveria deixar fazer o destroy sem estar logado" do
+    post :destroy, :id => events(:one).to_param
+    assert_response 302
+  end
+  
 end
