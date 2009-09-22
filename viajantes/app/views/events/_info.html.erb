@@ -20,29 +20,24 @@
 	</tr>
 	<tr>
 		<td align="right">
-			<strong>Possui custo?</strong>
+			<strong>Custo:</strong>
 		</td>
-		<td align="left">
-			<% if @event.cost %>
-				Sim
-			<% else %>
-				Não
-			<% end %>
+		<td>
+		  <% if(@event.cost != 0) %>
+		    <%= h currency(@event.cost) %>
+		  <% else %>
+		    Gratuito.
+		  <% end %>
 		</td>
 	</tr>
-	<% if @event.tourist_sight or @event.shop %>
 	<tr>
-		<td align="right">
-			<% if @event.tourist_sight %>
-				<strong>Acontece em: </strong><%= @event.tourist_sight.name %><br/>
-				<strong>Endereço: </strong><%= @event.tourist_sight.address %><br/>
-			<% elsif @event.shop %>
-				<strong>Acontece em: </strong><%= @event.shop.name %><br/>
-				<strong>Endereço: </strong><%= @event.shop.address %><br/>
-			<% end %>
+	  <td align="right">
+			<strong>Endereço:</strong>
 		</td>
-	</tr>
-	<% end %>
+	  <td>
+	    <%= @event.address %>
+	  </td>
+	</td>
 	<tr>
 		<td align="right" valign="top">
 			<strong>Descrição:</strong>

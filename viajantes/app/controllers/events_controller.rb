@@ -135,6 +135,8 @@ class EventsController < ApplicationController
 	#
   def create
     @event = Event.new(params[:event])
+    @event.cost = currency_to_number(params[:event][:cost])
+    @event.user = current_user
 
     respond_to do |format|
       if @event.save
@@ -160,6 +162,15 @@ class EventsController < ApplicationController
 	#
   def update
     @event = Event.find(params[:id])
+    params[:event][:cost] = currency_to_number(params[:event][:cost])
+
+    if not owner?(@event)
+      flash[:error] = 'Você não tem permissão para alterar o evento.'
+      respond_to do |format|
+          format.html { redirect_to @event }
+      end
+      return 
+    end
 
     respond_to do |format|
       if @event.update_attributes(params[:event])
@@ -184,6 +195,15 @@ class EventsController < ApplicationController
 	#
   def destroy
     @event = Event.find(params[:id])
+    
+    if not owner?(@event)
+      flash[:error] = 'Você não tem permissão para apagar o evento.'
+      respond_to do |format|
+          format.html { redirect_to @event }
+      end
+      return 
+    end
+    
     @event.destroy
 
     respond_to do |format|

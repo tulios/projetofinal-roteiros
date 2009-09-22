@@ -6,48 +6,17 @@
 # Atributos:
 #   City: city (Cidade onde o evento irá ocorrer)
 #   String: name (Nome do evento)
-#   Timestamp: time (hora e dia em que o evento irá ocorrer)
-#   TouristSight: tourist_sight (Ponto Turístico onde o evento acontece, se for o caso)
-#   Boolean: cost (Representa se o evento tem custo)
+#   Timestamp: time (A hora e dia em que o evento irá ocorrer)
+#   String: address (O endereço onde o evento irá ocorrer)
+#   Float: cost (O custo do evento)
 #   String: description (Descrição do evento)
 #
 class Event < ActiveRecord::Base
 
   belongs_to :city
-  belongs_to :tourist_sight
-  belongs_to :shop
-
+  belongs_to :user
 	validates_presence_of :city_id, :name, :time
-
-	attr_accessor :happens_in
-	
-	# Variável de classe com as opções onde o evento pode acontecer
-	#
-	@@happens_in_options = {:tourist_sight => "Ponto Turístico",
-													:shop => "Estabelecimento",
-													:another => "Outro"}
-
-  # Método acessor para happens_in_options
-  #
-	def self.happens_in_options
-		@@happens_in_options
-	end
-
-  # Retorna um simbolo que representa se o evento ocorrerá em 
-  # em um tourist_sight, shop ou another (outro).
-  #
-	def happens_in
-		if tourist_sight
-			@happens_in = :tourist_sight
-		elsif shop
-			@happens_in = :shop
-		else
-			@happens_in = :another 
-		end
-
-		@happens_in
-	end
-	
+		
 	# Realiza uma consulta paginada pelas dicas do evento 
 	# ordenadas por data de criação.
 	#

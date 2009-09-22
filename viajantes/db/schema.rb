@@ -64,11 +64,11 @@ ActiveRecord::Schema.define(:version => 20090910101755) do
 
   create_table "events", :force => true do |t|
     t.integer  "city_id"
+    t.integer  "user_id"
     t.string   "name"
     t.datetime "time"
-    t.integer  "tourist_sight_id"
-    t.integer  "shop_id"
-    t.boolean  "cost"
+    t.string   "address"
+    t.float    "cost",        :default => 0.0
     t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"

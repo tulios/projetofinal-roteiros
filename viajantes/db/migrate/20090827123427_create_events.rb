@@ -2,11 +2,11 @@ class CreateEvents < ActiveRecord::Migration
   def self.up
     create_table :events do |t|
       t.belongs_to :city
+      t.belongs_to :user
       t.string :name
       t.timestamp :time
-      t.belongs_to :tourist_sight
-      t.belongs_to :shop
-      t.boolean :cost
+      t.string :address
+      t.float :cost, :default => 0
       t.text :description
 
       t.timestamps

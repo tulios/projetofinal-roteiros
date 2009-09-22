@@ -5,7 +5,7 @@
 
 <%= render :partial => "info" %>
 
-<% if logged_in? %>
+<% if logged_in? and owner?(@event) %>
 	<div style="float: right;">
 		<%= link_to 'Editar', edit_event_path(@event) %> |
 		<%= link_to 'Apagar', @program, :confirm => 'Você tem certeza?', :method => :delete %>

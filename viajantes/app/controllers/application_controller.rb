@@ -32,6 +32,18 @@ class ApplicationController < ActionController::Base
 			@cities = City.load_all(object_with_city.city.state.id)
 		end
 	end
+	
+	# Retorna true se o usuário logado for o dono do objeto 
+	# passado por parâmetro e retorna false caso o contrário
+	def owner?(object)
+	  if(object and object.user and current_user)
+	    if(object.user.id == current_user.id)
+	      return true
+      end
+	  end
+	  
+	  return false;
+  end
 
 end
 

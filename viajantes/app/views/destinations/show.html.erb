@@ -1,6 +1,6 @@
 <h1 class="destination">Destino</h1>
 
-<% if logged_in? %>
+<% if logged_in? and owner?(@destination) %>
 	<div align="right">
 		<%= link_to 'Apagar', roadmap_destination_path(@destination.roadmap,@destination), :confirm => 'Você tem certeza?', :method => :delete %>
 	</div>

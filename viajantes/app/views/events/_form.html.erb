@@ -1,4 +1,5 @@
 <%= configure_textarea_autogrow %>
+<%= price_format(['event_cost']) %>
 
 <script type="text/javascript">
 	function show(id, array){
@@ -17,7 +18,7 @@
 	  </td>
 	</tr>
 	<tr>
-		<td width="50%" colspan="2">
+		<td width="50%">
 			<% if @event and @event.city %>
 				<%= select :state, :id, @states.map{|state| [state.name, state.id] }, #select com os estados disponiveis
 								   {:include_blank => '-- escolha o estado --', :selected => @event.city.state.id} %>	
@@ -30,7 +31,7 @@
 	<% form_for(@event) do |f| %>
   <%= f.error_messages %>
 		
-		<td colspan="1">
+		<td>
 		<%= observe_field :state_id, # ID do campo observado
 											# URL que sera chamada
 	 		                :url => {:controller => "cities", :action => "index", :format => "html"}, 
@@ -54,15 +55,14 @@
 		</td>
 	</tr>
 	<tr>
-	  
-		<td colspan="2">
+		<td>
 		  <span class="obrigatorio">*</span>
 		  Nome:
 		</td>
-		<td colspan="3">Data e hora:</td>
+		<td>Data e hora:</td>
 	</tr>
 	<tr>
-		<td colspan="2">
+		<td>
 			<%= f.text_field :name %>
 		</td>
 		<td class="datetime" colspan="3">
@@ -70,53 +70,15 @@
 		</td>
 	</tr>
 	<tr>
-		<td>Acontece em?</td>
-		<td colspan="1">
-			<% Event.happens_in_options.keys.each do |option| %>
-				<%= f.radio_button "happens_in", option, 
-						:checked => @event.happens_in == option,
-						:onclick => "javascript: show('#{option}', 
-												#{ruby_hash_to_javascript_array(Event.happens_in_options)});" 
-				%>
-				<%= label_tag Event.happens_in_options[option] %><br/>
-			<% end %>
-		</td>
+		<td>Custo:</td>
+		<td>Endereço:</td>
 	</tr>
 	<tr>
-		<td colspan="2">
-			<% if @event.tourist_sight %>
-			<div id="tourist_sight">
-			<% else %>
-			<div id="tourist_sight" style="display: none;">
-			<% end %>
-				<% if @tourist_sights and @tourist_sights.length > 0 %>
-					<%= collection_select(:event, :tourist_sight_id, 
-																@tourist_sights, :id, :name, 
-																options ={:prompt => "-- Escolha um ponto turístico --"}) %>
-				<% else %>
-					<i>Nenhum ponto turístico encontrado.</i>
-				<% end %>
-			</div>
-			
-			<% if @event.shop %>
-			<div id="shop">
-			<% else %>
-			<div id="shop" style="display: none;">
-			<% end %>
-				<% if @shops and @shops.length > 0 %>
-					<%= collection_select(:event, :shop_id, 
-																@shops, :id, :name, 
-																options ={:prompt => "-- Escolha um estabelecimento --"}) %>
-				<% else %>
-					<i>Nenhum estabelecimento encontrado.</i>
-				<% end %>
-			</div>
+		<td>
+			<%= f.text_field :cost, :value => currency(@event.cost)  %>
 		</td>
-	</tr>
-	<tr>
-		<td>Possui Custo?</td>
-		<td colspan="1">
-			<%= f.check_box :cost %>
+		<td>
+		  <%= f.text_field :address %>
 		</td>
 	</tr>
 	<tr>
