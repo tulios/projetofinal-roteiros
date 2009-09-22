@@ -1,31 +1,38 @@
 Casos de Uso
 
   Manter Ponto Turístico:
-    2 - Tirar editar e excluir da listagem e colocar no detalhamento
-    3 - Revisar auto-grow da edição
-    4 - Adicionar campos imagem
-    8 - Adicionar um combo-box com todas as tags na pesquisa avançada. 
+    * Tirar editar e excluir da listagem e colocar no detalhamento
+    * Revisar auto-grow da edição
+    * Adicionar campos imagem
+    * Adicionar um combo-box com todas as tags na pesquisa avançada. 
+    * Mostrar sempre a pesquisa avançada
     
   Manter Roteiro:
-    2 - Adicionar o fluxo de exclusão.
-    3 - Adicionar um botão para listar todos na pesquisa.
+    * Adicionar o fluxo de exclusão.
+    * Adicionar um botão para listar todos na pesquisa.
     
   Manter Programa:
-    1 - Ordenar pontos turíticos e estabelecimentos alfabeticamente 
+    * Ordenar pontos turíticos e estabelecimentos alfabeticamente 
         ao criar um novo programa
     
   Manter Estabelecimento:
-    2 - Retirar editar e apagar da listagem e colocar no detalhamento
-    3 - Adicionar campo imagem  
+    * Retirar editar e apagar da listagem e colocar no detalhamento
+    * Adicionar campo imagem 
+    * Mostrar sempre a pesquisa avançada 
     
    Pagina inicial
     1 - Cidades mais visitadas (gráfico)
     2 - Pontos Turísticos e estabelecimentos melhor avaliados
-    3 - Eventos na cidade do usuário logado
+    3 - Próximos eventos na cidade do usuário logado
     4 - Listar os estabelecimentos/ponto turístico que estejam na seguinte situação:
     			>= (média da quantidade de avaliações) e > avaliação geral
-
-	Pesquisa
-		1 - A pesquisa está apenas no estabelecimento e ponto turístico (roteiro publico e eventos também)
-		2 - verificar se o fluxo do caso de uso pesquisa está correto
-		3 - Ao clicar o texto "pesquise aqui não está apagando" (está sim? aonde não está?)
+		
+	Manter Evento
+	  1 - Mostrar eventos por cidade no index, exibindo sempre a pesquisa avançada.
+	  2 - Adicionar a opção "quero ir" que enviará lembretes do evento. (Pode interagir pessoas que querem ir).
+	  3 - Retirar o relacionamento com ponto turístico e estabelecimento.
+	  4 - Adicionar Campo de local/endereço.
+	  5 - Retirar o campo "possui custo" e colocar campo valor.
+	  6 - Exibir a data na listagem.
+	  7 - Adicionar opções de listagem por dia, final de semana e mês.
+	  
