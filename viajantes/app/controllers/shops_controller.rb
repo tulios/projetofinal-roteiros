@@ -73,6 +73,12 @@ class ShopsController < ApplicationController
   # POST /shops
   # POST /shops.xml
   def create
+  	# Caso não tenha sido preenchido seta nil para que o allow_nil deixe
+		# de validar o formato desse email. (Conferir em app/models/shop.rb)
+		if params[:shop][:email] and params[:shop][:email].strip.length == 0
+			params[:shop][:email] = nil
+		end
+  	
     @shop = Shop.new(params[:shop])
     @shop.user_id = current_user.id
 
@@ -103,10 +109,6 @@ class ShopsController < ApplicationController
 		end
 
     respond_to do |format|
-    	logger.info "#"
-    	logger.info "# #{params[:shop]}"
-    	logger.info "#"
-    	
       if @shop.update_attributes(params[:shop])
         flash[:notice] = 'Estabelecimento atualizado com sucesso.'
         format.html { redirect_to(@shop) }

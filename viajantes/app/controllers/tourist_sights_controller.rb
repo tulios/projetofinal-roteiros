@@ -87,6 +87,12 @@ class TouristSightsController < ApplicationController
   # POST /tourist_sights
   # POST /tourist_sights.xml
   def create
+  	# Caso não tenha sido preenchido seta nil para que o allow_nil deixe
+		# de validar o formato desse email. (Conferir em app/models/tourist_sight.rb)
+		if params[:tourist_sight][:email] and params[:tourist_sight][:email].strip.length == 0
+			params[:tourist_sight][:email] = nil
+		end
+		
     @tourist_sight = TouristSight.new(params[:tourist_sight])
     @tourist_sight.user_id = current_user.id
 		
