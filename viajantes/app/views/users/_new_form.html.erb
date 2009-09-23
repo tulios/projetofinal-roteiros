@@ -87,7 +87,7 @@
 			%>
 				<%= f.select :city_id, @cities.map{|city| [city.name, city.id] }, :include_blank => true %>
 			<% else %>
-				<%= f.select :city_id, [], :include_blank => true %>
+				<%= f.select :city_id, [], :include_blank => '-- escolha a cidade --' %>
 			<% end %>
 			<%= image_tag 'load_mini.gif', :id => 'load', :style => "display: none;" %>
 
