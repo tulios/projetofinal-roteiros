@@ -59,7 +59,7 @@ class EventsController < ApplicationController
 		  end
       
       # Prepara a query com os dados informados
-      condition = prepare_condition(query, att)
+      condition = ActiveRecordUtil.prepare_condition(query, att)
       
       @events = Event.paginate(:conditions => condition,
       												 :per_page => Config::PAGE_SIZE, :page => params[:page], :order => "time desc")
@@ -233,26 +233,6 @@ class EventsController < ApplicationController
   	date.strftime("%d/%m/%Y")
   end
   
-  # Monta uma query a partir das condições e os valores passados por parametro
-  #
-  def prepare_condition(query, att)
-  	condition = []
-
-		joined_query = ""
-		
-		query.each do |q|
-			joined_query << "#{q} and "
-		end
-		
-		joined_query.strip!.gsub!(/and\Z/, '')
-		condition << joined_query
-		
-		att.each do |a|
-			condition << a
-		end
-		
-		condition
-  end
 end
 
 

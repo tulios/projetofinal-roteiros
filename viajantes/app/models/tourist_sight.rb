@@ -1,6 +1,6 @@
 # TouristSight - Ponto Turístico
 # 
-# Este modelo representa os pontos túristicos.
+# Este modelo representa os pontos turísticos.
 # 
 # Atributos:
 #	  String: name (O nome do ponto turístico)
@@ -9,6 +9,8 @@
 #	  String: email (O e-mail do ponto turístico)
 #	  String: visitation_period (O período de visitação do ponto turístico)
 #	  String: description (A descrição do ponto turístico)
+#		Tag: tags (Uma lista de tags)
+#   Tip: tips (Uma lista de dicas)
 #	  City: city (A cidade a qual o ponto turístico pertence)
 #	  User: user (O usuário o qual o ponto turístico pertence)
 #	  Integer: hits (Quantidade de acessos deste ponto turístico)
@@ -137,6 +139,89 @@ class TouristSight < ActiveRecord::Base
 													:per_page => per_page, 
 													:page => page)
 	end
+	
+	# Pesquisa por qualquer atributo presente no TouristSight
+	#
+	#		params:
+	#			- {}: hash (Um hash que irá armazenar os seguintes atributos:
+	#							:search => tourist_sight (chave que deverá armazenar um TouristSight para consulta),
+	#							:per_page => 5 (Quantidade por página),
+	#							:page => 1 (Página que deverá ser recuperada)
+	#						)
+	#
+	def self.find_by_object(hash = nil)
+
+		# Valores padrão
+		condition = nil
+		per_page = Config::PAGE_SIZE
+		page = 1
+		
+		if hash
+			# Valores padrao para o caso do hash não ser nulo
+			per_page = hash.fetch(:per_page, Config::PAGE_SIZE).to_i
+			page = hash.fetch(:page, 1).to_i
+			search = hash.fetch(:search, nil)
+			
+			# Se o objeto tiver sido passado, prepara query
+			if search
+				
+				attributes = []
+				query = []
+				
+				# Cidade
+				if search.city_id
+					query << "city_id = ?"
+					attributes << search.city_id
+				end
+				
+				# Tags
+				if search.tags and search.tags.length > 0
+					use_tags = true
+					
+					query_with_or = "("
+					
+					search.tags.each do |tag|
+						query_with_or << "tags.id = ? or "
+						attributes << tag.id
+					end
+					
+					# Retirando ultimo or adiciondo que sobrar
+					query_with_or.strip!.gsub!(/or\Z/, '')
+					# Fechando )
+					query_with_or << ")"
+					# Adicionando ao array de querys
+					query << query_with_or
+				end
+				
+				# User
+				if search.user
+					query << "user_id = ?"
+					attributes << search.user_id
+				end
+				
+				condition = ActiveRecordUtil.prepare_condition(query, attributes)
+			end
+			
+		end
+		
+		# Montando parametros para consulta
+		parameters = {}
+		parameters[:per_page] = per_page
+		parameters[:page] = page
+		parameters[:order] = "hits desc"
+		if condition
+			parameters[:select] = "distinct tourist_sights.*"
+			parameters[:conditions] = condition
+		end
+		if use_tags
+			parameters[:joins] = :tags
+		end
+		
+		# Executando consulta
+		TouristSight.paginate(parameters)
+		
+	end
+	
 end
 
 

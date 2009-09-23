@@ -135,8 +135,92 @@ class TouristSightTest < ActiveSupport::TestCase
 		assert_not_nil(results)
 		assert_equal(1, results.length)
 	end
+	
+	test "Deveria trazer todos os registros caso o tourist_sight passado seja nulo ou nao exista" do
+		ts = TouristSight.find_by_object
+		assert_not_nil(ts)
+		assert_equal(TouristSight.count, ts.length)
+	end
+	
+	test "Deveria trazer todos os registros da cidade do objeto passado" do
+		brasilia_id = cities(:one).to_param
+		city = City.find(brasilia_id)
+		
+		object = TouristSight.new(:city => city)
+
+		# Verifica se encontrou os pontos turisticos de brasilia
+		ts = TouristSight.find_by_object(:search => object)
+		assert_not_nil(ts)
+		assert_equal(2, ts.length)
+		
+		fortaleza_id = cities(:two).to_param
+		city = City.find(fortaleza_id)
+		
+		object = TouristSight.new(:city => city)
+
+		# Verifica se encontrou os pontos turisticos de fortaleza
+		ts = TouristSight.find_by_object(:search => object)
+		assert_not_nil(ts)
+		assert_equal(0, ts.length)
+	end
+	
+	test "Deveria trazer todos os registros da cidade e da tag do objeto passado" do
+		# - Preparando teste
+		# Recuperando tags
+		tags_adicionadas = []
+		tags_adicionadas << Tag.find(tags(:one).to_param)
+		tags_adicionadas << Tag.find(tags(:two).to_param)
+		
+		# Associando a um ponto turistico
+		ts1 = TouristSight.find(tourist_sights(:one).to_param)
+		ts1.save_tags(tags_adicionadas)
+		ts1 = TouristSight.find(ts1.id)
+		assert_equal(2, ts1.tags.length)
+		
+		# Verificando se salvou
+		brasilia_id = cities(:one).to_param
+		city = City.find(brasilia_id)
+		# - fim preparacao
+		
+		# Criando objeto com a cidade e as tags
+		object = TouristSight.new(:city => city, :tags => tags_adicionadas)
+
+		# Verifica se encontrou os pontos turisticos de brasilia com as tags 1 e 2
+		ts = TouristSight.find_by_object(:search => object)
+		assert_not_nil(ts)
+		assert_equal(1, ts.length)
+		
+		fortaleza_id = cities(:two).to_param
+		city = City.find(fortaleza_id)
+		
+		object = TouristSight.new(:city => city, :tags => tags_adicionadas)
+
+		# Verifica se encontrou os pontos turisticos de fortaleza com as tags 1 e 2
+		ts = TouristSight.find_by_object(:search => object)
+		assert_not_nil(ts)
+		assert_equal(0, ts.length)
+	end
+	
+	test "Deveria trazer todos os registros do usuario do objeto passado" do
+		# Pesquisando pontos turisticos criados pelo quentin
+		quentin = User.find(users(:quentin).to_param)
+		object = TouristSight.new(:user => quentin)
+		
+		ts = TouristSight.find_by_object(:search => object)
+		assert_not_nil(ts)
+		assert_equal(2, ts.length)
+
+		# Pesquisando pontos turisticos criados pelo aaron		
+		aaron = User.find(users(:aaron).to_param)
+		object = TouristSight.new(:user => aaron)
+		
+		ts = TouristSight.find_by_object(:search => object)
+		assert_not_nil(ts)
+		assert_equal(0, ts.length)
+	end
 
 end
+
 
 
 
