@@ -12,6 +12,10 @@
         <% @tips.each_with_index do |tip, index| %>
 	        <li class="sem_li_tip">
 	          <div class="tip_name">
+	          	<strong>
+								<%= tip.user.login %>
+							</strong>
+							&nbsp;-&nbsp;
 	            <strong><%=h tip.name %></strong>
 	            <em><%= date_format tip.created_at %></em>
               
