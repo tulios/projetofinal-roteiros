@@ -1,13 +1,10 @@
 <map version="0.8.1">
 <!-- To view this file, download free mind mapping software FreeMind from http://freemind.sourceforge.net -->
 <node CREATED="1253023181483" ID="Freemind_Link_795451824" MODIFIED="1253023743065" TEXT="Pontos Tur&#xed;sticos">
-<node CREATED="1253023227959" ID="_" MODIFIED="1253023784387" POSITION="right" TEXT="Listagem com todos" VSHIFT="-1">
+<node CREATED="1253023227959" ID="_" MODIFIED="1253712018258" POSITION="right" TEXT="Pesquisar" VSHIFT="-1">
 <node CREATED="1253023236265" ID="Freemind_Link_1485032588" MODIFIED="1253023239479" TEXT="Criar um novo">
 <node CREATED="1253023322617" ID="Freemind_Link_131525848" MODIFIED="1253023326205" TEXT="Salvar"/>
 <node CREATED="1253023327316" ID="Freemind_Link_679379846" MODIFIED="1253023328440" TEXT="Voltar"/>
-</node>
-<node CREATED="1253023243622" HGAP="21" ID="Freemind_Link_144098811" MODIFIED="1253023753107" TEXT="Pesquisa avan&#xe7;ada" VSHIFT="16">
-<node CREATED="1253023330646" ID="Freemind_Link_1240625677" MODIFIED="1253023333459" TEXT="Pesquisar"/>
 </node>
 <node CREATED="1253023240758" ID="Freemind_Link_1262284920" MODIFIED="1253023750181" TEXT="Detalhar" VSHIFT="16">
 <node CREATED="1253023398428" ID="Freemind_Link_751374187" MODIFIED="1253023400771" TEXT="Adicionar tag">
