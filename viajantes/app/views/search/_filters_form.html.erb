@@ -30,6 +30,11 @@
 	<%= mask_fields({:start => "99/99/9999", :end => "99/99/9999"}) %>
 	de <%= text_field_tag :start, @start, :size => 10 %> até <%= text_field_tag :end, @end, :size => 10 %>
 <% end %>
+<% if controller_name == TouristSightsController.controller_name %>
+	<%= select_tag :tag_id, 
+			"<option value=\"\">-- escolha a tag --</option> 
+			#{options_from_collection_for_select(@tags, :id, :name, @tag_id)}" %>
+<% end %>
 
 
 

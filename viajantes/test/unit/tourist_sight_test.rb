@@ -174,10 +174,10 @@ class TouristSightTest < ActiveSupport::TestCase
 		# Associando a um ponto turistico
 		ts1 = TouristSight.find(tourist_sights(:one).to_param)
 		ts1.save_tags(tags_adicionadas)
+		# Verificando se salvou
 		ts1 = TouristSight.find(ts1.id)
 		assert_equal(2, ts1.tags.length)
 		
-		# Verificando se salvou
 		brasilia_id = cities(:one).to_param
 		city = City.find(brasilia_id)
 		# - fim preparacao

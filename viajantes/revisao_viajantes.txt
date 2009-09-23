@@ -4,7 +4,6 @@ Casos de Uso
     * Tirar editar e excluir da listagem e colocar no detalhamento
     * Revisar auto-grow da edição
     * Adicionar campos imagem
-    * Adicionar um combo-box com todas as tags na pesquisa avançada. 
     
   Manter Roteiro:
     * Adicionar o fluxo de exclusão.

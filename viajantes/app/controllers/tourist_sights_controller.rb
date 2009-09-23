@@ -5,18 +5,38 @@ class TouristSightsController < ApplicationController
   # GET /tourist_sights.xml
   def index
     @states = State.load_all
+    @tags = Tag.all
     
     # Caso tenha usado a pesquisa, seleciona pela cidade
-    if params[:state_id] and params[:state_id].length > 0 and 
-       params[:city_id] and params[:city_id].length > 0
+    if has_city? or has?(params[:tag_id])
       
-      @state_id = Integer(params[:state_id])
-      @city_id = Integer(params[:city_id])
-      @cities = City.load_all(@state_id)
+      att = {}
       
-      @tourist_sights = TouristSight.paginate(:conditions => ["city_id = ?", @city_id],
-                                              :per_page => Config::PAGE_SIZE, 
-                                              :page => params[:page], :order => "hits desc")
+      if has_city?
+		    @state_id = Integer(params[:state_id])
+		    @city_id = Integer(params[:city_id])
+		    @cities = City.load_all(@state_id)
+		    
+		    att[:city_id] = @city_id
+      end
+      
+      if has?(params[:tag_id])
+      	@tag_id = Integer(params[:tag_id])
+      	array = []
+      	array << Tag.find(@tag_id)
+      	
+      	att[:tags] = array
+      end
+      
+      search = TouristSight.new(att)
+      
+      @tourist_sights = TouristSight.find_by_object(:search => search,
+      																							:per_page => Config::PAGE_SIZE, 
+                                                    :page => params[:page])
+      
+      #@tourist_sights = TouristSight.paginate(:conditions => ["city_id = ?", @city_id],
+      #                                        :per_page => Config::PAGE_SIZE, 
+      #                                        :page => params[:page], :order => "hits desc")
     else
     # Caso contrario pega todas
       @tourist_sights = TouristSight.paginate(:per_page => Config::PAGE_SIZE, 
@@ -130,6 +150,22 @@ class TouristSightsController < ApplicationController
     end
   end
 	
+	private
+	
+	# Retorna true se os valores de state_id 
+  # e city_id tiverem sido submetidos
+  #
+  def has_city?
+  	has?(params[:state_id]) and has?(params[:city_id])
+  end
+  
+  # Retorna true caso o param seja diferente de nil 
+  # e seu comprimento for maior que zero.
+  #
+  def has?(param)
+  	param and param.length > 0
+  end
+  
 end
 
 

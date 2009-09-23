@@ -158,8 +158,15 @@ class TouristSight < ActiveRecord::Base
 		
 		if hash
 			# Valores padrao para o caso do hash não ser nulo
-			per_page = hash.fetch(:per_page, Config::PAGE_SIZE).to_i
-			page = hash.fetch(:page, 1).to_i
+			if hash[:per_page]
+				hash[:per_page] = Config::PAGE_SIZE
+			end
+			if (not hash[:page]) or hash[:page].to_i <= 0
+				hash[:page] = 1
+			end
+			
+			per_page = hash[:per_page]
+			page = hash[:page]
 			search = hash.fetch(:search, nil)
 			
 			# Se o objeto tiver sido passado, prepara query

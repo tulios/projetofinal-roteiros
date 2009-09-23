@@ -132,6 +132,56 @@ class TouristSightsControllerTest < ActionController::TestCase
 		assert_not_nil assigns(:tourist_sights)
     assert_equal(2, assigns(:tourist_sights).length)
   end
+  
+  test "Deveria filtrar os resultados pela tag" do
+  	# - Preparando teste
+		# Recuperando tags
+		tags_adicionadas = []
+		tags_adicionadas << Tag.find(tags(:one).to_param)
+		tags_adicionadas << Tag.find(tags(:two).to_param)
+		
+		# Associando a um ponto turistico
+		ts1 = TouristSight.find(tourist_sights(:one).to_param)
+		ts1.save_tags(tags_adicionadas)
+		# Verificando se salvou
+		ts1 = TouristSight.find(ts1.id)
+		assert_equal(2, ts1.tags.length)
+		
+		brasilia_id = cities(:one).to_param
+		city = City.find(brasilia_id)
+		# - fim preparacao
+		
+  	# Verifica se o controlador respondeu sucesso
+    get :index
+    assert_response :success
+
+		# Verifica que ele carregou os tourist_sights
+    assert_not_nil assigns(:tourist_sights)
+    assert_equal(2, assigns(:tourist_sights).length)
+    
+    tag1 = Tag.find(tags(:one).to_param)
+    tag2 = Tag.find(tags(:two).to_param)
+    tag3 = Tag.find(tags(:three).to_param)
+    
+    # Verifica que não existem pontos turísticos cadastrados para tag 3
+    get :index, :tag_id => tag3.id
+    assert_response :success
+		assert_not_nil assigns(:tourist_sights)
+    assert_equal(0, assigns(:tourist_sights).length)
+    
+    # Verifica que existe 1 ponto turistico para tag 1
+    get :index, :tag_id => tag1.id
+    assert_response :success
+		assert_not_nil assigns(:tourist_sights)
+    assert_equal(1, assigns(:tourist_sights).length)
+    
+    # Verifica que existe 1 ponto turistico para tag 2
+    get :index, :tag_id => tag2.id
+    assert_response :success
+		assert_not_nil assigns(:tourist_sights)
+    assert_equal(1, assigns(:tourist_sights).length)
+  end
+  
 end
 
 
