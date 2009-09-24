@@ -1,5 +1,8 @@
 Casos de Uso
 
+  Geral:
+    * Pensar em uma estratégia para que o usuário não avalie mais de uma vez por dia as coisas.
+
   Manter Ponto Turístico:
     * Tirar editar e excluir da listagem e colocar no detalhamento
     * Revisar auto-grow da edição
