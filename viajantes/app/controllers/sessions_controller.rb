@@ -1,12 +1,20 @@
-# This controller handles the login/logout function of the site.  
+# SessionsController - Controlador de sessões
+# 
+# Este controlador é responsável por tratar as 
+# funcionalidades de login e logout do sistema.
+# 
 class SessionsController < ApplicationController
   # Be sure to include AuthenticationSystem in Application Controller instead
   #include AuthenticatedSystem
 
-  # render new.html.erb
-  def new
-  end
-
+  # POST /sessions
+  # POST /sessions.xml
+  # 
+	# Loga o usuário no sistema inserindo-o na sessão.
+	#
+	# Params:
+	#   - event (Hash com os dados do evento)
+	#
   def create
     self.current_user = User.authenticate(params[:login], params[:password])
     if logged_in?
@@ -25,6 +33,11 @@ class SessionsController < ApplicationController
     end
   end
 
+  # DELETE /sessions
+  # DELETE /sessions
+  # 
+	# Desloga o usuário da sistema retirando-o da sessão.
+	#
   def destroy
     self.current_user.forget_me if logged_in?
     cookies.delete :auth_token

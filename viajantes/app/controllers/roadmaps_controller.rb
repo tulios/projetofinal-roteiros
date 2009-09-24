@@ -1,8 +1,16 @@
+# RoadmapsController - Controlador de Roteiros
+# 
+# Este controlador é responsável por processar e 
+# responder as requisições relativas aos roteiros. 
+# 
 class RoadmapsController < ApplicationController
 	require_role "user", :for_all_except => :show
 
   # GET /roadmaps
   # GET /roadmaps.xml
+  # 
+	# Carrega a listagem de roteiros do usuário.
+	#
   def index
     @roadmaps = Roadmap.paginate_by_user_id(
 			current_user.id,
@@ -17,8 +25,14 @@ class RoadmapsController < ApplicationController
     end
   end
 
-  # GET /roadmaps/1
-  # GET /roadmaps/1.xml
+  # GET /roadmaps/id
+  # GET /roadmaps/id.xml
+  # 
+	# Exibe os dados do roteiro
+	#
+	# Params:
+	#   - id (Id do roteiro)
+	#
   def show
     @roadmap = Roadmap.find(params[:id])
     @destinations = @roadmap.destinations
@@ -40,6 +54,9 @@ class RoadmapsController < ApplicationController
 
   # GET /roadmaps/new
   # GET /roadmaps/new.xml
+  # 
+	# Carrega a tela para a criação de um novo roteiro.
+	#
   def new
     @roadmap = Roadmap.new
 		# Inicializa o ponto de partida com a cidade natal do usuario
@@ -55,7 +72,14 @@ class RoadmapsController < ApplicationController
     end
   end
 
-  # GET /roadmaps/1/edit
+  # GET /roadmaps/id/edit
+  # GET /roadmaps/id/edit.xml
+  # 
+	# Carrega a tela de edição do roteiro.
+	#
+	# Params:
+	#   - id (Id do roteiro)
+	#
   def edit
 		@roadmap = Roadmap.find(params[:id])
 
@@ -70,6 +94,12 @@ class RoadmapsController < ApplicationController
 
   # POST /roadmaps
   # POST /roadmaps.xml
+  # 
+	# Cria um novo roteiro com os dados submetidos
+	#
+	# Params:
+	#   - roadmap (Hash com os dados do roteiro)
+	#
   def create
     @roadmap = Roadmap.new(params[:roadmap])
 		@roadmap.user_id = current_user.id
@@ -90,8 +120,15 @@ class RoadmapsController < ApplicationController
     end
   end
 
-  # PUT /roadmaps/1
-  # PUT /roadmaps/1.xml
+  # PUT /roadmaps/id
+  # PUT /roadmaps/id.xml
+  # 
+	# Atualiza um roteiro com os dados submetidos.
+	#
+	# Params:
+	#   - id (Id do roteiro)
+	#   - roadmap (Hash com os dados do roteiro)
+	#
   def update
     @roadmap = Roadmap.find(params[:id])
 
@@ -118,8 +155,14 @@ class RoadmapsController < ApplicationController
 		end
   end
 
-  # DELETE /roadmaps/1
-  # DELETE /roadmaps/1.xml
+  # DELETE /roadmaps/id
+  # DELETE /roadmaps/id.xml
+  # 
+	# Exclui um roteiro
+	#
+	# Params:
+	#   - id (Id do roteiro)
+	#
   def destroy
     @roadmap = Roadmap.find(params[:id])
 		

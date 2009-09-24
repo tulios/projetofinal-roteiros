@@ -110,8 +110,8 @@ class EventsController < ApplicationController
     end
   end
 
+  # GET /events/id/edit
   # GET /events/id/edit.xml
-  # GET /events/id/new.xml
   # 
 	# Carrega a tela de edição de evento.
 	#

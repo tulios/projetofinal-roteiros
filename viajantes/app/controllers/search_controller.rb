@@ -1,5 +1,28 @@
+# SearchController - Controlador de busca
+# 
+# Este controlador é responsável por processar e  responder as 
+# requisições relativas as buscas gerais do sistema. 
+# 
 class SearchController < ApplicationController
 
+  # GET /search
+  # GET /search.xml
+  # 
+	# Realiza uma pesquisa no sistema pelos estabelecimentos, pontos turísticos,
+	# roteiros e eventos.
+	#
+	# Params:
+	#   - value (valor a ser pesquisado)
+	#   - state_id (Id do estado)
+	#   - city_id (Id da cidade)
+	#   - start (Data de inicio)
+	#   - end (Data final)
+	#   - page_shop (pagina da listagem de estabelecimentos)
+	#   - page_ts (pagina da listagem de pontos turísticos)
+	#   - page_rm (pagina da listagem de roteiros)
+	#   - page_event (pagina da listagem de eventos)	
+	#   - selected (numero da aba selecionada)
+	#
 	def index
 	  @states = State.load_all
 	  
