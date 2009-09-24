@@ -8,6 +8,7 @@ Casos de Uso
   Manter Roteiro:
     * Adicionar o fluxo de exclusão.
     * Adicionar um botão para listar todos na pesquisa.
+    * Tela de detalhamento está muito feia no Chrome (letras grandes, icones quebrando...).
     
   Manter Programa:
     * Ordenar pontos turíticos e estabelecimentos alfabeticamente 
