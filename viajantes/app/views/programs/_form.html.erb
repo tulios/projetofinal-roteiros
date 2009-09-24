@@ -56,7 +56,7 @@
 				<% if @tourist_sights and @tourist_sights.length > 0 %>
 					<%= collection_select(:program, :tourist_sight_id, 
 																@tourist_sights, :id, :name, 
-																options ={:prompt => "-- Escolha um ponto turístico --"}) %>
+																options = {:include_blank => "-- Escolha um ponto turístico --"}) %>
 				<% else %>
 					<i>Nenhum ponto turístico encontrado.</i>
 				<% end %>
@@ -70,7 +70,7 @@
 				<% if @shops and @shops.length > 0 %>
 					<%= collection_select(:program, :shop_id, 
 																@shops, :id, :name, 
-																options ={:prompt => "-- Escolha um estabelecimento --"}) %>
+																options = {:include_blank => "-- Escolha um estabelecimento --"}) %>
 				<% else %>
 					<i>Nenhum estabelecimento encontrado.</i>
 				<% end %>

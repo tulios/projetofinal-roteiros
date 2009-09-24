@@ -21,8 +21,8 @@ class ProgramsController < ApplicationController
 		@destination = Destination.find(params[:destination_id])
 
 		city_id = @destination.city.id
-		@tourist_sights = TouristSight.find_all_by_city_id(city_id)
-		@shops = Shop.find_all_by_city_id(city_id)
+		@tourist_sights = TouristSight.find_all_by_city_id(city_id, :order => "name asc")
+		@shops = Shop.find_all_by_city_id(city_id, :order => "name asc")
 
     respond_to do |format|
       format.html # new.html.erb
@@ -46,8 +46,8 @@ class ProgramsController < ApplicationController
 		@roadmap = @program.destination.roadmap
 		
 		city_id = @destination.city.id
-		@tourist_sights = TouristSight.find_all_by_city_id(city_id)
-		@shops = Shop.find_all_by_city_id(city_id)
+		@tourist_sights = TouristSight.find_all_by_city_id(city_id, :order => "name asc")
+		@shops = Shop.find_all_by_city_id(city_id, :order => "name asc")
   end
 
   # POST /roadmaps/roadmap_id/destinations/destination_id/programs
@@ -61,6 +61,22 @@ class ProgramsController < ApplicationController
 	#   - program (Hash com os dados do programa)
 	#
   def create
+    # Gerando simbolo da string
+    if params[:program][:happens_in]  	
+		  params[:program][:happens_in] = params[:program][:happens_in].intern
+		end
+		
+		# Regra para que apenas 1 seja marcado por vez (tourist_sight ou shop)
+		case params[:program][:happens_in]
+			when :tourist_sight
+				params[:program][:shop_id] = nil
+			when :shop
+				params[:program][:tourist_sight_id] = nil
+			else
+				params[:program][:tourist_sight_id] = nil
+				params[:program][:shop_id] = nil
+		end
+		
     @program = Program.new(params[:program])
 		@program.destination = Destination.find(params[:destination_id])
 		@program.date = to_date(params[:program][:date], true)
@@ -93,9 +109,11 @@ class ProgramsController < ApplicationController
 	#   - programa(Hash com os dados do programa)
 	#
   def update
+    # Gerando simbolo da string
   	if params[:program][:happens_in]  	
 		  params[:program][:happens_in] = params[:program][:happens_in].intern
 		end
+		
     @program = Program.find(params[:id])
 		params[:program][:date] = to_date(params[:program][:date], true)
 		params[:program][:value] = currency_to_number(params[:program][:value])
