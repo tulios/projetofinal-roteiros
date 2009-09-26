@@ -65,6 +65,17 @@ class ShopTest < ActiveSupport::TestCase
 	  shop1 = Shop.find(shop1.id)
 	  assert_equal(1, shop1.hits)
 	end
+	
+	test "Deveria verificar se uma avaliacao ja foi feita essa semana"
+	  # Preparando teste
+	  ev = Evaluation.new(:general => "1", :clean => "3", :evaluation => {:criticism => "Criticism"})
+	  ev.save
+	  
+    se = ShopEvaluation.new(:shop_id => 1, :evaluation_id => ev.id)
+    se.save
+    
+    
+  end 
 end
 
 
