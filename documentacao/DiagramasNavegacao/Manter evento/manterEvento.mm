@@ -1,10 +1,7 @@
 <map version="0.8.1">
 <!-- To view this file, download free mind mapping software FreeMind from http://freemind.sourceforge.net -->
 <node CREATED="1253099017984" ID="Freemind_Link_147450767" MODIFIED="1253099038685" TEXT="Eventos">
-<node CREATED="1253101706562" ID="Freemind_Link_1476334936" MODIFIED="1253101709329" POSITION="right" TEXT="Listagem com todos">
-<node CREATED="1253099053470" ID="Freemind_Link_341093220" MODIFIED="1253099056472" TEXT="Pesquisa avan&#xe7;ada">
-<node CREATED="1253099057336" ID="Freemind_Link_1720066042" MODIFIED="1253099059814" TEXT="pesquisar"/>
-</node>
+<node CREATED="1253101706562" ID="Freemind_Link_1476334936" MODIFIED="1253967753472" POSITION="right" TEXT="pesquisar">
 <node CREATED="1253099049937" ID="_" MODIFIED="1253099052333" TEXT="Criar um novo">
 <node CREATED="1253099082816" ID="Freemind_Link_1805943429" MODIFIED="1253099083951" TEXT="Salvar"/>
 <node CREATED="1253099085041" ID="Freemind_Link_647854030" MODIFIED="1253099085859" TEXT="Voltar"/>
