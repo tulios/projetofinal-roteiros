@@ -30,7 +30,7 @@ class Destination < ActiveRecord::Base
   #
   def validate
     if(start_date and end_date)
-      errors.add(:end_date, "deve ser antes da data se início.") if end_date < start_date
+      errors.add(:end_date, "deve ser antes da data de início.") if end_date < start_date
     end
   end
   
