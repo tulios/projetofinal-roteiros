@@ -84,6 +84,38 @@ class Shop < ActiveRecord::Base
   def increase_hits
 	  self.update_attributes(:hits => self.hits + 1)
 	end
+  
+  # Verifica se a última avaliação feita pelo usuário a este estabelecimento
+  # foi a um número de dias igual ao período.
+	#
+	# params:
+	#		- User: user (O usuário que deseja avaliar)
+	#		- symbol: period (Valor padrão :week,
+	#                     valores possívels :day => 0, :week => 7, :month => 30, :year => 365)
+	#
+  def already_evaluated?(user, period = :week, today = DateTime.now)                    
+     
+     metrics = {:day => 0, :week => 7, :month => 30, :year => 365}                
+     
+     evaluation = Evaluation.paginate(
+              			:conditions => ["shop_id = ?", id],
+              			:joins => "inner join shop_evaluations se on se.evaluation_id = evaluations.id",
+                 	  :per_page => 1,
+                 	  :page => 1,
+                 	  :order => "created_at desc"
+              		) 
+                                          
+     if evaluation.nil? or evaluation.length == 0
+       return false
+     end
+                                        
+     date_creation = Converters::to_date(Converters::date_to_string(evaluation[0].created_at))
+     today = Converters::to_date(Converters::date_to_string(today))
+     
+     days = (today - date_creation)
+     
+     days <= metrics[period]     
+  end
 
 	# Recupera todos os estabelecimentos com o nome ou as 
 	# palavras-chave parecidas com o valor informado.
@@ -104,4 +136,25 @@ class Shop < ActiveRecord::Base
 									:per_page => per_page, 
 									:page => page)
 	end
+	
 end
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

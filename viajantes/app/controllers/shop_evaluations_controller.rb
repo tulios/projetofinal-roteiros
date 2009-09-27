@@ -29,10 +29,12 @@ class ShopEvaluationsController < ApplicationController
 		@shop_evaluation.evaluation = @evaluation
 		@evaluation.city = @shop.city
 		@evaluation.user = current_user
+		     
+		already_evaluated = @shop.already_evaluated?(current_user)
 		
 		respond_to do |format|
 			# Salvando
-			if @evaluation.save
+			if (not already_evaluated) and @evaluation.save
 				# Salvando relação
 				if @shop_evaluation.save
 					flash[:notice] = 'Estabelecimento avaliado com sucesso.'
@@ -43,7 +45,10 @@ class ShopEvaluationsController < ApplicationController
 					format.html { render :action => "new" }
 				end
 				
-			else
+			else                                                                
+			  if already_evaluated
+			    flash[:error] = 'Este estabelecimento já foi avaliado essa semana.'
+		    end
 				@city = @shop.city
 				format.html { render :action => "new" }
 			end
