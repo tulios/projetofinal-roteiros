@@ -60,10 +60,10 @@ class DestinationsController < ApplicationController
     @destination = Destination.new(params[:destination])
     @roadmap = Roadmap.find(params[:roadmap_id])
 
-    @destination.start_date = to_date(params[:destination][:start_date])
-    @destination.end_date = to_date(params[:destination][:end_date])
+    @destination.start_date = Converters::to_date(params[:destination][:start_date])
+    @destination.end_date = Converters::to_date(params[:destination][:end_date])
     @destination.roadmap = @roadmap
-		@destination.planned_cost = currency_to_number(params[:destination][:planned_cost])
+		@destination.planned_cost = Converters::currency_to_number(params[:destination][:planned_cost])
 
     respond_to do |format|
       if @destination.save
@@ -101,9 +101,9 @@ class DestinationsController < ApplicationController
     @destination = Destination.find(params[:id])
     @roadmap = @destination.roadmap
 
-    params[:destination][:start_date] = to_date(params[:destination][:start_date])
-    params[:destination][:end_date] = to_date(params[:destination][:end_date])
-		params[:destination][:planned_cost] = currency_to_number(params[:destination][:planned_cost])
+    params[:destination][:start_date] = Converters::to_date(params[:destination][:start_date])
+    params[:destination][:end_date] = Converters::to_date(params[:destination][:end_date])
+		params[:destination][:planned_cost] = Converters::currency_to_number(params[:destination][:planned_cost])
 
     respond_to do |format|
       if @destination.update_attributes(params[:destination])

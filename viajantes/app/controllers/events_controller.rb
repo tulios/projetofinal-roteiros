@@ -28,7 +28,7 @@ class EventsController < ApplicationController
     	
     	# Verifica se a data de inicio foi informada   
       if (has?(params[:start]))
-	      @start = to_date(params[:start])
+	      @start = Converters::to_date(params[:start])
 	      query << "time >= ?"
 	      att << @start
 	      
@@ -37,7 +37,7 @@ class EventsController < ApplicationController
 
     	# Verifica se a data de fim foi informada      
       if has?(params[:end])
-	      @end = to_date(params[:end])
+	      @end = Converters::to_date(params[:end])
 	      query << "time <= ?"
 	      
 	      @end = @end.change(:hour => 23)
@@ -134,7 +134,7 @@ class EventsController < ApplicationController
 	#
   def create
     @event = Event.new(params[:event])
-    @event.cost = currency_to_number(params[:event][:cost])
+    @event.cost = Converters::currency_to_number(params[:event][:cost])
     @event.user = current_user
 
     respond_to do |format|
@@ -161,7 +161,7 @@ class EventsController < ApplicationController
 	#
   def update
     @event = Event.find(params[:id])
-    params[:event][:cost] = currency_to_number(params[:event][:cost])
+    params[:event][:cost] = Converters::currency_to_number(params[:event][:cost])
 
     if not owner?(@event)
       flash[:error] = 'Você não tem permissão para alterar o evento.'

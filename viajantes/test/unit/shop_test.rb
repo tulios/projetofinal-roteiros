@@ -65,17 +65,100 @@ class ShopTest < ActiveSupport::TestCase
 	  shop1 = Shop.find(shop1.id)
 	  assert_equal(1, shop1.hits)
 	end
+	          
+	test "Deveria verificar se uma avaliacao ainda nao foi feita hoje sem existir nenhuma avaliacao" do                           
+	  quentin = User.find(users(:quentin).to_param)
+    shop = Shop.find(shops(:one).to_param)  
+    
+    assert (not shop.already_evaluated?(quentin, :day))
+  end
 	
-	test "Deveria verificar se uma avaliacao ja foi feita essa semana"
+	test "Deveria verificar se uma avaliacao ja foi feita hoje" do                           
+	  quentin = User.find(users(:quentin).to_param)
+	  
 	  # Preparando teste
-	  ev = Evaluation.new(:general => "1", :clean => "3", :evaluation => {:criticism => "Criticism"})
+	  ev = Evaluation.new(:general => "1", :clean => "3", :criticism => "Criticism", 
+	                      :city_id => 1, :user_id => quentin.id)
 	  ev.save
 	  
-    se = ShopEvaluation.new(:shop_id => 1, :evaluation_id => ev.id)
+	  # Recuperando a avaliação
+    ev = Evaluation.find(ev.id)
+    shop = Shop.find(shops(:one).to_param)  
+    
+    se = ShopEvaluation.new
+    se.shop = shop
+    se.evaluation = ev
     se.save
+                               
+    assert shop.already_evaluated?(quentin, :day)
+  end
+  
+  test "Deveria verificar se uma avaliacao ja foi feita essa semana mes e ano" do                           
+	  quentin = User.find(users(:quentin).to_param)
+	  
+	  # Preparando teste
+	  ev = Evaluation.new(:general => "1", :clean => "3", :criticism => "Criticism", 
+	                      :city_id => 1, :user_id => quentin.id)
+	  ev.save
+	  
+	  # Recuperando a avaliação
+    ev = Evaluation.find(ev.id)
+    shop = Shop.find(shops(:one).to_param)
     
+    se = ShopEvaluation.new
+    se.shop = shop
+    se.evaluation = ev
+    se.save
+                               
+    assert shop.already_evaluated?(quentin, :week)
+    assert shop.already_evaluated?(quentin, :month)
+    assert shop.already_evaluated?(quentin, :year)        
+  end
+
+  test "Deveria verificar se uma avaliacao ainda nao foi feita hoje" do                           
+	  quentin = User.find(users(:quentin).to_param)
+	  
+	  # Preparando teste
+	  ev = Evaluation.new(:general => "1", :clean => "3", :criticism => "Criticism", 
+	                      :city_id => 1, :user_id => quentin.id, 
+	                      :created_at => Converters::to_date("10/09/2009"))
+	  ev.save
+	  
+	  # Recuperando a avaliação
+    ev = Evaluation.find(ev.id)
+    shop = Shop.find(shops(:one).to_param)  
     
-  end 
+    se = ShopEvaluation.new
+    se.shop = shop
+    se.evaluation = ev
+    se.save
+                               
+    assert (not shop.already_evaluated?(quentin, :day))
+  end
+  
+  test "Deveria verificar se uma avaliacao ainda nao foi feita essa semana mes e ano" do                           
+	  quentin = User.find(users(:quentin).to_param)
+	  
+	  # Preparando teste
+	  ev = Evaluation.new(:general => "1", :clean => "3", :criticism => "Criticism", 
+	                      :city_id => 1, :user_id => quentin.id, 
+	                      :created_at => Converters::to_date("10/09/2009"))
+	  ev.save
+	  
+	  # Recuperando a avaliação
+    ev = Evaluation.find(ev.id)
+    shop = Shop.find(shops(:one).to_param)  
+    
+    se = ShopEvaluation.new
+    se.shop = shop
+    se.evaluation = ev
+    se.save
+                               
+    assert (not shop.already_evaluated?(quentin, :week, Converters::to_date("18/09/2009")))
+    assert (not shop.already_evaluated?(quentin, :month, Converters::to_date("11/10/2009")))    
+    assert (not shop.already_evaluated?(quentin, :year, Converters::to_date("11/09/2010")))    
+  end
+  
 end
 
 

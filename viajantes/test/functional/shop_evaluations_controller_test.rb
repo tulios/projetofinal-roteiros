@@ -85,8 +85,8 @@ class ShopEvaluationsControllerTest < ActionController::TestCase
 		# Verifica a quantidade apos a exclusao
 		assert_equal(0, ShopEvaluation.count)
     assert_equal(0, Evaluation.count)
-  end
-
+  end       
+                                                                 
   private
   def create_shop_evaluation
     se = ShopEvaluation.new
