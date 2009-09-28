@@ -79,8 +79,8 @@ class ProgramsController < ApplicationController
 		
     @program = Program.new(params[:program])
 		@program.destination = Destination.find(params[:destination_id])
-		@program.date = to_date(params[:program][:date], true)
-		@program.value = currency_to_number(params[:program][:value])
+		@program.date = Converters::to_date(params[:program][:date], true)
+		@program.value = Converters::currency_to_number(params[:program][:value])
 
     respond_to do |format|
       if @program.save
@@ -115,8 +115,8 @@ class ProgramsController < ApplicationController
 		end
 		
     @program = Program.find(params[:id])
-		params[:program][:date] = to_date(params[:program][:date], true)
-		params[:program][:value] = currency_to_number(params[:program][:value])
+		params[:program][:date] = Converters::to_date(params[:program][:date], true)
+		params[:program][:value] = Converters::currency_to_number(params[:program][:value])
 
 		@roadmap = @program.destination.roadmap
 		@destination = @program.destination

@@ -25,7 +25,7 @@ class UsersController < ApplicationController
     # reset_session
     
     @user = User.new(params[:user])
-		@user.birthday = to_date(params[:user][:birthday], true)
+		@user.birthday = Converters::to_date(params[:user][:birthday], true)
     @user.roles << Role.find_by_name("user");
     
     @user.save
@@ -56,7 +56,7 @@ class UsersController < ApplicationController
   # PUT /users/1.xml
   def update
     @user = User.find(params[:id])
-		params[:user][:birthday] = to_date(params[:user][:birthday], true)
+		params[:user][:birthday] = Converters::to_date(params[:user][:birthday], true)
 
     respond_to do |format|
       if @user.update_attributes(params[:user])
