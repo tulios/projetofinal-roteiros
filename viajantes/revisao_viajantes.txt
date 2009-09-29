@@ -18,7 +18,6 @@ Casos de Uso
         ao criar um novo programa
     
   Manter Estabelecimento:
-    * Retirar editar e apagar da listagem e colocar no detalhamento
     * Adicionar campo imagem 
     
    Pagina inicial
