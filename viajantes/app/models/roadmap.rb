@@ -13,7 +13,7 @@ class Roadmap < ActiveRecord::Base
 
 	belongs_to :city
 	belongs_to :user
-	has_many :destinations, :order => "start_date", :limit => Config::PAGE_SIZE
+	has_many :destinations, :order => "start_date", :limit => Config::PAGE_SIZE, :dependent => :destroy
 
 	validates_presence_of :city_id, :title
 

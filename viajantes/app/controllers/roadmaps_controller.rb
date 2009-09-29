@@ -82,6 +82,10 @@ class RoadmapsController < ApplicationController
 	#
   def edit
 		@roadmap = Roadmap.find(params[:id])
+                    
+    if not validate_permission(@roadmap)
+      return
+    end
 
 		if @roadmap.user.id != current_user.id and (not @roadmap.public)
 			flash[:error] = "Esse roteiro não é público e não te pertence!"
@@ -131,28 +135,25 @@ class RoadmapsController < ApplicationController
 	#
   def update
     @roadmap = Roadmap.find(params[:id])
+                         
+    if not validate_permission(@roadmap)
+      return
+    end
+         		    
+		respond_to do |format|
+		  if @roadmap.update_attributes(params[:roadmap])
+		    flash[:notice] = 'Roteiro atualizado com sucesso.'
+		    format.html { redirect_to(@roadmap) }
+		    format.xml  { head :ok }
+		  else
+     		# Recarrega os estados e as cidades se possivel
+				load_states_and_cities(@roadmap)
 
-		if @roadmap.user.id != current_user.id and (not @roadmap.public)
-			flash[:error] = "Esse roteiro não é público e não te pertence!"
-			redirect_to roadmaps_path
-		else
-
-		  respond_to do |format|
-		    if @roadmap.update_attributes(params[:roadmap])
-		      flash[:notice] = 'Roteiro atualizado com sucesso.'
-		      format.html { redirect_to(@roadmap) }
-		      format.xml  { head :ok }
-		    else
-
-					# Recarrega os estados e as cidades se possivel
-					load_states_and_cities(@roadmap)
-
-		      format.html { render :action => "edit" }
-		      format.xml  { render :xml => @roadmap.errors, :status => :unprocessable_entity }
-		    end
+		    format.html { render :action => "edit" }
+		    format.xml  { render :xml => @roadmap.errors, :status => :unprocessable_entity }
 		  end
-
 		end
+    		
   end
 
   # DELETE /roadmaps/id
@@ -165,20 +166,18 @@ class RoadmapsController < ApplicationController
 	#
   def destroy
     @roadmap = Roadmap.find(params[:id])
-		
-		if @roadmap.user.id != current_user.id and (not @roadmap.public)
-			flash[:error] = "Esse roteiro não é público e não te pertence!"
-			redirect_to roadmaps_path
-		else
+		                      
+		if not validate_permission(@roadmap)
+      return
+    end
 
-		  @roadmap.destroy
+		@roadmap.destroy
 
-		  respond_to do |format|
-		    format.html { redirect_to(roadmaps_url) }
-		    format.xml  { head :ok }
-		  end
-
+		respond_to do |format|
+		  format.html { redirect_to(roadmaps_url) }
+		  format.xml  { head :ok }
 		end
-  end
+
+	end
 
 end

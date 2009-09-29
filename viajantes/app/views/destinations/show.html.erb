@@ -40,7 +40,7 @@
 <br/>
 <br/>
 
-<% if logged_in? %>
+<% if logged_in? and owner?(@roadmap) %>
 	<%= link_to 'Editar', edit_roadmap_destination_path(@destination.roadmap, @destination) %> |
 <% end %>
 

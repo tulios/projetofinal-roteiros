@@ -115,6 +115,18 @@ class Shop < ActiveRecord::Base
      days = (today - date_creation)
      
      days <= metrics[period]     
+  end          
+    
+  # Verifica se existe algum programa associado a este estabelecimento
+  #
+  def has_programs_associated?
+    count = Program.count(:conditions => ["shop_id = ?", id])
+    
+    if count > 0
+      return true
+    end
+    
+    false
   end
 
 	# Recupera todos os estabelecimentos com o nome ou as 
