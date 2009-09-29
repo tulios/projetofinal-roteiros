@@ -200,7 +200,7 @@ class EventsController < ApplicationController
     if not validate_permission(@event)
       return
     end
-                                                   
+                                                                                                                           
     # Verifica se o evento ainda possui algum relacionamento com avaliacao e dica
     if (@event.tips and @event.tips.length > 0) or (@event.evaluations and @event.evaluations.length > 0)
       flash[:error] = 'Este evento ainda possui avaliações ou dicas, apague-os antes de tentar excluir.'

@@ -102,7 +102,7 @@ class EventsControllerTest < ActionController::TestCase
     login_as :quentin
     
     assert_difference "Event.count", -1 do
-      post :destroy, :id => events(:one).to_param
+      post :destroy, :id => events(:two).to_param  
       assert_redirected_to events_path
     end
   end
