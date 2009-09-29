@@ -17,7 +17,12 @@ class DestinationsController < ApplicationController
   def new
     @destination = Destination.new
     @destination.roadmap = Roadmap.find(params[:roadmap_id])
-    @roadmap = @destination.roadmap
+    @roadmap = @destination.roadmap 
+    
+    if not validate_permission(@roadmap)
+      return
+    end
+    
     @destinations =  @roadmap.destinations
     @states = State.load_all
     @vehicles = Vehicle.all
@@ -40,6 +45,10 @@ class DestinationsController < ApplicationController
   def edit
     @destination = Destination.find(params[:id])
     @roadmap = @destination.roadmap
+                        
+    if not validate_permission(@roadmap)
+      return
+    end
 
     @destinations =  @roadmap.destinations
     @states = State.all
@@ -59,6 +68,10 @@ class DestinationsController < ApplicationController
   def create
     @destination = Destination.new(params[:destination])
     @roadmap = Roadmap.find(params[:roadmap_id])
+                      
+    if not validate_permission(@roadmap)
+      return
+    end
 
     @destination.start_date = Converters::to_date(params[:destination][:start_date])
     @destination.end_date = Converters::to_date(params[:destination][:end_date])
@@ -104,6 +117,10 @@ class DestinationsController < ApplicationController
     params[:destination][:start_date] = Converters::to_date(params[:destination][:start_date])
     params[:destination][:end_date] = Converters::to_date(params[:destination][:end_date])
 		params[:destination][:planned_cost] = Converters::currency_to_number(params[:destination][:planned_cost])
+             
+    if not validate_permission(@roadmap)
+      return
+    end
 
     respond_to do |format|
       if @destination.update_attributes(params[:destination])
@@ -132,7 +149,12 @@ class DestinationsController < ApplicationController
 	#
   def destroy
     @destination = Destination.find(params[:id])
-    @roadmap = @destination.roadmap
+    @roadmap = @destination.roadmap  
+    
+    if not validate_permission(@roadmap)
+      return
+    end
+    
     @destination.destroy
 
     respond_to do |format|

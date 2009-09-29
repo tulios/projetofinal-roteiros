@@ -19,6 +19,10 @@ class ProgramsController < ApplicationController
     @program = Program.new
 		@roadmap = Roadmap.find(params[:roadmap_id])
 		@destination = Destination.find(params[:destination_id])
+                                    
+    if not validate_permission(@roadmap)
+      return
+    end
 
 		city_id = @destination.city.id
 		@tourist_sights = TouristSight.find_all_by_city_id(city_id, :order => "name asc")
@@ -44,6 +48,10 @@ class ProgramsController < ApplicationController
     @program = Program.find(params[:id])
 		@destination = @program.destination
 		@roadmap = @program.destination.roadmap
+		                                
+		if not validate_permission(@roadmap)
+      return
+    end
 		
 		city_id = @destination.city.id
 		@tourist_sights = TouristSight.find_all_by_city_id(city_id, :order => "name asc")
@@ -76,12 +84,19 @@ class ProgramsController < ApplicationController
 				params[:program][:tourist_sight_id] = nil
 				params[:program][:shop_id] = nil
 		end
+		                        
+		@destination = Destination.find(params[:destination_id])
+		@roadmap = @destination.roadmap                                       
+		         
+		if not validate_permission(@roadmap)
+      return
+    end
 		
     @program = Program.new(params[:program])
-		@program.destination = Destination.find(params[:destination_id])
+		@program.destination = @destination
 		@program.date = Converters::to_date(params[:program][:date], true)
 		@program.value = Converters::currency_to_number(params[:program][:value])
-
+                      
     respond_to do |format|
       if @program.save
         flash[:notice] = 'Programa criado com sucesso.'
@@ -120,6 +135,10 @@ class ProgramsController < ApplicationController
 
 		@roadmap = @program.destination.roadmap
 		@destination = @program.destination
+		                                       
+		if not validate_permission(@roadmap)
+      return
+    end
 		
 		# Regra para que apenas 1 seja marcado por vez (tourist_sight ou shop)
 		case params[:program][:happens_in]
@@ -157,7 +176,11 @@ class ProgramsController < ApplicationController
 	#
   def destroy
     @program = Program.find(params[:id])
-		roadmap = @program.destination.roadmap
+		@roadmap = @program.destination.roadmap
+                         
+    if not validate_permission(@roadmap)
+      return
+    end
 
     @program.destroy
 

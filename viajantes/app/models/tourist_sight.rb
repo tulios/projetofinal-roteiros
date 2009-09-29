@@ -100,7 +100,19 @@ class TouristSight < ActiveRecord::Base
   # 
 	def increase_hits
 	  self.update_attributes(:hits => self.hits + 1)
-	end
+	end               
+	
+	# Verifica se existe algum programa associado a este estabelecimento
+  #
+  def has_programs_associated?
+    count = Program.count(:conditions => ["tourist_sight_id = ?", id])
+    
+    if count > 0
+      return true
+    end
+    
+    false
+  end
 	
 	# Realiza uma consulta paginada de pontos turísticos 
 	# do ponto turístico, ordenados por hits.

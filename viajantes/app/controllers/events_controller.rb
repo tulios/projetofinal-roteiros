@@ -119,7 +119,12 @@ class EventsController < ApplicationController
 	#   - id (Id do evento)
 	#
   def edit
-    @event = Event.find(params[:id])
+    @event = Event.find(params[:id])     
+    
+    if not validate_permission(@event)
+      return
+    end
+    
 		@states = State.load_all
 		@cities = City.load_all(@event.city.state.id)
   end
@@ -163,12 +168,8 @@ class EventsController < ApplicationController
     @event = Event.find(params[:id])
     params[:event][:cost] = Converters::currency_to_number(params[:event][:cost])
 
-    if not owner?(@event)
-      flash[:error] = 'Você não tem permissão para alterar o evento.'
-      respond_to do |format|
-          format.html { redirect_to @event }
-      end
-      return 
+    if not validate_permission(@event)
+      return
     end
 
     respond_to do |format|
@@ -194,13 +195,19 @@ class EventsController < ApplicationController
 	#
   def destroy
     @event = Event.find(params[:id])
-    
-    if not owner?(@event)
-      flash[:error] = 'Você não tem permissão para apagar o evento.'
+                                          
+    # Verifica se o usuario tem permissao para isso
+    if not validate_permission(@event)
+      return
+    end
+                                                   
+    # Verifica se o evento ainda possui algum relacionamento com avaliacao e dica
+    if (@event.tips and @event.tips.length > 0) or (@event.evaluations and @event.evaluations.length > 0)
+      flash[:error] = 'Este evento ainda possui avaliações ou dicas, apague-os antes de tentar excluir.'
       respond_to do |format|
           format.html { redirect_to @event }
-      end
-      return 
+      end             
+      return
     end
     
     @event.destroy

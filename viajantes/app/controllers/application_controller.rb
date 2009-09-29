@@ -12,7 +12,7 @@ class ApplicationController < ActionController::Base
   # Scrub sensitive parameters from your log
   # filter_parameter_logging :password 
 
-	# Filtros utilitarios
+	# Filtros utilitários
   def verify_user (user_id, methods)
     methods.each do |method|
       if(self.action_name == method.to_s)
@@ -43,7 +43,21 @@ class ApplicationController < ActionController::Base
 	  end
 	  
 	  return false;
-  end
+  end        
+                 
+  # Valida a permissão de acesso ao objeto passado. Caso o usuário corrente
+  # não possua permissão ocorre um redirect para o show do objeto informado.        
+  def validate_permission(object)
+    if not owner?(object)
+      flash[:error] = 'Você não tem permissão para isso.'
+      respond_to do |format|
+          format.html { redirect_to object }
+      end
+      return false
+    end 
+    
+    true                 
+  end    
 
 end
 

@@ -2,7 +2,7 @@
 
 <%= render :partial => "info" %>
 
-<% if logged_in? %>
+<% if logged_in? and owner?(@roadmap) %>
 	<div align="right">
 		<%= link_to 'Editar', edit_roadmap_path(@roadmap) %> | 
 		<%= link_to 'Apagar', @roadmap, :confirm => 'Você tem certeza?', :method => :delete %>
@@ -49,7 +49,7 @@
 <br/>
 <br/>
 
-<% if logged_in? %>
+<% if logged_in? and owner?(@roadmap) %>
 	<%= link_to 'Voltar', roadmaps_path %>
 <% end %>
 

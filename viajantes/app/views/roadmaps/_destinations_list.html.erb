@@ -11,7 +11,7 @@
 		  </center>
 		<% end %>
 	</div>
-	<% if logged_in? %>
+	<% if logged_in? and owner?(@roadmap) %>
 	  <center>
 			<%= link_to 'Novo destino', new_roadmap_destination_path(@roadmap), :class => "botao_new_destination" %>
 		</center>

@@ -13,7 +13,7 @@
 		Programas
 	</span>
 	
-	<% if logged_in? %>
+	<% if logged_in? and owner?(@roadmap) %>
 		<%= link_to "Novo", new_roadmap_destination_program_path(@roadmap, destination), 
 								:class => "botao_new_program" %>
 	<% end %>

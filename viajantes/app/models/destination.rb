@@ -14,7 +14,7 @@
 #
 class Destination < ActiveRecord::Base
   
-	has_many :programs, :order => "date asc"
+	has_many :programs, :order => "date asc", :dependent => :destroy
   
   belongs_to :roadmap
   belongs_to :vehicle
