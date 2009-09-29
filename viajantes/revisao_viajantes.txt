@@ -38,4 +38,4 @@ Casos de Uso
 	  7 - Adicionar opções de listagem por dia, final de semana e mês.
 	  
 	Pesquisar
-		1 - Não aparece de cara o roteiro pesquisado. É preciso clicar em roteiros para aparecer os roteiros criados.
+		1 - A pesquisa vem como default a aba de ponto turístico. Se não existir um ponto turístico na pesquisa, não apresenta resultado
