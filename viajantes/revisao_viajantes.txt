@@ -21,7 +21,6 @@ Casos de Uso
         ao criar um novo programa
     
   Manter Estabelecimento:
-    * Retirar editar e apagar da listagem e colocar no detalhamento
     * Adicionar campo imagem 
     
    Pagina inicial
@@ -34,11 +33,9 @@ Casos de Uso
 	Manter Evento
 	  1 - Mostrar eventos por cidade no index, exibindo sempre a pesquisa avançada.
 	  2 - Adicionar a opção "quero ir" que enviará lembretes do evento. (Pode interagir pessoas que querem ir).
-	  3 - Retirar o relacionamento com ponto turístico e estabelecimento.
-	  4 - Adicionar Campo de local/endereço.
-	  5 - Retirar o campo "possui custo" e colocar campo valor.
-	  6 - Exibir a data na listagem.
-	  7 - Adicionar opções de listagem por dia, final de semana e mês.
-	  
+	  3 - Exibir a data na listagem.
+	  4 - Adicionar opções de listagem por dia, final de semana e mês.
+		5 - Validar o nome com quantidade de caracter mínimo.	  
+
 	Pesquisar
 		1 - A pesquisa vem como default a aba de ponto turístico. Se não existir um ponto turístico na pesquisa, não apresenta resultado

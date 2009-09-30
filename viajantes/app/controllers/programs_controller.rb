@@ -185,7 +185,7 @@ class ProgramsController < ApplicationController
     @program.destroy
 
     respond_to do |format|
-      format.html { redirect_to(roadmap) }
+      format.html { redirect_to(@roadmap) }
       format.xml  { head :ok }
     end
   end
