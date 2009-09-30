@@ -57,13 +57,13 @@
 
 		</ul>
 
-		<% if logged_in? %>
-	    <div align="right">
-	      <%= link_to 'Editar', edit_roadmap_destination_path(destination.roadmap, destination) %> | 
-		    <%= link_to 'Apagar', roadmap_destination_path(destination.roadmap, destination), 
-															:confirm => 'Você tem certeza?', :method => :delete %>
-	    </div>
-    <% end %>
+		<% if logged_in? and owner?(@roadmap) %>
+	   	 	<div align="right">
+		      <%= link_to 'Editar', edit_roadmap_destination_path(destination.roadmap, destination) %> | 
+			  <%= link_to 'Apagar', roadmap_destination_path(destination.roadmap, destination), 
+									:confirm => 'Você tem certeza?', :method => :delete %>
+		    </div>
+    	<% end %>
 
   </li>
 <% end %>

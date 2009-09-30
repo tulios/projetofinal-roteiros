@@ -5,7 +5,7 @@
 				<strong><%= date_format(program.date) %></strong>&nbsp;
 				<strong><%= currency(program.value) %></strong>&nbsp;
 			</div>
-			<% if logged_in?%>
+			<% if logged_in? and owner?(@roadmap) %>
 				<div style="float: right;">
 					<%= link_to (image_tag 'edit_16.png', :border => 0), 
 							edit_roadmap_destination_program_path(

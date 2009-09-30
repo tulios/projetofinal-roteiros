@@ -8,7 +8,7 @@
 <% if logged_in? and owner?(@event) %>
 	<div style="float: right;">
 		<%= link_to 'Editar', edit_event_path(@event) %> |
-		<%= link_to 'Apagar', @program, :confirm => 'Você tem certeza?', :method => :delete %>
+		<%= link_to 'Apagar', @event, :confirm => 'Você tem certeza?', :method => :delete %>
 	</div>
 <% end %>
 

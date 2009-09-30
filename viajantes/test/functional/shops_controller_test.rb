@@ -129,7 +129,7 @@ class ShopsControllerTest < ActionController::TestCase
 		assert_equal(2, Shop.count)
 
 		# Verifica que o controlador apagou e redirecionou para o lugar certo
-    post :destroy, :id => shops(:one).to_param
+    post :destroy, :id => shops(:two).to_param
     assert_redirected_to shops_path
 
 		assert_equal(1, Shop.count)

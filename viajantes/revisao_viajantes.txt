@@ -1,4 +1,7 @@
-Casos de Uso
+Casos de Uso      
+
+  Fluxos de exclusão de ponto turístico e estabelecimento
+	- Apagar somente se não tiver associações.
 
   Geral:
     * Pensar em uma estratégia para que o usuário não avalie mais de uma vez por dia as coisas.

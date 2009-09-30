@@ -79,7 +79,12 @@ class TouristSightsController < ApplicationController
 
   # GET /tourist_sights/1/edit
   def edit
-    @tourist_sight = TouristSight.find(params[:id])
+    @tourist_sight = TouristSight.find(params[:id])  
+
+    if not validate_permission(@tourist_sight)
+      return
+    end
+    
 		@states = State.load_all
 		@cities = City.load_all(@tourist_sight.city.state.id)
   end
@@ -126,7 +131,11 @@ class TouristSightsController < ApplicationController
 		# de validar o formato desse email. (Conferir em app/models/tourist_sight.rb)
 		if params[:tourist_sight][:email] and params[:tourist_sight][:email].strip.length == 0
 			params[:tourist_sight][:email] = nil
-		end
+		end                            
+		
+		if not validate_permission(@tourist_sight)
+      return
+    end
 
     respond_to do |format|
       if @tourist_sight.update_attributes(params[:tourist_sight])
@@ -147,7 +156,23 @@ class TouristSightsController < ApplicationController
   # DELETE /tourist_sights/1
   # DELETE /tourist_sights/1.xml
   def destroy
-    @tourist_sight = TouristSight.find(params[:id])
+    @tourist_sight = TouristSight.find(params[:id])  
+    
+    if not validate_permission(@tourist_sight)
+      return
+    end
+    
+    if (@tourist_sight.tips and @tourist_sight.tips.length > 0) or 
+       (@tourist_sight.evaluations and @tourist_sight.evaluations.length > 0) or
+       (@tourist_sight.has_programs_associated?)
+        
+      flash[:error] = 'Este ponto turístico ainda possui avaliações, dicas ou está associado a um programa, apague-os antes de tentar excluir.'
+      respond_to do |format|
+          format.html { redirect_to @tourist_sight }
+      end             
+      return
+    end
+    
     @tourist_sight.destroy
 
     respond_to do |format|

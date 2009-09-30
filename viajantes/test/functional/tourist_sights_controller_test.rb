@@ -99,7 +99,7 @@ class TouristSightsControllerTest < ActionController::TestCase
   test "Deveria apagar um tourist_sight" do
     login_as :quentin
     
-		id = tourist_sights(:one).to_param
+		id = tourist_sights(:two).to_param
 		# Veririca a quantidade de objetos antes da exclusao
 		assert_equal(2, TouristSight.count)
 

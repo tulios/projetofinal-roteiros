@@ -6,12 +6,13 @@
 
 <%= render :partial => 'info' %>
 
-<% if logged_in? %>
+<% if logged_in? and owner?(@shop) %>
 	<div style="float: right;">
-		<%= link_to 'Editar', edit_shop_path(@shop) %>
+		<%= link_to 'Editar', edit_shop_path(@shop) %> |
+		<%= link_to 'Apagar', @shop, :confirm => 'Você tem certeza?', :method => :delete %>
 	</div>
 <% end %>
-
+               
 <br/><br/>
 
 <!-- Titulo Avaliacoes -->

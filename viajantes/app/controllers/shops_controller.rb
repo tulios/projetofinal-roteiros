@@ -60,7 +60,12 @@ class ShopsController < ApplicationController
 
   # GET /shops/1/edit
   def edit
-    @shop = Shop.find(params[:id])
+    @shop = Shop.find(params[:id])   
+    
+    if not validate_permission(@shop)
+      return
+    end
+    
 		@states = State.load_all
 
 		state_id = @shop.city.state.id
@@ -106,7 +111,11 @@ class ShopsController < ApplicationController
 		# de validar o formato desse email. (Conferir em app/models/shop.rb)
 		if params[:shop][:email] and params[:shop][:email].strip.length == 0
 			params[:shop][:email] = nil
-		end
+		end     
+		
+		if not validate_permission(@shop)
+      return
+    end
 
     respond_to do |format|
       if @shop.update_attributes(params[:shop])
@@ -126,7 +135,23 @@ class ShopsController < ApplicationController
   # DELETE /shops/1
   # DELETE /shops/1.xml
   def destroy
-    @shop = Shop.find(params[:id])
+    @shop = Shop.find(params[:id])     
+    
+    if not validate_permission(@shop)
+      return
+    end
+                                  
+    if (@shop.tips and @shop.tips.length > 0) or 
+       (@shop.evaluations and @shop.evaluations.length > 0) or
+       (@shop.has_programs_associated?)
+        
+      flash[:error] = 'Este estabelecimento ainda possui avaliações, dicas ou está associado a um programa, apague-os antes de tentar excluir.'
+      respond_to do |format|
+          format.html { redirect_to @shop }
+      end             
+      return
+    end
+    
     @shop.destroy
 
     respond_to do |format|
