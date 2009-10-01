@@ -782,7 +782,39 @@ textarea.expanding {
 	width: 23px;
 }
 
+.month {
+	background: #D51007 none repeat scroll 0 0;
+	border: 1px solid #D51007;
+	color: #FFFFFF;
+	font-weight: bold;
+	line-height: 1.1em;
+	text-align: center;
+	text-transform: uppercase;   
+	font-size: 9px;
+	height: 10px;   
+	padding: 2px;
+}           
 
+.day {
+	background: #FFFFFF none repeat scroll 0 0;
+	border-color: #CCCCCC;
+	border-style: none solid solid;
+	border-width: medium 1px 1px;
+	color: #000000;
+	font-weight: bold;
+	letter-spacing: -0.1em;
+	line-height: 1.4em;       
+	font-size: 14px;    
+	padding: 4px;
+}           
+
+.cal {                  
+	width: 100%;
+	text-align: center;   
+	display: block;  
+	cursor: pointer;
+	cursor: hand;
+}
 
 
 

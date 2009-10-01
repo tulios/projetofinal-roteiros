@@ -35,41 +35,41 @@
 	<div id="tabs">
 		<ul>
 			<% if @tourist_sights and @tourist_sights.length > 0%>
-			<li><a href="#tourist_sights">Pontos Turísticos</a></li>
+				<li><a href="#tourist_sights">Pontos Turísticos</a></li>
 			<% else %>
-			 <li style="display: none;"><a href="#tourist_sights"></a></li>
+				<li style="display: none;"><a href="#tourist_sights"></a></li>
 			<% end %>
 			
 			<% if @shops and @shops.length > 0%>
-			<li><a href="#shops">Estabelecimentos</a></li>
+				<li><a href="#shops">Estabelecimentos</a></li>
 			<% else %>
-			 <li style="display: none;"><a href="#shops"></a></li>
+				<li style="display: none;"><a href="#shops"></a></li>
 			<% end %>
 			
 			<% if @roadmaps and @roadmaps.length > 0%>
-			<li><a href="#roadmaps">Roteiros</a></li>
+				<li><a href="#roadmaps">Roteiros</a></li>
 			<% else %>
-			 <li style="display: none;"><a href="#roadmaps"></a></li>
+				<li style="display: none;"><a href="#roadmaps"></a></li>
 			<% end %>
 			
 			<% if @events and @events.length > 0%>
-			<li><a href="#events">Eventos</a></li>
-      <% else %>  
-			 <li style="display: none;"><a href="#events"></a></li>
+				<li><a href="#events">Eventos</a></li>
+      		<% else %>  
+				<li style="display: none;"><a href="#events"></a></li>
 			<% end %>
 		</ul>
 
 		<!-- tourist_sight -->
-    <%= render :partial => "tourist_sights" %>
+    	<%= render :partial => "tourist_sights" %>
 
 		<!-- shop -->
-    <%= render :partial => "shops" %>
+    	<%= render :partial => "shops" %>
 
 		<!-- roadmap -->
-    <%= render :partial => "roadmaps" %>
+    	<%= render :partial => "roadmaps" %>
 		
 		<!-- event -->
-    <%= render :partial => "events" %>
+    	<%= render :partial => "events" %>
 
 	</div>
 
