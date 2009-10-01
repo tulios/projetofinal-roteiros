@@ -124,6 +124,18 @@ module ApplicationHelper
 	   date.strftime("%d/%m/%Y")
 	  end
 	end
+            
+  def date_format_month(date)    
+    if date
+	    date.strftime("%b")
+	  end
+  end
+  
+  def date_format_day(date)  
+    if date
+	    date.strftime("%d")
+	  end
+  end
 
 	# Formata a data e hora no formato brasileiro: dd/mm/YYYY
 	def time_format(time)

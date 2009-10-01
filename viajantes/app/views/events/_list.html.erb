@@ -1,14 +1,25 @@
 <% @events.each do |event| %>
-	<li>
+	<li>            
 		<h4>
-				<%= link_to event.name, event %>&nbsp;
-				(<%=h event.city.state.symbol %>/<%=h event.city.name %>)
+			<%= link_to event.name, event %>&nbsp;
+			(<%=h event.city.state.symbol %>/<%=h event.city.name %>)
 		</h4>
-		<p style="text-align: justify;">
-			<small>
-				<br/>
-				<%= event.description %>
-			</small>
-		</p>
+		<p></p>
+		<table>
+			<tr>
+				<td style="padding-right: 8px;">    
+					 <span class="cal" title="<%= date_format(event.time) %>">
+					 	<div class="month"><%= date_format_month(event.time) %></div>
+					 	<div class="day"><%= date_format_day(event.time) %></div>						      
+					 </span>
+				</td>
+				<td style="text-align: justify;">
+					<small>
+						<%= event.description %>
+					</small>
+			   	</td>
+			</tr>
+		</table>  
+		
 	</li>
 <% end %>

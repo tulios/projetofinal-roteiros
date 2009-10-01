@@ -61,8 +61,23 @@ class SearchController < ApplicationController
 
 		# Aba que deve ficar selecionada
 		if params[:selected]
-			@selected = params[:selected]
-		end
+			@selected = params[:selected]      
+			
+		else               
+		   # Caso não tenha nada selecionado, escolhe o primeiro na ordem que tiver
+		   # resultado.
+		   if @tourist_sights and @tourist_sights.length > 0
+		     @selected = '0'
+		   elsif @shops and @shops.length > 0
+		     @selected = '1'
+		   elsif @roadmaps and @roadmaps.length > 0
+		     @selected = '2'
+		   elsif @events and @events.length > 0
+		     @selected = '3'
+		   end  
+		   
+		end   
+		
 	end
 
 end
