@@ -1,7 +1,7 @@
 <map version="0.8.1">
 <!-- To view this file, download free mind mapping software FreeMind from http://freemind.sourceforge.net -->
 <node CREATED="1253102916411" ID="Freemind_Link_309922916" MODIFIED="1253102934737" TEXT="Avaliar tema">
-<node CREATED="1253102935641" ID="_" MODIFIED="1253102945158" POSITION="right" TEXT="Litagem com todas">
+<node CREATED="1253102935641" ID="_" MODIFIED="1254405368693" POSITION="right" TEXT="Listagem com todas">
 <node CREATED="1253102974157" ID="Freemind_Link_542423923" MODIFIED="1253102980633" TEXT="Detalhar">
 <node CREATED="1253102981316" ID="Freemind_Link_7211678" MODIFIED="1253102982884" TEXT="Voltar"/>
 </node>
