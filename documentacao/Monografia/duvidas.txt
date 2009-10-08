@@ -1,5 +1,9 @@
+- Qual deve ser o espaçamento antes de um subtítulo?
 - Na introdução existe um tópico chamado Apresentação da metodologia. Seria a metologia de desenvolvimento? Ela vem na introdução? 
 - O documento de visão é colocado no desenvolvimento. A tabela de versão do documento vem no desenvolvimento da monografia também? 
+
+
+Fazer glossário das siglas: CASE - Computer-Aided Software Engineering
 
 
 ordem dos documentos na monografia:
