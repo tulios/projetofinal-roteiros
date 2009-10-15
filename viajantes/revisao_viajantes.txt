@@ -1,13 +1,13 @@
 Casos de Uso      
 
   Fluxos de exclusão de ponto turístico e estabelecimento
-	- Apagar somente se não tiver associações.
+	  * Apagar somente se não tiver associações. (Verificar)
 
   Geral:
-    * Pensar em uma estratégia para que o usuário não avalie mais de uma vez por dia as coisas.
+    * Pensar em uma estratégia para que o usuário não avalie mais de uma vez por dia as coisas. (Verificar)
+    * Verificar a ordenação das cidades com acento na primeira letra.
 
   Manter Ponto Turístico:
-    * Tirar editar e excluir da listagem e colocar no detalhamento
     * Revisar auto-grow da edição
     * Adicionar campos imagem
     
