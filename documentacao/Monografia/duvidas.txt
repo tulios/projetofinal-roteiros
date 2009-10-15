@@ -1,6 +1,7 @@
 - Qual deve ser o espaçamento antes de um subtítulo?
 - Na introdução existe um tópico chamado Apresentação da metodologia. Seria a metologia de desenvolvimento? Ela vem na introdução? 
 - O documento de visão é colocado no desenvolvimento. A tabela de versão do documento vem no desenvolvimento da monografia também? 
+- Qual é a forma correta de listar as tabelas e figuras? Devo dar o nome diferente para cada mapa mental(por exemplo)?
 
 
 Fazer glossário das siglas: CASE - Computer-Aided Software Engineering
