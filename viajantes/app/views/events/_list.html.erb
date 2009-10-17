@@ -2,7 +2,10 @@
 	<li>            
 		<h4>
 			<%= link_to event.name, event %>&nbsp;
-			(<%=h event.city.state.symbol %>/<%=h event.city.name %>)
+			(<%=h event.city.state.symbol %>/<%=h event.city.name %>)   
+			<% if date_format(event.time) == date_format(Time.today) %>
+				<span class="hoje">hoje</span> 
+			<% end %>
 		</h4>
 		<p></p>
 		<table>
@@ -15,7 +18,7 @@
 				</td>
 				<td style="text-align: justify;">
 					<small>
-						<%= event.description %>
+						<%= h event.description %>
 					</small>
 			   	</td>
 			</tr>
