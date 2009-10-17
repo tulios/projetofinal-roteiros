@@ -31,11 +31,9 @@ Casos de Uso
     			>= (média da quantidade de avaliações) e > avaliação geral
 		
 	Manter Evento
-	  1 - Mostrar eventos por cidade no index, exibindo sempre a pesquisa avançada.
 	  2 - Adicionar a opção "quero ir" que enviará lembretes do evento. (Pode interagir pessoas que querem ir).
-	  3 - Exibir a data na listagem.
 	  4 - Adicionar opções de listagem por dia, final de semana e mês.
-		5 - Validar o nome com quantidade de caracter mínimo.	  
+	  5 - Validar o nome com quantidade de caracter mínimo.	  
 
 	Pesquisar
 		1 - A pesquisa vem como default a aba de ponto turístico. Se não existir um ponto turístico na pesquisa, não apresenta resultado

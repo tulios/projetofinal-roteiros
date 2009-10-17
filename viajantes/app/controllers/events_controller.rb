@@ -19,6 +19,12 @@ class EventsController < ApplicationController
 	#
   def index
   	@states = State.load_all
+  	             
+  	# Se nao tiver cidade, filtra pela cidade do usuario               
+  	unless has_city?  
+  	  params[:state_id] = current_user.city.state.id.to_s
+  	  params[:city_id] = current_user.city.id.to_s
+  	end
   	
   	# Caso tenha usado a pesquisa, seleciona pela cidade e/ou pelas datas
     if (has_city? or has?(params[:start]) or has?(params[:end]))
