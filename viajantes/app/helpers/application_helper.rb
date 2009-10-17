@@ -127,7 +127,8 @@ module ApplicationHelper
             
   def date_format_month(date)    
     if date
-	    date.strftime("%b")
+	    #date.strftime("%b")
+	    l(date, :format => :really_short)
 	  end
   end
   

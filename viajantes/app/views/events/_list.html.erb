@@ -8,7 +8,7 @@
 		<table>
 			<tr>
 				<td style="padding-right: 8px;">    
-					 <span class="cal" title="<%= date_format(event.time) %>">
+					 <span class="cal" title="<%= l event.time, :format => :long %>">
 					 	<div class="month"><%= date_format_month(event.time) %></div>
 					 	<div class="day"><%= date_format_day(event.time) %></div>						      
 					 </span>
