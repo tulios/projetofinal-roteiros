@@ -26,7 +26,7 @@
 						<tr>
 							<td colspan="2" style="text-align: justify;">
 								<small>
-									<%= simple_format truncate(evaluation.criticism, :length => 370) %>
+									<%= h simple_format truncate(evaluation.criticism, :length => 370) %>
 									<%= link_to 'ler mais', evaluation_path_generator(evaluation) %>
 								</small>
 							</td>

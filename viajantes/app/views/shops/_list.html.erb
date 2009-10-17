@@ -6,11 +6,11 @@
 		</h4>
 		<p style="text-align: justify;">
 			<br/>
-			<small><%= shop.description %></small>
+			<small><%=h shop.description %></small>
 		</p>
 		<% if shop.key_words and shop.key_words.length > 0 %>
 			<p>
-				<small>Palavras-chave:&nbsp;<strong><%= shop.key_words %></strong></small>
+				<small>Palavras-chave:&nbsp;<strong><%=h shop.key_words %></strong></small>
 			</p>
 		<% end %>
 	</li>

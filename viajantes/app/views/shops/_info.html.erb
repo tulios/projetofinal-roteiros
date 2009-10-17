@@ -45,7 +45,9 @@
 		<td width="13%" align="right">
 			<strong>Web site:</strong>
 		</td>
-		<td><%=h @shop.site %></td>
+		<td>
+			<%= "<a href=\"#{h @shop.site}\" target=\"_blank\">#{h @shop.site}</a>" %>
+		</td>
 	</tr>
 	<% end %>
 	<tr>
