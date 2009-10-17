@@ -16,7 +16,12 @@
 		<td align="right">
 			<strong>Data:</strong>
 		</td>
-		<td align="left"><%= time_format(@event.time) %>
+		<td align="left">
+			<%= time_format(@event.time) %>  
+			<% if date_format(@event.time) == date_format(Time.today) %>
+				<span class="hoje">hoje</span> 
+			<% end %>
+		</td>	
 	</tr>
 	<tr>
 		<td align="right">

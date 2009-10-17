@@ -141,7 +141,7 @@ module ApplicationHelper
 	# Formata a data e hora no formato brasileiro: dd/mm/YYYY
 	def time_format(time)
 	  if time
-	   time.strftime("%d/%m/%Y %I:%M")
+	   time.strftime("%d/%m/%Y %H:%M")
 	  end
 	end
 	
