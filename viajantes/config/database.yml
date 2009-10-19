@@ -43,11 +43,14 @@ test:
   password: viajantes
 
 production:
-  host: pgsql04.kinghost.net
-  port: 5432
   adapter: postgresql
   encoding: unicode
-  database: viajarabessa
-  pool: 5
-  username: viajarabessa
-  password: #viajantes09
+  database: viajantes
+  pool: 5 
+  username: viajantes
+  password: viajantes
+  #host: pgsql04.kinghost.net
+  #port: 5432
+  #database: viajarabessa
+  #username: viajarabessa
+  #password: #viajantes09
