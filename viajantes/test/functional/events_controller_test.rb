@@ -74,7 +74,7 @@ class EventsControllerTest < ActionController::TestCase
     assert_not_equal(event.name, "novo nome")
 
     # Altero o nome
-    put :update, :id => events(:one).to_param, :event => {:name => "novo nome"}
+    put :update, :id => events(:one).to_param, :event => {:name => "novo nome", :time => (Date.today + 1.day)}
     assert_redirected_to event_path(assigns(:event))
 
     # Verifico se alterou

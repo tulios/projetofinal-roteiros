@@ -22,7 +22,7 @@ class EventTest < ActiveSupport::TestCase
     end
 	end
 
-	  test "Deveria atualizar um event" do
+  test "Deveria atualizar um event" do
     event = create_event
     
     eventHash = { 			:city_id => cities(:two),
@@ -42,16 +42,6 @@ class EventTest < ActiveSupport::TestCase
     end
   end
 
-	def create_event(options = {})
-    eventHash = {       :city_id => cities(:one),
-                        :name => 'evento_3',
-												:time => Time.parse('2009-10-10'),
-                      }
-    event = Event.new(eventHash.merge(options))
-    event.save
-    event
-  end
-  
   test "Deveria recuperar os eventos com o nome parecido ao pesquisado" do
     value = "evento"
     events = Event.find_like_name(value);
@@ -63,6 +53,10 @@ class EventTest < ActiveSupport::TestCase
     end
     
   end
-	
+	 
+	test "Nao deveria salvar com uma data anterior a atual" do
+	  e = create_event( :time => Date.today - 1.day)
+	  assert e.errors.on(:time) 
+	end
 
 end

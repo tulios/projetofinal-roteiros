@@ -74,6 +74,16 @@ class ActiveSupport::TestCase
     program = Program.new(programHash.merge(options))
     program.save
     program
+  end 
+  
+  def create_event(options = {})
+    eventHash = { :city_id => cities(:one),
+                  :name => 'evento_3',
+									:time => Date.today + 1.day,
+                } 
+    event = Event.new(eventHash.merge(options))
+    event.save
+    event
   end
   
 end

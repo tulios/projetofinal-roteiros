@@ -16,6 +16,23 @@ class Event < ActiveRecord::Base
   belongs_to :city
   belongs_to :user
 	validates_presence_of :city_id, :name, :time
+	  
+	# Valida a data do evento
+	#
+	def validate
+	  
+	  if time
+	    
+	    today = Date.today
+	    date = Date.parse(time.to_s)
+	    if today > date
+	      errors.add(:time, "deve ser maior que #{Converters::date_to_string(today)}.")
+        return
+	    end
+	    
+	  end
+	  
+	end
 		
 	# Realiza uma consulta paginada pelas dicas do evento 
 	# ordenadas por data de criação.
