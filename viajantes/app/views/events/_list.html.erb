@@ -3,7 +3,7 @@
 		<h4>
 			<%= link_to event.name, event %>&nbsp;
 			(<%=h event.city.state.symbol %>/<%=h event.city.name %>)   
-			<% if date_format(event.time) == date_format(Time.today) %>
+			<% if date_format(event.time) == date_format(Date.today) %>
 				<span class="hoje">hoje</span> 
 			<% end %>
 		</h4>

@@ -18,7 +18,7 @@
 		</td>
 		<td align="left">
 			<%= time_format(@event.time) %>  
-			<% if date_format(@event.time) == date_format(Time.today) %>
+			<% if date_format(@event.time) == date_format(Date.today) %>
 				<span class="hoje">hoje</span> 
 			<% end %>
 		</td>	

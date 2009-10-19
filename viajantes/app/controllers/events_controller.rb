@@ -21,7 +21,7 @@ class EventsController < ApplicationController
   	@states = State.load_all
   	             
   	# Se nao tiver cidade, filtra pela cidade do usuario               
-  	unless has_city?  
+  	if logged_in? and (not has_city?)  
   	  params[:state_id] = current_user.city.state.id.to_s
   	  params[:city_id] = current_user.city.id.to_s
   	end

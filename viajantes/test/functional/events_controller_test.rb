@@ -164,6 +164,27 @@ class EventsControllerTest < ActionController::TestCase
   test "Não deveria deixar fazer o destroy sem estar logado" do
     post :destroy, :id => events(:one).to_param
     assert_response 302
+  end   
+  
+  test "Deveria carregar os eventos da cidade do usuario caso ele esteja logado" do
+    # Acessa a listagem sem estar logado
+    get :index
+    assert_response :success
+
+		# Verifica que ele carregou os eventos
+    assert_not_nil assigns(:events)  
+    
+    # loga com o quentin
+    login_as :quentin   
+    
+    get :index
+    assert_response :success
+
+		# Verifica que ele carregou os eventos
+    assert_not_nil assigns(:events)  
+    # E preencheu cidade e estado com os dados do usuário
+    assert_equal users(:quentin).city.state.id, assigns(:state_id)                       
+    assert_equal users(:quentin).city.id, assigns(:city_id)
   end
   
 end
