@@ -79,22 +79,27 @@ class DestinationTest < ActiveSupport::TestCase
   test "Deveria testar o valor do balanco" do
     d = create_destination({:planned_cost => 100})
     assert_equal(d.planned_cost - d.total, d.balance);
-  end
-
-  # Protected Methods
-  protected
+  end     
   
-  def create_destination(options = {})
-    destinationHash = { :roadmap => roadmaps(:one),
-                        :city_id => cities(:one),
-                        :vehicle => vehicles(:one),
-                        :start_date => Date.new(2009,10,10),
-                        :end_date => Date.new(2009,10,20),
-                        :planned_cost => 100.0
-                      }
-    destination = Destination.new(destinationHash.merge(options))
-    destination.save
-    destination
+  test "Nao deveria salvar com a data de hoje maior que o start_date" do
+    d = create_destination({:start_date => Date.today - 1.day,
+                            :end_date => Date.today + 2.day})
+                            
+    assert d.errors.on(:start_date)                             
+  end
+  
+  test "Nao deveria salvar com start_date em um periodo maior que 10 anos" do
+    d = create_destination({:start_date => Date.today + 1.day + 11.years,
+                            :end_date => Date.today + 2.day + 11.years})
+                            
+    assert d.errors.on(:start_date)                             
+  end  
+  
+  test "Nao deveria salvar com end_date em um periodo maior que 10 anos" do
+    d = create_destination({:start_date => Date.today + 1.day,
+                            :end_date => Date.today + 2.day + 11.years})
+                            
+    assert d.errors.on(:end_date)                             
   end
   
 end

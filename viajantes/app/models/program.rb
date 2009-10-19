@@ -29,6 +29,28 @@ class Program < ActiveRecord::Base
 	@@happens_in_options = {:tourist_sight => "Ponto Turístico",
 													:shop => "Estabelecimento",
 													:another => "Outro"}
+                            
+  # Realiza a validação da data de ocorrência do programa
+  #                        
+  def validate                             
+    if date and destination and destination.start_date and destination.end_date
+      
+      # Menor que a data de início do destino
+      if date < destination.start_date
+        start_date = Converters::date_to_string(destination.start_date)
+        errors.add(:date, "deve ser maior ou igual a data de início do destino (#{start_date}).")
+        return
+      end
+    
+      # Maior que a data de fim do destino
+      if date > destination.end_date
+        end_date = Converters::date_to_string(destination.end_date)
+        errors.add(:date, "deve ser menor ou igual a data de fim do destino (#{end_date}).")
+        return
+      end
+         
+    end
+  end                          
 
 	# Retorna as opções de ocorrência possíveis para um programa (acontece em?).
 	# Retorna os valores definidos no hash @@happens_in_options.

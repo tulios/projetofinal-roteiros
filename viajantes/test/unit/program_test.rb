@@ -34,5 +34,23 @@ class ProgramTest < ActiveSupport::TestCase
 		program.shop = Shop.new
 		assert_equal(:shop, program.happens_in)
 	end
+	   
+	test "Nao deveria salvar com a data menor que a data de inicio do destino" do
+	  d = create_destination({:start_date => Date.today + 2.day,
+                                              :end_date => Date.today + 3.day})
+                                              
+    p = create_program({:destination => d, :date => Date.today + 1.day})
+                            
+    assert p.errors.on(:date)                             
+  end
+   
+  test "Nao deveria salvar com a data maior que a data fim do destino" do
+	  d = create_destination({:start_date => Date.today + 2.day,
+                            :end_date => Date.today + 3.day})
+                                              
+    p = create_program({:destination => d, :date => Date.today + 4.day})
+                            
+    assert p.errors.on(:date)                             
+  end
 
 end

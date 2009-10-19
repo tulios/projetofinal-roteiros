@@ -102,8 +102,8 @@ class DestinationsControllerTest < ActionController::TestCase
   
     destination_hash = {:city_id => cities(:one).to_param,
                         :vehicle_id => vehicles(:one).to_param,
-                        :start_date => "10/10/2009",
-                        :end_date => "20/10/2009",
+                        :start_date => Converters::date_to_string(Date.today + 1.day),
+                        :end_date => Converters::date_to_string(Date.today + 10.days),
                         :planned_cost => 100.0
                       }
     post :create, :roadmap_id => roadmap_id, :destination => destination_hash.merge(options)
@@ -113,8 +113,8 @@ class DestinationsControllerTest < ActionController::TestCase
   
     destination_hash = {:city_id => cities(:one).to_param,
                         :vehicle_id => vehicles(:one).to_param,
-                        :start_date => "10/10/2009",
-                        :end_date => "20/10/2009",
+                        :start_date => Converters::date_to_string(Date.today + 1.day),
+                        :end_date => Converters::date_to_string(Date.today + 10.day),
                         :planned_cost => 100.0
                       }
     post :update, :id => id, :roadmap_id => roadmap_id, :destination => destination_hash.merge(options)

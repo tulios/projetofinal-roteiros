@@ -52,6 +52,30 @@ class ActiveSupport::TestCase
 				assert !objeto.errors.invalid?(valido), "parametro: #{valido}"
 		end
 	end
+	
+	def create_destination(options = {})
+    destinationHash = { :roadmap => roadmaps(:one),
+                        :city_id => cities(:one),
+                        :vehicle => vehicles(:one),
+                        :start_date => Date.today + 1.day,
+                        :end_date => Date.today + 2.days,
+                        :planned_cost => 100.0
+                      }
+    destination = Destination.new(destinationHash.merge(options))
+    destination.save
+    destination
+  end
+  
+  def create_program(options = {})
+    programHash = { :destination => destinations(:one),
+                    :date => Date.today + 1.day,
+                    :value => 10.0
+                  }
+    program = Program.new(programHash.merge(options))
+    program.save
+    program
+  end
+  
 end
 
 # Abrindo classe TestCase e adicionando recursos para melhorar o log dos testes

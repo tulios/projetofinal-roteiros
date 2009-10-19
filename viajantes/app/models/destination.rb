@@ -29,8 +29,37 @@ class Destination < ActiveRecord::Base
   # em errors caso end_date venha antes de start_date.
   #
   def validate
-    if(start_date and end_date)
-      errors.add(:end_date, "deve ser antes da data de início.") if end_date < start_date
+    if start_date and end_date       
+      
+      # Data fim maior que data inicio
+      if end_date < start_date
+        errors.add(:end_date, "deve ser antes da data de início.")
+        return
+      end
+      
+      # Pega a data de hoje + 1 dia
+      today = Date.today + 1.day
+      
+      # Datas menores que a data atual 
+      if today > start_date
+        errors.add(:start_date, "deve ser maior ou igual a #{Converters::date_to_string(today)}.")
+        return 
+      end
+      if today > end_date
+        errors.add(:end_date, "deve ser maior ou igual a #{Converters::date_to_string(today)}.")
+        return 
+      end              
+      
+      # Datas para periodos maiores que 10 anos  
+      if start_date > (today + 10.years) 
+        errors.add(:start_date, "deve menor que 10 anos no futuro!.")
+        return 
+      end
+      if end_date > (today + 10.years)
+        errors.add(:end_date, "deve menor que 10 anos no futuro!.")
+        return 
+      end
+      
     end
   end
   
