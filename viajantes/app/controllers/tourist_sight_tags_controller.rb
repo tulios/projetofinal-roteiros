@@ -8,9 +8,9 @@ class TouristSightTagsController < ApplicationController
   # - city_id
   # - tag_id
   def index
-		tourist_sight = TouristSight.find(params[:tourist_sight_id])
+		@tourist_sight = TouristSight.find(params[:tourist_sight_id])
 
-		@city = tourist_sight.city
+		@city = @tourist_sight.city
 		@tag = Tag.find(params[:tag_id])
 		@tourist_sights = TouristSight.find_all_by_city_and_tag(@city.id, @tag.id, Config::PAGE_SIZE, params[:page])
 		# index.html.erb
