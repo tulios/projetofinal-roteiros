@@ -131,8 +131,8 @@ class EventsController < ApplicationController
       return
     end
     
-		@states = State.load_all
-		@cities = City.load_all(@event.city.state.id)
+		# Recarrega os estados e as cidades se possivel
+		load_states_and_cities(@event)
   end
 
   # POST /events
@@ -154,7 +154,9 @@ class EventsController < ApplicationController
         format.html { redirect_to(@event) }
         format.xml  { render :xml => @event, :status => :created, :location => @event }
       else
-				@states = State.load_all
+				# Recarrega os estados e as cidades se possivel
+				load_states_and_cities(@event)
+				
         format.html { render :action => "new" }
         format.xml  { render :xml => @event.errors, :status => :unprocessable_entity }
       end
@@ -184,7 +186,9 @@ class EventsController < ApplicationController
         format.html { redirect_to(@event) }
         format.xml  { head :ok }
       else
-				@states = State.load_all
+				# Recarrega os estados e as cidades se possivel
+				load_states_and_cities(@event)
+				
         format.html { render :action => "edit" }
         format.xml  { render :xml => @event.errors, :status => :unprocessable_entity }
       end
