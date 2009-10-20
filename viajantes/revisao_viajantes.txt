@@ -37,3 +37,6 @@ Casos de Uso
 
 	Pesquisar
 		1 - A pesquisa vem como default a aba de ponto turístico. Se não existir um ponto turístico na pesquisa, não apresenta resultado
+		
+		Avaliar
+		  * O texto da descrição está escapando o html. (Fica aparecendo as tags no texto <p></p> por exemplo)

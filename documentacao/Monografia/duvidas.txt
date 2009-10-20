@@ -5,6 +5,8 @@
 * Qual o formato das listas? (espaçamento)
 * Como classificar as listas de imagens? (Mapas de navegação, diagramas de classe, ...)
 * Qual o formato do sumário?
+* Qual deve ser o formato dos nomes dos softwares utilizados?
+* Qual deve ser o formato de neologismos? Ex: versionamento
 
 
 - Qual deve ser o espaçamento antes de um subtítulo?
