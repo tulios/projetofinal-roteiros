@@ -68,12 +68,83 @@ Lista de imagens:
     Ilustração 46 - Formulário de cadastramento de dica de evento
     Ilustração 47 - Diagrama de classe do caso de uso manter evento
     
+  Lista de ilustrações do caso de uso manter destino:
+    
+    Ilustração 48 - Mapa de navegação do caso de uso manter destino
+    Ilustração 49 - Listagem de destinos com opção de novo destino
+    Ilustração 50 - Formulário de cadastro de destino
+    Ilustração 51 - Formulário de edição de destino
+    Ilustração 52 - DSS - Fluxo principal do caso de uso manter destino [Listar todos]
+    Ilustração 53: Diagrama de comunicação - Fluxo principal do caso de uso manter destino [Listar todos]
+    Ilustração 54 - DSS - Fluxo alternativo do caso de uso manter destino [Inserir]
+    Ilustração 55 - Diagrama de comunicação - Fluxo alternativo do caso de uso manter destino [Inserir]
+    Ilustração 56 - Diagrama de classe do caso de uso manter destino
+  
   Lista de ilustrações do caso de uso manter usuário:
   
-    Ilustração 48 - Mapa de navegação do caso de uso manter usuário
-    Ilustração 49 - Opção de cadastramento de usuário
-    Ilustração 50 - Formulário de cadastramento do usuário
-    Ilustração 51 - Tela de login do usuário
+    Ilustração 57 - Mapa de navegação do caso de uso manter usuário
+    Ilustração 58 - Opção de cadastramento de usuário
+    Ilustração 59 - Formulário de cadastramento do usuário
+    Ilustração 60 - Tela com as opções do usuário
+    Ilustração 61 - Formulário com as opções de alteração do usuário
+    Ilustração 62: Diagrama de classe do caso de uso manter usuário
+    
+  Lista de ilustrações do caso de uso logar no sistema:
+  
+    Ilustração 63 - Mapa de navegação do caso de uso fazer login
+    Ilustração 64 - Tela de autenticação do usuário no sistema (Entrar)
+    Ilustração 65 - Tela com a opção de logout do usuário do sistema (sair).
+    Ilustração 66 - Diagrama de classe do caso de uso logar no sistema.
+    
+  Lista de ilustrações do caso de uso atribuir dica:
+  
+    Ilustração 67 - Mapa de navegação do caso de uso atribuir dica
+    Ilustração 68 - Listagem de dicas, com opção de apagar
+    Ilustração 69 - Formulário para cadastramento de uma nova dica
+    Ilustração 70 - Diagrama de classe do caso de uso manter ponto turístico
+    
+  Lista de ilustrações do caso de uso avaliar tema:
+  
+    Ilustração 71 - Mapa de navegação de avaliar tema
+    Ilustração 72 - Listagem com todos as avaliações
+    Ilustração 73 - Detalhamento da avaliação
+    Ilustração 74 - Formulário de cadastramento de nova avaliação
+    Ilustração 75 - Diagrama de classe do caso de uso avaliar tema
+    
+  Lista de ilustrações do caso de uso pesquisar no sistema:
+  
+    Ilustração 76 - Mapa de navegação do caso de uso pesquisar no sistema
+    Ilustração 77 - Pesquisa no sistema
+    Ilustração 78 - Listagem do resultado da pesquisa de ponto turístico
+    Ilustração 79 - Listagem do resultado da pesquisa de estabelecimento
+    Ilustração 80 - Listagem do resultado da pesquisa de roteiros
+    Ilustração 81 - Listagem do resultado da pesquisa de eventos
+    Ilustração 82 - Pesquisa avançada
+    Ilustração 83 - Listagem do resultado da pesquisa avançada de ponto turístico
+    Ilustração 84 - Listagem do resultado da pesquisa avançada de estabelecimento
+    Ilustração 85 - Listagem do resultado da pesquisa avançada de roteiro
+    Ilustração 86 - Listagem do resultado da pesquisa avançada de evento
+    Ilustração 87: Diagrama de classe do caso de uso pesquisar no sistema
+    
+  Lista de ilustrações do caso de uso atribuir tag ao ponto turístico:
+  
+    Ilustração 88 - Mapa de navegação do caso de uso adicionar tag
+    Ilustração 89 - Opção de adição/remoção de tag
+    Ilustração 90 - Formulário de adição/remoção de tags
+    Ilustração 91 - Listagem de pontos turísticos da tag pesquisada na cidade escolhida
+    Ilustração 92 - Diagrama de classe do caso de uso atribuir tag
+    
+  Lista de ilustrações do caso de uso manter programa:
+  
+    Ilustração 93 - Mapa de navegação do caso de uso manter programa
+    Ilustração 94 - Listagem de programas com opção de adicionar um novo, editar e apagar
+    Ilustração 95 - Formulário para cadastramento de programa
+    Ilustração 96 - Formulário para edição de programa
+    Ilustração 97 - DSS - Fluxo principal do caso de uso manter programa [Listar todos]
+    Ilustração 98 - DSS - Fluxo alternativo  do caso de uso manter programa [Inserir]
+    Ilustração 99 - Diagrama de comunicação - Fluxo principal do caso de uso manter programa [Listar todos]
+    Ilustração 100 - Diagrama de comunicação - Fluxo alternativo do caso de uso manter programa [Inserir]
+    Ilustração 101 - Diagrama de classe do caso de uso manter programa
 
     
     
