@@ -5,10 +5,15 @@ module ActiveRecordUtil
   def self.prepare_condition(query, att)
   	condition = []
 		joined_query = ""
+		                 
+		# Caso nao tenha query nao tem condicao                
+		if query.nil? or query.length == 0
+		  return condition
+	  end
 		
 		# Concatenando as querys
 		query.each do |q|
-			joined_query << "#{q} and "
+		  unless q.empty? then joined_query << "#{q} and " end
 		end
 		
 		# Retira o ultimo and que sobrar

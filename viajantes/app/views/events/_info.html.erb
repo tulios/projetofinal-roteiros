@@ -28,8 +28,8 @@
 			<strong>Custo:</strong>
 		</td>
 		<td>
-		  <% if(@event.cost != 0) %>
-		    <%= h currency(@event.cost) %>
+		  <% if(@event.cost > 0) %>
+		    <%=h currency(@event.cost) %>
 		  <% else %>
 		    Gratuito.
 		  <% end %>
