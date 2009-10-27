@@ -6,7 +6,7 @@
 		</h4>
 		<p style="text-align: justify;">
 			<br/>
-			<small><%=h shop.description %></small>
+			<small><%= truncate (h shop.description), :length => 370 %></small>
 		</p>
 		<% if shop.key_words and shop.key_words.length > 0 %>
 			<p>

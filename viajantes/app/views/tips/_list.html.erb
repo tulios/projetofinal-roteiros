@@ -27,7 +27,7 @@
               <% end %>
 	          </div>
 	          <div class="tip_description">
-              <%= h simple_format tip.description %>
+			  	<%= simple_format(truncate (h tip.description)) %>
 	          </div>
 	        </li>
         <% end %>

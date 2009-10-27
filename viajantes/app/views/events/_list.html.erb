@@ -18,8 +18,14 @@
 				</td>
 				<td style="text-align: justify;">
 					<small>
-						<%= h event.description %>
+						<%= truncate (h event.description), :length => 370 %>
 					</small>
+					<br/>
+					<% if event.cost > 0 %>
+					    <%=h currency(event.cost) %>
+					<% else %>
+					    Gratuito.
+					<% end %>
 			   	</td>
 			</tr>
 		</table>  

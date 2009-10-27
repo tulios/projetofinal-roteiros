@@ -35,24 +35,34 @@ class EventsController < ApplicationController
     	# Verifica se a data de inicio foi informada   
       if (has?(params[:start]))
 	      @start = Converters::to_date(params[:start])
-	      query << "time >= ?"
-	      att << @start
 	      
-	     	@start = to_string(@start)
+	      # Verifica se a data foi convertida corretamente, se eh uma data valida
+	      if @start
+	        query << "time >= ?"
+  	      att << @start
+  	    end
+        
+        # Se for uma data invalida, recebera nil, e limpara o campo na tela
+	     	@start = Converters::date_to_string(@start)
       end
 
     	# Verifica se a data de fim foi informada      
       if has?(params[:end])
 	      @end = Converters::to_date(params[:end])
-	      query << "time <= ?"
 	      
-	      @end = @end.change(:hour => 23)
-	      @end = @end.change(:min => 59)
-				@end = @end.change(:sec => 59)
+ 	      # Verifica se a data foi convertida corretamente, se eh uma data valida
+	      if @end
+	        query << "time <= ?"
 	      
-	      att << @end
+  	      @end = @end.change(:hour => 23)
+  	      @end = @end.change(:min => 59)
+  				@end = @end.change(:sec => 59)
 	      
- 	      @end = to_string(@end)
+  	      att << @end
+  	    end   
+	      
+        # Se for uma data invalida, recebera nil, e limpara o campo na tela
+ 	      @end = Converters::date_to_string(@end)
       end
   		
     	# Verifica se a cidade e o estado foram informados
@@ -242,12 +252,6 @@ class EventsController < ApplicationController
   #
   def has?(param)
   	param and param.length > 0
-  end
-  
-  # Converte uma data em uma string no formato dd/mm/aaaa
-  #
-  def to_string(date)
-  	date.strftime("%d/%m/%Y")
   end
   
 end
