@@ -1,0 +1,38 @@
+Motivação:
+  Dar uma enxugada. Apenas explicar porque decidimos fazer um projeto nessa pegada.
+
+Justificativa da proposta
+  escrever mais sobre a teoria de suporte, referências bibliográficas.
+  Escrever sobre túrismo, web 2.0, redes colaborativas, rails, ruby, etc.
+
+Plano de projeto:
+  Os marcos citam as fases, porém não citamos as fases nas iterações. 
+  Utilizar iteraçoes.
+ 
+Metodologia:
+    Descrever um pouco mais o JUDE, ruby e etc...
+
+Referências bibliográficas
+  Citar o RUP, larman, sites das ferramentas, da linguagem.
+  
+Casos de uso:
+  Arrumar a identeção dos passos.
+  
+Diagramas
+  Explicar melhor como funciona o esquema dos includes dos modulos do ruby.  
+  Se for um agregado de coisas então podemos ligar com dependencia e colocar esteriótipo de include.
+  ***Provavelmente é agregação***
+
+  O relacionamento das telas com os controllers é de dependencia (setinha pontilhada)
+  Explicar melhor as notas dos diagramas de classe. (Classes participantes do caso de uso...)
+  
+Cronograma:
+  Retirar as fases
+  
+Slides:
+  Trocar o título metologia para metodologia de desenvilvimento
+  falar do ciclo de vida, iteraçoes, (quantas ) e larman
+  Trocar evoluções para trabalhos futuros
+  Adiciona o diagrama de casos de uso
+  
+  
