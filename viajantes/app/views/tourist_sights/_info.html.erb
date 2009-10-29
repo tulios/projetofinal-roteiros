@@ -39,7 +39,9 @@
 		<td align="right">
 			<strong>Período de visitação:</strong>
 		</td>
-		<td align="left"><%=h @tourist_sight.visitation_period %></td>
+		<td align="left">
+			<%=h @tourist_sight.visitation_period %>
+		</td>
 	</tr>
 	<% end %>
 	<tr>
@@ -50,9 +52,8 @@
 		  <% if (not @tourist_sight.description) or @tourist_sight.description.length == 0 %>
 		    <i>Não informado</i>
 		  <% else %>
-  		  <%=h @tourist_sight.description %>
+  		  <%= simple_format(h @tourist_sight.description) %>
   		<% end %>
 		</td>
 	</tr>
-	<tr><td><br/></td></tr>
 </table>

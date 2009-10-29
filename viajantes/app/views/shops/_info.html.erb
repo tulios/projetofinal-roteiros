@@ -58,7 +58,7 @@
 		  <% if (not @shop.description) or @shop.description.length == 0 %>
 		    <i>Não informado</i>
 		  <% else %>
-  		  <%=h @shop.description %>
+			<%= simple_format(h @shop.description) %>
   		<% end %>
 		</td>
 	</tr>
@@ -67,8 +67,8 @@
 		<td width="13%" align="right" valign="top">
 			<strong>Informações adicionais:</strong>
 		</td>
-		<td style="text-align: justify;">
-		  <%=h @shop.additional_info %>
+		<td style="text-align: justify;">     
+			<%= simple_format(h @shop.additional_info) %>
 		</td>
 	</tr>
 	<% end %>

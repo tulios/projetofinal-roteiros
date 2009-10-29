@@ -51,7 +51,7 @@
 		  <% if (not @event.description) or @event.description.length == 0 %>
 		    <i>Não informado</i>
 		  <% else %>
-  		  <%=h @event.description %>
+  		  <%= simple_format(h @event.description) %>
   		<% end %>
 		</td>
 	</tr>
