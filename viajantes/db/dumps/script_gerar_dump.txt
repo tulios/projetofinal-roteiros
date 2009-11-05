@@ -1,0 +1,1 @@
+pg_dump -d --encoding=utf-8 -f 20091104 -F p -h pgsql04.kinghost.net -U viajarabessa -W -i
