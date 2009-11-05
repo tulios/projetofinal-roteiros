@@ -1,9 +1,0 @@
-<div id="roadmaps" class="search_results">
-	<ul>
-		<%= render :partial => "roadmaps/list" %>
-		<li class="sem_li">
-			<%= will_paginate @roadmaps, :param_name => :page_rm,
-										 :params => { :selected => '2' } %>
-		</li>
-	</ul>
-</div>
