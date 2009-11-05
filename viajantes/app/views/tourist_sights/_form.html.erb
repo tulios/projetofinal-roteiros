@@ -1,0 +1,93 @@
+<%= configure_textarea_autogrow %>
+<%= mask_fields({:tourist_sight_phone => "(99) 9999-9999"}) %>
+
+<table class="form">
+	<tr>
+	  <td>
+	    <span class="obrigatorio">*</span>
+	    Cidade: 
+	  </td>
+	</tr>
+	<tr>
+		<td>
+			<% if @tourist_sight and @tourist_sight.city %>
+				<%= select :state, :id, @states.map{|state| [state.name, state.id] }, #select com os estados disponiveis
+								   {:include_blank => '-- escolha o estado --', :selected => @tourist_sight.city.state.id} %>	
+			<% else %>
+				<%= select :state, :id, @states.map{|state| [state.name, state.id] }, #select com os estados disponiveis
+								   :include_blank => '-- escolha o estado --' %>
+			<% end %>
+		</td>
+
+		<% form_for(@tourist_sight) do |f| %>
+			<%= f.error_messages %>
+		<td>
+			<%= observe_field :state_id, # ID do campo observado
+												# URL que sera chamada
+		 		                :url => {:controller => "cities", :action => "index", :format => "html"}, 
+												:method => :get,
+				                :frequency => 0.5, # De quanto em quanto tempo o campo sera observado
+				      	        :update => :tourist_sight_city_id, # ID do campo que sera atualizado
+				         		    :with => 'state_id', # valor que sera passado para url
+												:before => "$('#load').show()", # O que fara antes de chamar a URL
+												:complete => "$('#load').hide()" # O que fara depois de chamar a URL
+												%>
+
+			<% if @cities 
+				# se as cidades ja estiverem populadas exibe o select com elas. Para caso de edicao.
+			%>
+				<%= f.select :city_id, @cities.map{|city| [city.name, city.id] }, 
+				             :include_blank => '-- escolha a cidade --' %>
+			<% else %>
+				<%= f.select :city_id, [], :include_blank => '-- escolha a cidade --' %>
+			<% end %>
+			<%= image_tag 'load_mini.gif', :id => 'load', :style => "display: none;" %>
+
+		</td>
+	</tr>
+	<tr>
+		<td>
+		  <span class="obrigatorio">*</span>
+		  <%= f.label :name, 'Nome:' %>
+		</td>
+		<td>
+		  <span class="obrigatorio">*</span>
+		  <%= f.label :address, 'Endereço:' %>
+		</td>
+	</tr>
+	<tr>
+		<td><%= f.text_field :name, :style => "width: 100%;" %></td>
+		<td><%= f.text_field :address, :style => "width: 100%;" %></td>	
+	</tr>
+	<tr>
+		<td><%= f.label :phone, 'Telefone:' %></td>
+		<td><%= f.label :email, 'E-mail:' %></td>
+	</tr>
+	<tr>
+		<td><%= f.text_field :phone, :style => "width: 100%;" %></td>
+		<td><%= f.text_field :email, :style => "width: 100%;" %></td>
+	</tr>
+	<tr>
+		<td><%= f.label :visitation_period, 'Período de visitação:' %></td>
+	</tr>
+	<tr>
+		<td colspan="2">
+			<%= f.text_field :visitation_period, :style => "width: 100%;" %>
+		</td>
+	</tr>
+	<tr>
+		<td><%= f.label :description, 'Descrição:' %></td>
+	</tr>
+	<tr>
+		<td colspan="2">
+			<%= f.text_area :description, {:rows => 5, :class => "expanding",
+					:style => "width: 100%; min-height: 100px; max-height: 500px;"} %>
+		</td>	
+	</tr>
+	<tr>
+		<td colspan="2" align="right"><%= f.submit 'Salvar' %></td>
+	</tr>
+	<% end %>	
+
+</table>
+

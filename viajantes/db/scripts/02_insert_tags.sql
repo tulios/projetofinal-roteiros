@@ -1,0 +1,10 @@
+insert into tags(id, name) values (1, 'Aventura');
+insert into tags(id, name) values (2, 'Romântico');
+insert into tags(id, name) values (3, 'Gastronomia');
+insert into tags(id, name) values (4, 'Exótico');
+insert into tags(id, name) values (5, 'Ecoturismo');
+insert into tags(id, name) values (6, 'Negócios');
+insert into tags(id, name) values (7, 'Relax');
+insert into tags(id, name) values (8, 'Cursos');
+insert into tags(id, name) values (9, 'Compras');
+insert into tags(id, name) values (10, 'Cultural');

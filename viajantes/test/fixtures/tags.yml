@@ -1,0 +1,42 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  id: 1
+  name: Aventura
+
+two:
+  id: 2
+  name: Romântico
+
+three:
+  id: 3
+  name: Gastronomia
+
+four:
+  id: 4
+  name: Exótico
+
+five:
+  id: 5
+  name: Ecoturismo
+
+six:
+  id: 6
+  name: Negócios
+
+seven:
+  id: 7
+  name: Relax
+
+eight:
+  id: 8
+  name: Cursos
+
+nine:
+  id: 9
+  name: Compras
+
+ten:
+  id: 10
+  name: Cultural
+

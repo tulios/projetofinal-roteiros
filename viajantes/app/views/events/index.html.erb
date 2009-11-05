@@ -1,0 +1,27 @@
+<%= corner('events') %>
+
+<h1 class="event">Eventos</h1>
+
+<% if logged_in? %>
+	<%= link_to 'Criar um novo', new_event_path %>
+	<br/>
+<% end %>
+
+<%= render :partial => "search/filters", :locals => {:form_path => events_path} %>
+
+<% if @events and @events.length > 0 %>
+	
+	<div id="events" class="box">
+		<div class="search_results">
+			<ul>
+				<%= render :partial => "list" %>
+				<%= will_paginate @events %>
+			</ul>
+		</div>
+		<br/>
+	</div>
+
+<% else %>
+	<i>Nenhum evento encontrado.</i>
+	<br />
+<% end %>

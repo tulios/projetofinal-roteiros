@@ -1,0 +1,26 @@
+<%= corner('roadmaps') %>
+<h1 class="roadmap">Roteiros</h1>
+
+<% if logged_in? %>
+	<%= link_to 'Criar um novo', new_roadmap_path %>
+	<br />
+<% end %>
+
+<br />
+
+<% if @roadmaps and @roadmaps.length > 0 %>
+	
+	<div id="roadmaps" class="box">
+		<div class="search_results">
+			<ul>
+				<%= render :partial => "list" %>
+				<%= will_paginate @roadmaps %>
+			</ul>
+		</div>
+		<br/>
+	</div>
+
+<% else %>
+	<i>Nenhum roteiro encontrado.</i>
+	<br />
+<% end %>

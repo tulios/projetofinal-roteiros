@@ -1,0 +1,14 @@
+<% @tourist_sights.each do |tourist_sight| %>
+	<li>
+		<h4>
+				<%= link_to tourist_sight.name, tourist_sight %>&nbsp;
+				(<%=h tourist_sight.city.state.symbol %>/<%=h tourist_sight.city.name %>)
+		</h4>
+		<p style="text-align: justify;">
+			<small>
+				<br/>                                  
+				<%= truncate (h tourist_sight.description), :length => 370 %>
+			</small>
+		</p>
+	</li>
+<% end %>

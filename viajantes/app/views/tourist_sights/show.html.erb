@@ -1,0 +1,74 @@
+<%= corner('users_evaluations') %>
+<%= corner('evaluation_average') %>
+
+<% if logged_in? and owner?(@tourist_sight) %>
+	<div style="float: right;" title="Adicionar/Remover TAG">
+		<%= link_to (image_tag 'tag_add_remove_48.png', :border => 0), 
+				new_tourist_sight_tourist_sight_tag_path(@tourist_sight) %>
+	</div>
+<% end %>
+
+<h1 class="tourist_sight">Ponto Turístico</h1>
+
+<%= render :partial => 'info' %>
+<% if logged_in? and owner?(@tourist_sight) %>
+	<div style="float: right;">
+		<%= link_to 'Editar', edit_tourist_sight_path(@tourist_sight) %> |
+		<%= link_to 'Apagar', @tourist_sight, :confirm => 'Você tem certeza?', :method => :delete %>
+	</div>
+<% end %>
+
+<!-- Tags -->
+<% if @tourist_sight.tags and @tourist_sight.tags.length > 0 %>
+	<div class="tag">
+		<% @tourist_sight.tags.each_with_index do |tag, index| %>
+			<%= link_to tag.name, tourist_sight_tourist_sight_tags_path(@tourist_sight, :tag_id => tag.id) %>
+			<% if index < (@tourist_sight.tags.length - 1) %>,<% end %>
+		<% end %>
+	</div>
+<% end %>
+<!-- /Tags -->
+
+<br/>
+
+<!-- Titulo Avaliacoes -->
+<h2 class="evaluation_32">
+  Avaliação de outros usuários
+  <% if logged_in? %>
+	  <%= link_to 'Avaliar', new_tourist_sight_tourist_sight_evaluation_path(@tourist_sight), 
+							  :class => 'botao' %>
+  <% end %>
+</h2>
+<!-- /Titulo Avaliacoes -->
+
+<!-- Media das Avaliacoes -->
+<div id="evaluation_average" style="float: right;">
+  <%= render :partial => 'evaluations/average' %>
+</div>
+<!-- /Media das Avaliacoes -->
+
+<!-- Div de Avaliacoes e Dicas -->
+<div style="width: 670px;">
+  <div id="users_evaluations">
+	  <%= render :partial => 'evaluations/list' %>
+  </div>
+
+  <br/><br/>
+
+  <h2 class="tips_32">
+    Dicas &nbsp;
+    <% if logged_in? %>
+	    <%= link_to 'Nova dica', new_tourist_sight_tourist_sight_tip_path(@tourist_sight), :class => "botao" %>
+    <% end %>
+  </h2>
+  <div>
+    <%= render :partial => 'tips/list' %>
+  </div>
+</div>
+<!-- /Div de Avaliacoes e Dicas -->
+
+<div class="clearer"></div>
+
+<br /><br />
+
+<%= link_to 'Voltar', tourist_sights_path %>

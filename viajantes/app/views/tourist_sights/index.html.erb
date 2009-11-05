@@ -1,0 +1,27 @@
+<%= corner('tourist_sights') %>
+
+<h1 class="tourist_sight">Pontos Turísticos</h1>
+
+<% if logged_in? %>
+	<%= link_to 'Criar um novo', new_tourist_sight_path %>
+	<br />
+<% end %>
+
+<%= render :partial => "search/filters", :locals => {:form_path => tourist_sights_path} %>
+
+<% if @tourist_sights and @tourist_sights.length > 0 %>
+
+	<div id="tourist_sights" class="box">
+		<div class="search_results">
+			<ul>
+				<%= render :partial => "list" %>
+				<%= will_paginate @tourist_sights %>
+			</ul>
+		</div>
+		<br/>
+	</div>
+	
+<% else %>
+	<i>Nenhum ponto turístico encontrado.</i>
+	<br />
+<% end %>

@@ -1,0 +1,11 @@
+<% @roadmaps.each do |roadmap| %>
+	<li>
+		<h4>
+			<%= link_to roadmap.title, roadmap %>
+		</h4>
+		<p style="text-align: justify;">
+			<br/>
+			<small><%= truncate (h roadmap.description), :length => 370 %></small>
+		</p>
+	</li>
+<% end %>

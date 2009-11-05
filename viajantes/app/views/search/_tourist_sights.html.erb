@@ -1,0 +1,9 @@
+<div id="tourist_sights" class="search_results">
+	<ul>
+		<%= render :partial => "tourist_sights/list" %>
+		<li class="sem_li">
+			<%= will_paginate @tourist_sights, :param_name => :page_ts, 
+											   :params => { :selected => '0' } %>
+		</li>
+	</ul>
+</div>

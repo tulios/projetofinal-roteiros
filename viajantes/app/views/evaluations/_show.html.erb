@@ -1,0 +1,78 @@
+<%= corner('evaluation_rates','evaluation_criticism') %>
+
+<div id="evaluation_criticism" style="float: right; width: 610px; padding: 10px;" class="box_white">
+	<table>
+		<tr>
+			<td><strong>Crítica:</strong></td>
+		</tr>
+		<tr>
+			<td>
+				<i>Enviada por <%= @evaluation.user.login %> em <%= date_format(@evaluation.created_at) %></i>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<%= simple_format (h @evaluation.criticism) %>
+			</td>
+		</tr>
+	</table>
+</div>
+
+<div id="evaluation_rates" class="box_white" style="width: 250px;">
+	<div class="search_results">
+
+		<table class="form">
+			<tr>
+				<td align="right"><strong>Geral:</strong></td>
+				<td><%= rating("general_#{@evaluation.id}", 5, true, @evaluation.general) %></td>
+			</tr>
+			<tr>
+				<td align="right"><strong>Serviço:</strong></td>
+				<td><%= rating("service_#{@evaluation.id}", 5, true, @evaluation.service) %></td>
+			</tr>
+			<tr>
+				<td align="right"><strong>Limpeza:</strong></td>
+				<td><%= rating("clean_#{@evaluation.id}", 5, true, @evaluation.clean) %></td>
+			</tr>
+			<tr>
+				<td align="right"><strong>Localização:</strong></td>
+				<td><%= rating("location_#{@evaluation.id}", 5, true, @evaluation.location) %></td>
+			</tr>
+			<tr>
+				<td align="right"><strong>Qualidade/Preço:</strong></td>
+				<td><%= rating("price_#{@evaluation.id}", 5, true, @evaluation.price) %></td>
+			</tr>
+			<tr>
+				<td align="right"><strong>Infraestrutura:</strong></td>
+				<td><%= rating("infrastructure_#{@evaluation.id}", 5, true, @evaluation.infrastructure) %></td>
+			</tr>
+			<tr>
+				<td align="right"><strong>Atendimento:</strong></td>
+				<td><%= rating("attendance_#{@evaluation.id}", 5, true, @evaluation.attendance) %></td>
+			</tr>
+		</table>
+		
+	</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

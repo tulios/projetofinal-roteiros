@@ -1,0 +1,66 @@
+<h1 class="destination">Destino</h1>
+
+<% if logged_in? and owner?(@destination) %>
+	<div align="right">
+		<%= link_to 'Apagar', roadmap_destination_path(@destination.roadmap,@destination), :confirm => 'Você tem certeza?', :method => :delete %>
+	</div>
+<% end %>
+
+<table width="100%" class="tabela_info" cellspacing="5">
+	<tr>
+		<td align="center" colspan="2">
+			<strong>Cidade de destino</strong>
+		</td>
+	</tr>
+	<tr>
+		<td align="center" colspan="2">
+			<%= render :partial => "tourist_sights/location" %>		
+		</td>
+	</tr>
+	<tr>
+		<td align="right" width="18%">
+			<strong>Período:</strong>
+		</td>
+		<td><%=h "#{date_format(@destination.start_date)} a #{date_format(@destination.end_date)}" %></td>
+	</tr>
+	<tr>
+		<td align="right" width="12%">
+			<strong>Meio de Transporte:</strong>
+		</td>
+		<td><%=h @destination.vehicle.name %></td>
+	</tr>
+	<tr>
+		<td align="right">
+			<strong>Custo Planejado:</strong>
+		</td>
+		<td><%=h currency(@destination.planned_cost) %></td>
+	</tr>
+</table>
+
+<br/>
+<br/>
+
+<% if logged_in? and owner?(@roadmap) %>
+	<%= link_to 'Editar', edit_roadmap_destination_path(@destination.roadmap, @destination) %> |
+<% end %>
+
+<%= link_to 'Voltar', roadmaps_path %>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

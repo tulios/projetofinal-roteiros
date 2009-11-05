@@ -1,0 +1,156 @@
+<%= configure_textarea_autogrow %>
+<%= mask_fields({:shop_phone => "(99) 9999-9999", :shop_fax => "(99) 9999-9999"}) %>
+
+<table class="form">
+	<tr>
+	  <td>
+	    <span class="obrigatorio">*</span>
+	    Cidade: 
+	  </td>
+	</tr>
+	<tr>
+		<td>
+			<% if @shop and @shop.city %>
+				<%= select :state, :id, @states.map{|state| [state.name, state.id] }, #select com os estados disponiveis
+								   {:include_blank => '-- escolha o estado --', :selected => @shop.city.state.id} %>	
+			<% else %>
+				<%= select :state, :id, @states.map{|state| [state.name, state.id] }, #select com os estados disponiveis
+								   :include_blank => '-- escolha o estado --' %>
+			<% end %>
+		</td>
+
+	<% form_for(@shop) do |f| %>
+  <%= f.error_messages %>
+		
+		<td>
+		<%= observe_field :state_id, # ID do campo observado
+											# URL que sera chamada
+	 		                :url => {:controller => "cities", :action => "index", :format => "html"}, 
+											:method => :get,
+			                :frequency => 0.5, # De quanto em quanto tempo o campo sera observado
+			      	        :update => :shop_city_id, # ID do campo que sera atualizado
+			         		    :with => 'state_id', # valor que sera passado para url
+											:before => "$('#load').show()", # O que fara antes de chamar a URL
+											:complete => "$('#load').hide()" # O que fara depois de chamar a URL
+											%>
+
+			<% if @cities 
+				# se as cidades ja estiverem populadas exibe o select com elas. Para caso de edicao.
+			%>
+				<%= f.select :city_id, @cities.map{|city| [city.name, city.id] }, 
+              			 :include_blank => '-- escolha a cidade --' %>
+			<% else %>
+				<%= f.select :city_id, [], :include_blank => '-- escolha a cidade --' %>
+			<% end %>
+			<%= image_tag 'load_mini.gif', :id => 'load', :style => "display: none;" %>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2">
+			Este estabelecimento esta associado a um ponto turístico?
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2">
+			<%= observe_field :shop_city_id, # ID do campo observado
+												# URL que sera chamada
+		 		                :url => {:controller => "tourist_sight_city_finder", :action => "index", :format => "html"}, 
+												:method => :get,
+					              :frequency => 0.5, # De quanto em quanto tempo o campo sera observado
+					    	        :update => :shop_tourist_sight_id, # ID do campo que sera atualizado
+					       		    :with => 'city_id', # valor que sera passado para url
+												:before => "$('#load2').show()", # O que fara antes de chamar a URL
+												:complete => "$('#load2').hide()" # O que fara depois de chamar a URL
+												%>
+
+			<% if @tourist_sights 
+				# se os pontos turisticos ja estiverem populados exibe o select com eles. Para caso de edicao.
+			%>
+				<%= f.select :tourist_sight_id, 
+										 @tourist_sights.map{|ts| [ts.name, ts.id] }, :include_blank => true %>
+			<% else %>
+				<%= f.select :tourist_sight_id, [], :include_blank => true %>
+			<% end %>
+			<%= image_tag 'load_mini.gif', :id => 'load2', :style => "display: none;" %>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2">
+	    <span class="obrigatorio">*</span>
+		  Nome:
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2">
+		  <%= f.text_field :name, :style => "width: 100%" %>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2">
+		  <span class="obrigatorio">*</span>
+		  Endereço:
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2">
+			<%= f.text_field :address, :style => "width: 100%" %>
+		</td>
+	</tr>
+	<tr>
+	  <td>Telefone:</td>
+	  <td>Fax:</td>
+	</tr>
+	<tr>
+	  <td><%= f.text_field :phone %></td>
+	  <td><%= f.text_field :fax %></td>
+	</tr>
+	<tr>
+	  <td>E-mail:</td>
+	  <td>Web site:</td>
+	</tr>
+	<tr>
+	  <td><%= f.text_field :email %></td>
+	  <td><%= f.text_field :site %></td>	  
+	</tr>
+	<tr>
+		<td colspan="2">Descrição:</td>
+	</tr>
+	<tr>
+		<td colspan="2">
+			<%= f.text_area :description, {:rows => 5, :class => "expanding",
+							  			:style => "width: 100%; min-height: 100px; max-height: 500px;"} %>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2">Informações adicionais (ex: preços, condições de entrada, etc):</td>
+	</tr>
+	<tr>
+		<td colspan="2">
+			<%= f.text_area :additional_info, {:rows => 3, :class => "expanding",
+							  			:style => "width: 100%; min-height: 60px; max-height: 500px;"} %>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2">Palavras-chave:</td>
+	</tr>
+	<tr>
+		<td colspan="2">
+			<small>
+				* Utilize palavras como <u>hotel, restaurante, cyber cafe, padaria, farmacia, lan house</u>, etc.<br/>
+				&nbsp;&nbsp;Separe as palavras utilizando a <strong>vírgula</strong> (,).<br/>
+				&nbsp;&nbsp;Evite acentos e caracteres especiais.
+			</small>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2">
+			<%= f.text_area :key_words, {:rows => 2, :class => "expanding",
+					  					:style => "width: 100%; min-height: 25px; max-height: 500px;"} %>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2" align="right"><%= f.submit 'Salvar' %></td>
+	</tr>
+
+	<% end %>
+</table>

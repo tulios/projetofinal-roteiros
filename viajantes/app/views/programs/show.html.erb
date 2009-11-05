@@ -1,0 +1,52 @@
+<h1 class="program">Programa</h1>
+
+<% if logged_in? %>
+	<div align="right">
+		<%= link_to 'Apagar', @program, :confirm => 'Você tem certeza?', :method => :delete %>
+	</div>
+<% end %>
+
+<table width="100%" class="tabela_info" cellspacing="5">
+	<tr>
+		<td align="right">
+			<strong>Data:</strong>		
+		</td>
+		<td><%=h date_format(@program.date) %></td>
+	</tr>
+	<tr>
+		<td align="right">
+			<strong>Custo:</strong>		
+		</td>
+		<td><%=h currency(@program.value) %></td>
+	</tr>
+	<tr>
+		<td align="right" valign="top" width="8%">
+			<strong>Descrição:</strong>
+		</td>
+		<td style="text-align: justify;">
+			<% if (not @program.description) or @program.description.length == 0 %>
+		    <i>Não informado</i>
+		  <% else %>
+  		  <%=h @program.description %>
+  		<% end %>
+		</td>
+	</tr>
+</table>
+
+<br/>
+<br/>
+
+<% if logged_in? %>
+	<%= link_to 'Editar', edit_program_path(@program) %> |
+<% end %>
+
+<%= link_to 'Voltar', programs_path %>
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,13 @@
+<p>
+  <b>Nome:</b>
+  <%=h @tip.name %>
+</p>
+
+<p>
+  <b>Descrição:</b>
+  <%=h @tip.description %>
+</p>
+
+
+<%= link_to 'Editar', edit_tourist_sight_tip_path(@tip.tourist_sight,@tip) %> |
+<%= link_to 'Voltar', tourist_sight_path(@tip.tourist_sight) %>

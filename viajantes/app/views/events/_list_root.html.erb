@@ -1,0 +1,18 @@
+<table>
+<% if events and events.length > 0 %>
+	<% events.each do |event| %>
+		<tr>
+				<td>
+					<%= link_to event.name, event %>&nbsp;
+					(<%=h event.city.state.symbol %>/<%=h event.city.name %>)
+				</td>
+		</tr>
+	<% end %>
+<% else %>
+	<tr>
+		<td>
+			<i>Nenhum encontrado.</i>
+		</td>
+	</tr>
+<% end %>
+</table>

@@ -1,0 +1,13 @@
+<%= corner('ja_planejados','saldo') %>
+<%= focus("state_id")%>
+
+<%= render :partial => 'form'%>
+
+<%= render :partial => 'already_planned' %>
+
+<%= render :partial => 'balance_micro_box' %>
+
+<div class="clearer"></div>
+<br/>
+<%= link_to 'Voltar', @destination.roadmap %>
+

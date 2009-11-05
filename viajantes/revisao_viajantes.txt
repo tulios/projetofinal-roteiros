@@ -1,0 +1,39 @@
+Casos de Uso      
+
+  Fluxos de exclusão de ponto turístico e estabelecimento
+	  * Apagar somente se não tiver associações. (Verificar)
+
+  Geral:
+    * Pensar em uma estratégia para que o usuário não avalie mais de uma vez por dia as coisas. (Verificar)
+    * Verificar a ordenação das cidades com acento na primeira letra.
+
+  Manter Ponto Turístico:
+    * Revisar auto-grow da edição
+    * Adicionar campos imagem
+    
+  Manter Roteiro:
+    * Adicionar o fluxo de exclusão.
+    * Adicionar um botão para listar todos na pesquisa.
+    * Tela de detalhamento está muito feia no Chrome (letras grandes, icones quebrando...).
+    
+  Manter Programa:
+    * Ordenar pontos turíticos e estabelecimentos alfabeticamente 
+        ao criar um novo programa
+    
+  Manter Estabelecimento:
+    * Adicionar campo imagem 
+    
+   Pagina inicial
+    1 - Cidades mais visitadas (gráfico)
+    2 - Pontos Turísticos e estabelecimentos melhor avaliados
+    3 - Próximos eventos na cidade do usuário logado
+    4 - Listar os estabelecimentos/ponto turístico que estejam na seguinte situação:
+    			>= (média da quantidade de avaliações) e > avaliação geral
+		
+	Manter Evento
+	  2 - Adicionar a opção "quero ir" que enviará lembretes do evento. (Pode interagir pessoas que querem ir).
+	  4 - Adicionar opções de listagem por dia, final de semana e mês.
+	  5 - Validar o nome com quantidade de caracter mínimo.	  
+
+	Pesquisar
+		1 - A pesquisa vem como default a aba de ponto turístico. Se não existir um ponto turístico na pesquisa, não apresenta resultado
