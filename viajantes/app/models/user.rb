@@ -29,6 +29,11 @@ class User < ActiveRecord::Base
   validates_uniqueness_of   :login, :email, :case_sensitive => false
   before_save 							:encrypt_password
   
+  def validate
+    if birthday
+      
+    end
+  end
   
   # Retorna true ou false caso o usuário tenha role passada por parâmetro ou não.
   # Retorna sempre true caso o usuário possua a role admin.
