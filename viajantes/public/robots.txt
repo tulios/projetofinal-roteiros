@@ -5,7 +5,7 @@
 # Disallow: /  
 
 User-Agent: *
-Disallow:
+Disallow: /sitemap_settings, /sitemap_widgets, /sitemap_static_links
 
 Sitemap: http://www.viajarabessa.com.br/sitemap.xml
 
