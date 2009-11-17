@@ -85,7 +85,7 @@ class UsersControllerTest < ActionController::TestCase
       assert assigns(:user).errors.on(:birthday)
       assert_response :success
     end
-  end
+  end   
   
   test "Deveria validar o formato do email" do
     assert_no_difference 'User.count' do

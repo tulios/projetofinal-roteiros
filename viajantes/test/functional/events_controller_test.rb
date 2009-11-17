@@ -30,7 +30,7 @@ class EventsControllerTest < ActionController::TestCase
     # Verifica que so existe os eventos criados pela fixture
 		assert_difference "Event.count" do
 		  # Verifica que o controlador criou um novo e redirecionou para o lugar certo
-		  conteudo = { :name => "Evento_3", :time => Time.parse('2009-11-11'), :city_id => "1" }
+		  conteudo = { :name => "Evento_3", :time => (Date.today + 1.day), :city_id => "1" }
       post :create, :event => conteudo
 
       assert_redirected_to event_path(assigns(:event))

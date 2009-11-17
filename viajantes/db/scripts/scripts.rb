@@ -21,7 +21,7 @@ module Scripts
 		
     dumps = Dir.entries(DUMPS_DIR).sort
     # Ultimo
-    file = dumps[dumps.length - 1] 
+    file = "20091019.sql" #dumps[dumps.length - 1] 
     
     puts "Dump escolhido: #{file}, executando..." 
 		if sql?(file)

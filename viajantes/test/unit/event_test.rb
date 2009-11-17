@@ -27,7 +27,7 @@ class EventTest < ActiveSupport::TestCase
     
     eventHash = { 			:city_id => cities(:two),
                         :name => 'evento_4',
-												:time => Time.parse('2009-11-10'),
+												:time => (Date.today + 1.day),
                       }
     
     event.update_attributes(eventHash)

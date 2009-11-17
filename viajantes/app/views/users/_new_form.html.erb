@@ -44,8 +44,8 @@
     </td>
   </tr>
   <tr>
-    <td>
-      <%= f.text_field :birthday %> 
+    <td>                        
+     	<%= f.text_field :birthday, :value => date_format(@user.birthday) %>
     </td>
     <td>
       <% selectSex = @user.sex.intern unless @user.sex.nil? or @user.sex.length == 0 %>
